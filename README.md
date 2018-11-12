@@ -10,7 +10,7 @@ Database: MySQL
 
 Front-end developers: 
 - Ronald Parrales
-- Gabriel # last name #
+- Gabriel Torres
 
 Back-end developer:
 - Mark Codd
