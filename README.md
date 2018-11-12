@@ -1,12 +1,19 @@
 # Margo
 
-App made using Ionic.
+Smart Wallet App for Latin American use.
 
-Money transfer App based in Ecuador.
+Person-to-person transactions.
 
-- Initialize working on back end (possibly Java or Python)
+Front-end: Ionic Framework.
+Back-end: Django
+Database: MySQL
 
-Checklist:
+Front-end developers: 
+- Ronald Parrales
+- Gabriel # last name #
 
-1. Search algorithm
-2. Edit algorithm
+Back-end developer:
+- Mark Codd
+- Messut
+
+version 1.0
