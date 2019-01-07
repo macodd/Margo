@@ -1,0 +1,108 @@
+<ion-header color="primary"  translucent="true">
+
+  <ion-toolbar class="account-toolbar">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>            
+        <h2 class="slide-title account-title">
+          margo
+        </h2>
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="danger">
+          <ion-icon class="white-icon" name="notifications" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    </ion-toolbar>
+
+  <ion-toolbar class="account-toolbar" no-border>
+      <ion-row justify-content-center>
+        <ion-col text-center>
+            <!-- You might also use <ion-avatar> -->
+            <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="avatar" alt="avatar">
+            <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="second-avatar" alt="avatar">
+            <h2>Selena Gómez</h2>
+            <p>Personal</p>
+
+            <ion-row>
+                <ion-col text-center>
+                    <ion-chip class="chip-position">
+                        <h3>$43,500.00</h3>
+                    </ion-chip>
+                </ion-col>
+            </ion-row>
+
+
+        </ion-col>
+      </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row class="first-grid-padding" justify-content-center>
+      <ion-col text-center size="6">
+          <ion-card>
+            <ion-card-content>
+                <ion-icon name="refresh-circle" size="large" (click)="goSendMoney()"></ion-icon>
+                <p>Send money</p>
+              </ion-card-content>
+            </ion-card>
+      </ion-col>
+
+      <ion-col text-center size="6">
+          <ion-card>
+              <ion-card-content>
+                  <ion-icon name="refresh-circle" size="large"></ion-icon>
+                  <p>Make a payment</p>
+                </ion-card-content>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="second-grid-padding" justify-content-center>
+      <ion-col size="12">
+        <ion-card (click)="goActivity()">
+          <ion-item lines="none">
+              <ion-icon name="refresh-circle" slot="start" size="large"></ion-icon>
+              <ion-label>See activity</ion-label>
+              <ion-icon src="assets/img/arrow.svg" color="primary" slot="end" size="large"></ion-icon>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+
+<ion-row class="third-grid-padding">
+    <ion-col class="item-border">
+      <small><strong>MORE TRANSACTIONS</strong></small>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col text-center>
+      <br>
+      <img src="assets/img/lock.svg" width=10% alt="lock" >
+        <ion-item lines="none">
+            <ion-range min="0" max="100" value="75">
+              <!-- <ion-icon slot="start" size="small" name="sunny"></ion-icon>
+              <ion-icon slot="end" name="sunny"></ion-icon> -->
+            </ion-range>
+          </ion-item>
+          <br>
+          <p><strong>$88,76 USD</strong> until FREE function</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row justifiy-content-center padding>
+    <ion-col text-center>
+      <p class="dark-text">Upgrade to Premium to unlock advanced Margo functions.</p>
+      <ion-button class="outline-button" shape="round" fill="outline"  (click)="goSetting()">
+          Learn more
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

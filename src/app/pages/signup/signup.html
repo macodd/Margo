@@ -1,0 +1,104 @@
+<ion-header no-border>
+  <ion-toolbar class="light-toolbar">
+      <ion-buttons slot="start">
+        <ion-back-button color="dark" text="" defaultHref="/tutorial"></ion-back-button>
+      </ion-buttons>
+</ion-toolbar>
+</ion-header>
+<ion-content class="fullcontent">
+    <h1 padding no-margin>Create account</h1>
+    <ion-segment [(ngModel)]="typeAccount" color="secondary">
+    <ion-segment-button value="personal">
+      Personal 
+    </ion-segment-button>
+      <ion-segment-button value="business">
+        Business
+      </ion-segment-button>
+    </ion-segment>
+  <form #signupForm="ngForm" novalidate>
+    <ion-row class="avatar" justify-content-center>
+            <img src="assets/img/add-avatar.svg" class="avatar-size">
+    </ion-row>
+    <ion-list>
+      <ion-row>
+        <ion-col no-padding size="6">
+            <ion-item class="input-border">
+                <ion-label position="stacked" color="primary">First name</ion-label>
+                <ion-input [(ngModel)]="signup.firstname" name="firstname" type="text" #firstname="ngModel" required></ion-input>
+              </ion-item>
+              <ion-text color="danger">
+                <small padding [hidden]="firstname.valid || submitted == false" padding-left>
+                  First name is required
+                </small>
+              </ion-text>
+        </ion-col>
+        
+        <ion-col no-padding size="6">
+            <ion-item>
+                <ion-label position="stacked" color="primary">Last name</ion-label>
+                <ion-input [(ngModel)]="signup.lastname" name="lastname" type="text" #lastname="ngModel" required></ion-input>
+              </ion-item>
+              <ion-text color="danger">
+                <small padding [hidden]="lastname.valid || submitted == false" padding-left>
+                  Last name is required
+                </small>
+              </ion-text>
+        </ion-col>
+      </ion-row>
+
+    <ion-row>
+      <ion-col no-padding>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Email address</ion-label>
+        <ion-input [(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger">
+        <small padding [hidden]="email.valid || submitted == false" padding-left>
+          Email address is required
+        </small>
+      </ion-text>
+    </ion-col>
+    </ion-row>
+
+      <ion-row margin-top>
+          <ion-col no-padding size="6">
+              <ion-item class="input-border">
+                  <ion-label position="stacked" color="primary">ID</ion-label>
+                  <ion-input [(ngModel)]="signup.id" name="id" type="text" #id="ngModel" required></ion-input>
+                </ion-item>
+                <ion-text color="danger">
+                  <small padding [hidden]="id.valid || submitted == false" padding-left>
+                    ID is required
+                  </small>
+                </ion-text>
+          </ion-col>
+          
+          <ion-col no-padding size="6">
+              <ion-item>
+                  <ion-label position="stacked" color="primary">Address</ion-label>
+                  <!-- <ion-input [(ngModel)]="signup.address" name="address" type="text" #address="ngModel" required></ion-input> -->
+                  <ion-input [(ngModel)]="signup.address" name="address" type="text" #address="ngModel" (ionFocus)="onAddressFocus()"required></ion-input>
+                </ion-item>
+                <ion-text color="danger">
+                  <small padding [hidden]="address.valid || submitted == false" padding-left>
+                    Address is required
+                  </small>
+                </ion-text>
+          </ion-col>
+        </ion-row>
+    </ion-list>
+    
+    <ion-row>
+      <ion-col padding>
+          <small>By tapping “Create Account”; you agree to the <b><a [routerLink]="['/terms']" style="text-decoration: none !important">Terms of Use, Privacy Policy</a></b>, and agree to receive content and promotional communication from Margo.</small>
+      </ion-col>
+    </ion-row>
+
+    <ion-footer>
+        <ion-toolbar>
+          <ion-button (click)="onSignup(signupForm)" type="submit" expand="full" fill="clear">Create Account</ion-button>
+        </ion-toolbar>
+      </ion-footer>
+  </form>
+</ion-content>

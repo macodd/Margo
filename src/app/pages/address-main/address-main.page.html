@@ -1,0 +1,40 @@
+<ion-header no-border>
+  <ion-toolbar class="light-toolbar">
+    <ion-buttons slot="start">
+      <!-- <ion-menu-button></ion-menu-button> -->
+      <ion-button color="dark" text="" href="/tutorial"><ion-icon name="close" size="large"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <h1>Address</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+      ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-card class="map-card" (click)="onClickMapCard()">
+        <ion-card-content class="map-card-background">
+            <img src="assets/img/placeholder.svg" class="map-card-img">
+            <h3 class="map-card-text">Would you like to use a map?</h3>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+      <ion-col>
+        <ion-card class="address-card" (click)="onClickFormCard()">
+          <ion-card-content class="address-card-background">
+              <img src="assets/img/arrows.svg" class="address-card-img">
+              <h3 class="address-card-text">I'll fill the form</h3>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+</ion-content>

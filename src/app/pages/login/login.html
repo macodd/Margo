@@ -1,0 +1,71 @@
+<ion-header no-border>
+  <ion-toolbar class="light-toolbar">
+    <ion-buttons slot="start">
+      <!-- <ion-menu-button></ion-menu-button> -->
+      <ion-back-button color="dark" text="" defaultHref="tutorial"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col padding>
+      <h1>Welcome!</h1>
+      <p>Sign in to your profile</p>
+    </ion-col>
+  </ion-row>
+
+  <!--  TODO: Fix UserOptions -->
+  <form #loginForm="ngForm" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Username</ion-label>
+        <ion-input [(ngModel)]="login.email" name="email" type="text" #email="ngModel" spellcheck="false" autocapitalize="off"
+          required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <small [hidden]="email.valid || submitted == false" padding>
+          Email is required
+        </small>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Enter password</ion-label>
+        <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <small [hidden]="password.valid || submitted == false" padding>
+          Password is required
+        </small>
+      </ion-text>
+    </ion-list>
+
+    <ion-row justify-content-center responsive-sm>
+      <!-- TODO: Delete onSignup() method? -->
+      <ion-col no-padding>
+        <br>
+        <ion-button no-margin type="submit" expand="full" no-padding (click)="onLogin(loginForm)">Login</ion-button><br>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row justify-content-center>
+      <ion-col text-center>
+          <small>Forgot password?</small>
+      </ion-col>
+    </ion-row>
+
+    <ion-row responsive-sm>
+        <!-- TODO: Delete onSignup() method? -->
+        <ion-col align-self-center>
+            
+        </ion-col>
+    </ion-row>
+
+  </form>
+</ion-content>
+
+

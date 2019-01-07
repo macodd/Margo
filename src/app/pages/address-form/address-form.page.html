@@ -1,0 +1,79 @@
+<ion-header no-border>
+    <ion-toolbar class="light-toolbar">
+      <ion-buttons slot="start">
+        <ion-back-button color="dark" text="" defaultHref="address-main"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-row>
+        <ion-col padding>
+          <h1>Address</h1>
+          <p>I'll fill the form</p>
+        </ion-col>
+      </ion-row>
+
+
+      <form #addressForm="ngForm" novalidate>
+          <ion-list>
+            <ion-item>
+              <ion-label position="stacked" color="primary">Street</ion-label>
+              <ion-input [(ngModel)]="address.street" name="street" type="text" #street="ngModel" spellcheck="false" autocapitalize="off"
+                required>
+              </ion-input>
+            </ion-item>
+      
+            <ion-text color="danger">
+              <small [hidden]="street.valid || submitted == false" padding-left>
+                Street is required
+              </small>
+            </ion-text>
+      
+            <ion-item>
+              <ion-label position="stacked" color="primary">CP</ion-label>
+              <ion-input [(ngModel)]="address.cp" name="cp" type="cp" #cp="ngModel" required>
+              </ion-input>
+            </ion-item>
+      
+            <ion-text color="danger">
+              <small [hidden]="cp.valid || submitted == false" padding-left>
+                CP is required
+              </small>
+            </ion-text>
+
+            <ion-item>
+                <ion-label position="stacked" color="primary">City/State</ion-label>
+                <ion-input [(ngModel)]="address.city_state" name="city_state" type="city_state" #city_state="ngModel" required>
+                </ion-input>
+              </ion-item>
+        
+              <ion-text color="danger">
+                <small [hidden]="city_state.valid || submitted == false" padding-left>
+                  City & State is required
+                </small>
+              </ion-text>
+
+              <ion-item>
+                  <ion-label position="stacked" color="primary">Country</ion-label>
+                  <ion-input [(ngModel)]="address.country" name="country" type="country" #country="ngModel" required>
+                  </ion-input>
+                </ion-item>
+          
+                <ion-text color="danger">
+                  <small [hidden]="country.valid || submitted == false" padding-left>
+                    Country is required
+                  </small>
+                </ion-text>
+          </ion-list>
+      
+          <ion-row justify-content-center responsive-sm>
+            <!-- TODO: Delete onSignup() method? -->
+            <ion-col no-padding>
+              <br>
+              <ion-button no-margin type="submit" expand="full" no-padding (click)="onAddressForm(addressForm)">Set Address</ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+
+</ion-content>

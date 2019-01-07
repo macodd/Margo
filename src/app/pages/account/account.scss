@@ -1,0 +1,73 @@
+page-account {
+
+  img {
+    max-width: 140px;
+    border-radius: 50%;
+  }
+
+  .white-icon {
+    color: white;
+  }
+
+  .account-toolbar {
+    z-index: -1;
+  }
+
+  .account-title {
+    font-family: All Round Gothic;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+  }
+
+  .chip-position {
+    position: relative;
+    --background: white;
+    z-index: 1;
+  }
+
+  .avatar {
+    width: 30%;
+    position: relative;
+  }
+
+  .first-grid-padding {
+    padding-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .second-grid-padding {
+    padding-top: -15px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .third-grid-padding {
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  
+  .item-border {
+    border-bottom: 1px solid grey !important;
+  }
+
+  .dark-text {
+    color: #7f7f7f;
+  }
+
+  .outline-button {
+    --color: #7f7f7f;
+    --border-color: #7f7f7f;
+  }
+
+  .second-avatar {
+    position: relative;
+    right: 25px;
+    bottom: 45px;
+    width: 20%;
+    z-index: -1;
+  }
+
+}

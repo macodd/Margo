@@ -1,0 +1,103 @@
+<ion-header no-border>
+  <ion-toolbar color="white">
+    <ion-buttons slot="end">
+      <!-- TODO: Hide Skip button from the 2nd slide if necessary. Hide in last slide-->
+      <ion-button class="light-text" (click)="startApp()" >Skip</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="{'tutorial-background': isBeginning}" fullscreen>
+  <ion-slides [ngClass]="{'tutorial-bullet': isBeginning}" #slides pager="true" (ionSlideDidChange)="slideChanged()" (ionSlideWillChange)="slideDidChange()">
+    
+    <!-- Slide 1 -->
+    <ion-slide>
+      <ion-grid>
+        <ion-row style="margin-top: 50%"justify-content-center>
+          <ion-col align-self-end>
+            <h2 class="slide-title light-logo">
+              margo
+            </h2>
+            <p class="light-text">
+              Lorem ipsum dolor sit amet
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="swipe-button" justify-content-center>
+            <p class="light-text">SWIPE TO BEGIN</p>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+
+    <!-- Slide 2 -->
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="10">
+              <h2 class="slide-title dark-logo">
+                  margo
+                </h2>
+              <p text-left>Ionic Frameworks an open source SDK that enables developers to build high quality mobile apps</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+
+    <!-- Slide 3 -->
+    <ion-slide>
+        <ion-grid>
+            <ion-row>
+              <ion-col size="10">
+                  <h2 class="slide-title dark-logo">
+                      margo
+                    </h2>
+                  <p text-left>Ionic Frameworks an open source SDK that enables developers to build high quality mobile apps</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+    </ion-slide>
+
+    <!-- Slide 4 -->
+    <ion-slide>
+        <ion-grid>
+            <ion-row>
+              <ion-col size="10">
+                  <h2 class="slide-title dark-logo">
+                      margo
+                    </h2>
+                  <p text-left>Ionic Frameworks an open source SDK that enables developers to build high quality mobile apps</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+    </ion-slide>
+
+    <!-- Slide 5 -->
+    <ion-slide>
+      <ion-grid>
+        <ion-row style="padding-top: 40%">
+          <ion-col>
+            <p class="slide-title"><b>Before we begin, lorem ipsum dolor sit amet Churchill</b></p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+        <ion-col>
+            <ion-button shape="round" color="primary" (click)="goSignup()">
+              Get Started
+          </ion-button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+              <ion-button class="outline-button" shape="round" fill="outline" (click)="goLogin()">
+                Already a member? Sign in
+              </ion-button>
+              </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>
