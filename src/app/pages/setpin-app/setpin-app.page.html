@@ -22,6 +22,7 @@
     </ion-row>
 
     <form #setPinNumberForm="ngForm" novalidate>
+    <ion-grid>
     <ion-row  justify-content-center padding>
       <ion-col size="2">
         <ion-item>
@@ -83,6 +84,7 @@
               inputmode="numeric" 
               maxlength=1 
               required=true
+              clearOnEdit=true
               (ionChange)="jumpInput(d5)">
             </ion-input>
             </ion-item>
@@ -99,6 +101,7 @@
               inputmode="numeric" 
               maxlength=1 
               required=true
+              clearOnEdit=true
               (ionChange)="jumpInput(d6)">
             </ion-input>
             </ion-item>
@@ -115,12 +118,14 @@
               inputmode="numeric" 
               maxlength=1 
               required=true
+              clearOnEdit=true
               (ionChange)="onPinComplete()">
             </ion-input>
             </ion-item>
       </ion-col>
 
     </ion-row>
+  </ion-grid>
   </form>
 
 </ion-content>

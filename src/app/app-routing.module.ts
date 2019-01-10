@@ -34,6 +34,7 @@ const routes: Routes = [
   { path: 'activity', loadChildren: './pages/activity/activity.module#ActivityPageModule' },
   { path: 'send-money', loadChildren: './pages/send-money/send-money.module#SendMoneyPageModule' },
   { path: 'send-money-dialog', loadChildren: './pages/send-money-dialog/send-money-dialog.module#SendMoneyDialogPageModule' },
+  { path: 'payment-successful', loadChildren: './pages/payment-successful/payment-successful.module#PaymentSuccessfulPageModule' },
 
 
 ];

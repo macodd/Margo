@@ -24,6 +24,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
+      <form #sendMoney="ngForm" novalidate>
       <ion-list>
           <ion-row>
               <ion-col no-padding>
@@ -78,8 +79,9 @@
       </ion-list>
       <ion-footer>
           <ion-toolbar color="secondary">
-            <ion-button type="submit" expand="full" fill="clear" (click)='openModal()'> Send money to “Ronald”</ion-button>
+            <ion-button (click)="openModal()" type="submit" expand="full" fill="clear"> Send money to “Ronald”</ion-button>
           </ion-toolbar>
         </ion-footer>
+      </form>
   </ion-content>
   

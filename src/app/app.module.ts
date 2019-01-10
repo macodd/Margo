@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
-import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 import {SendMoneyDialogPage} from './pages/send-money-dialog/send-money-dialog.page';
 
 @NgModule({
@@ -27,8 +26,8 @@ import {SendMoneyDialogPage} from './pages/send-money-dialog/send-money-dialog.p
     })
   ],
   declarations: [AppComponent, SendMoneyDialogPage],
-  providers: [InAppBrowser, SplashScreen, StatusBar, FingerprintAIO],
+  providers: [InAppBrowser, SplashScreen, StatusBar],
   bootstrap: [AppComponent],
-  entryComponents: [SendMoneyDialogPage ]
+  entryComponents: [SendMoneyDialogPage]
 })
 export class AppModule {}

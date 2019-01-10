@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SendMoneyPage } from './send-money.page';
-import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
+import { PaymentSuccessfulPage } from './payment-successful.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: SendMoneyPage
+    component: PaymentSuccessfulPage
   }
 ];
 
@@ -22,7 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [SendMoneyPage],
-  providers: [FingerprintAIO]
+  declarations: [PaymentSuccessfulPage]
 })
-export class SendMoneyPageModule {}
+export class PaymentSuccessfulPageModule {}

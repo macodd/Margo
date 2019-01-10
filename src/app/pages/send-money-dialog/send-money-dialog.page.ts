@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
 @Component({
   selector: 'send-money-dialog',
   templateUrl: './send-money-dialog.page.html',
@@ -8,7 +9,8 @@ import { ModalController } from '@ionic/angular';
 export class SendMoneyDialogPage implements AfterViewInit {
 
   constructor(
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    private router: Router
   ) { }
 
   ngAfterViewInit(): void {
@@ -18,5 +20,10 @@ export class SendMoneyDialogPage implements AfterViewInit {
     // using the injected ModalController this page
     // can "dismiss" itself and pass back data
     this.modalCtrl.dismiss(data);
+  }
+
+  goSuccessful() {
+    this.dismiss();
+    this.router.navigateByUrl('payment-successful');
   }
 }

@@ -11,9 +11,10 @@
           </ion-card-header>
           <ion-card-content >
               Are you sure you want to sent <br> to “Ronald” $550,25 USD?
+              <!-- <a [routerLink]="['/payment-successful']" style="text-decoration: none !important">Yes, send it!</a> -->
           </ion-card-content>
         </ion-card>
-        <label color='black' >Yes, send it!</label>
+        <ion-button fill="clear" (click)="goSuccessful()">Yes, send it!</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
