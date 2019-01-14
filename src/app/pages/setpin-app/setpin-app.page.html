@@ -24,7 +24,7 @@
     <form #setPinNumberForm="ngForm" novalidate>
     <ion-grid>
     <ion-row  justify-content-center padding>
-      <ion-col size="2">
+      <ion-col size="3">
         <ion-item>
             <ion-input
             #d1
@@ -41,7 +41,7 @@
         </ion-item>
       </ion-col>
 
-      <ion-col size="2">
+      <ion-col size="3">
           <ion-item>
             <ion-input 
             #d2
@@ -57,7 +57,7 @@
           </ion-item>
       </ion-col>
 
-      <ion-col size="2">
+      <ion-col size="3">
           <ion-item>
               <ion-input 
               #d3
@@ -73,7 +73,7 @@
             </ion-item>
       </ion-col>
 
-      <ion-col size="2">
+      <ion-col size="3">
           <ion-item>
               <ion-input
               #d4
@@ -89,41 +89,6 @@
             </ion-input>
             </ion-item>
       </ion-col>
-
-      <ion-col size="2">
-          <ion-item>
-              <ion-input
-              #d5
-              name="d5"
-              [(ngModel)]="setpinnumber.digit5"
-              class="digit-input" 
-              type="text" 
-              inputmode="numeric" 
-              maxlength=1 
-              required=true
-              clearOnEdit=true
-              (ionChange)="jumpInput(d6)">
-            </ion-input>
-            </ion-item>
-      </ion-col>
-
-      <ion-col size="2">
-          <ion-item>
-              <ion-input 
-              #d6
-              name="d6"
-              [(ngModel)]="setpinnumber.digit6"
-              class="digit-input" 
-              type="text" 
-              inputmode="numeric" 
-              maxlength=1 
-              required=true
-              clearOnEdit=true
-              (ionChange)="onPinComplete()">
-            </ion-input>
-            </ion-item>
-      </ion-col>
-
     </ion-row>
   </ion-grid>
   </form>

@@ -23,29 +23,7 @@ export class SetpasswordPage implements OnInit {
   ngOnInit() {
   }
 
-   onSetPassword(data) {
-    /*** FINGERPRINT AIO. Change method to async***/
-  //   try {
-  //     await this.platform.ready();
-  //     const available = await this.fingerprint.isAvailable();
-  //     console.log(available);
-  //     if (available === 'finger' || available === 'face') {
-  //       this.fingerprint.show({
-  //         clientId: 'ionic-conference-app',
-  //         clientSecret: 'ionicconference',
-  //         disableBackup: false
-  //       })
-  //       .then((result: any) => {
-  //         console.log(result);
-  //       })
-  //       .catch((error: any) => {
-  //         console.log(error);
-  //       });
-  //     }
-  // } catch (e) {
-  //   console.error(e);
-  // }
-  /* *********** */
-
-this.router.navigateByUrl('/setpin-app');
-}}
+  onSetPassword(data) {
+    this.router.navigateByUrl('/setpin-app');
+  }
+}

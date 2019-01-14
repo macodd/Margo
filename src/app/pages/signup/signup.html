@@ -62,7 +62,7 @@
     </ion-row>
 
       <ion-row margin-top>
-          <ion-col no-padding size="6">
+          <ion-col no-padding size="12">
               <ion-item class="input-border">
                   <ion-label position="stacked" color="primary">ID</ion-label>
                   <ion-input [(ngModel)]="signup.id" name="id" type="text" #id="ngModel" required></ion-input>
@@ -70,19 +70,6 @@
                 <ion-text color="danger">
                   <small padding [hidden]="id.valid || submitted == false" padding-left>
                     ID is required
-                  </small>
-                </ion-text>
-          </ion-col>
-          
-          <ion-col no-padding size="6">
-              <ion-item>
-                  <ion-label position="stacked" color="primary">Address</ion-label>
-                  <!-- <ion-input [(ngModel)]="signup.address" name="address" type="text" #address="ngModel" required></ion-input> -->
-                  <ion-input [(ngModel)]="signup.address" name="address" type="text" #address="ngModel" (ionFocus)="onAddressFocus()"required></ion-input>
-                </ion-item>
-                <ion-text color="danger">
-                  <small padding [hidden]="address.valid || submitted == false" padding-left>
-                    Address is required
                   </small>
                 </ion-text>
           </ion-col>
