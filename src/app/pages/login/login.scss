@@ -12,4 +12,12 @@ page-login {
   .list {
     margin-bottom: 0;
   }
+  .ion-color-lightCustom {
+    --ion-color-base: #fff;
+    --ion-color-base-rgb: 255,255,0;
+    --ion-color-contrast: #000000;
+    --ion-color-contrast-rgb: 0,0,0;
+    --ion-color-shade: #fff;
+    --ion-color-tint: #fff;
+  }
 }

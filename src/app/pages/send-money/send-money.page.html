@@ -7,23 +7,23 @@
           Send Money
       </ion-title>
     </ion-toolbar>
-    <ion-toolbar  color='secondary' no-border class="header-custom">
-        <ion-row >
-            <ion-col text-center>
-                <label>MARGO BALANCE:$17,000 USD</label>
-            </ion-col>
-        </ion-row>
-        <ion-row justify-content-center>
-          <ion-col text-center>
-              <!-- You might also use <ion-avatar> -->
-              <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="avatar" alt="avatar">
-              <h2>Mark Cood</h2>
-              <p>******12</p> 
-          </ion-col>
-        </ion-row>
-    </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <ion-content color='secondary'>
+      <div no-border class="header-custom">
+          <ion-row >
+              <ion-col text-center>
+                  <label>MARGO BALANCE:$17,000 USD</label>
+              </ion-col>
+          </ion-row>
+          <ion-row justify-content-center>
+            <ion-col text-center>
+                <!-- You might also use <ion-avatar> -->
+                <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="avatar" alt="avatar">
+                <h2>Mark Cood</h2>
+                <p>******12</p> 
+            </ion-col>
+          </ion-row>
+      </div>
       <form #sendMoney="ngForm" novalidate>
       <ion-list>
           <ion-row>
@@ -77,11 +77,11 @@
           </ion-col>
         </ion-row>
       </ion-list>
-      <ion-footer>
-          <ion-toolbar color="secondary">
-            <ion-button (click)="openModal()" type="submit" expand="full" fill="clear"> Send money to “Ronald”</ion-button>
-          </ion-toolbar>
-        </ion-footer>
       </form>
   </ion-content>
+  <ion-footer>
+    <ion-toolbar color="secondary">
+      <ion-button (click)="setFingerprint(sendMoney)" type="submit" expand="full" fill="clear"> Send money to “Ronald”</ion-button>
+    </ion-toolbar>
+  </ion-footer>
   

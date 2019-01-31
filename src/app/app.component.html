@@ -8,99 +8,32 @@
         </ion-toolbar>
       </ion-header>
       <ion-content>
-
+        <ion-row>
+          <ion-col class="padding">
+            <h1>Settings</h1>
+          </ion-col>
+        </ion-row>  
         <ion-list>
           <ion-list-header>
-            Navigate
+              ACCOUNT
           </ion-list-header>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item button (click)="navigate(p.url)">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
-              </ion-label>
-            </ion-item>
-
-          </ion-menu-toggle>
+          <ion-item>Log in other account</ion-item>
+          <ion-item>Create other account</ion-item>
+          <ion-item>Change PIN</ion-item>
+          <ion-item>Password</ion-item>
         </ion-list>
-
-        <ion-list *ngIf="loggedIn">
-          <ion-list-header>
-            Account
-          </ion-list-header>
-
-          <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="navigate('/account')">
-              <ion-icon slot="start" name="person"></ion-icon>
-              <ion-label>
-                Account
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-
-          <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="navigate('/support')">
-              <ion-icon slot="start" name="help"></ion-icon>
-              <ion-label>
-                Support
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-
-          <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="logout()">
-              <ion-icon slot="start" name="log-out"></ion-icon>
-              <ion-label>
-                Logout
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-
-        </ion-list>
-
-        <ion-list *ngIf="!loggedIn">
-          <ion-list-header>
-            Account
-          </ion-list-header>
-
-          <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="navigate('/login')">
-              <ion-icon slot="start" name="log-in"></ion-icon>
-              <ion-label>
-                Login
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-
-          <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="navigate('/support')">
-              <ion-icon slot="start" name="help"></ion-icon>
-              <ion-label>
-                Support
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-
-          <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="navigate('/signup')">
-              <ion-icon slot="start" name="person-add"></ion-icon>
-              <ion-label>
-                Signup
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-
         <ion-list>
           <ion-list-header>
-            Tutorial
+            GENERAL
           </ion-list-header>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="openTutorial()">
-              <ion-icon slot="start" name="hammer"></ion-icon>
-              <ion-label>Show Tutorial</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+          <ion-item>Language</ion-item>
+        </ion-list>
+          <ion-list>
+          <ion-list-header>
+            SUPPORT
+          </ion-list-header>
+          <ion-item>Subscribe to Margo Premium</ion-item>
+          <ion-item>Restore subscription</ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>

@@ -24,7 +24,6 @@ const routes: Routes = [
     loadChildren: './pages/tutorial/tutorial.module#TutorialModule'
   },
   { path: 'setpassword', loadChildren: './pages/setpassword/setpassword.module#SetpasswordPageModule' },
-  { path: 'setpin', loadChildren: './pages/setpin/setpin.module#SetpinPageModule' },
   { path: 'terms', loadChildren: './pages/terms/terms.module#TermsPageModule' },
   { path: 'address-main', loadChildren: './pages/address-main/address-main.module#AddressMainPageModule' },
   { path: 'address-map', loadChildren: './pages/address-map/address-map.module#AddressMapPageModule' },
@@ -35,6 +34,7 @@ const routes: Routes = [
   { path: 'send-money', loadChildren: './pages/send-money/send-money.module#SendMoneyPageModule' },
   { path: 'send-money-dialog', loadChildren: './pages/send-money-dialog/send-money-dialog.module#SendMoneyDialogPageModule' },
   { path: 'payment-successful', loadChildren: './pages/payment-successful/payment-successful.module#PaymentSuccessfulPageModule' },
+  { path: 'make-payment', loadChildren: './pages/make-payment/make-payment.module#MakePaymentPageModule' },
 
 
 ];

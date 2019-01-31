@@ -4,12 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-import { SetpinPage } from './setpin.page';
+
+import { MakePaymentPage } from './make-payment.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: SetpinPage
+    component: MakePaymentPage
   }
 ];
 
@@ -20,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [SetpinPage]
+  declarations: [MakePaymentPage]
 })
-export class SetpinPageModule {}
+export class MakePaymentPageModule {}

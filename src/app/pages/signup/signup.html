@@ -64,6 +64,19 @@
       <ion-row margin-top>
           <ion-col no-padding size="12">
               <ion-item class="input-border">
+                  <ion-label position="stacked" color="primary">Email Address</ion-label>
+                  <ion-input [(ngModel)]="signup.id" name="id" type="text" #id="ngModel" required></ion-input>
+                </ion-item>
+                <ion-text color="danger">
+                  <small padding [hidden]="id.valid || submitted == false" padding-left>
+                    Email is required
+                  </small>
+                </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row margin-top>
+          <ion-col no-padding size="12">
+              <ion-item class="input-border">
                   <ion-label position="stacked" color="primary">ID</ion-label>
                   <ion-input [(ngModel)]="signup.id" name="id" type="text" #id="ngModel" required></ion-input>
                 </ion-item>

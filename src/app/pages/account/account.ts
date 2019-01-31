@@ -92,4 +92,7 @@ export class AccountPage implements AfterViewInit {
   goSendMoney() {
     this.router.navigateByUrl('/send-money');
   }
+  goMakePayment() {
+    this.router.navigateByUrl('/make-payment');
+  }
 }

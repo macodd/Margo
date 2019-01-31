@@ -43,10 +43,13 @@
         </small>
       </ion-text>
     </ion-list>
-
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar  color="lightCustom">
     <ion-row justify-content-center responsive-sm>
       <!-- TODO: Delete onSignup() method? -->
-      <ion-col no-padding>
+      <ion-col no-padding ion-fixed>
         <br>
         <ion-button no-margin type="submit" expand="full" no-padding (click)="onLogin(loginForm)">Login</ion-button><br>
       </ion-col>
@@ -64,8 +67,5 @@
             
         </ion-col>
     </ion-row>
-
-  </form>
-</ion-content>
-
-
+  </ion-toolbar>
+</ion-footer>
