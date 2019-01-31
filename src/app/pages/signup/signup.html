@@ -64,12 +64,12 @@
       <ion-row margin-top>
           <ion-col no-padding size="12">
               <ion-item class="input-border">
-                  <ion-label position="stacked" color="primary">Email Address</ion-label>
-                  <ion-input [(ngModel)]="signup.id" name="id" type="text" #id="ngModel" required></ion-input>
+                  <ion-label position="stacked" color="primary">Phone Number</ion-label>
+                  <ion-input [(ngModel)]="signup.phone" name="phone" type="Number" #id="ngModel" required></ion-input>
                 </ion-item>
                 <ion-text color="danger">
                   <small padding [hidden]="id.valid || submitted == false" padding-left>
-                    Email is required
+                    Phone Number
                   </small>
                 </ion-text>
           </ion-col>
@@ -78,7 +78,7 @@
           <ion-col no-padding size="12">
               <ion-item class="input-border">
                   <ion-label position="stacked" color="primary">ID</ion-label>
-                  <ion-input [(ngModel)]="signup.id" name="id" type="text" #id="ngModel" required></ion-input>
+                  <ion-input [(ngModel)]="signup.id" name="id" type="Number" #id="ngModel" required></ion-input>
                 </ion-item>
                 <ion-text color="danger">
                   <small padding [hidden]="id.valid || submitted == false" padding-left>

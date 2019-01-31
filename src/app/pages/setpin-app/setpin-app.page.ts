@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SetPinNumberOptions } from '../../interfaces/set-pin-number-options';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { Router } from '@angular/router';
+import { LoginModule } from '../login/login.module';
 
 @Component({
   selector: 'setpin-app',
@@ -17,20 +20,19 @@ export class SetpinAppPage implements OnInit {
   };
   submitted = false;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
   }
-
-  jumpInput(d) {
-    console.log(d);
+  jumpInput(d: any) {
     d.setFocus();
+    if (d.name === 'd4') {
+      this.router.navigateByUrl('/terms');
+    }
   }
-
   onPinComplete() {
     // This the pin number
     const pin = this.setpinnumber.digit1 + this.setpinnumber.digit2 + this.setpinnumber.digit3 +
     this.setpinnumber.digit4 + this.setpinnumber.digit5 + this.setpinnumber.digit6;
-    console.log(pin);
   }
 }

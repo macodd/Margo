@@ -18,6 +18,7 @@ import { UserOptions } from '../../interfaces/user-options';
 export class SignupPage {
   signup: UserOptions = { firstname: '',
     lastname: '',
+    phone: '',
     email: '',
     id: '',
     address: 'Main St. 420' };

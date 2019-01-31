@@ -83,16 +83,26 @@ export class AppComponent implements OnInit {
   navigate(url: string) {
     return this.router.navigateByUrl(url);
   }
-
   logout() {
     this.userData.logout().then(() => {
       return this.navigate('/login');
     });
   }
-
   openTutorial() {
     this.menu.enable(false);
     this.storage.set('ion_did_tutorial', 'false');
     this.router.navigateByUrl('/tutorial');
+  }
+  goLogin() {
+    this.menu.enable(false);
+    this.router.navigateByUrl('/login');
+  }
+  goCreateAccount() {
+    this.menu.enable(false);
+    this.router.navigateByUrl('/signup');
+  }
+  goSetPing() {
+    this.menu.enable(false);
+    this.router.navigateByUrl('/setpin-app');
   }
 }

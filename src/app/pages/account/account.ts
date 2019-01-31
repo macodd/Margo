@@ -83,9 +83,6 @@ export class AccountPage implements AfterViewInit {
     this.userData.logout();
     this.router.navigateByUrl('/login');
   }
-  goSetting() {
-    this.router.navigateByUrl('/setting');
-  }
   goActivity() {
     this.router.navigateByUrl('/activity');
   }
