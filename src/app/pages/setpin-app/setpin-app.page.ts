@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SetPinNumberOptions } from '../../interfaces/set-pin-number-options';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
 import { Router } from '@angular/router';
-import { LoginModule } from '../login/login.module';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'setpin-app',
@@ -20,19 +20,32 @@ export class SetpinAppPage implements OnInit {
   };
   submitted = false;
 
-  constructor(public router: Router) { }
+  constructor(
+    public router: Router,
+    public loadingController: LoadingController
+  ) { }
 
   ngOnInit() {
   }
   jumpInput(d: any) {
     d.setFocus();
-    if (d.name === 'd4') {
-      this.router.navigateByUrl('/terms');
+    if (d.name === 'd4' && this.setpinnumber.digit4 !== '') {
+      this.presentLoading().then(() => {
+        this.router.navigateByUrl('/terms');
+      });
     }
   }
   onPinComplete() {
     // This the pin number
     const pin = this.setpinnumber.digit1 + this.setpinnumber.digit2 + this.setpinnumber.digit3 +
     this.setpinnumber.digit4 + this.setpinnumber.digit5 + this.setpinnumber.digit6;
+  }
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Please wait...',
+      duration: 2000
+    });
+    loading.present();
+    return await loading.onWillDismiss();
   }
 }
