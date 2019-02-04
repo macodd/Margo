@@ -24,6 +24,8 @@ export class SignupPage {
     address: 'Main St. 420' };
   submitted = false;
   typeAccount = 'personal';
+  isViewPersonal = true;
+  isViewBussines = false;
 
   constructor(
     public router: Router,
@@ -43,5 +45,14 @@ export class SignupPage {
   onAddressFocus(event) {
     this.router.navigateByUrl('/address-main');
   }
-
+  segmentButtonClicked(type: String) {
+    if (type === 'personal') {
+      this.isViewPersonal = true;
+      this.isViewBussines = false;
+    }
+    if (type === 'business') {
+      this.isViewBussines = true;
+      this.isViewPersonal = false;
+    }
+  }
 }
