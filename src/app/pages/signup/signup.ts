@@ -34,12 +34,7 @@ export class SignupPage {
 
   onSignup(form: NgForm) {
     this.submitted = true;
-
-    if (form.valid) {
-      // TODO: Fix the method if necessary
-      // this.userData.signup(this.signup.username);
-      this.router.navigateByUrl('/setpassword');
-    }
+    this.router.navigateByUrl('/setpassword');
   }
 
   onAddressFocus(event) {

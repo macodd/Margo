@@ -1,83 +1,83 @@
-<ion-header   no-border>
+<ion-header no-border>
     <ion-toolbar color='secondary'>
       <ion-buttons slot="start">
           <ion-back-button color="primary" text="" defaultHref="account"></ion-back-button>
       </ion-buttons>
       <ion-title text-center>   
-          Send Money
+        Send Money
       </ion-title>
     </ion-toolbar>
-  </ion-header>
-  <ion-content color='secondary'>
-      <div no-border class="header-custom">
-          <ion-row >
-              <ion-col text-center>
-                  <label>MARGO BALANCE:$17,000 USD</label>
-              </ion-col>
-          </ion-row>
-          <ion-row justify-content-center>
+</ion-header>
+<ion-content color='secondary'>
+    <div no-border >
+        <ion-row >
             <ion-col text-center>
-                <!-- You might also use <ion-avatar> -->
-                <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="avatar" alt="avatar">
-                <h2>Mark Cood</h2>
-                <p>******12</p> 
+                <label>MARGO BALANCE:$17,000 USD</label>
             </ion-col>
-          </ion-row>
-      </div>
-      <form #sendMoney="ngForm" novalidate>
-      <ion-list>
-          <ion-row>
-              <ion-col no-padding>
-                <ion-item>
-                  <ion-label position="stacked" color="primary"><strong>Enter Amount</strong></ion-label>
-                  <ion-input required placeholder="$550,25">
-                  </ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-          <ion-row>
-            <ion-col no-padding size="4">
-                <ion-item class="input-border">
-                    <ion-label position="stacked" color="primary">Amount</ion-label>
-                    <ion-input  required placeholder="$550,25"></ion-input>
-                </ion-item>
-            </ion-col>
-            
-            <ion-col no-padding size="4">
-                <ion-item>
-                    <ion-label position="stacked" color="primary">Charge</ion-label>
-                    <ion-input required placeholder="$00,00"></ion-input>
-                </ion-item>
-            </ion-col>
-
-            <ion-col no-padding size="4">
-                <ion-item>
-                    <ion-label position="stacked" color="primary">Total</ion-label>
-                    <ion-input required placeholder="$550,25"></ion-input>
-                  </ion-item>
-            </ion-col>
-          </ion-row>
-    
-        <ion-row>
-          <ion-col no-padding>
-            <ion-item>
-              <ion-label position="stacked" color="primary"><strong>Reference (optional)</strong></ion-label>
-              <ion-input required placeholder="Tap to add a “Note” or “Tag Category”">
-              </ion-input>
-            </ion-item>
+        </ion-row>
+        <ion-row justify-content-center>
+          <ion-col text-center>
+              <!-- You might also use <ion-avatar> -->
+              <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="avatar" alt="avatar">
+              <h2>Mark Cood</h2>
+              <p>******12</p> 
           </ion-col>
         </ion-row>
+    </div>
+    <form #sendMoney="ngForm" novalidate>
+    <ion-list>
         <ion-row>
             <ion-col no-padding>
-            <ion-item>
-              <ion-label position="stacked" color="primary"><strong>Enter Your PIN</strong></ion-label>
-              <ion-input required placeholder="Insert your transactional code here">
-              </ion-input>
-            </ion-item>
+              <ion-item>
+                <ion-label position="stacked" color="primary"><strong>Enter Amount</strong></ion-label>
+                <ion-input required placeholder="$550,25">
+                </ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        <ion-row>
+          <ion-col no-padding size="4">
+              <ion-item class="input-border">
+                  <ion-label position="stacked" color="primary">Amount</ion-label>
+                  <ion-input  required placeholder="$550,25"></ion-input>
+              </ion-item>
+          </ion-col>
+          
+          <ion-col no-padding size="4">
+              <ion-item>
+                  <ion-label position="stacked" color="primary">Charge</ion-label>
+                  <ion-input required placeholder="$00,00"></ion-input>
+              </ion-item>
+          </ion-col>
+
+          <ion-col no-padding size="4">
+              <ion-item>
+                  <ion-label position="stacked" color="primary">Total</ion-label>
+                  <ion-input required placeholder="$550,25"></ion-input>
+                </ion-item>
           </ion-col>
         </ion-row>
-      </ion-list>
-      </form>
+  
+      <ion-row>
+        <ion-col no-padding>
+          <ion-item>
+            <ion-label position="stacked" color="primary"><strong>Reference (optional)</strong></ion-label>
+            <ion-input required placeholder="Tap to add a “Note” or “Tag Category”">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col no-padding>
+          <ion-item>
+            <ion-label position="stacked" color="primary"><strong>Enter Your PIN</strong></ion-label>
+            <ion-input required placeholder="Insert your transactional code here">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+    </form>
   </ion-content>
   <ion-footer>
     <ion-toolbar color="secondary">
