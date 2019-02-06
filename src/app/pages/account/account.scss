@@ -1,12 +1,17 @@
-page-account {
 
+page-account {
   img {
     max-width: 140px;
     border-radius: 50%;
   }
 
   .background-header-customer {
-    background-color: white;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0da7ff+1,1ef1f9+100 */
+    background: #0da7ff; /* Old browsers */
+    background: -moz-linear-gradient(top, #0da7ff 1%, #1ef1f9 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #0da7ff 1%,#1ef1f9 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #0da7ff 1%,#1ef1f9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0da7ff', endColorstr='#1ef1f9',GradientType=0 ); /* IE6-9 */
   }
 
   .white-icon {
@@ -14,7 +19,7 @@ page-account {
   }
 
   .account-toolbar {
-    z-index: -1;
+    //z-index: -1;
   }
 
   .account-title {
@@ -71,7 +76,7 @@ page-account {
     right: 25px;
     bottom: 45px;
     width: 20%;
-    z-index: -1;
+    //z-index: -1;
   }
 
 }

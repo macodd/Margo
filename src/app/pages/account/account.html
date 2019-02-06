@@ -1,8 +1,7 @@
-<ion-header color="primary"  translucent="true">
-
-  <ion-toolbar class="account-toolbar">
+<ion-header class="background-header-customer"  translucent="false" no-shadow>
+  <ion-toolbar class="account-toolbar" no-shadow>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button size="small"></ion-menu-button>
     </ion-buttons>
     <ion-title>            
         <h2 class="slide-title account-title">
@@ -11,66 +10,65 @@
     </ion-title>
     <ion-buttons slot="primary">
       <ion-button color="danger">
-          <ion-icon class="white-icon" name="notifications" size="large"></ion-icon>
+          <ion-icon class="white-icon" name="notifications" size="small"></ion-icon>
       </ion-button>
     </ion-buttons>
     </ion-toolbar>
-
-  <ion-toolbar class="account-toolbar" no-border>
-      <ion-row justify-content-center>
-        <ion-col text-center>
-            <!-- You might also use <ion-avatar> -->
-            <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="avatar" alt="avatar">
-            <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="second-avatar" alt="avatar">
-            <h2>Selena Gómez</h2>
-            <p>Personal</p>
-            <ion-row>
-                <ion-col text-center>
-                    <ion-chip class="chip-position">
-                        <h3>$43,500.00</h3>
-                    </ion-chip>
-                </ion-col>
-            </ion-row>
-        </ion-col>
-      </ion-row>
-  </ion-toolbar>
 </ion-header>
-<ion-content>
-  <ion-grid>
-    <ion-row class="first-grid-padding" justify-content-center>
-      <ion-col text-center size="6">
-          <ion-card>
-            <ion-card-content  (click)="goSendMoney()">
-                <ion-icon name="refresh-circle" size="large"></ion-icon>
-                <p>Send money</p>
-              </ion-card-content>
-            </ion-card>
-      </ion-col>
+<ion-content class="outer-content">
+  <ion-grid  class="account-toolbar background-header-customer" no-border>
+      <ion-row justify-content-center>
+          <ion-col text-center>
+              <!-- You might also use <ion-avatar> -->
+              <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="avatar" alt="avatar">
+              <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="second-avatar" alt="avatar">
+              <h2>Selena Gómez</h2>
+              <p>Personal</p>
+              <ion-row>
+                  <ion-col text-center>
+                      <ion-chip class="chip-position">
+                          <h3>$43,500.00</h3>
+                      </ion-chip>
+                  </ion-col>
+              </ion-row>
+          </ion-col>
+        </ion-row>
+  </ion-grid>
 
-      <ion-col text-center size="6">
-          <ion-card>
-              <ion-card-content (click)="goMakePayment()">
-                  <ion-icon name="refresh-circle" size="large"></ion-icon>
-                  <p>Make a payment</p>
-                </ion-card-content>
+  <ion-grid >
+  <ion-row class="first-grid-padding" justify-content-center>
+    <ion-col text-center size="6">
+        <ion-card>
+          <ion-card-content  (click)="goSendMoney()">
+              <ion-icon name="refresh-circle" size="large"></ion-icon>
+              <p>Send money</p>
+            </ion-card-content>
           </ion-card>
-      </ion-col>
-    </ion-row>
+    </ion-col>
 
-    <ion-row class="second-grid-padding" justify-content-center>
-      <ion-col size="12">
-        <ion-card (click)="goActivity()">
-          <ion-item lines="none">
-              <ion-icon name="refresh-circle" slot="start" size="large"></ion-icon>
-              <ion-label>See activity</ion-label>
-              <ion-icon src="assets/img/arrow.svg" color="primary" slot="end" size="large"></ion-icon>
-          </ion-item>
+    <ion-col text-center size="6">
+        <ion-card>
+            <ion-card-content (click)="goMakePayment()">
+                <ion-icon name="refresh-circle" size="large"></ion-icon>
+                <p>Make a payment</p>
+              </ion-card-content>
         </ion-card>
-      </ion-col>
-    </ion-row>
-</ion-grid>
+    </ion-col>
+  </ion-row>
 
-<ion-row class="third-grid-padding">
+  <ion-row class="second-grid-padding" justify-content-center>
+    <ion-col size="12">
+      <ion-card (click)="goActivity()">
+        <ion-item lines="none">
+            <ion-icon name="refresh-circle" slot="start" size="large"></ion-icon>
+            <ion-label>See activity</ion-label>
+            <ion-icon src="assets/img/arrow.svg" color="primary" slot="end" size="large"></ion-icon>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="third-grid-padding">
     <ion-col class="item-border">
       <small><strong>MORE TRANSACTIONS</strong></small>
     </ion-col>
@@ -99,4 +97,5 @@
       </ion-button>
     </ion-col>
   </ion-row>
+</ion-grid>
 </ion-content>
