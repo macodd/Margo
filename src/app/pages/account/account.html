@@ -58,7 +58,7 @@
 
   <ion-row class="second-grid-padding" justify-content-center>
     <ion-col size="12">
-      <ion-card (click)="goActivity()">
+      <ion-card>
         <ion-item lines="none">
             <ion-icon name="refresh-circle" slot="start" size="large"></ion-icon>
             <ion-label>See activity</ion-label>
@@ -90,7 +90,7 @@
   </ion-row>
 
   <ion-row justifiy-content-center padding>
-    <ion-col text-center  (click)="goSetting()">
+    <ion-col text-center (click)="goActivity()">
       <p class="dark-text">Upgrade to Premium to unlock advanced Margo functions.</p>
       <ion-button class="outline-button" shape="round" fill="outline" >
           Learn more

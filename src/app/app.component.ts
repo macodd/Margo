@@ -101,8 +101,12 @@ export class AppComponent implements OnInit {
     this.menu.enable(false);
     this.router.navigateByUrl('/signup');
   }
-  goSetPing() {
+  goEditProfile() {
     this.menu.enable(false);
-    this.router.navigateByUrl('/setpin-app');
+    this.router.navigateByUrl('/editProfile');
+  }
+  goSuscrible() {
+    this.menu.enable(false);
+    this.router.navigateByUrl('/activity');
   }
 }
