@@ -22,28 +22,28 @@ export class SendMoneyPage {
     ) { }
 
   async setFingerprint(data) {
+    this.openModal();
     /*** FINGERPRINT AIO ***/
-  try {
-      await this.platform.ready();
-      const available = await this.fingerprint.isAvailable();
-      console.log(available);
-      if (available === 'finger' || available === 'face') {
-        this.fingerprint.show({
-          clientId: 'ionic-conference-app',
-          clientSecret: 'password',
-          disableBackup: false
-        })
-        .then((result: any) => {
-          console.log(result);
-          this.openModal();
-        })
-        .catch((error: any) => {
-          console.log(error);
-        });
-      }
-  } catch (e) {
-    console.error(e);
-  }
+  // try {
+  //     await this.platform.ready();
+  //     const available = await this.fingerprint.isAvailable();
+  //     console.log(available);
+  //     if (available === 'finger' || available === 'face') {
+  //       this.fingerprint.show({
+  //         clientId: 'ionic-conference-app',
+  //         clientSecret: 'password',
+  //         disableBackup: false
+  //       })
+  //       .then((result: any) => {
+  //         console.log(result);
+  //       })
+  //       .catch((error: any) => {
+  //         console.log(error);
+  //       });
+  //     }
+  // } catch (e) {
+  //   console.error(e);
+  // }
 }
 
   async openModal() {
