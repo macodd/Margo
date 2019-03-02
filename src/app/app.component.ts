@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router , NavigationExtras} from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Events, MenuController, Platform } from '@ionic/angular';
@@ -95,11 +95,17 @@ export class AppComponent implements OnInit {
   }
   goLogin() {
     this.menu.enable(false);
-    this.router.navigateByUrl('/login');
+    const navigationExtras: NavigationExtras = {
+        queryParams: { 'origin': 'account'}
+    };
+    this.router.navigate(['login'] , navigationExtras);
   }
   goCreateAccount() {
     this.menu.enable(false);
-    this.router.navigateByUrl('/signup');
+    const navigationExtras: NavigationExtras = {
+        queryParams: { 'origin': 'account'}
+    };
+    this.router.navigate(['signup'] , navigationExtras);
   }
   goEditProfile() {
     this.menu.enable(false);

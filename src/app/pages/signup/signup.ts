@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 import { UserData } from '../../providers/user-data';
 
@@ -26,11 +26,17 @@ export class SignupPage {
   typeAccount = 'personal';
   isViewPersonal = true;
   isViewBussines = false;
+  origin = "";
 
   constructor(
     public router: Router,
-    public userData: UserData
-  ) {}
+    public userData: UserData,
+    public route: ActivatedRoute
+  ) {
+    this.route.queryParams.subscribe(params => {
+        this.origin = params["origin"];
+    });
+  }
 
   onSignup(form: NgForm) {
     this.submitted = true;
@@ -49,5 +55,11 @@ export class SignupPage {
       this.isViewBussines = true;
       this.isViewPersonal = false;
     }
+  }
+  onBack(){
+    if(this.origin === "account")
+      this.router.navigateByUrl('/account');
+    else 
+      this.router.navigateByUrl('/tutorial')
   }
 }

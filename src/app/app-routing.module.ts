@@ -16,7 +16,15 @@ const routes: Routes = [
     loadChildren: './pages/login/login.module#LoginModule'
   },
   {
+    path: 'login/:origin',
+    loadChildren: './pages/login/login.module#LoginModule'
+  },
+  {
     path: 'signup',
+    loadChildren: './pages/signup/signup.module#SignUpModule'
+  },
+  {
+    path: 'signup/:origin',
     loadChildren: './pages/signup/signup.module#SignUpModule'
   },
   {
@@ -36,7 +44,6 @@ const routes: Routes = [
   { path: 'payment-successful', loadChildren: './pages/payment-successful/payment-successful.module#PaymentSuccessfulPageModule' },
   { path: 'make-payment', loadChildren: './pages/make-payment/make-payment.module#MakePaymentPageModule' },
   { path: 'editProfile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfilePageModule' },
-
 
 ];
 

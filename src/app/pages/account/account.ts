@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, ToastController , MenuController} from '@ionic/angular';
 
 import { UserData } from '../../providers/user-data';
 
@@ -19,10 +19,12 @@ export class AccountPage implements AfterViewInit {
     public alertCtrl: AlertController,
     public router: Router,
     public userData: UserData,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private menu: MenuController
   ) { }
 
   ngAfterViewInit() {
+    this.menu.enable(true ); 
     this.getUsername();
     this.presentToastWithOptions();
   }

@@ -1,11 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router , ActivatedRoute} from '@angular/router';
 
 import { UserData } from '../../providers/user-data';
 
 import { LoginOptions } from '../../interfaces/login-options';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, Platform } from '@ionic/angular';
 
 
 @Component({
@@ -16,14 +16,21 @@ import { LoadingController } from '@ionic/angular';
 })
 export class LoginPage {
   login: LoginOptions = { email: '', password: '' };
+  origin: String = '';
   submitted = false;
   TIME_IN_MS = 5000;
 
   constructor(
     public userData: UserData,
     public router: Router,
-    public loadingController: LoadingController
-  ) { }
+    public loadingController: LoadingController,
+    public platform: Platform,
+    public route: ActivatedRoute
+  ) { 
+    this.route.queryParams.subscribe(params => {
+        this.origin = params['origin'];
+    });
+  }
 
   onLogin(form: NgForm) {
     this.submitted = true;
@@ -46,5 +53,12 @@ export class LoginPage {
     });
     loading.present();
     return await loading.onWillDismiss();
+  }
+
+  onBack(){
+    if(this.origin === "account")
+      this.router.navigateByUrl('/account');
+    else 
+      this.router.navigateByUrl('/tutorial')
   }
 }
