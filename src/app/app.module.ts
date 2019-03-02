@@ -13,6 +13,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 import {SendMoneyDialogPage} from './pages/send-money-dialog/send-money-dialog.page';
+import { MakePaymentDialogPage } from './pages/make-payment-dialog/make-payment-dialog.page';
+
 
 @NgModule({
   imports: [
@@ -25,9 +27,9 @@ import {SendMoneyDialogPage} from './pages/send-money-dialog/send-money-dialog.p
       enabled: environment.production
     })
   ],
-  declarations: [AppComponent, SendMoneyDialogPage],
+  declarations: [AppComponent,SendMoneyDialogPage,MakePaymentDialogPage],
   providers: [InAppBrowser, SplashScreen, StatusBar],
   bootstrap: [AppComponent],
-  entryComponents: [SendMoneyDialogPage]
+  entryComponents: [SendMoneyDialogPage,MakePaymentDialogPage]
 })
 export class AppModule {}

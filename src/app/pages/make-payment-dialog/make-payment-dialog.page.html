@@ -1,0 +1,20 @@
+<ion-header>
+</ion-header>
+
+<ion-content >
+ <ion-grid style="height: 100%">
+   <ion-row justify-content-center align-items-center style="height: 100%" >
+     <ion-col  align-self-center no-padding size="12" text-center>
+       <ion-card  color='tertiary' text-center>
+         <ion-card-header>
+             <ion-icon name="refresh-circle" size="large" ></ion-icon>
+         </ion-card-header>
+         <ion-card-content >
+             Are you sure you want to make a <br>  payment to “Starbucks” $550,25 USD?
+         </ion-card-content>
+       </ion-card>
+       <ion-button fill="clear" (click)="goSuccessful()">Yes, pay it!</ion-button>
+     </ion-col>
+   </ion-row>
+ </ion-grid>
+</ion-content>

@@ -12,8 +12,6 @@ import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 })
 
 export class SendMoneyPage {
-  // excludeTracks: any;
-
   constructor(
     public modalCtrl: ModalController,
     public router: Router,

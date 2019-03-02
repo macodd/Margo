@@ -24,7 +24,7 @@
           </ion-col>
         </ion-row>
       </div>  
-    <form #sendMoney="ngForm" novalidate>
+    <form #makePayment="ngForm" novalidate>
     <ion-list>
         <ion-row>
             <ion-col no-padding>
@@ -81,6 +81,6 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar color="tertiary">
-    <ion-button (click)="setFingerprint(sendMoney)" type="submit" expand="full" fill="clear"> MAKE PAYMENT to "Starbucks"</ion-button>
+    <ion-button (click)="setFingerprint(makePayment)" type="submit" expand="full" fill="clear"> MAKE PAYMENT to "Starbucks"</ion-button>
   </ion-toolbar>
 </ion-footer>

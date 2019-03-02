@@ -44,6 +44,7 @@ const routes: Routes = [
   { path: 'payment-successful', loadChildren: './pages/payment-successful/payment-successful.module#PaymentSuccessfulPageModule' },
   { path: 'make-payment', loadChildren: './pages/make-payment/make-payment.module#MakePaymentPageModule' },
   { path: 'editProfile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfilePageModule' },
+  { path: 'make-payment-dialog', loadChildren: './pages/make-payment-dialog/make-payment-dialog.module#MakePaymentDialogPageModule' },
 
 ];
 
