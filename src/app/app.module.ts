@@ -12,9 +12,8 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
-import {SendMoneyDialogPage} from './pages/send-money-dialog/send-money-dialog.page';
+import { SendMoneyDialogPage } from './pages/send-money-dialog/send-money-dialog.page';
 import { MakePaymentDialogPage } from './pages/make-payment-dialog/make-payment-dialog.page';
-
 
 @NgModule({
   imports: [
@@ -30,6 +29,6 @@ import { MakePaymentDialogPage } from './pages/make-payment-dialog/make-payment-
   declarations: [AppComponent,SendMoneyDialogPage,MakePaymentDialogPage],
   providers: [InAppBrowser, SplashScreen, StatusBar],
   bootstrap: [AppComponent],
-  entryComponents: [SendMoneyDialogPage,MakePaymentDialogPage]
+  entryComponents: [SendMoneyDialogPage]
 })
 export class AppModule {}

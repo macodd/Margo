@@ -7,10 +7,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-row>
-    <ion-col padding>
-      <h1>Welcome!</h1>
-      <p>Sign in to your profile</p>
+  <ion-row padding>
+    <ion-col>
+      <h1 class="sign-in-title">¡Bienvenido!</h1>
+      <p id="subtitle">Inicia sesión</p>
     </ion-col>
   </ion-row>
 
@@ -18,8 +18,8 @@
   <form #loginForm="ngForm" novalidate>
     <ion-list>
       <ion-item>
-        <ion-label position="stacked" color="primary">Username</ion-label>
-        <ion-input [(ngModel)]="login.email" name="email" type="text" #email="ngModel" spellcheck="false" autocapitalize="off"
+        <ion-label position="stacked" color="medium"><strong>Usuario/Correo</strong></ion-label>
+        <ion-input class="login-input" [(ngModel)]="login.email" name="email" type="text" #email="ngModel" spellcheck="false" autocapitalize="off"
           required>
         </ion-input>
       </ion-item>
@@ -31,8 +31,8 @@
       </ion-text>
 
       <ion-item>
-        <ion-label position="stacked" color="primary">Enter password</ion-label>
-        <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+        <ion-label position="stacked" color="medium"><strong>Contraseña</strong></ion-label>
+        <ion-input class="login-input" [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
         </ion-input>
       </ion-item>
 
@@ -44,19 +44,18 @@
     </ion-list>
   </form>
 </ion-content>
-<ion-footer>
-  <ion-toolbar  color="lightCustom">
+
+  <ion-toolbar class="toolbar" color="lightCustom">
     <ion-row justify-content-center responsive-sm>
       <!-- TODO: Delete onSignup() method? -->
       <ion-col no-padding ion-fixed>
-        <br>
-        <ion-button no-margin type="submit" expand="full" no-padding (click)="onLogin(loginForm)">Login</ion-button><br>
+        <ion-button style="text-transform: none;" size="large" type="submit" expand="full" (click)="onLogin(loginForm)">Iniciar Sesión</ion-button>
       </ion-col>
     </ion-row>
     
     <ion-row justify-content-center>
       <ion-col text-center>
-          <small>Forgot password?</small>
+          <p id="forgot">¿Problemas para ingresar?</p>
       </ion-col>
     </ion-row>
 
@@ -67,4 +66,4 @@
         </ion-col>
     </ion-row>
   </ion-toolbar>
-</ion-footer>
+

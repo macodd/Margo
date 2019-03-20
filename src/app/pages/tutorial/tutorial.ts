@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuController, Slides } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage';
+import { text } from '@angular/core/src/render3';
 
 @Component({
   selector: 'page-tutorial',
@@ -13,6 +14,12 @@ import { Storage } from '@ionic/storage';
 export class TutorialPage {
   showSkip = true;
   isBeginning = true;
+
+  skipClasses: any = {
+    'light-text': true,
+    'dark-text': false
+  };
+
   @ViewChild('slides') slides: Slides;
 
   constructor(
@@ -54,6 +61,10 @@ export class TutorialPage {
   slideDidChange() {
     this.slides.isBeginning().then(beginning => {
       this.isBeginning = beginning;
+      this.skipClasses = {
+        'light-text': false,
+        'dark-text': true
+      };
     });
   }
 
@@ -63,6 +74,16 @@ export class TutorialPage {
   slideChanged() {
     this.slides.getActiveIndex().then((position: number) => {
       this.storage.set('tutorial_position', position);
+      this.slides.isBeginning().then(beginning => {
+        this.isBeginning = beginning;
+
+        if (this.isBeginning) {
+          this.skipClasses = {
+            'light-text': true,
+            'dark-text': false
+          };
+        }
+      });
     });
   }
 }

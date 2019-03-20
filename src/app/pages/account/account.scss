@@ -36,7 +36,7 @@ page-account {
   }
 
   .avatar {
-    width: 30%;
+    width: 25%;
     position: relative;
   }
 
@@ -63,7 +63,9 @@ page-account {
   }
 
   .dark-text {
-    color: #7f7f7f;
+    font-family: DIN Next LT Pro Medium;
+    //font-size: 19pt;
+    color: black;
   }
 
   .outline-button {
@@ -79,4 +81,28 @@ page-account {
     //z-index: -1;
   }
 
+  .center-icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 60%
+  }
+
+  .activity-icon {
+    padding: 10px;
+    width: 25%;
+  }
+
+  .lock-grey-icon {
+    padding: 10px;
+    width: 20%
+  }
+
+  .bold-text {
+      font-family: DIN Next LT Pro Bold;
+      font-size: 10pt;
+      color: black;
+      margin: 0px;
+  }
 }

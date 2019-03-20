@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.conferenceapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Ionic Conference App</name>
-    <description>Schedule, speakers, venue.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+<widget id="com.ionicframework.margowallet" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Wallet</name>
+    <description>App developed for a digital wallet</description>
+    <author email="hi@ionicframework" href="http://ionicframework.com/">gabrieltorreswm@gmail.com</author>
+    <content original-src="index.html" src="http://192.168.100.10:8102" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -85,8 +85,10 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.2" />
     <plugin name="cordova-plugin-pin-dialog" spec="0.1.3" />
     <plugin name="cordova-plugin-fingerprint-aio" spec="~1.5.0" />
-    <allow-navigation href="http://192.168.100.10:8100" sessionid="8d2683a6" />
-    <engine name="android" spec="7.1.4" />
-    <engine name="ios" spec="^4.5.5" />
+    <allow-navigation href="http://192.168.100.10:8100" sessionid="b1632ed0" />
+    <plugin name="cordova-plugin-googlemaps" spec="git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps" />
+    <allow-navigation href="http://192.168.100.10:8102" sessionid="fcaa36fe" />
     <engine name="browser" spec="5.0.4" />
+    <engine name="android" spec="7.1.4" />
+    <engine name="ios" spec="^5.0.0" />
 </widget>

@@ -20,4 +20,31 @@ page-login {
     --ion-color-shade: #fff;
     --ion-color-tint: #fff;
   }
+
+  .sign-in-title {
+    font-family: DIN Next LT Pro Medium;
+    font-size: 24pt;
+    color: black;
+    margin: 0px;
+  }
+
+  p #subtitle {
+    color: rgba(0, 0, 0, 0.75) !important;
+    font-size: 16px !important;
+  }
+
+  p #forgot {
+    font-size: 13px !important;
+  }
+
+  .toolbar {
+    --padding-start: 0px;
+    --padding-end: 0px;
+  }
+
+  .login-input {
+    font-family: DIN Next LT Pro Medium;
+    font-size: 16pt;
+    color: black;
+  }
 }

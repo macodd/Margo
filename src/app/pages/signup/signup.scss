@@ -12,4 +12,36 @@ page-signup {
   .list {
     margin-bottom: 0;
   }
+
+  .sign-up-title {
+    font-family: DIN Next LT Pro Medium;
+    font-size: 24pt;
+    color: black;
+    margin: 0px;
+  }
+
+  p #terms-description {
+    color: rgba(119, 119, 119, 1) !important;
+    font-size: 10px !important;
+  }
+
+  .signup-input {
+    font-family: DIN Next LT Pro Medium;
+    font-size: 16pt;
+    color: black;
+  }
+
+  .toolbar {
+    --padding-start: 0px;
+    --padding-end: 0px;
+  }
+  
+  .ion-color-lightCustom {
+    --ion-color-base: #fff;
+    --ion-color-base-rgb: 255,255,0;
+    --ion-color-contrast: #000000;
+    --ion-color-contrast-rgb: 0,0,0;
+    --ion-color-shade: #fff;
+    --ion-color-tint: #fff;
+  }
 }

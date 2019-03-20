@@ -158,6 +158,8 @@
   --ion-color-food: #3bc7c4;
   --ion-color-documentation: #b16be3;
   --ion-color-navigation: #6600cc;
+  // font-family: "DIN Next LT Pro Medium";
+  //   --ion-font-family: "DIN Next LT Pro Medium";
 }
 
 // App iOS Variables
@@ -206,14 +208,41 @@
 
 @font-face {
   font-family: All Round Gothic;
-  src: url('../assets/fonts//all-round-gothic-bold.woff2')
+  src: url('../assets/fonts/all-round-gothic-bold.woff2')
+}
+
+@font-face {
+  font-family: DIN Next LT Pro Regular;
+  src: url('../assets/fonts/DINNextLTPro-Regular.otf');
+}
+
+@font-face {
+  font-family: DIN Next LT Pro Medium;
+  src: url('../assets/fonts/DINNextLTPro-Medium.otf');
+}
+
+@font-face {
+  font-family: DIN Next LT Pro Bold;
+  src: url('../assets/fonts/DINNextLTPro-Bold.otf');
+}
+
+* {
+  font-family: 'DIN Next LT Pro Regular';
 }
 
 .light-logo {
   font-family: All Round Gothic;
-  font-size: 40px;
+  font-size: 32pt;
   color: white;
   text-align: center;
+}
+
+.subtitle{
+  font-family: DIN Next LT Pro Medium;
+  font-size: 19pt;
+  color: black;
+  margin-top: 50px;
+  margin-left: 40px;
 }
 
 .dark-logo {
@@ -237,21 +266,32 @@
 }
 
 .light-text {
+  font-size: 14pt;
   color: white;
   text-align: center;
-  padding: 10px;
 }
+
+.dark-text {
+  font-size: 14pt;
+  color: black;
+  text-align: center;
+}
+
+.light-text-small {
+  font-family: DIN Next LT Pro Medium;
+  font-size: 12pt;
+  color: white;
+  text-align: center;
+}
+
 
 .bullet{
   --bullet-background-active:#ffffff;
 }
 
 .outline-button {
-  --border-color: #00CEFF
-}
-
-.swipe-button {
-  margin-top: 35%;
+  --border-color: #00CEFF;
+  padding: 0px 20px 0px 20px;
 }
 
 .light-toolbar {

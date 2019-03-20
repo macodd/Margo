@@ -9,9 +9,10 @@
         </h2>
     </ion-title>
     <ion-buttons slot="primary">
-      <ion-button color="danger">
-          <ion-icon class="white-icon" name="notifications" size="small"></ion-icon>
-      </ion-button>
+      <ion-button slot="end">
+          <!-- <ion-icon class="white-icon" name="notifications" size="small"></ion-icon> -->
+          <img src="assets/img/icons/notification_icon.png" style="width:20%;">
+        </ion-button>
     </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -21,9 +22,9 @@
           <ion-col text-center>
               <!-- You might also use <ion-avatar> -->
               <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="avatar" alt="avatar">
-              <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="second-avatar" alt="avatar">
-              <h2>Selena Gómez</h2>
-              <p>Personal</p>
+              <!-- <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="second-avatar" alt="avatar"> -->
+              <p style="font-size: 18px; margin: 0px; color: white;">Selena Gómez</p>
+              <p style="color: white; padding: 0px;">Persona | ****1732</p>
               <ion-row>
                   <ion-col text-center>
                       <ion-chip class="chip-position">
@@ -40,8 +41,9 @@
     <ion-col text-center size="6">
         <ion-card>
           <ion-card-content  (click)="goSendMoney()">
-              <ion-icon name="refresh-circle" size="large"></ion-icon>
-              <p>Send money</p>
+              <!-- <ion-icon name="refresh-circle" size="large"></ion-icon> -->
+              <img src="assets/img/icons/transfer.png" class="center-icon">
+              <p>TRANSFERIR</p>
             </ion-card-content>
           </ion-card>
     </ion-col>
@@ -49,8 +51,9 @@
     <ion-col text-center size="6">
         <ion-card>
             <ion-card-content (click)="goMakePayment()">
-                <ion-icon name="refresh-circle" size="large"></ion-icon>
-                <p>Make a payment</p>
+                <!-- <ion-icon name="refresh-circle" size="large"></ion-icon> -->
+                <img src="assets/img/icons/payments.png" class="center-icon">
+                <p>PAGAR</p>
               </ion-card-content>
         </ion-card>
     </ion-col>
@@ -60,9 +63,11 @@
     <ion-col size="12">
       <ion-card>
         <ion-item lines="none">
-            <ion-icon name="refresh-circle" slot="start" size="large"></ion-icon>
-            <ion-label>See activity</ion-label>
-            <ion-icon src="assets/img/arrow.svg" color="primary" slot="end" size="large"></ion-icon>
+            <!-- <ion-icon name="refresh-circle" slot="start" size="large"></ion-icon> -->
+            <img src="assets/img/icons/activity.png" class="activity-icon">
+              <ion-label><p>Ver Actividad</p></ion-label>
+            <!-- <ion-icon src="assets/img/arrow.svg" color="primary" slot="end" size="large"></ion-icon> -->
+            <img src="assets/img/icons/lock-grey.png" class="lock-grey-icon">
         </ion-item>
       </ion-card>
     </ion-col>
@@ -70,30 +75,29 @@
 
   <ion-row class="third-grid-padding">
     <ion-col class="item-border">
-      <small><strong>MORE TRANSACTIONS</strong></small>
+      <p class="bold-text">MÁS TRANSACCIONES</p>
     </ion-col>
   </ion-row>
 
   <ion-row>
     <ion-col text-center>
       <br>
-      <img src="assets/img/lock.svg" width=10% alt="lock" >
+      <img src="assets/img/icons/locked_icon.png" width=12% alt="lock" >
         <ion-item lines="none">
             <ion-range min="0" max="100" value="75">
               <!-- <ion-icon slot="start" size="small" name="sunny"></ion-icon>
               <ion-icon slot="end" name="sunny"></ion-icon> -->
             </ion-range>
           </ion-item>
-          <br>
-          <p><strong>$88,76 USD</strong> until FREE function</p>
+          <p><strong>$88,76 USD</strong> hasta la versión GRATIS</p>
     </ion-col>
   </ion-row>
 
   <ion-row justifiy-content-center padding>
     <ion-col text-center (click)="goActivity()">
-      <p class="dark-text">Upgrade to Premium to unlock advanced Margo functions.</p>
-      <ion-button class="outline-button" shape="round" fill="outline" >
-          Learn more
+      <p class="dark-text">Actualiza a PRO para desbloquear funciones avanzadas de Margo</p>
+      <ion-button style="text-transform: none;" class="outline-button" shape="round" fill="solid" color="dark" expand="full" >
+          Desbloquear
       </ion-button>
     </ion-col>
   </ion-row>

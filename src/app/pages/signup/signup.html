@@ -6,13 +6,13 @@
 </ion-toolbar>
 </ion-header>
 <ion-content class="fullcontent">
-    <h1 padding no-margin>Create account</h1>
+    <h1 class="sign-up-title" padding no-margin>Crear Cuenta</h1>
     <ion-segment [(ngModel)]="typeAccount" color="secondary">
     <ion-segment-button value="personal" (ionSelect)="segmentButtonClicked('personal')" color="light">
-      Personal 
+      Persona
     </ion-segment-button>
     <ion-segment-button value="business" (ionSelect)="segmentButtonClicked('business')"  color="light">
-      Business
+      Empresa
     </ion-segment-button>
     </ion-segment>
    <!-- personal -->    
@@ -21,24 +21,24 @@
           <ion-row>
             <ion-col no-padding size="6">
                 <ion-item class="input-border">
-                    <ion-label position="stacked" color="primary">First name</ion-label>
-                    <ion-input [(ngModel)]="signup.firstname" name="firstname" type="text" #firstname="ngModel" required></ion-input>
+                    <ion-label position="stacked" color="medium"><strong>Nombre</strong></ion-label>
+                    <ion-input class="signup-input"[(ngModel)]="signup.firstname" name="firstname" type="text" #firstname="ngModel" required></ion-input>
                   </ion-item>
                   <ion-text color="danger">
                     <small padding [hidden]="firstname.valid || submitted == false" padding-left>
-                      First name is required
+                      Escribe tu nombre
                     </small>
                   </ion-text>
             </ion-col>
             
             <ion-col no-padding size="6">
                 <ion-item>
-                    <ion-label position="stacked" color="primary">Last name</ion-label>
-                    <ion-input [(ngModel)]="signup.lastname" name="lastname" type="text" #lastname="ngModel" required></ion-input>
+                    <ion-label position="stacked" color="medium"><strong>Apellido</strong></ion-label>
+                    <ion-input class="signup-input" [(ngModel)]="signup.lastname" name="lastname" type="text" #lastname="ngModel" required></ion-input>
                   </ion-item>
                   <ion-text color="danger">
                     <small padding [hidden]="lastname.valid || submitted == false" padding-left>
-                      Last name is required
+                      Escribe tu apellido
                     </small>
                   </ion-text>
             </ion-col>
@@ -47,13 +47,13 @@
         <ion-row>
           <ion-col no-padding>
           <ion-item>
-            <ion-label position="stacked" color="primary">Email address</ion-label>
-            <ion-input [(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
+            <ion-label position="stacked" color="medium"><strong>Correo electrónico</strong></ion-label>
+            <ion-input class="signup-input"[(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
             </ion-input>
           </ion-item>
           <ion-text color="danger">
             <small padding [hidden]="email.valid || submitted == false" padding-left>
-              Email address is required
+              Escribe tu correo electrónico
             </small>
           </ion-text>
         </ion-col>
@@ -62,12 +62,12 @@
           <ion-row margin-top>
               <ion-col no-padding size="12">
                   <ion-item class="input-border">
-                      <ion-label position="stacked" color="primary">Phone Number</ion-label>
-                      <ion-input [(ngModel)]="signup.phone" name="phone" type="Number" #id="ngModel" required></ion-input>
+                      <ion-label position="stacked" color="medium"><strong>Celular</strong></ion-label>
+                      <ion-input class="signup-input" [(ngModel)]="signup.phone" name="phone" type="Number" #id="ngModel" required></ion-input>
                     </ion-item>
                     <ion-text color="danger">
                       <small padding [hidden]="id.valid || submitted == false" padding-left>
-                        Phone Number
+                        Escribe tu número de celular
                       </small>
                     </ion-text>
               </ion-col>
@@ -75,12 +75,12 @@
             <ion-row margin-top>
               <ion-col no-padding size="12">
                   <ion-item class="input-border">
-                      <ion-label position="stacked" color="primary">ID</ion-label>
-                      <ion-input [(ngModel)]="signup.id" name="id" type="Number" #id="ngModel" required></ion-input>
+                      <ion-label position="stacked" color="medium"><strong>Cédula de identidad</strong></ion-label>
+                      <ion-input class="signup-input" [(ngModel)]="signup.id" name="id" type="Number" #id="ngModel" required></ion-input>
                     </ion-item>
                     <ion-text color="danger">
                       <small padding [hidden]="id.valid || submitted == false" padding-left>
-                        ID is required
+                        Escribe tu cédula de identidad
                       </small>
                     </ion-text>
               </ion-col>
@@ -89,10 +89,12 @@
 
         <ion-row>
           <ion-col padding>
-              <small>By tapping “Create Account”; you agree to the <b><a [routerLink]="['/terms']" style="text-decoration: none !important">Terms of Use, Privacy Policy</a></b>, and agree to receive content and promotional communication from Margo.</small>
+              <p style="color: rgba(119, 119, 119, 1);" id="terms-description">Al <b style="color: black;">"Crear Cuenta"</b> estás de acuerdo con los <b style="color: black;"><a [routerLink]="['/terms']" style="text-decoration: none !important">Términos de uso, Políticas de Privacidad,</a></b> y accedes a recibir contenido y comunicación promocional de Margo </p>
           </ion-col>
         </ion-row>
     </div>
+
+    
    <!-- bussines -->
    <div [hidden]="isViewBussines == false">
       <ion-row class="avatar" justify-content-center>
@@ -100,32 +102,34 @@
       </ion-row>
       <ion-list>
         <ion-row>
-          <ion-col no-padding size="6">
+          <ion-col no-padding size="12">
               <ion-item class="input-border">
-                  <ion-label position="stacked" color="primary">Business Name</ion-label>
-                  <ion-input [(ngModel)]="signup.firstname" name="firstname" type="text" #firstname="ngModel" required></ion-input>
+                  <ion-label position="stacked" color="medium"><strong>Nombre de empresa</strong></ion-label>
+                  <ion-input class="signup-input" [(ngModel)]="signup.firstname" name="firstname" type="text" #firstname="ngModel" required></ion-input>
                 </ion-item>
                 <ion-text color="danger">
                   <small padding [hidden]="firstname.valid || submitted == false" padding-left>
-                    Business Name is required
-                  </small>
-                </ion-text>
-          </ion-col>
-          
-          <ion-col no-padding size="6">
-              <ion-item>
-                  <ion-label position="stacked" color="primary">Last name</ion-label>
-                  <ion-input [(ngModel)]="signup.lastname" name="lastname" type="text" #lastname="ngModel" required></ion-input>
-                </ion-item>
-                <ion-text color="danger">
-                  <small padding [hidden]="lastname.valid || submitted == false" padding-left>
-                    Last name is required
+                    El nombre de la empresa es requerido
                   </small>
                 </ion-text>
           </ion-col>
         </ion-row>
 
-      <ion-row>
+        <ion-row>
+        <ion-col no-padding size="12">
+            <ion-item>
+                <ion-label position="stacked" color="medium"><strong>Correo electrónico</strong></ion-label>
+                <ion-input class="signup-input" [(ngModel)]="signup.lastname" name="lastname" type="text" #lastname="ngModel" required></ion-input>
+              </ion-item>
+              <ion-text color="danger">
+                <small padding [hidden]="lastname.valid || submitted == false" padding-left>
+                  Escribe tu correo electrónico
+                </small>
+              </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <!-- <ion-row>
         <ion-col no-padding>
         <ion-item>
           <ion-label position="stacked" color="primary">Email address</ion-label>
@@ -152,16 +156,17 @@
                     </small>
                   </ion-text>
             </ion-col>
-          </ion-row>
+          </ion-row> -->
+
           <ion-row margin-top>
             <ion-col no-padding size="12">
                 <ion-item class="input-border">
-                    <ion-label position="stacked" color="primary">RUC</ion-label>
-                    <ion-input [(ngModel)]="signup.id" name="id" type="Number" #id="ngModel" required></ion-input>
+                    <ion-label position="stacked" color="medium"><strong>RUC</strong></ion-label>
+                    <ion-input class="signup-input" [(ngModel)]="signup.id" name="id" type="Number" #id="ngModel" required></ion-input>
                   </ion-item>
                   <ion-text color="danger">
                     <small padding [hidden]="id.valid || submitted == false" padding-left>
-                      RUC is required
+                      RUC es requerido
                     </small>
                   </ion-text>
             </ion-col>
@@ -170,13 +175,25 @@
 
       <ion-row>
         <ion-col padding>
-            <small>By tapping “Create Account”; you agree to the <b><a [routerLink]="['/terms']" style="text-decoration: none !important">Terms of Use, Privacy Policy</a></b>, and agree to receive content and promotional communication from Margo.</small>
-        </ion-col>
+            <p style="color: rgba(119, 119, 119, 1);" id="terms-description">Al <b style="color: black;">"Crear Cuenta"</b> estás de acuerdo con los <b style="color: black;"><a [routerLink]="['/terms']" style="text-decoration: none !important">Términos de uso, Políticas de Privacidad,</a></b> y accedes a recibir contenido y comunicación promocional de Margo </p>
+          </ion-col>
       </ion-row>
   </div>
 </ion-content>
-<ion-footer>
-  <ion-toolbar color="primary">
-    <ion-button (click)="onSignup(signupForm)" type="submit" expand="full" fill="clear">Create Account</ion-button>
+
+  <ion-toolbar class="toolbar" color="lightCustom">
+    <ion-row justify-content-center responsive-sm>
+      <ion-col no-padding ion-fixed>
+          <ion-button type="submit" size="large" style="text-transform: none;" expand="full" (click)="onSignup(signupForm)">Crear Cuenta</ion-button>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row justify-content-center>
+        <ion-col text-center>
+            <p style="color: rgba(119, 119, 119, 1);" id="forgot">¡Ya tengo cuenta!<strong style="color: black;">&#32;Iniciar Sesión</strong></p>
+        </ion-col>
+      </ion-row>
+
   </ion-toolbar>
-</ion-footer>
+

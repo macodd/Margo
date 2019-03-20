@@ -40,7 +40,8 @@ export class SignupPage {
 
   onSignup(form: NgForm) {
     this.submitted = true;
-    this.router.navigateByUrl('/setpassword');
+    this.router.navigateByUrl('/auth-pin');
+    //this.router.navigateByUrl('/setpassword');
   }
 
   onAddressFocus(event) {
