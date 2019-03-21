@@ -105,4 +105,21 @@ page-account {
       color: black;
       margin: 0px;
   }
+
+  .range-style {
+    --bar-background: linear-gradient(270deg, rgba(13, 167, 255, 1) 0%, rgba(30, 241, 249, 1) 90%);
+    --bar-background-active: white;
+    --bar-height: 7px;
+  }
+
+}
+
+.ios {
+  page-account {
+    .range-style {
+      --bar-background: #f8f8f8;
+      --bar-background-active: #f80b0b;
+      --bar-height: 7px;
+    }
+  }
 }

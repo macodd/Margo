@@ -20,10 +20,25 @@ export class SetpasswordPage implements OnInit {
 
   constructor(private fingerprint: FingerprintAIO, private router: Router, private platform: Platform) { }
 
+  passwordType = 'password';
+  password2Type = 'password';
+  passwordIcon = 'eye-off';
+  password2Icon = 'eye-off';
+
   ngOnInit() {
   }
 
   onSetPassword(data) {
     this.router.navigateByUrl('/setpin-app');
+  }
+
+  hideShowPassword() {
+    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+  }
+
+  hideShowPassword2() {
+    this.password2Type = this.password2Type === 'text' ? 'password' : 'text';
+    this.password2Icon = this.password2Icon === 'eye-off' ? 'eye' : 'eye-off';
   }
 }

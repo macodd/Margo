@@ -17,7 +17,7 @@
   <!--  TODO: Fix UserOptions -->
   <form #loginForm="ngForm" novalidate>
     <ion-list>
-      <ion-item>
+      <ion-item lines="full">
         <ion-label position="stacked" color="medium"><strong>Usuario/Correo</strong></ion-label>
         <ion-input class="login-input" [(ngModel)]="login.email" name="email" type="text" #email="ngModel" spellcheck="false" autocapitalize="off"
           required>
@@ -26,11 +26,11 @@
 
       <ion-text color="danger">
         <small [hidden]="email.valid || submitted == false" padding>
-          Email is required
+          Ingresa tu usuario
         </small>
       </ion-text>
 
-      <ion-item>
+      <ion-item lines="full">
         <ion-label position="stacked" color="medium"><strong>Contraseña</strong></ion-label>
         <ion-input class="login-input" [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
         </ion-input>
@@ -38,7 +38,7 @@
 
       <ion-text color="danger">
         <small [hidden]="password.valid || submitted == false" padding>
-          Password is required
+          Ingresa tu contraseña
         </small>
       </ion-text>
     </ion-list>

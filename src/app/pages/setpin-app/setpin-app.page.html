@@ -8,11 +8,9 @@
   </ion-header>
 
 <ion-content padding>
-    <ion-row>
-        <h1 padding no-margin>Set PIN Number</h1>
-    </ion-row>
     <ion-row padding>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h1 class="set-pin-title">Configura tu PIN transaccional</h1>
+        <p class="description">Este número de 6 dígitos lo necesitarás al momento de realizar una transacción (pago o transferencia).</p>
     </ion-row>
 
     <ion-row>
@@ -36,6 +34,7 @@
             maxlength=1 
             required=true
             autofocus=true
+            text-center
             (ionChange)="jumpInput(d2)">
           </ion-input>
         </ion-item>
@@ -52,6 +51,7 @@
             inputmode="numeric" 
             maxlength=1 
             required=true
+            text-center
             (ionChange)="jumpInput(d3)">
           </ion-input>
           </ion-item>
@@ -68,6 +68,7 @@
               inputmode="numeric" 
               maxlength=1 
               required=true
+              text-center
               (ionChange)="jumpInput(d4)">
             </ion-input>
             </ion-item>
@@ -84,7 +85,7 @@
               inputmode="numeric" 
               maxlength=1 
               required=true
-              clearOnEdit=true
+              text-center
               (ionChange)="jumpInput(d4)">
             </ion-input>
             </ion-item>

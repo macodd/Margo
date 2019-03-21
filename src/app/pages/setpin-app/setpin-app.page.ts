@@ -35,6 +35,7 @@ export class SetpinAppPage implements OnInit {
       });
     }
   }
+
   onPinComplete() {
     // This the pin number
     const pin = this.setpinnumber.digit1 + this.setpinnumber.digit2 + this.setpinnumber.digit3 +

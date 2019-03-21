@@ -20,7 +20,7 @@
         <ion-list>
           <ion-row>
             <ion-col no-padding size="6">
-                <ion-item class="input-border">
+                <ion-item class="input-border" lines="full">
                     <ion-label position="stacked" color="medium"><strong>Nombre</strong></ion-label>
                     <ion-input class="signup-input"[(ngModel)]="signup.firstname" name="firstname" type="text" #firstname="ngModel" required></ion-input>
                   </ion-item>
@@ -32,7 +32,7 @@
             </ion-col>
             
             <ion-col no-padding size="6">
-                <ion-item>
+                <ion-item lines="full">
                     <ion-label position="stacked" color="medium"><strong>Apellido</strong></ion-label>
                     <ion-input class="signup-input" [(ngModel)]="signup.lastname" name="lastname" type="text" #lastname="ngModel" required></ion-input>
                   </ion-item>
@@ -46,7 +46,7 @@
 
         <ion-row>
           <ion-col no-padding>
-          <ion-item>
+          <ion-item lines="full">
             <ion-label position="stacked" color="medium"><strong>Correo electrónico</strong></ion-label>
             <ion-input class="signup-input"[(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
             </ion-input>
@@ -61,7 +61,7 @@
 
           <ion-row margin-top>
               <ion-col no-padding size="12">
-                  <ion-item class="input-border">
+                  <ion-item class="input-border" lines="full">
                       <ion-label position="stacked" color="medium"><strong>Celular</strong></ion-label>
                       <ion-input class="signup-input" [(ngModel)]="signup.phone" name="phone" type="Number" #id="ngModel" required></ion-input>
                     </ion-item>
@@ -74,7 +74,7 @@
             </ion-row>
             <ion-row margin-top>
               <ion-col no-padding size="12">
-                  <ion-item class="input-border">
+                  <ion-item class="input-border" lines="full">
                       <ion-label position="stacked" color="medium"><strong>Cédula de identidad</strong></ion-label>
                       <ion-input class="signup-input" [(ngModel)]="signup.id" name="id" type="Number" #id="ngModel" required></ion-input>
                     </ion-item>
@@ -97,13 +97,13 @@
     
    <!-- bussines -->
    <div [hidden]="isViewBussines == false">
-      <ion-row class="avatar" justify-content-center>
-        <img src="assets/img/add-avatar.svg" class="avatar-size">
+      <ion-row style="padding: 30px;">
+        <img src="assets/img/icons/add-avatar.png" class="avatar-size">
       </ion-row>
       <ion-list>
         <ion-row>
           <ion-col no-padding size="12">
-              <ion-item class="input-border">
+              <ion-item class="input-border" lines="full">
                   <ion-label position="stacked" color="medium"><strong>Nombre de empresa</strong></ion-label>
                   <ion-input class="signup-input" [(ngModel)]="signup.firstname" name="firstname" type="text" #firstname="ngModel" required></ion-input>
                 </ion-item>
@@ -117,7 +117,7 @@
 
         <ion-row>
         <ion-col no-padding size="12">
-            <ion-item>
+            <ion-item lines="full">
                 <ion-label position="stacked" color="medium"><strong>Correo electrónico</strong></ion-label>
                 <ion-input class="signup-input" [(ngModel)]="signup.lastname" name="lastname" type="text" #lastname="ngModel" required></ion-input>
               </ion-item>
@@ -160,7 +160,7 @@
 
           <ion-row margin-top>
             <ion-col no-padding size="12">
-                <ion-item class="input-border">
+                <ion-item class="input-border" lines="full">
                     <ion-label position="stacked" color="medium"><strong>RUC</strong></ion-label>
                     <ion-input class="signup-input" [(ngModel)]="signup.id" name="id" type="Number" #id="ngModel" required></ion-input>
                   </ion-item>
