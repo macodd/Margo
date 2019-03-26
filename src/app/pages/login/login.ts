@@ -26,7 +26,7 @@ export class LoginPage {
     public loadingController: LoadingController,
     public platform: Platform,
     public route: ActivatedRoute
-  ) { 
+  ) {
     this.route.queryParams.subscribe(params => {
         this.origin = params['origin'];
     });
@@ -48,17 +48,19 @@ export class LoginPage {
 
   async presentLoading() {
     const loading = await this.loadingController.create({
-      message: 'Please wait...',
+      spinner: 'crescent',
+      translucent: true,
       duration: 2000
     });
     loading.present();
     return await loading.onWillDismiss();
   }
 
-  onBack(){
-    if(this.origin === "account")
+  onBack() {
+    if (this.origin === 'account') {
       this.router.navigateByUrl('/account');
-    else 
-      this.router.navigateByUrl('/tutorial')
+    } else {
+      this.router.navigateByUrl('/tutorial');
+    }
   }
 }

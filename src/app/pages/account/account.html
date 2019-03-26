@@ -1,5 +1,5 @@
-<ion-header class="background-header-customer"  translucent="false" no-shadow>
-  <ion-toolbar class="account-toolbar" no-shadow>
+<ion-header>
+  <ion-toolbar class="background-header-customer">
     <ion-buttons slot="start">
       <ion-menu-button size="small"></ion-menu-button>
     </ion-buttons>
@@ -11,11 +11,12 @@
     <ion-buttons slot="primary">
       <ion-button slot="end">
           <!-- <ion-icon class="white-icon" name="notifications" size="small"></ion-icon> -->
-          <img src="assets/img/icons/notification_icon.png" style="width:20%;">
+          <img src="../../../assets/img/icons/notification_icon.png" alt='' style="width:20%;">
         </ion-button>
     </ion-buttons>
-    </ion-toolbar>
+  </ion-toolbar>
 </ion-header>
+
 <ion-content class="outer-content">
   <ion-grid  class="account-toolbar background-header-customer" no-border>
       <ion-row justify-content-center>
@@ -42,7 +43,7 @@
         <ion-card>
           <ion-card-content  (click)="goSendMoney()">
               <!-- <ion-icon name="refresh-circle" size="large"></ion-icon> -->
-              <img src="assets/img/icons/transfer.png" class="center-icon">
+              <img src="../../../assets/img/icons/transfer.png" class="center-icon" alt=''>
               <p>TRANSFERIR</p>
             </ion-card-content>
           </ion-card>
@@ -52,7 +53,7 @@
         <ion-card>
             <ion-card-content (click)="goMakePayment()">
                 <!-- <ion-icon name="refresh-circle" size="large"></ion-icon> -->
-                <img src="assets/img/icons/payments.png" class="center-icon">
+                <img src="../../../assets/img/icons/payments.png" class="center-icon" alt=''>
                 <p>PAGAR</p>
               </ion-card-content>
         </ion-card>
@@ -64,10 +65,10 @@
       <ion-card>
         <ion-item lines="none">
             <!-- <ion-icon name="refresh-circle" slot="start" size="large"></ion-icon> -->
-            <img src="assets/img/icons/activity.png" class="activity-icon">
+            <img src="../../../assets/img/icons/activity.png" class="activity-icon" alt=''>
               <ion-label><p>Ver Actividad</p></ion-label>
             <!-- <ion-icon src="assets/img/arrow.svg" color="primary" slot="end" size="large"></ion-icon> -->
-            <img src="assets/img/icons/lock-grey.png" class="lock-grey-icon">
+            <img src="../../../assets/img/icons/lock-grey.png" class="lock-grey-icon" alt=''>
         </ion-item>
       </ion-card>
     </ion-col>
@@ -82,7 +83,7 @@
   <ion-row>
     <ion-col text-center>
       <br>
-      <img src="assets/img/icons/locked_icon.png" width=12% alt="lock" >
+      <img src="../../../assets/img/icons/locked_icon.png" width=12% alt="lock">
         <ion-item lines="none">
             <ion-range class="range-style" min="0" max="100" value="75">
               <!-- <ion-icon slot="start" size="small" name="sunny"></ion-icon>

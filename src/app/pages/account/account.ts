@@ -24,7 +24,7 @@ export class AccountPage implements AfterViewInit {
   ) { }
 
   ngAfterViewInit() {
-    this.menu.enable(true ); 
+    this.menu.enable(true );
     this.getUsername();
     this.presentToastWithOptions();
   }

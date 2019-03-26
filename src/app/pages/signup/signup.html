@@ -8,12 +8,12 @@
 <ion-content class="fullcontent">
     <h1 class="sign-up-title" padding no-margin>Crear Cuenta</h1>
     <ion-segment [(ngModel)]="typeAccount" color="secondary">
-    <ion-segment-button value="personal" (ionSelect)="segmentButtonClicked('personal')" color="light">
-      Persona
-    </ion-segment-button>
-    <ion-segment-button value="business" (ionSelect)="segmentButtonClicked('business')"  color="light">
-      Empresa
-    </ion-segment-button>
+      <ion-segment-button value="personal" (ionSelect)="segmentButtonClicked('personal')" color="primary">
+        <ion-label>Persona</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="business" (ionSelect)="segmentButtonClicked('business')" color="primary">
+        <ion-label>Empresa</ion-label>
+      </ion-segment-button>
     </ion-segment>
    <!-- personal -->    
     <div [hidden]="isViewPersonal == false">
@@ -22,7 +22,7 @@
             <ion-col no-padding size="6">
                 <ion-item class="input-border" lines="full">
                     <ion-label position="stacked" color="medium"><strong>Nombre</strong></ion-label>
-                    <ion-input class="signup-input"[(ngModel)]="signup.firstname" name="firstname" type="text" #firstname="ngModel" required></ion-input>
+                    <ion-input class="signup-input" [(ngModel)]="signup.firstname" name="firstname" type="text" #firstname="ngModel" required></ion-input>
                   </ion-item>
                   <ion-text color="danger">
                     <small padding [hidden]="firstname.valid || submitted == false" padding-left>
@@ -48,7 +48,7 @@
           <ion-col no-padding>
           <ion-item lines="full">
             <ion-label position="stacked" color="medium"><strong>Correo electrónico</strong></ion-label>
-            <ion-input class="signup-input"[(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
+            <ion-input class="signup-input" [(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
             </ion-input>
           </ion-item>
           <ion-text color="danger">
@@ -98,7 +98,7 @@
    <!-- bussines -->
    <div [hidden]="isViewBussines == false">
       <ion-row style="padding: 30px;">
-        <img src="assets/img/icons/add-avatar.png" class="avatar-size">
+        <img src="assets/img/icons/add-avatar.png" alt ='' class="avatar-size">
       </ion-row>
       <ion-list>
         <ion-row>
