@@ -46,6 +46,7 @@ const routes: Routes = [
   { path: 'editProfile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfilePageModule' },
   { path: 'make-payment-dialog', loadChildren: './pages/make-payment-dialog/make-payment-dialog.module#MakePaymentDialogPageModule' },
   { path: 'auth-pin', loadChildren: './pages/auth-pin/auth-pin.module#AuthPinPageModule' },
+  { path: 'terms-dialog', loadChildren: './pages/terms-dialog/terms-dialog.module#TermsDialogPageModule' },
 
 ];
 

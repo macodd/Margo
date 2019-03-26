@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 
 import { SendMoneyDialogPage } from './pages/send-money-dialog/send-money-dialog.page';
 import { MakePaymentDialogPage } from './pages/make-payment-dialog/make-payment-dialog.page';
+import { TermsDialogPage } from './pages/terms-dialog/terms-dialog.page';
 
 @NgModule({
   imports: [
@@ -26,9 +27,9 @@ import { MakePaymentDialogPage } from './pages/make-payment-dialog/make-payment-
       enabled: environment.production
     })
   ],
-  declarations: [AppComponent,SendMoneyDialogPage,MakePaymentDialogPage],
+  declarations: [AppComponent, SendMoneyDialogPage, MakePaymentDialogPage, TermsDialogPage],
   providers: [InAppBrowser, SplashScreen, StatusBar],
   bootstrap: [AppComponent],
-  entryComponents: [SendMoneyDialogPage]
+  entryComponents: [SendMoneyDialogPage, TermsDialogPage]
 })
 export class AppModule {}

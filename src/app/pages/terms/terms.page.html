@@ -27,12 +27,18 @@
 
     <ion-row align-items-center padding>
       <ion-col>
-        <!-- <ion-button style="text-transform: none;" fill="clear">Cancelar</ion-button> -->
-        <a href="/" style="text-decoration: none !important;">Cancelar</a>
+        <ion-button (click)="openModal()" style="text-transform: none;" fill="clear">Cancelar</ion-button>
+        <!-- <a href="/" style="text-decoration: none !important;">Cancelar</a> -->
       </ion-col>
       <ion-col>
           <ion-button style="text-transform: none;" color="primary" shape="round">De acuerdo</ion-button>
         </ion-col>
     </ion-row>
-
 </ion-content>
+
+  <!-- fab placed to the (vertical) center and end -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button (click)="onBottomClick()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>

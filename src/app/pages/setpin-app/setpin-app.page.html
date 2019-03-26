@@ -29,9 +29,10 @@
             name="d1"
             [(ngModel)]="setpinnumber.digit1"
             class="digit-input" 
-            type="text" 
+            type="number"
             inputmode="numeric" 
-            maxlength=1 
+            maxlength=1
+            pattern="[0-9]*"
             required=true
             autofocus=true
             text-center
@@ -47,9 +48,10 @@
             name="d2"
             [(ngModel)]="setpinnumber.digit2"
             class="digit-input" 
-            type="text" 
+            type="number"
             inputmode="numeric" 
             maxlength=1 
+            pattern="[0-9]*"
             required=true
             text-center
             (ionChange)="jumpInput(d3)">
@@ -64,9 +66,10 @@
               name="d3"
               [(ngModel)]="setpinnumber.digit3"
               class="digit-input" 
-              type="text" 
+              type="number"
               inputmode="numeric" 
-              maxlength=1 
+              maxlength=1
+              pattern="[0-9]*"
               required=true
               text-center
               (ionChange)="jumpInput(d4)">
@@ -81,9 +84,10 @@
               name="d4"
               [(ngModel)]="setpinnumber.digit4"
               class="digit-input" 
-              type="text" 
+              type="number"
               inputmode="numeric" 
-              maxlength=1 
+              maxlength=1
+              pattern="[0-9]*"
               required=true
               text-center
               (ionChange)="jumpInput(d4)">
