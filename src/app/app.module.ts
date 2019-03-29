@@ -31,6 +31,6 @@ import { TermsDialogPage } from './pages/terms-dialog/terms-dialog.page';
   declarations: [AppComponent, SendMoneyDialogPage, MakePaymentDialogPage, TermsDialogPage],
   providers: [InAppBrowser, SplashScreen, StatusBar],
   bootstrap: [AppComponent],
-  entryComponents: [SendMoneyDialogPage, TermsDialogPage]
+  entryComponents: [SendMoneyDialogPage, TermsDialogPage,MakePaymentDialogPage]
 })
 export class AppModule {}
