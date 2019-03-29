@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { TermsPage } from './terms.page';
+import { AutohideDirective } from 'src/app/directives/autohide.directive';
 
 const routes: Routes = [
   {
@@ -21,6 +22,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [TermsPage]
+  declarations: [TermsPage, AutohideDirective]
 })
 export class TermsPageModule {}

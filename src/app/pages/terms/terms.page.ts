@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
-import { ModalController, Content, Fab, FabButton } from '@ionic/angular';
+import { ModalController, IonContent, IonFab, IonFabButton } from '@ionic/angular';
 import { TermsDialogPage } from '../terms-dialog/terms-dialog.page';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'terms',
@@ -10,9 +11,10 @@ import { TermsDialogPage } from '../terms-dialog/terms-dialog.page';
 })
 export class TermsPage {
 
-  @ViewChild(Content) content: Content;
-  @ViewChild(FabButton) fabButton: FabButton;
-  constructor(public modalCtrl: ModalController) { }
+  @ViewChild(IonContent) content: IonContent;
+  @ViewChild(IonFabButton) fabButton: IonFabButton;
+  constructor(public modalCtrl: ModalController,
+            public router: Router) { }
 
   async openModal() {
     const modal = await this.modalCtrl.create({
@@ -27,4 +29,7 @@ export class TermsPage {
     this.fabButton.show = false;
   }
 
+  toAccept(){
+    this.router.navigateByUrl('account');    
+  }
 }

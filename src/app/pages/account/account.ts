@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { AlertController, ToastController , MenuController} from '@ionic/angular';
 
-import { UserData } from '../../providers/user-data';
+import { UserData } from '../../services/user-data';
 
 
 @Component({
@@ -14,6 +14,7 @@ import { UserData } from '../../providers/user-data';
 })
 export class AccountPage implements AfterViewInit {
   username: string;
+  coverImage: '#ffffff';
 
   constructor(
     public alertCtrl: AlertController,
@@ -24,7 +25,7 @@ export class AccountPage implements AfterViewInit {
   ) { }
 
   ngAfterViewInit() {
-    this.menu.enable(true ); 
+    this.menu.enable(true );
     this.getUsername();
     this.presentToastWithOptions();
   }
@@ -93,5 +94,9 @@ export class AccountPage implements AfterViewInit {
   }
   goMakePayment() {
     this.router.navigateByUrl('/make-payment');
+  }
+
+  clickUnlock() {
+    this.router.navigateByUrl('/activity');
   }
 }

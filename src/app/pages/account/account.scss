@@ -18,13 +18,10 @@ page-account {
     color: white;
   }
 
-  .account-toolbar {
-    //z-index: -1;
-  }
 
   .account-title {
     font-family: All Round Gothic;
-    font-size: 20px;
+    font-size: 24px;
     color: white;
     text-align: center;
   }
@@ -106,20 +103,41 @@ page-account {
       margin: 0px;
   }
 
-  .range-style {
-    --bar-background: linear-gradient(270deg, rgba(13, 167, 255, 1) 0%, rgba(30, 241, 249, 1) 90%);
-    --bar-background-active: white;
-    --bar-height: 7px;
+  .bar-style {
+    // --bar-background: linear-gradient(270deg, rgba(13, 167, 255, 1) 0%, rgba(30, 241, 249, 1) 90%);
+    // --bar-background-active: white;
+    // --bar-height: 7px;
+    --background: linear-gradient(270deg, rgba(13, 167, 255, 1) 0%, rgba(30, 241, 249, 1) 90%);
+    --progress-background: grey;
   }
+
+  .card-color {
+    --background: white;
+  }
+
+
 
 }
 
 .ios {
   page-account {
-    .range-style {
-      --bar-background: #f8f8f8;
-      --bar-background-active: #f80b0b;
-      --bar-height: 7px;
+    .bar-style {
+      --background: linear-gradient(270deg, rgba(13, 167, 255, 1) 0%, rgba(30, 241, 249, 1) 90%);
+      --progress-background: grey;
     }
+
+    .card-color {
+      --background: white;
+    }
+
+    .account-toolbar {
+      --background: transparent;
+      --ion-color-base: transparent !important;
+    }
+
+    .account-color {
+       --background: linear-gradient(0deg, rgba(13, 167, 255, 1) 0%, rgba(30, 241, 249, 1) 90%);
+    }
+
   }
 }

@@ -1,6 +1,6 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController, Slides } from '@ionic/angular';
+import { MenuController, IonSlides } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage';
 import { text } from '@angular/core/src/render3';
@@ -20,7 +20,7 @@ export class TutorialPage {
     'dark-text': false
   };
 
-  @ViewChild('slides') slides: Slides;
+  @ViewChild('slides') slides: IonSlides;
 
   constructor(
     public menu: MenuController,

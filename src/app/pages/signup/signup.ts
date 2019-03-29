@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router,ActivatedRoute } from '@angular/router';
 
-import { UserData } from '../../providers/user-data';
+import { UserData } from '../../services/user-data';
 
 // Interface
 import { UserOptions } from '../../interfaces/user-options';
@@ -26,7 +26,7 @@ export class SignupPage {
   typeAccount = 'personal';
   isViewPersonal = true;
   isViewBussines = false;
-  origin = "";
+  origin = '';
 
   constructor(
     public router: Router,
@@ -34,7 +34,7 @@ export class SignupPage {
     public route: ActivatedRoute
   ) {
     this.route.queryParams.subscribe(params => {
-        this.origin = params["origin"];
+        this.origin = params['origin'];
     });
   }
 

@@ -5,7 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Events, MenuController, Platform } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 
-import { UserData } from './providers/user-data';
+import { UserData } from './services/user-data';
 
 @Component({
   selector: 'app-root',

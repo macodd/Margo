@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.margowallet" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ionicframework.conferenceapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Wallet</name>
     <description>App developed for a digital wallet</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">gabrieltorreswm@gmail.com</author>
-    <content original-src="index.html" src="http://192.168.100.10:8102" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -76,19 +76,20 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
-    <plugin name="cordova-plugin-device" spec="^2.0.2" />
-    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
-    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
-    <plugin name="cordova-plugin-ionic-webview" spec="2.0.0-beta.1" />
-    <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
-    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.2" />
-    <plugin name="cordova-plugin-pin-dialog" spec="0.1.3" />
-    <plugin name="cordova-plugin-fingerprint-aio" spec="~1.5.0" />
-    <allow-navigation href="http://192.168.100.10:8100" sessionid="b1632ed0" />
-    <plugin name="cordova-plugin-googlemaps" spec="git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git#multiple_maps" />
-    <allow-navigation href="http://192.168.100.10:8102" sessionid="fcaa36fe" />
-    <engine name="browser" spec="5.0.4" />
+    <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
+    <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
+    <plugin name="cordova-plugin-device" spec="2.0.2" />
+    <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^3.0.0" />
+    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-fingerprint-aio" spec="1.6.0" />
+    <plugin name="cordova-plugin-geolocation" spec="4.0.1" />
+    <plugin name="cordova-plugin-googlemaps" spec="2.5.3">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAf0_0BMfDigIyI26FZHF3KmRRTaYd-PqI" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyAf0_0BMfDigIyI26FZHF3KmRRTaYd-PqI" />
+    </plugin>
+    <plugin name="cordova-plugin-inappbrowser" spec="3.0.0" />
+    <allow-navigation href="http://192.168.100.10:8101" sessionid="b42001c1" />
     <engine name="android" spec="7.1.4" />
-    <engine name="ios" spec="^5.0.0" />
+    <engine name="ios" spec="4.5.5" />
 </widget>

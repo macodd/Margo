@@ -5,15 +5,7 @@ export class AppPage {
     return browser.get('/');
   }
 
-  getMenu() {
-    return element(by.css('app-root ion-menu'));
-  }
-
-  getFirstSlide() {
-    return element(by.css('app-root ion-slides ion-slide:first-child')).getTagName();
-  }
-
-  getRouter() {
-    return element(by.css('app-root ion-router-outlet'));
+  getParagraphText() {
+    return element(by.deepCss('app-root ion-content')).getText();
   }
 }

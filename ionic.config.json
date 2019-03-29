@@ -1,7 +1,7 @@
 {
-  "name": "Wallet",
-  "type": "angular",
+  "name": "margo-wallet-ionic4",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "angular"
 }

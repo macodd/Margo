@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserData } from '../../providers/user-data';
+import { UserData } from '../../services/user-data';
 
 // Interface
 import { UserOptions } from '../../interfaces/user-options';

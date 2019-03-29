@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ActivityPage } from './activity.page';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ActivityPage]
+  declarations: [ActivityPage],
+  providers: [FingerprintAIO]
 })
 export class ActivityPageModule {}

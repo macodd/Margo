@@ -1,4 +1,4 @@
-page-account {
+
     img {
       max-width: 140px;
       border-radius: 50%;
@@ -32,14 +32,14 @@ page-account {
   
     .first-grid-padding {
       padding-top: 30px;
-      padding-left: 15px;
-      padding-right: 15px;
+      padding-left: 5px;
+      padding-right: 5px;
     }
   
     .second-grid-padding {
       padding-top: -15px;
-      padding-right: 15px;
-      padding-left: 15px;
+      padding-right: 5px;
+      padding-left: 5px;
     }
   
     .third-grid-padding {
@@ -68,8 +68,43 @@ page-account {
       width: 20%;
       z-index: -1;
     }
+
+    .activity-title {
+      font-family: All Round Gothic;
+      font-size: 24px;
+      color: black;
+      text-align: center;
+      display:inline
+    }
+
+    .pro-title {
+      font-family: All Round Gothic;
+      font-size: 24px;
+      color: #0DA7FF;
+      text-align: center;
+      display:inline
+    }
+
+    .activity-toolbar {
+      --background: white;
+      text-align: center;
+    }
+
+    .activity-description {
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 14px;
+    }
+    
+    .restaurar-button {
+      color: #04A4F9;
+      display: inline;
+    }
   
-  }
   .img-custom {
     margin-bottom: 80px
+  }
+
+  .price-field {
+    font-size: 14px;
+    display: inline;
   }

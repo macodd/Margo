@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router , ActivatedRoute} from '@angular/router';
 
-import { UserData } from '../../providers/user-data';
+import { UserData } from '../../services/user-data';
 
 import { LoginOptions } from '../../interfaces/login-options';
 import { LoadingController, Platform } from '@ionic/angular';
