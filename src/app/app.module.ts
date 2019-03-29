@@ -16,6 +16,7 @@ import { SendMoneyDialogPage } from './pages/send-money-dialog/send-money-dialog
 import { MakePaymentDialogPage } from './pages/make-payment-dialog/make-payment-dialog.page';
 import { TermsDialogPage } from './pages/terms-dialog/terms-dialog.page';
 
+
 @NgModule({
   imports: [
     BrowserModule,

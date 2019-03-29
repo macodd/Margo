@@ -16,4 +16,8 @@ import { PinComponent } from './pin/pin.component';
     ],
     entryComponents: [],
   })
+<<<<<<< HEAD
   export class ComponentsModule {}
+=======
+  export class ComponentsModule {}
+>>>>>>> b33ec6ad6011a4002a7e9b007e1e115ca870240c

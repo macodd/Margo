@@ -2,8 +2,7 @@
   <ion-toolbar color="white">
     <ion-buttons slot="end">
       <!-- TODO: Hide Skip button from the 2nd slide if necessary. Hide in last slide-->
-      <!-- <ion-button class="light-text" (click)="startApp()">Saltar</ion-button> -->
-      <ion-button style="text-transform: none;" (click)="startApp()" [ngClass]="skipClasses" >Saltar</ion-button>
+      <ion-button class="light-text" (click)="startApp()" >Skip</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +13,7 @@
     <!-- Slide 1 -->
     <ion-slide>
       <ion-grid>
-        <ion-row justify-content style="padding-top: 199px;">
+        <ion-row style="margin-top: 50%"justify-content-center>
           <ion-col align-self-end>
             <h2 class="slide-title light-logo">
               margo
@@ -24,54 +23,49 @@
             </p>
           </ion-col>
         </ion-row>
-        <ion-row justify-content-center style="padding-top: 175px;">
-            <p class="light-text-small">Desliza para empezar</p>
+        <ion-row class="swipe-button" justify-content-center>
+            <p class="light-text">SWIPE TO BEGIN</p>
         </ion-row>
       </ion-grid>
     </ion-slide>
 
     <!-- Slide 2 -->
-    <ion-slide style="height:100%" style="background-image: url(../../../assets/img/slide01.jpg); background-position: right ;background-size: contain; background-repeat: no-repeat;">
+    <ion-slide>
       <ion-grid>
-        <ion-row text-left>
-          <ion-col size="9">
+        <ion-row>
+          <ion-col size="10">
               <h2 class="slide-title dark-logo">
                   margo
                 </h2>
-                <h1 class="subtitle">Billetera inteligente</h1>
-              <p class="description">Ionic is an open source SDK that enables developers to build cool mobile apps</p>
+              <p text-left>Ionic Frameworks an open source SDK that enables developers to build high quality mobile apps</p>
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-slide>
 
     <!-- Slide 3 -->
-    <ion-slide style="height:100%" style="background-image: url(../../../assets/img/slide02.jpg); background-position: center; background-size: cover;"> 
+    <ion-slide>
         <ion-grid>
-            <ion-row text-left>
+            <ion-row>
               <ion-col size="10">
                   <h2 class="slide-title dark-logo">
                       margo
                     </h2>
-                    <h1 class="subtitle">Paga donde tú quieras</h1>
-                  <p class="description">Ionic Frameworks an open source SDK that enables developers to build high quality mobile apps</p>
+                  <p text-left>Ionic Frameworks an open source SDK that enables developers to build high quality mobile apps</p>
               </ion-col>
             </ion-row>
           </ion-grid>
     </ion-slide>
 
     <!-- Slide 4 -->
-    <ion-slide style="height:100%" style="background-image: url(../../../assets/img/slide03.jpg); background-position: center; background-size: cover;">
+    <ion-slide>
         <ion-grid>
-            <ion-row text-left>
-              <ion-col size="11">
+            <ion-row>
+              <ion-col size="10">
                   <h2 class="slide-title dark-logo">
                       margo
                     </h2>
-                    <h1 class="subtitle">Disfruta la versión PRO</h1>
-              </ion-col>
-              <ion-col size="9">
-                <p class="description">Ionic Frameworks an open source SDK that enables developers to build high quality mobile apps</p>
+                  <p text-left>Ionic Frameworks an open source SDK that enables developers to build high quality mobile apps</p>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -82,24 +76,24 @@
       <ion-grid>
         <ion-row style="padding-top: 40%">
           <ion-col>
-            <p class="slide-title last-slide">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            <p class="slide-title"><b>Before we begin, lorem ipsum dolor sit amet Churchill</b></p>
           </ion-col>
         </ion-row>
 
         <ion-row>
-        <ion-col>
-            <ion-button expand="block" style="text-transform: none; padding: 0px 20px 0px 20px;" size="default" shape="round" color="primary" (click)="goSignup()">
-              Crear Cuenta
-          </ion-button>
+          <ion-col>
+            <ion-button expand="block" shape="round" color="primary" (click)="goSignup()">
+              Get Started
+            </ion-button>
           </ion-col>
         </ion-row>
 
         <ion-row>
-            <ion-col>
-              <ion-button style="text-transform: none;"  size="default" expand="block" class="outline-button" shape="round" fill="outline" (click)="goLogin()">
-                ¡Ya tengo cuenta!<strong>&nbsp;Iniciar sesión</strong>
-              </ion-button>
-              </ion-col>
+          <ion-col>
+            <ion-button expand="block" shape="round" fill="outline" (click)="goLogin()">
+              Already a member? Sign in
+            </ion-button>
+          </ion-col>
         </ion-row>
 
       </ion-grid>

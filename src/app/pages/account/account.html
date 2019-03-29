@@ -1,4 +1,5 @@
 <ion-header>
+<<<<<<< HEAD
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button size="default"></ion-menu-button>
@@ -34,6 +35,44 @@
             </ion-row>
         </ion-col>
     </ion-row>
+=======
+  <ion-toolbar class="background-header-customer">
+    <ion-buttons slot="start">
+      <ion-menu-button size="small"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>            
+        <h2 class="slide-title account-title">
+          margo
+        </h2>
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button slot="end">
+          <!-- <ion-icon class="white-icon" name="notifications" size="small"></ion-icon> -->
+          <img src="../../../assets/img/icons/notification_icon.png" alt='' style="width:20%;">
+        </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <ion-grid  class="account-toolbar background-header-customer" no-border>
+      <ion-row justify-content-center>
+          <ion-col text-center>
+              <!-- You might also use <ion-avatar> -->
+              <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="avatar" alt="avatar">
+              <!-- <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="second-avatar" alt="avatar"> -->
+              <p style="font-size: 18px; margin: 0px; color: white;">Selena Gómez</p>
+              <p style="color: white; padding: 0px;">Persona | ****1732</p>
+              <ion-row>
+                  <ion-col text-center>
+                      <ion-chip class="chip-position">
+                          <h3>$43,500.00</h3>
+                      </ion-chip>
+                  </ion-col>
+              </ion-row>
+          </ion-col>
+        </ion-row>
+>>>>>>> b33ec6ad6011a4002a7e9b007e1e115ca870240c
   </ion-grid>
 </ion-toolbar>
 </ion-header>
@@ -45,7 +84,7 @@
         <ion-card class="card-color">
           <ion-card-content  (click)="goSendMoney()">
               <!-- <ion-icon name="refresh-circle" size="large"></ion-icon> -->
-              <img src="assets/img/icons/transfer.png" class="center-icon">
+              <img src="../../../assets/img/icons/transfer.png" class="center-icon" alt=''>
               <p>TRANSFERIR</p>
             </ion-card-content>
           </ion-card>
@@ -55,7 +94,7 @@
         <ion-card class="card-color">
             <ion-card-content (click)="goMakePayment()">
                 <!-- <ion-icon name="refresh-circle" size="large"></ion-icon> -->
-                <img src="assets/img/icons/payments.png" class="center-icon">
+                <img src="../../../assets/img/icons/payments.png" class="center-icon" alt=''>
                 <p>PAGAR</p>
               </ion-card-content>
         </ion-card>
@@ -67,10 +106,10 @@
       <ion-card class="card-color">
         <ion-item lines="none">
             <!-- <ion-icon name="refresh-circle" slot="start" size="large"></ion-icon> -->
-            <img src="assets/img/icons/activity.png" class="activity-icon">
+            <img src="../../../assets/img/icons/activity.png" class="activity-icon" alt=''>
               <ion-label><p>Ver Actividad</p></ion-label>
             <!-- <ion-icon src="assets/img/arrow.svg" color="primary" slot="end" size="large"></ion-icon> -->
-            <img src="assets/img/icons/lock-grey.png" class="lock-grey-icon">
+            <img src="../../../assets/img/icons/lock-grey.png" class="lock-grey-icon" alt=''>
         </ion-item>
       </ion-card>
     </ion-col>
@@ -85,7 +124,18 @@
   <ion-row>
     <ion-col text-center>
       <br>
+<<<<<<< HEAD
       <img src="assets/img/icons/locked_icon.png" width=12% alt="lock" >
+=======
+      <img src="../../../assets/img/icons/locked_icon.png" width=12% alt="lock">
+        <ion-item lines="none">
+            <ion-range class="range-style" min="0" max="100" value="75">
+              <!-- <ion-icon slot="start" size="small" name="sunny"></ion-icon>
+              <ion-icon slot="end" name="sunny"></ion-icon> -->
+            </ion-range>
+          </ion-item>
+          <p><strong>$88,76 USD</strong> hasta la versión GRATIS</p>
+>>>>>>> b33ec6ad6011a4002a7e9b007e1e115ca870240c
     </ion-col>
   </ion-row>
   <ion-row padding>

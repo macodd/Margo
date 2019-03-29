@@ -1,12 +1,11 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { UserData } from '../../services/user-data';
 
 // Interface
 import { UserOptions } from '../../interfaces/user-options';
-
 
 
 @Component({
@@ -16,7 +15,8 @@ import { UserOptions } from '../../interfaces/user-options';
   encapsulation: ViewEncapsulation.None
 })
 export class SignupPage {
-  signup: UserOptions = { firstname: '',
+  signup: UserOptions = {
+    firstname: '',
     lastname: '',
     phone: '',
     email: '',
@@ -41,7 +41,7 @@ export class SignupPage {
   onSignup(form: NgForm) {
     this.submitted = true;
     this.router.navigateByUrl('/auth-pin');
-    //this.router.navigateByUrl('/setpassword');
+    // this.router.navigateByUrl('/setpassword');
   }
 
   onAddressFocus(event) {
@@ -57,10 +57,11 @@ export class SignupPage {
       this.isViewPersonal = false;
     }
   }
-  onBack(){
-    if(this.origin === "account")
+  onBack() {
+    if (this.origin === 'account') {
       this.router.navigateByUrl('/account');
-    else 
-      this.router.navigateByUrl('/tutorial')
+    } else {
+      this.router.navigateByUrl('/tutorial');
+    }
   }
 }
