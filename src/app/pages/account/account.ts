@@ -99,4 +99,9 @@ export class AccountPage implements AfterViewInit {
   clickUnlock() {
     this.router.navigateByUrl('/activity');
   }
+
+  clickNotifications() {
+    this.router.navigateByUrl('/notifications');
+  }
+
 }

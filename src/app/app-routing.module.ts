@@ -47,7 +47,7 @@ const routes: Routes = [
   { path: 'make-payment-dialog', loadChildren: './pages/make-payment-dialog/make-payment-dialog.module#MakePaymentDialogPageModule' },
   { path: 'auth-pin', loadChildren: './pages/auth-pin/auth-pin.module#AuthPinPageModule' },
   { path: 'terms-dialog', loadChildren: './pages/terms-dialog/terms-dialog.module#TermsDialogPageModule' },
-  { path: 'auth-pin', loadChildren: './pages/auth-pin/auth-pin.module#AuthPinPageModule' },
+  { path: 'notifications', loadChildren: './pages/notifications/notifications.module#NotificationsPageModule' },
 
 ];
 

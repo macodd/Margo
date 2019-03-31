@@ -42,6 +42,7 @@ export class TutorialPage {
 
   onSlideChangeStart(event) {
     event.target.isEnd().then(isEnd => {
+      console.log(isEnd);
       this.showSkip = !isEnd;
     });
   }
@@ -83,7 +84,15 @@ export class TutorialPage {
             'dark-text': false
           };
         }
+        this.hideButtonSkipe(position);
       });
     });
+  }
+
+  hideButtonSkipe(position: number){
+    if(position === 4)
+      this.showSkip = false;
+    else
+      this.showSkip = true;
   }
 }

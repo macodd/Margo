@@ -2,8 +2,7 @@
   <ion-toolbar color="white">
     <ion-buttons slot="end">
       <!-- TODO: Hide Skip button from the 2nd slide if necessary. Hide in last slide-->
-      <!-- <ion-button class="light-text" (click)="startApp()">Saltar</ion-button> -->
-      <ion-button style="text-transform: none;" (click)="startApp()" [ngClass]="skipClasses" >Saltar</ion-button>
+      <ion-button *ngIf="showSkip" style="text-transform: none;" (click)="startApp()" [ngClass]="skipClasses" >Saltar</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
