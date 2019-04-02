@@ -43,8 +43,9 @@ export class SetpinAppPage implements OnInit {
   }
   async presentLoading() {
     const loading = await this.loadingController.create({
-      message: 'Please wait...',
-      duration: 2000
+      spinner: 'crescent',
+      duration: 1000,
+      cssClass: 'my-loading-class'
     });
     loading.present();
     return await loading.onWillDismiss();

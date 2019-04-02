@@ -337,3 +337,22 @@
     font-size: 18px;
     margin-top: 50px;
 }
+
+.my-loading-class {
+  .loading-wrapper {
+    background: transparent;
+    box-shadow: none;
+    color: #1da1f4;;
+
+    .sc-ion-loading-md{
+      color: #1da1f4;;
+      // transform: scale(2);
+    }
+    .sc-ion-loading-ios{
+      color: #1da1f4;;
+      // transform: scale(2);
+    }
+
+  }
+}
+

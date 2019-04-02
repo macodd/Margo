@@ -49,8 +49,8 @@ export class LoginPage {
   async presentLoading() {
     const loading = await this.loadingController.create({
       spinner: 'crescent',
-      translucent: true,
-      duration: 2000
+      duration: 2000,
+      cssClass: 'my-loading-class'
     });
     loading.present();
     return await loading.onWillDismiss();
