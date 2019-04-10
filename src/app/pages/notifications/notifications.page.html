@@ -19,7 +19,7 @@
 <ion-list lines="none" style="margin-bottom: 0px;" *ngFor="let notification of notifications">
   <ion-item>
       <ion-card>
-
+        <ion-card-content style="padding: 0px;" appCardColor (click)="openNotification()">
           <ion-grid>
             <ion-row >
               <ion-col size-xs="6">
@@ -38,7 +38,7 @@
               </ion-col>
             </ion-row>
           </ion-grid>
-
+        </ion-card-content>
       </ion-card>
   </ion-item>
 </ion-list>

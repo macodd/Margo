@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" text="" defaultHref="/transfer"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <!-- Search input -->
+  <ion-toolbar>
+    <ion-input class="search-input" type="text" placeholder="Buscar" padding clearInput></ion-input>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-row>
+      <ion-col padding>
+        <p style="opacity: 0.5;">Usuarios Margo</p>
+      </ion-col>
+    </ion-row>
+
+  <ion-grid>
+    <ion-item (click)=addUser()>
+      <ion-row>
+        <ion-col size="2">
+            <img src="assets/img/circle.png" style="width: 100%; flex: left;">
+        </ion-col>
+
+        <ion-col size="8">
+            <p style="margin: 0;">Mark Codd Christopherson</p>
+            <p style="opacity: 0.5; font-size: 14px; margin: 0; vertical-align: middle;"><ion-icon name="radio-button-on" size="default"></ion-icon>marky2186</p>
+            <p style="opacity: 0.5; font-size: 14px; margin: 0; vertical-align: middle;"><ion-icon name="pin"></ion-icon>United States</p>
+        </ion-col>
+      </ion-row>
+
+    </ion-item>
+  </ion-grid>
+</ion-content>

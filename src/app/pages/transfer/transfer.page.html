@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar style="--background: white !important;" text-center>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="/account"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        <p style="color: black; font-size: 13px; padding-right: 65px;">TRANSFERIR</p>
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar style="--background: white !important;">
+    <p style="text-align: center; color: black; font-size: 13px;">DISPONIBLE <strong>$17,000 USD</strong></p>
+      <ion-grid>
+
+        <!-- TODO:This should be a component -->
+        <app-user-detail *ngIf="currentUser"></app-user-detail>
+
+        <ion-row padding *ngIf="!currentUser">
+              <ion-col text-center>
+              <!-- You might also use <ion-avatar> -->
+              <img src="assets/img/icons/user_icon.png" class="avatar" alt="avatar">
+              <!-- <img src="https://www.gravatar.com/avatar?d=mm&s=140" class="second-avatar" alt="avatar"> -->
+              <strong style="font-size: 18px; margin: 0px; color: black;">¿A qué cuenta deseas transferir?</strong>
+              <p style="color: black; padding: 0px;">Puedes buscar y/o añadir a tu billetera</p>
+          </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-xs="3" no-padding>
+          <ion-card style="--background: #cccccc; padding: 10px; float: left">
+            <ion-card-content no-padding (click)=goSearch()>
+              <img src="assets/img/icons/search.png" class="icon">
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size-xs="3" no-padding>
+          <ion-card style="padding: 10px; float: left">
+            <ion-card-content no-padding>
+              <img src="assets/img/icons/plus.png" class="icon">
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="transfer-content">
+  <ion-grid>
+    <ion-row class="continue-row">
+      <ion-col text-center>
+        <p class="continue" style="opacity: 0.5;" *ngIf="!currentUser">CONTINUAR</p>
+        <ion-icon 
+        *ngIf="!currentUser"
+        name="arrow-dropright-circle" 
+        size = "large"
+        style="color: white; opacity: 0.5; display: inline-block !important; white-space: nowrap !important;" >
+        </ion-icon>
+
+        <ion-icon 
+        *ngIf="currentUser"
+        name="arrow-dropright-circle" 
+        size = "large"
+        style="color: white; opacity: 1;"
+        (click)="transferMoney()"
+        >
+      </ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

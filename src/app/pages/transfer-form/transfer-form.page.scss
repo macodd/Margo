@@ -1,0 +1,23 @@
+.large-placeholder {
+    font-family: DIN Next LT Pro Medium !important;
+    font-size: 46px !important;
+    color: black !important;
+    text-align: left;
+}
+
+.medium-placeholder {
+    font-family: DIN Next LT Pro Medium !important;
+    font-size: 19px !important;
+    color: black !important;
+    text-align: left;
+}
+
+.disabled {
+    --background: black;
+    opacity: 0.15;
+}
+
+.enabled {
+    --background: #038B68;
+    opacity: 1;
+}

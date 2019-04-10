@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+
+import { NotificationDialogPage } from '../notification-dialog/notification-dialog.page';
 
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.page.html',
-  styleUrls: ['./notifications.page.scss'],
+  styleUrls: ['./notifications.page.scss']
 })
-export class NotificationsPage implements OnInit {
+export class NotificationsPage {
 
   notifications: Array<Object> = [{type: String, amount: String, description: String}];
 
-  constructor() {
+  constructor(private router: Router, public modalCtrl: ModalController) {
     this.notifications = [
       {
         type: 'Cash In',
@@ -34,8 +38,14 @@ export class NotificationsPage implements OnInit {
     ];
   }
 
-  ngOnInit() {
-  }
+
+  async openNotification() {
+    const modal = await this.modalCtrl.create({
+      component: NotificationDialogPage
+      // componentProps: { excludedTracks: this.excludeTracks }
+    });
+    await modal.present();
+    }
 
 
 

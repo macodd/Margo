@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { NotificationsPage } from './notifications.page';
+import { CardColorDirective } from 'src/app/directives/card-color.directive';
+import { NotificationDialogPage } from '../notification-dialog/notification-dialog.page';
 
 const routes: Routes = [
   {
@@ -21,6 +23,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [NotificationsPage]
+  declarations: [NotificationsPage, CardColorDirective]
 })
 export class NotificationsPageModule {}

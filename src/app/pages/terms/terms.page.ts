@@ -30,6 +30,6 @@ export class TermsPage {
   }
 
   toAccept(){
-    this.router.navigateByUrl('account');    
+    this.router.navigateByUrl('account');
   }
 }

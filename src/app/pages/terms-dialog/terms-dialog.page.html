@@ -1,21 +1,26 @@
-<ion-header>
+<ion-content>
+   <ion-grid style="height: 100%; --ion-grid-padding: 0px;">
 
-</ion-header>
+     <ion-row class="row" justify-content-center align-items-center>
+       <ion-col class="col" align-self-center size="12" text-center>
+        <br>
+         <!-- Modal Icon-->
+          <ion-icon name="refresh-circle" size="large" ></ion-icon>
+          <!-- Modal Description-->
+          <p style="font-size: 19px; margin: 35px;"><strong>¿NO está de acuerdo</strong>&nbsp;con los términos y condiciones?</p>
+       </ion-col>
+     </ion-row>
+<ion-row>
+  <ion-col>
+     <!-- Modal Button -->
+      <ion-button (click)="goSuccessful()" style="text-transform: none !important;--background: white !important; color: black !important;" 
+        expand="full" size="large">
+        <!-- Modal Button Text -->
+        ¡Así es! NO estoy de acuerdo
+      </ion-button>
+  </ion-col>
+</ion-row>
 
-<ion-content >
- <ion-grid style="height: 100%">
-   <ion-row justify-content-center align-items-center style="height: 100%" >
-     <ion-col  align-self-center no-padding size="12" text-center>
-       <ion-card  color="tertiary" text-center>
-         <ion-card-header>
-             <ion-icon name="refresh-circle" size="large" ></ion-icon>
-         </ion-card-header>
-         <ion-card-content>
-            <strong>¿NO está de acuerdo</strong> con los términos y condiciones?
-         </ion-card-content>
-       </ion-card>
-       <ion-button (click)="goSuccessful()" style="text-transform: none !important;" fill="clear">¡Así es! NO estoy de acuerdo</ion-button>
-     </ion-col>
-   </ion-row>
- </ion-grid>
-</ion-content>
+   </ion-grid>
+ </ion-content>
+ 

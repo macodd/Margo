@@ -74,6 +74,53 @@ make-payment {
       width: 20%;
       z-index: -1;
     }
+
+    .input-border{
+        --inner-border-width: 0px 1px 0px 0px !important;
+        --padding-bottom: 10px;
+        --padding-top: 10px;
+    }
   
+    .last-input-border{
+      --padding-bottom: 10px;
+      --padding-top: 10px;
   }
-  
+
+    .label-color {
+      font-family: DIN Next LT Pro Medium !important;
+      font-size: 14px;
+      color: black !important;
+      opacity: 0.41;
+      text-align: center;
+      display:inline
+    }
+
+    .placeholder {
+      font-family: DIN Next LT Pro Medium !important;
+      --placeholder-color: #000000 !important;
+      text-align: center;
+    }
+
+    .large-placeholder {
+      font-family: DIN Next LT Pro Medium !important;
+      font-size: 32px !important;
+      color: black !important;
+      text-align: left;
+    }
+
+    .label-color-bottom {
+      font-family: DIN Next LT Pro Medium !important;
+      font-size: 14px;
+      color: black !important;
+      opacity: 0.41;
+      text-align: left;
+      display:inline
+    }
+
+    .placeholder-bottom {
+      font-family: DIN Next LT Pro Medium !important;
+      font-size: 19px;
+      --placeholder-color: #000000 !important;
+      text-align: left;
+    }
+  }

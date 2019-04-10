@@ -27,14 +27,14 @@
   --ion-color-primary-shade: #3171e0;
   --ion-color-primary-tint: #4c8dff;
 
-  --ion-color-secondary:  linear-gradient(270deg, rgba(4, 76, 41, 1) 0%, rgba(69, 191, 85, 1) 90%);
+  --ion-color-secondary: linear-gradient(270deg, rgba(3, 139, 104, 1) 0%, rgba(9, 39, 43, 1) 90%);
   --ion-color-secondary-rgb: 12, 209, 232;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
   --ion-color-secondary-shade: #0bb8cc;
   --ion-color-secondary-tint: #24d6ea;
 
-  --ion-color-tertiary: linear-gradient(270deg, rgba(239, 88, 30, 1) 0%, rgba(240, 137, 47, 1)90%);
+  --ion-color-tertiary: linear-gradient(270deg, rgba(0, 122, 245, 1) 0%, rgba(0, 40, 79, 1)90%);
   --ion-color-tertiary-rgb: 112, 68, 255;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
@@ -55,8 +55,8 @@
   --ion-color-warning-shade: #e0b500;
   --ion-color-warning-tint: #ffd31a;
 
-  --ion-color-danger: #f04141;
-  --ion-color-danger-rgb: 245, 61, 61;
+  --ion-color-danger: #FF4700;
+  --ion-color-danger-rgb: 255, 71, 0, 1;
   --ion-color-danger-contrast: #ffffff;
   --ion-color-danger-contrast-rgb: 255, 255, 255;
   --ion-color-danger-shade: #d33939;
@@ -82,6 +82,7 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
 }
 
 // Additional Ionic Colors
@@ -137,6 +138,17 @@
   --ion-color-tint: #4f6aa2;
 }
 
+// Notifications 
+.ion-color-card-back {
+  --ion-color-base: #0DA7FF;
+  --ion-color-contrast: white !important;
+}
+
+.ion-color-card-white{
+  --ion-color-base: white;
+  --ion-color-contrast: white !important;
+}
+
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
@@ -158,8 +170,6 @@
   --ion-color-food: #3bc7c4;
   --ion-color-documentation: #b16be3;
   --ion-color-navigation: #6600cc;
-  // font-family: "DIN Next LT Pro Medium";
-  //   --ion-font-family: "DIN Next LT Pro Medium";
 }
 
 // App iOS Variables
@@ -337,7 +347,6 @@
     font-size: 18px;
     margin-top: 50px;
 }
-
 .my-loading-class {
   .loading-wrapper {
     background: transparent;
@@ -355,4 +364,3 @@
 
   }
 }
-

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { PinComponent } from './pin/pin.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { MiniUserDetailComponent } from './mini-user-detail/mini-user-detail.component';
 
 @NgModule({
     imports: [
@@ -9,10 +11,14 @@ import { PinComponent } from './pin/pin.component';
       IonicModule.forRoot(),
     ],
     declarations: [
-        PinComponent
+        PinComponent,
+        UserDetailComponent,
+        MiniUserDetailComponent
     ],
     exports: [
-        PinComponent
+        PinComponent,
+        UserDetailComponent,
+        MiniUserDetailComponent
     ],
     entryComponents: [],
   })

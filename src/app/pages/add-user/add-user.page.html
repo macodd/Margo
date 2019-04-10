@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+        <ion-back-button color="light" text="" defaultHref="/transfer"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  
+    <!-- Search input -->
+    <ion-toolbar color="secondary">
+      <!-- <ion-input class="search-input" type="text" placeholder="Buscar" padding clearInput></ion-input> -->
+      <h2 class="user-title">Mark Kodd</h2> 
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <ion-item lines="full">
+    <ion-row justify-content-center>
+      <ion-col text-center>
+        <img src="assets/img/icons/user_icon.png" class="user-avatar">
+        <p>Mark Kodd Christopherson</p>
+        <p class="description"><ion-icon name="radio-button-on" size="default"></ion-icon>marky 2186 | <ion-icon name="pin"></ion-icon>United States</p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+
+  <ion-row padding>
+    <ion-col text-center>
+      <h2 class="margo-title">margo</h2>
+    </ion-col>
+  </ion-row>
+
+  <ion-row justify-content-center>
+    <ion-col text-center>
+        <ion-button shape="round" fill="solid" color="secondary" style="text-transform: none;" (click)="setToTransfer()">
+          <p style="padding: 0px 35px 0px 35px;">Transferir</p>
+        </ion-button>
+    </ion-col>
+  </ion-row>
+  
+  <ion-row>
+    <ion-col text-center>
+      <ion-button shape="round" fill="outline" color="secondary" style="text-transform: none;">
+        Añadir a mi billetera
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+
+
+
+</ion-content>

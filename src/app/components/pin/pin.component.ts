@@ -9,7 +9,7 @@ export class PinComponent implements OnInit {
   ngOnInit() {
   }
 
-  @Input() pagetitle: String = "Crear PIN";
+  @Input() pagetitle: String = "Crear PIN ";
   @Input() pageSubtitle: String = "Crea tu PIN de Inicio de Sesión";
 
   pin:string= "";

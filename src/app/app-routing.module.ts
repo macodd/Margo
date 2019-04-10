@@ -48,6 +48,11 @@ const routes: Routes = [
   { path: 'auth-pin', loadChildren: './pages/auth-pin/auth-pin.module#AuthPinPageModule' },
   { path: 'terms-dialog', loadChildren: './pages/terms-dialog/terms-dialog.module#TermsDialogPageModule' },
   { path: 'notifications', loadChildren: './pages/notifications/notifications.module#NotificationsPageModule' },
+  { path: 'notification-dialog', loadChildren: './pages/notification-dialog/notification-dialog.module#NotificationDialogPageModule' },
+  { path: 'transfer', loadChildren: './pages/transfer/transfer.module#TransferPageModule' },
+  { path: 'search', loadChildren: './pages/search/search.module#SearchPageModule' },
+  { path: 'add-user', loadChildren: './pages/add-user/add-user.module#AddUserPageModule' },
+  { path: 'transfer-form', loadChildren: './pages/transfer-form/transfer-form.module#TransferFormPageModule' },
 
 ];
 

@@ -1,0 +1,30 @@
+.avatar {
+    width: 25%;
+    float: left;
+  }
+
+.card-title {
+    font-family: DIN Next LT Pro Medium;
+    font-size: 14pt;
+    color: black;
+    margin: 0px;
+    padding-top: 15px;
+    padding-left: 65px;
+}
+
+.card-subtitle {
+    font-family: DIN Next LT Pro Regular;
+    font-size: 14pt;
+    color: black;
+    text-align: right;
+    margin: 0px;
+    padding-top: 15px;
+    padding-right: 10px;
+    float: right;
+}
+
+.description {
+    padding-left: 50px;
+    margin: 0px;
+    opacity: 0.5;
+}
