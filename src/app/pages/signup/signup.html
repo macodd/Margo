@@ -7,14 +7,14 @@
 </ion-header>
 <ion-content class="fullcontent">
     <h1 class="sign-up-title" padding no-margin>Crear Cuenta</h1>
-    <ion-segment [(ngModel)]="typeAccount" color="secondary">
-    <ion-segment-button value="personal" (ionSelect)="segmentButtonClicked('personal')" color="light">
-      Persona
-    </ion-segment-button>
-    <ion-segment-button value="business" (ionSelect)="segmentButtonClicked('business')"  color="light">
-      Empresa
-    </ion-segment-button>
-    </ion-segment>
+    <!-- <ion-segment [(ngModel)]="typeAccount" color="secondary">
+      <ion-segment-button value="personal" (ionSelect)="segmentButtonClicked('personal')" color="light">
+        Persona
+      </ion-segment-button>
+      <ion-segment-button value="business" (ionSelect)="segmentButtonClicked('business')"  color="light">
+        Empresa
+      </ion-segment-button>
+    </ion-segment> -->
    <!-- personal -->    
     <div [hidden]="isViewPersonal == false">
         <ion-list>
