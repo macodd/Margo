@@ -52,22 +52,23 @@
   <ion-grid>
     <ion-row class="continue-row">
       <ion-col text-center>
-        <p class="continue" style="opacity: 0.5;" *ngIf="!currentUser"></p>
-        <ion-icon 
-        *ngIf="!currentUser"
-        name="arrow-dropright-circle" 
-        size = "large"
-        style="color: white; opacity: 0.5; display: inline-block !important; white-space: nowrap !important;" >
-        </ion-icon>
+        <p class="continue" style="opacity: 0.5;" *ngIf="!currentUser">CONTINUAR</p>
+        <p class="continue" style="opacity: 1.0;" *ngIf="currentUser" (click)="transferMoney()">CONTINUAR</p>
+        <!-- <ion-icon 
+          *ngIf="!currentUser"
+          name="arrow-dropright-circle" 
+          size = "large"
+          style="color: white; opacity: 0.5; display: inline-block !important; white-space: nowrap !important;" >
+        </ion-icon> -->
 
-        <ion-icon 
+        <!-- <ion-icon 
         *ngIf="currentUser"
         name="arrow-dropright-circle" 
         size = "large"
         style="color: white; opacity: 1;"
         (click)="transferMoney()"
-        >
-      </ion-icon>
+        > 
+      </ion-icon>-->
       </ion-col>
     </ion-row>
   </ion-grid>
