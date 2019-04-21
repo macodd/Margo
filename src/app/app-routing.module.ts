@@ -17,7 +17,6 @@ const routes: Routes = [
   { path: 'send-money-dialog', loadChildren: './pages/send-money-dialog/send-money-dialog.module#SendMoneyDialogPageModule' },
   { path: 'setpassword', loadChildren: './pages/setpassword/setpassword.module#SetpasswordPageModule' },
   { path: 'setpin-app', loadChildren: './pages/setpin-app/setpin-app.module#SetpinAppPageModule' },
-  { path: 'setting', loadChildren: './pages/setting/setting.module#SettingPageModule' },
   { path: 'signup', loadChildren: './pages/signup/signup.module#SignUpModule'},
   { path: 'signup/:origin', loadChildren: './pages/signup/signup.module#SignUpModule'},
   { path: 'terms', loadChildren: './pages/terms/terms.module#TermsPageModule' },
