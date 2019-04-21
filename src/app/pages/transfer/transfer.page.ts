@@ -27,7 +27,6 @@ export class TransferPage implements OnInit {
   }
 
   transferMoney() {
-    console.log('transfering money');
     this.router.navigateByUrl('transfer-form');
   }
 

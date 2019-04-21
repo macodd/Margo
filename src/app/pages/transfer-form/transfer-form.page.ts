@@ -63,7 +63,7 @@ export class TransferFormPage implements OnInit {
   @ViewChild('pin') pin: IonInput;
 
   fabToHide;
-  userDetail;
+  // userDetail;
   textColor = 'white';
   enabled = false;  // fab button enabled
   count = 0; // count fab taps
@@ -95,7 +95,7 @@ export class TransferFormPage implements OnInit {
   }
 
   onFocus() {
-    if (this.count === 3) {
+    if (this.count === 2) {
       this.state = 'compressed';
       this.detailState = 'small';
 
@@ -106,7 +106,6 @@ export class TransferFormPage implements OnInit {
 
   nextItem() {
     this.count += 1;
-    console.log(this.count);
 
     if (this.count === 1) {
       this.input2 = true;
@@ -130,17 +129,21 @@ export class TransferFormPage implements OnInit {
       setTimeout(() => {
         this.pin.setFocus();
       }, 300);
-    }
-
-    if (this.count === 3) {
-      this.renderer.setStyle(this.fabToHide, 'opacity', '0');
-      this.titleState = 'center';
-      this.subtitleState = 'center';
 
       this.showToTransfer = true;
       this.state = 'initial';
       this.detailState = 'large';
     }
+
+    // if (this.count === 3) {
+    //   this.renderer.setStyle(this.fabToHide, 'opacity', '0');
+    //   this.titleState = 'center';
+    //   this.subtitleState = 'center';
+    //
+    //   this.showToTransfer = true;
+    //   this.state = 'initial';
+    //   this.detailState = 'large';
+    // }
   }
 
   async toTransfer() {

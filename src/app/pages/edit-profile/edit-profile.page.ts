@@ -10,12 +10,12 @@ import { UserOptions } from '../../interfaces/user-options';
   styleUrls: ['./edit-profile.page.scss'],
 })
 export class EditProfilePage implements OnInit {
-  signup: UserOptions = { firstname: '',
-    lastname: '',
+  signup: UserOptions = {
+    fullname: '',
     phone: '',
     email: '',
     id: '',
-    address: 'Main St. 420' };
+    };
   submitted = false;
   typeAccount = 'personal';
   isViewPersonal = true;

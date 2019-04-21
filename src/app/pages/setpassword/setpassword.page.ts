@@ -29,7 +29,7 @@ export class SetpasswordPage implements OnInit {
   }
 
   onSetPassword(data) {
-    this.router.navigateByUrl('/setpin-app');
+    this.router.navigateByUrl('/terms');
   }
 
   hideShowPassword() {
@@ -40,5 +40,9 @@ export class SetpasswordPage implements OnInit {
   hideShowPassword2() {
     this.password2Type = this.password2Type === 'text' ? 'password' : 'text';
     this.password2Icon = this.password2Icon === 'eye-off' ? 'eye' : 'eye-off';
+  }
+
+  onBack() {
+    this.router.navigateByUrl('/signup')
   }
 }

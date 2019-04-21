@@ -1,13 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { LoadingController, MenuController } from '@ionic/angular';
 
-import { UserData } from '../../services/user-data';
+// import { UserData } from '../../services/user-data';
 
 // Interface
 import { UserOptions } from '../../interfaces/user-options';
-
-
 
 @Component({
   selector: 'page-signup',
@@ -16,51 +15,66 @@ import { UserOptions } from '../../interfaces/user-options';
   encapsulation: ViewEncapsulation.None
 })
 export class SignupPage {
-  signup: UserOptions = { firstname: '',
-    lastname: '',
+  signup: UserOptions = {
+    fullname: '',
     phone: '',
     email: '',
-    id: '',
-    address: 'Main St. 420' };
+    id: ''
+  };
+
   submitted = false;
-  typeAccount = 'personal';
-  isViewPersonal = true;
-  isViewBussines = false;
   origin = '';
+  // isViewPersonal = true;
+  // isViewBusiness = false;
 
   constructor(
-    public router: Router,
-    public userData: UserData,
-    public route: ActivatedRoute
+    private router: Router,
+    // public userData: UserData,
+    private route: ActivatedRoute,
+    private loadingController: LoadingController,
+    private menu: MenuController
   ) {
     this.route.queryParams.subscribe(params => {
         this.origin = params['origin'];
     });
+    this.menu.enable(false)
   }
 
   onSignup(form: NgForm) {
     this.submitted = true;
-    this.router.navigateByUrl('/auth-pin');
-    //this.router.navigateByUrl('/setpassword');
+    this.presentLoading().then(()=>{
+      this.router.navigateByUrl('/auth-pin');
+    });
   }
 
-  onAddressFocus(event) {
-    this.router.navigateByUrl('/address-main');
+  onLogin(){
+    this.router.navigateByUrl('/login')
   }
-  segmentButtonClicked(type: String) {
-    if (type === 'personal') {
-      this.isViewPersonal = true;
-      this.isViewBussines = false;
-    }
-    if (type === 'business') {
-      this.isViewBussines = true;
-      this.isViewPersonal = false;
-    }
-  }
+
   onBack(){
     if(this.origin === "account")
       this.router.navigateByUrl('/account');
     else 
       this.router.navigateByUrl('/tutorial')
   }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Please wait...',
+      duration: 2000
+    });
+    loading.present();
+    return await loading.onWillDismiss();
+  }
+
+  // segmentButtonClicked(type: String) {
+  //   if (type === 'personal') {
+  //     this.isViewPersonal = true;
+  //     // this.isViewBusiness = false;
+  //   }
+  //   if (type === 'business') {
+  //     // this.isViewBusiness = true;
+  //     this.isViewPersonal = false;
+  //   }
+  // }
 }

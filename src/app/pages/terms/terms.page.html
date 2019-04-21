@@ -1,13 +1,13 @@
-<ion-header>
+<ion-header no-border>
     <ion-toolbar class="light-toolbar">
       <ion-buttons slot="start">
-        <!-- <ion-menu-button></ion-menu-button> -->
-        <ion-back-button color="dark" text="" defaultHref="/signup"></ion-back-button>
+        <ion-back-button color="dark" text="" (click)="onBack()"></ion-back-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
-<ion-content scroll-events=true appAutohide>
+<!--<ion-content scroll-events=true appAutohide>-->
+<ion-content>
     <ion-row padding>
         <ion-col>
           <h1 class="terms-title">Término de uso,<br>Política de privacidad</h1>
@@ -25,23 +25,19 @@
       </ion-col>
     </ion-row>
 
-    <ion-row align-items-center padding>
+    <ion-row padding>
       <ion-col>
-        <ion-button (click)="openModal()" style="text-transform: none;" fill="clear">Cancelar</ion-button>
-        <!-- <a href="/" style="text-decoration: none !important;">Cancelar</a> -->
+        <ion-button float-start (click)="toCancel()" style="text-transform: none;" fill="clear">Cancelar</ion-button>
       </ion-col>
       <ion-col>
-          <ion-button (click)="toAccept()" style="text-transform: none;" color="primary" shape="round">De acuerdo</ion-button>
-        </ion-col>
+        <ion-button float-end (click)="toAccept()" style="text-transform: none;" color="primary" shape="round">Acepto</ion-button>
+      </ion-col>
     </ion-row>
 
-    <ion-fab vertical="bottom" horizontal="center" slot="fixed" class="top">
-      <ion-fab-button (click)="onBottomClick()">
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+<!--    <ion-fab vertical="bottom" horizontal="center" slot="fixed" class="top">-->
+<!--      <ion-fab-button (click)="onBottomClick()">-->
+<!--        <ion-icon name="add"></ion-icon>-->
+<!--      </ion-fab-button>-->
+<!--    </ion-fab>-->
 
 </ion-content>
-
-  <!-- fab placed to the (vertical) center and end -->
-

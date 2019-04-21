@@ -14,6 +14,6 @@ export class PaymentSuccessfulPage implements OnInit {
   }
 
   backToHome() {
-    this.router.navigateByUrl('account');
+    this.router.navigateByUrl('/account');
   }
 }

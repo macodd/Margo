@@ -19,6 +19,7 @@
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="UseSwiftLanguageVersion" value="4.0" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -82,7 +83,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^3.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-fingerprint-aio" spec="1.6.0" />
     <plugin name="cordova-plugin-geolocation" spec="4.0.1" />
     <plugin name="cordova-plugin-googlemaps" spec="2.5.3">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAf0_0BMfDigIyI26FZHF3KmRRTaYd-PqI" />
@@ -92,4 +92,6 @@
     <allow-navigation href="http://192.168.100.10:8101" sessionid="b42001c1" />
     <engine name="android" spec="7.1.4" />
     <engine name="ios" spec="4.5.5" />
+    <plugin name="cordova-sqlite-storage" spec="3.2.0" />
+    <plugin name="cordova-plugin-fingerprint-aio" spec="1.7.0" />
 </widget>

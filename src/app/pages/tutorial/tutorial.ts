@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { MenuController, IonSlides } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage';
-import { text } from '@angular/core/src/render3';
+
 
 @Component({
   selector: 'page-tutorial',
@@ -23,9 +23,9 @@ export class TutorialPage {
   @ViewChild('slides') slides: IonSlides;
 
   constructor(
-    public menu: MenuController,
-    public router: Router,
-    public storage: Storage
+    private menu: MenuController,
+    private router: Router,
+    private storage: Storage
   ) {}
 
   startApp() {
@@ -54,10 +54,10 @@ export class TutorialPage {
     this.menu.enable(false);
   }
 
-  ionViewDidLeave() {
-    // enable the root left menu when leaving the tutorial page
-    this.menu.enable(true);
-  }
+  // ionViewDidLeave() {
+  //   // enable the root left menu when leaving the tutorial page
+  //   this.menu.enable(true);
+  // }
 
   slideDidChange() {
     this.slides.isBeginning().then(beginning => {

@@ -1,28 +1,28 @@
 <ion-header>
-    <ion-toolbar color="secondary" text-center>
-      <ion-buttons slot="start">
-        <ion-back-button color="light" defaultHref="/account"></ion-back-button>
-      </ion-buttons>
-  
-      <ion-title [@titleState]="titleState">
-          <p style="color: white; font-size: 13px; padding-right: 65px;">TRANSFERIR</p>
-      </ion-title>
-      <ion-title [@subtitleState]="subtitleState">
-        <p style="color: white; font-size: 13px; padding-right: 65px;" >DISPONIBLE <strong>$17,000 USD</strong></p>
-      </ion-title>
+  <ion-toolbar color="secondary" text-center>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" text="" defaultHref="/account"></ion-back-button>
+    </ion-buttons>
 
-    </ion-toolbar>
+    <ion-title >
+        <p style="color: white; font-size: 13px; text-align: center;">TRANSFERIR</p>
+    </ion-title>
+<!--      <ion-title [@subtitleState]="subtitleState">-->
+<!--        <p style="color: white; font-size: 13px; padding-right: 65px;" >DISPONIBLE <strong>$17,000 USD</strong></p>-->
+<!--      </ion-title>-->
 
-    <ion-toolbar color="secondary" [@headerState]="state">
-      <ion-grid>
-            <app-user-detail [textColor]="textColor" *ngIf="detailState === 'large'; else miniDetail" [@detailState]="detailState"></app-user-detail>
-            <ng-template #miniDetail>
-              <app-mini-user-detail [@detailState]="detailState"></app-mini-user-detail>
-            </ng-template>
-      </ion-grid>
+  </ion-toolbar>
 
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color="secondary" [@headerState]="state">
+    <p style="color: white; font-size: 13px; text-align: center" >DISPONIBLE <strong>$17,000 USD</strong></p>
+    <ion-grid>
+          <app-user-detail [textColor]="textColor" *ngIf="detailState === 'large'; else miniDetail" [@detailState]="detailState"></app-user-detail>
+          <ng-template #miniDetail>
+            <app-mini-user-detail [@detailState]="detailState"></app-mini-user-detail>
+          </ng-template>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
   <form>
@@ -34,13 +34,13 @@
     
       <ion-item lines="full" *ngIf="input2">
           <ion-label position="stacked" color="medium"><strong>Referencia (opcional)</strong></ion-label>
-          <ion-input #reference class="medium-placeholder" type="text" required (ionInput)="onInput()" (ionFocus)="onFocus()"></ion-input>
+          <ion-input #reference class="medium-placeholder" type="text" (ionInput)="onInput()" (ionFocus)="onFocus()"></ion-input>
       </ion-item>
 
-      <ion-item lines="full" *ngIf="input3">
-          <ion-label position="stacked" color="medium"><strong>Ingresa tu PIN transaccional</strong></ion-label>
-          <ion-input #pin class="medium-placeholder" type="password" pattern="[0-9]*" required (ionInput)="onInput()" (ionFocus)="onFocus()"></ion-input>
-      </ion-item>
+<!--      <ion-item lines="full" *ngIf="input3">-->
+<!--          <ion-label position="stacked" color="medium"><strong>Ingresa tu PIN transaccional</strong></ion-label>-->
+<!--          <ion-input #pin class="medium-placeholder" type="password" pattern="[0-9]*" required (ionInput)="onInput()" (ionFocus)="onFocus()"></ion-input>-->
+<!--      </ion-item>-->
 
     </ion-list>
   </form>

@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AlertController, ToastController , MenuController} from '@ionic/angular';
+import { ToastController , MenuController} from '@ionic/angular';
 
 import { UserData } from '../../services/user-data';
 
@@ -14,10 +14,9 @@ import { UserData } from '../../services/user-data';
 })
 export class AccountPage implements AfterViewInit {
   username: string;
-  coverImage: '#ffffff';
 
   constructor(
-    public alertCtrl: AlertController,
+    // public alertCtrl: AlertController,
     public router: Router,
     public userData: UserData,
     public toastController: ToastController,
@@ -26,12 +25,8 @@ export class AccountPage implements AfterViewInit {
 
   ngAfterViewInit() {
     this.menu.enable(true );
-    this.getUsername();
+    // this.getUsername();
     this.presentToastWithOptions();
-  }
-
-  updatePicture() {
-    console.log('Clicked to update picture');
   }
 
   async presentToastWithOptions() {
@@ -44,56 +39,21 @@ export class AccountPage implements AfterViewInit {
     toast.present();
   }
 
-  // Present an alert with the current username populated
-  // clicking OK will update the username and display it
-  // clicking Cancel will close the alert and do nothing
-  async changeUsername() {
-    const alert = await this.alertCtrl.create({
-      header: 'Change Username',
-      buttons: [
-        'Cancel',
-        {
-          text: 'Ok',
-          handler: (data: any) => {
-            this.userData.setUsername(data.username);
-            this.getUsername();
-          }
-        }
-      ],
-      inputs: [
-        {
-          type: 'text',
-          name: 'username',
-          value: this.username,
-          placeholder: 'username'
-        }
-      ]
-    });
-    await alert.present();
-  }
-
-  getUsername() {
-    this.userData.getUsername().then((username) => {
-      this.username = username;
-    });
-  }
-
-  changePassword() {
-    console.log('Clicked to change password');
-  }
-
   logout() {
     this.userData.logout();
     this.router.navigateByUrl('/login');
   }
+
   goActivity() {
     this.router.navigateByUrl('/activity');
   }
+
   goSendMoney() {
     this.router.navigateByUrl('/transfer');
   }
-  goMakePayment() {
-    this.router.navigateByUrl('/make-payment');
+
+  goBalance() {
+    this.router.navigateByUrl('/balance');
   }
 
   clickUnlock() {
@@ -104,4 +64,37 @@ export class AccountPage implements AfterViewInit {
     this.router.navigateByUrl('/notifications');
   }
 
+  // Present an alert with the current username populated
+  // clicking OK will update the username and display it
+  // clicking Cancel will close the alert and do nothing
+  // async changeUsername() {
+  //   const alert = await this.alertCtrl.create({
+  //     header: 'Change Username',
+  //     buttons: [
+  //       'Cancel',
+  //       {
+  //         text: 'Ok',
+  //         handler: (data: any) => {
+  //           this.userData.setUsername(data.username);
+  //           this.getUsername();
+  //         }
+  //       }
+  //     ],
+  //     inputs: [
+  //       {
+  //         type: 'text',
+  //         name: 'username',
+  //         value: this.username,
+  //         placeholder: 'username'
+  //       }
+  //     ]
+  //   });
+  //   await alert.present();
+  // }
+
+  // getUsername() {
+  //   this.userData.getUsername().then((username) => {
+  //     this.username = username;
+  //   });
+  // }
 }

@@ -23,6 +23,10 @@ export class SearchPage implements OnInit {
   ngOnInit() {
   }
 
+  onBack(){
+    this.router.navigateByUrl('/transfer')
+  }
+
   addUser() {
     this.router.navigateByUrl('add-user');
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'auth-pin',
@@ -10,10 +10,13 @@ import { LoadingController } from '@ionic/angular';
 export class AuthPinPage implements OnInit {
 
   constructor(
-    public router: Router,
-    public loadingController: LoadingController,
+    private router: Router,
+    private loadingController: LoadingController,
+    private menu: MenuController
   ){}
-  ngOnInit(): void {
+
+  ngOnInit() {
+    this.menu.enable(false)
   }
   
   Pin: String ="";
@@ -31,9 +34,11 @@ export class AuthPinPage implements OnInit {
         this.router.navigateByUrl('/setpassword');
     });
   }
+
   togglePin() {
     this.ShowPin = !this.ShowPin;
   }
+
   togglePinRepeat() {
     this.ShowPin = !this.ShowPin;
     this.ShowPinRepeat = !this.ShowPinRepeat;
@@ -42,9 +47,13 @@ export class AuthPinPage implements OnInit {
   async presentLoading() {
     const loading = await this.loadingController.create({
       message: 'Please wait...',
-      duration: 2000
+      duration: 1000
     });
     loading.present();
     return await loading.onWillDismiss();
+  }
+
+  onBack() {
+    this.router.navigateByUrl('/signup')
   }
 }

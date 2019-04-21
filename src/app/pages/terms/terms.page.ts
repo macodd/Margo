@@ -13,23 +13,34 @@ export class TermsPage {
 
   @ViewChild(IonContent) content: IonContent;
   @ViewChild(IonFabButton) fabButton: IonFabButton;
-  constructor(public modalCtrl: ModalController,
-            public router: Router) { }
 
-  async openModal() {
-    const modal = await this.modalCtrl.create({
-      component: TermsDialogPage
-      // componentProps: { excludedTracks: this.excludeTracks }
-    });
-    await modal.present();
-  }
+  constructor(
+    private modalCtrl: ModalController,
+    private router: Router
+  ) {}
 
-  onBottomClick() {
-    this.content.scrollToBottom(300);
-    this.fabButton.show = false;
-  }
+  // async openModal() {
+  //   const modal = await this.modalCtrl.create({
+  //     component: TermsDialogPage
+  //     // componentProps: { excludedTracks: this.excludeTracks }
+  //   });
+  //   await modal.present();
+  // }
+
+  // onBottomClick() {
+  //   this.content.scrollToBottom(300);
+  //   this.fabButton.show = false;
+  // }
 
   toAccept(){
-    this.router.navigateByUrl('account');
+    this.router.navigateByUrl('/account');
+  }
+
+  toCancel(){
+    this.router.navigateByUrl('/signup');
+  }
+
+  onBack() {
+    this.router.navigateByUrl('/signup')
   }
 }

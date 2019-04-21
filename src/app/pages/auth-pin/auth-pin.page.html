@@ -1,10 +1,12 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>auth-pin</ion-title>
+<ion-header no-border>
+  <ion-toolbar class="light-toolbar" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" text="" (click)="onBack()"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 
-<ion-content padding>
+<ion-content padding color="primary">
   <pin *ngIf="ShowPin" pagetitle="Crear PIN" pageSubtitle="Crea tu PIN de Inicio de Sesión" (change)="eventCapture($event)"></pin>
   <pin *ngIf="ShowPinRepeat" pagetitle="Ingresa nuevamente" pageSubtitle="Re-ingresa tu PIN de Inicio de Sesión" (change)="eventCaptureRepeat($event)"></pin>
 </ion-content>

@@ -14,11 +14,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 import { SendMoneyDialogPage } from './pages/send-money-dialog/send-money-dialog.page';
-import { MakePaymentDialogPage } from './pages/make-payment-dialog/make-payment-dialog.page';
 import { TermsDialogPage } from './pages/terms-dialog/terms-dialog.page';
 import { NotificationDialogPage } from './pages/notification-dialog/notification-dialog.page';
 import { AddUserService } from './pages/add-user/add-user.service';
 import { FormAutohideDirective } from './directives/form-autohide.directive';
+
+// Biometrics
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 @NgModule({
   imports: [
@@ -26,15 +28,28 @@ import { FormAutohideDirective } from './directives/form-autohide.directive';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     })
   ],
-  declarations: [AppComponent, SendMoneyDialogPage, MakePaymentDialogPage, TermsDialogPage, NotificationDialogPage, FormAutohideDirective],
-  providers: [InAppBrowser, SplashScreen, StatusBar, AddUserService],
+  declarations: [
+    AppComponent,
+    SendMoneyDialogPage,
+    TermsDialogPage,
+    NotificationDialogPage,
+    FormAutohideDirective
+  ],
+  providers: [
+    InAppBrowser,
+    SplashScreen,
+    StatusBar,
+    AddUserService,
+    FingerprintAIO,
+    ],
   bootstrap: [AppComponent],
-  entryComponents: [SendMoneyDialogPage, TermsDialogPage, NotificationDialogPage, MakePaymentDialogPage]
+  entryComponents: [SendMoneyDialogPage, TermsDialogPage, NotificationDialogPage]
 })
 export class AppModule {}
