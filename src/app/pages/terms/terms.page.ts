@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
-import { ModalController, IonContent, IonFab, IonFabButton } from '@ionic/angular';
-import { TermsDialogPage } from '../terms-dialog/terms-dialog.page';
+import { ModalController, IonContent, IonFabButton } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,19 +17,6 @@ export class TermsPage {
     private modalCtrl: ModalController,
     private router: Router
   ) {}
-
-  // async openModal() {
-  //   const modal = await this.modalCtrl.create({
-  //     component: TermsDialogPage
-  //     // componentProps: { excludedTracks: this.excludeTracks }
-  //   });
-  //   await modal.present();
-  // }
-
-  // onBottomClick() {
-  //   this.content.scrollToBottom(300);
-  //   this.fabButton.show = false;
-  // }
 
   toAccept(){
     this.router.navigateByUrl('/account');

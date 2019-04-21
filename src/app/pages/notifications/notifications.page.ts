@@ -18,35 +18,35 @@ export class NotificationsPage {
       {
         type: 'Cash In',
         amount: '+$50.00 USD',
-        description: 'You have received money from Jacob E. Miller successful.'
+        description: 'Jacob E. Miller'
       },
       {
         type: 'Send Money',
         amount: '+$1200.00 USD',
-        description: 'You have received money from Jacob E. Miller successful.'
+        description: 'Jacob E. Miller'
       },
       {
         type: 'Payment',
         amount: '+$1200.00 USD',
-        description: 'You have received money from Jacob E. Miller successful.'
+        description: 'Jacob E. Miller'
       },
       {
         type: 'Cash Out',
         amount: '+$750.00 USD',
-        description: 'You have received money from Jacob E. Miller successful.'
+        description: 'Jacob E. Miller'
       },
     ];
   }
 
-
   async openNotification() {
     const modal = await this.modalCtrl.create({
-      component: NotificationDialogPage
+      component: NotificationDialogPage,
       // componentProps: { excludedTracks: this.excludeTracks }
     });
     await modal.present();
     }
 
-
-
+  onBack(){
+    this.router.navigateByUrl('/account')
+  }
 }

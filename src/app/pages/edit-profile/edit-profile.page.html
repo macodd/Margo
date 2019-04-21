@@ -1,96 +1,79 @@
 <ion-header no-border>
-    <ion-toolbar class="light-toolbar">
-        <ion-buttons slot="start">
-          <ion-back-button color="dark" text="" defaultHref="/account"></ion-back-button>
-        </ion-buttons>
-        <ion-title text-center color="dark" >   
-            Edit Profile
-        </ion-title>
+  <ion-toolbar class="light-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" text="" (click)="onBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title text-center color="dark" >
+        Edit Profile
+    </ion-title>
   </ion-toolbar>
-  </ion-header>
-  <ion-content class="fullcontent">
-     <!-- personal -->    
-      <div [hidden]="isViewPersonal == false">
-          <ion-list>
-            <ion-row>
-              <ion-col no-padding size="6">
-                  <ion-item class="input-border">
-                      <ion-label position="stacked" color="primary">First name</ion-label>
-                      <ion-input [(ngModel)]="signup.firstname" name="firstname" type="text" #firstname="ngModel" required></ion-input>
-                    </ion-item>
-                    <ion-text color="danger">
-                      <small padding [hidden]="firstname.valid || submitted == false" padding-left>
-                        First name is required
-                      </small>
-                    </ion-text>
-              </ion-col>
-              
-              <ion-col no-padding size="6">
-                  <ion-item>
-                      <ion-label position="stacked" color="primary">Last name</ion-label>
-                      <ion-input [(ngModel)]="signup.lastname" name="lastname" type="text" #lastname="ngModel" required></ion-input>
-                    </ion-item>
-                    <ion-text color="danger">
-                      <small padding [hidden]="lastname.valid || submitted == false" padding-left>
-                        Last name is required
-                      </small>
-                    </ion-text>
-              </ion-col>
-            </ion-row>
-  
-          <ion-row>
-            <ion-col no-padding>
-            <ion-item>
-              <ion-label position="stacked" color="primary">Email address</ion-label>
-              <ion-input [(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
-              </ion-input>
+</ion-header>
+
+<ion-content class="fullcontent">
+  <div [hidden]="isViewPersonal == false">
+    <ion-list>
+      <ion-row>
+        <ion-col no-padding >
+          <ion-item class="input-border">
+              <ion-label position="stacked" color="primary">Fullname</ion-label>
+              <ion-input [(ngModel)]="signup.fullname" name="fullname" type="text" #firstname="ngModel" required></ion-input>
             </ion-item>
             <ion-text color="danger">
-              <small padding [hidden]="email.valid || submitted == false" padding-left>
-                Email address is required
+              <small padding [hidden]="firstname.valid || submitted == false" padding-left>
+                First name is required
               </small>
             </ion-text>
-          </ion-col>
-          </ion-row>
-  
-            <ion-row margin-top>
-                <ion-col no-padding size="12">
-                    <ion-item class="input-border">
-                        <ion-label position="stacked" color="primary">Phone Number</ion-label>
-                        <ion-input [(ngModel)]="signup.phone" name="phone" type="Number" #id="ngModel" required></ion-input>
-                      </ion-item>
-                      <ion-text color="danger">
-                        <small padding [hidden]="id.valid || submitted == false" padding-left>
-                          Phone Number
-                        </small>
-                      </ion-text>
-                </ion-col>
-              </ion-row>
-              <ion-row margin-top>
-                <ion-col no-padding size="12">
-                    <ion-item class="input-border">
-                        <ion-label position="stacked" color="primary">ID</ion-label>
-                        <ion-input [(ngModel)]="signup.id" name="id" type="Number" #id="ngModel" required></ion-input>
-                      </ion-item>
-                      <ion-text color="danger">
-                        <small padding [hidden]="id.valid || submitted == false" padding-left>
-                          ID is required
-                        </small>
-                      </ion-text>
-                </ion-col>
-              </ion-row>
-          </ion-list>
-  
-          <ion-row>
-            <ion-col padding>
-                <small>By tapping “Create Account”; you agree to the <b><a [routerLink]="['/terms']" style="text-decoration: none !important">Terms of Use, Privacy Policy</a></b>, and agree to receive content and promotional communication from Margo.</small>
-            </ion-col>
-          </ion-row>
-      </div>
-  </ion-content>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col no-padding>
+          <ion-item>
+            <ion-label position="stacked" color="primary">Email address</ion-label>
+            <ion-input [(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
+            </ion-input>
+          </ion-item>
+          <ion-text color="danger">
+            <small padding [hidden]="email.valid || submitted == false" padding-left>
+              Email address is required
+            </small>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row margin-top>
+        <ion-col no-padding size="12">
+          <ion-item class="input-border">
+              <ion-label position="stacked" color="primary">Phone Number</ion-label>
+              <ion-input [(ngModel)]="signup.phone" name="phone" type="Number" #id="ngModel" required></ion-input>
+            </ion-item>
+            <ion-text color="danger">
+              <small padding [hidden]="id.valid || submitted == false" padding-left>
+                Phone Number
+              </small>
+            </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row margin-top>
+        <ion-col no-padding size="12">
+          <ion-item class="input-border">
+              <ion-label position="stacked" color="primary">ID</ion-label>
+              <ion-input [(ngModel)]="signup.id" name="id" type="Number" #id="ngModel" required></ion-input>
+            </ion-item>
+            <ion-text color="danger">
+              <small padding [hidden]="id.valid || submitted == false" padding-left>
+                ID is required
+              </small>
+            </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </div>
+</ion-content>
+
   <ion-footer>
     <ion-toolbar color="primary">
-      <ion-button (click)="onSignup(signupForm)" type="submit" expand="full" fill="clear">Edit Account</ion-button>
+      <ion-button (click)="onEdit(signupForm)" type="submit" expand="full" fill="clear">Edit Account</ion-button>
     </ion-toolbar>
   </ion-footer>
-  

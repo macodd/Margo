@@ -153,4 +153,8 @@ export class TransferFormPage implements OnInit {
     });
     await modal.present();
   }
+
+  onBack() {
+    this.router.navigateByUrl('/account')
+  }
 }

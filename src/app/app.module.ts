@@ -14,13 +14,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 import { SendMoneyDialogPage } from './pages/send-money-dialog/send-money-dialog.page';
-import { TermsDialogPage } from './pages/terms-dialog/terms-dialog.page';
 import { NotificationDialogPage } from './pages/notification-dialog/notification-dialog.page';
 import { AddUserService } from './pages/add-user/add-user.service';
 import { FormAutohideDirective } from './directives/form-autohide.directive';
 
 // Biometrics
-import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
+// import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 @NgModule({
   imports: [
@@ -38,7 +37,6 @@ import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
   declarations: [
     AppComponent,
     SendMoneyDialogPage,
-    TermsDialogPage,
     NotificationDialogPage,
     FormAutohideDirective
   ],
@@ -47,9 +45,9 @@ import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
     SplashScreen,
     StatusBar,
     AddUserService,
-    FingerprintAIO,
+    // FingerprintAIO,
     ],
   bootstrap: [AppComponent],
-  entryComponents: [SendMoneyDialogPage, TermsDialogPage, NotificationDialogPage]
+  entryComponents: [SendMoneyDialogPage, NotificationDialogPage]
 })
 export class AppModule {}

@@ -23,11 +23,6 @@ export class NotificationDialogPage implements AfterViewInit {
     this.modalCtrl.dismiss(data);
   }
 
-  // goSuccessful() {
-  //   this.dismiss();
-  //   this.router.navigateByUrl('payment-successful');
-  // }
-
   onMouseUp() {
     this.dismiss();
     this.router.navigateByUrl('notifications');

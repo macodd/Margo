@@ -30,4 +30,8 @@ export class TransferPage implements OnInit {
     this.router.navigateByUrl('transfer-form');
   }
 
+  onBack() {
+    this.router.navigateByUrl('/account')
+  }
+
 }

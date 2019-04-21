@@ -60,8 +60,8 @@ export class SignupPage {
 
   async presentLoading() {
     const loading = await this.loadingController.create({
-      message: 'Please wait...',
-      duration: 2000
+      duration: 2000,
+      cssClass: 'my-loading-class'
     });
     loading.present();
     return await loading.onWillDismiss();

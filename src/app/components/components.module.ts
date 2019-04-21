@@ -11,14 +11,16 @@ import { MiniUserDetailComponent } from './mini-user-detail/mini-user-detail.com
       IonicModule.forRoot(),
     ],
     declarations: [
-        PinComponent,
-        UserDetailComponent,
-        MiniUserDetailComponent
+      PinComponent,
+      UserDetailComponent,
+      MiniUserDetailComponent,
+
     ],
     exports: [
-        PinComponent,
-        UserDetailComponent,
-        MiniUserDetailComponent
+      PinComponent,
+      UserDetailComponent,
+      MiniUserDetailComponent,
+
     ],
     entryComponents: [],
   })

@@ -7,7 +7,6 @@ import { UserData } from '../../services/user-data';
 import { LoginOptions } from '../../interfaces/login-options';
 import { LoadingController, Platform, MenuController } from '@ionic/angular';
 
-// import { FingerprintAIO } from "@ionic-native/fingerprint-aio/ngx";
 
 @Component({
   selector: 'page-login',
@@ -22,7 +21,6 @@ export class LoginPage {
   submitted = false;
 
   constructor(
-    // private faio: FingerprintAIO,
     private userData: UserData,
     private router: Router,
     private loadingController: LoadingController,
@@ -52,8 +50,8 @@ export class LoginPage {
 
   async presentLoading() {
     const loading = await this.loadingController.create({
-      message: this.some,
-      duration: 2000
+      duration: 2000,
+      cssClass: 'my-loading-class'
     });
     loading.present();
     return await loading.onWillDismiss();
@@ -65,28 +63,5 @@ export class LoginPage {
     else 
       this.router.navigateByUrl('/tutorial')
   }
-
-  // async presentDialogue() {
-  //   try {
-  //     await this.platform.ready();
-  //     this.faio.isAvailable().then(result => {
-  //       if (result === "finger" || result === "face") {
-  //         this.faio.show({
-  //           clientId: 'Fingerprint-Demo',
-  //           clientSecret: 'password', //Only necessary for Android
-  //           disableBackup: true,  //Only for Android(optional)
-  //           localizedFallbackTitle: 'Use Pin', //Only for iOS
-  //           localizedReason: 'Please authenticate' //Only for iOS
-  //         }).then((result: any) => {
-  //           this.router.navigateByUrl('/account')
-  //         }).catch(error => {
-  //           console.log(error)
-  //         })
-  //       }
-  //     })
-  //   }catch(err){
-  //     console.log(err)
-  //   }
-  // }
 
 }

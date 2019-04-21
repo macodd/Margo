@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserData } from '../../services/user-data';
+import { MenuController } from '@ionic/angular';
 
 // Interface
 import { UserOptions } from '../../interfaces/user-options';
@@ -22,10 +23,19 @@ export class EditProfilePage implements OnInit {
   isViewBussines = false;
   constructor(
     public router: Router,
-    public userData: UserData
+    public userData: UserData,
+    private menu: MenuController
   ) { }
 
   ngOnInit() {
   }
 
+  onEdit(){
+    console.log("still working")
+  }
+
+  onBack(){
+    this.menu.enable(true);
+    this.router.navigateByUrl('/account')
+  }
 }
