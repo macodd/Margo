@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'activity', loadChildren: './pages/activity/activity.module#ActivityPageModule' },
   { path: 'add-user', loadChildren: './pages/add-user/add-user.module#AddUserPageModule' },
   { path: 'auth-pin', loadChildren: './pages/auth-pin/auth-pin.module#AuthPinPageModule' },
+  { path: 'bank-account', loadChildren: './pages/bank-account/bank-account.module#BankAccountPageModule' },
   { path: 'editProfile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfilePageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginModule'},
   { path: 'login/:origin', loadChildren: './pages/login/login.module#LoginModule'},

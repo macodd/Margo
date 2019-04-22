@@ -1,46 +1,45 @@
 <ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button color="light" text="" (click)="onBack()"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
     <ion-toolbar color="primary">
-        <ion-buttons slot="start">
-          <ion-back-button color="light" text="" (click)="onBack()"></ion-back-button>
-        </ion-buttons>
-      </ion-toolbar>
-      <ion-toolbar color="primary">
-        <ion-row class="row-padding">
-          <ion-col>
-              <h2 class="title">Notificaciones</h2>
-          </ion-col>
-        </ion-row>
-      </ion-toolbar>
+      <ion-row class="row-padding">
+        <ion-col>
+            <h2 class="title">Notificaciones</h2>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
 <ion-list lines="none" style="margin-bottom: 0px;" *ngFor="let notification of notifications">
   <ion-item>
-      <ion-card style="width: 100%">
-        <ion-card-content style="padding: 0;" appCardColor (click)="openNotification()">
-          <ion-grid>
-            <ion-row >
-              <ion-col size-xs="6">
-                <img src="/assets/img/circle.png" class="avatar" alt="avatar">
-                <p class="card-title">{{ notification.type }}</p>
-              </ion-col>
+    <ion-card style="width: 100%">
+      <ion-card-content style="padding: 0;" appCardColor (click)="openNotification()">
+        <ion-grid>
+          <ion-row >
+            <ion-col size-xs="6">
+              <img src="/assets/img/circle.png" class="avatar" alt="avatar">
+              <p class="card-title">{{ notification.type }}</p>
+            </ion-col>
 
-              <ion-col size-xs="6">
-                <p class="card-subtitle">{{ notification.amount }}</p>
-              </ion-col>
-            </ion-row>
+            <ion-col size-xs="6">
+              <p class="card-subtitle">{{ notification.amount }}</p>
+            </ion-col>
+          </ion-row>
 
-            <ion-row>
-              <ion-col>
-                <p class="description">You have received money from <strong>{{ notification.description }}</strong>  successful.</p>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card-content>
-      </ion-card>
+          <ion-row>
+            <ion-col>
+              <p class="description">You have received money from <strong>{{ notification.description }}</strong>  successful.</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
   </ion-item>
 </ion-list>
-    
 
 </ion-content>

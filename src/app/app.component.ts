@@ -115,4 +115,8 @@ export class AppComponent implements OnInit {
     this.menu.enable(false);
     this.router.navigateByUrl('/activity');
   }
+  goBankAccount(){
+    this.menu.enable(false);
+    this.router.navigateByUrl('/bank-account');
+  }
 }
