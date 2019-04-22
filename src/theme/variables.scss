@@ -354,14 +354,32 @@
     box-shadow: none;
     color: white;
 
-    .sc-ion-loading-md{
-      color: white;
-      // transform: scale(2);
-    }
-    .sc-ion-loading-ios{
+    .sc-ion-loading-md {
       color: white;
       // transform: scale(2);
     }
 
+    .sc-ion-loading-ios {
+      color: white;
+      // transform: scale(2);
+    }
+
+  }
+}
+
+.my-modal-class {
+  .modal-wrapper {
+    background: transparent;
+    box-shadow: none;
+    color: white;
+
+
+    .sc-ion-modal-md {
+      color: white;
+    }
+
+    .sc-ion-modal-ios {
+      color: white;
+    }
   }
 }

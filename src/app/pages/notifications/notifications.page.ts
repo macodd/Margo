@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
@@ -41,9 +41,10 @@ export class NotificationsPage {
   async openNotification() {
     const modal = await this.modalCtrl.create({
       component: NotificationDialogPage,
+      cssClass: 'my-modal-class',
       // componentProps: { excludedTracks: this.excludeTracks }
     });
-    await modal.present();
+    modal.present();
     }
 
   onBack(){

@@ -25,6 +25,6 @@ export class NotificationDialogPage implements AfterViewInit {
 
   onMouseUp() {
     this.dismiss();
-    this.router.navigateByUrl('notifications');
+    this.router.navigateByUrl('/notifications');
   }
 }
