@@ -1,8 +1,5 @@
 <ion-header no-border>
   <ion-toolbar class="light-toolbar">
-    <ion-buttons slot="start">
-      <ion-back-button color="dark" text="" (click)="onBack()"></ion-back-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -45,25 +42,24 @@
   </form>
 </ion-content>
 
-  <ion-toolbar class="toolbar" color="lightCustom">
-    <ion-row justify-content-center responsive-sm>
-      <!-- TODO: Delete onSignup() method? -->
-      <ion-col no-padding ion-fixed>
-        <ion-button color="tertiary" style="text-transform: none; margin: 0" size="large" type="submit" expand="full" (click)="onLogin(loginForm)">Iniciar Sesión</ion-button>
-      </ion-col>
-    </ion-row>
-    
-    <ion-row justify-content-center>
-      <ion-col text-center>
-          <p id="forgot">¿Problemas para ingresar?</p>
-      </ion-col>
-    </ion-row>
+<ion-toolbar class="toolbar" color="lightCustom">
+  <ion-row justify-content-center responsive-sm>
+    <!-- TODO: Delete onSignup() method? -->
+    <ion-col no-padding ion-fixed>
+      <ion-button color="tertiary" style="text-transform: none; margin: 0" size="large" type="submit" expand="full" (click)="onLogin(loginForm)">Iniciar Sesión</ion-button>
+    </ion-col>
+  </ion-row>
 
-    <ion-row responsive-sm>
-        <!-- TODO: Delete onSignup() method? -->
-        <ion-col align-self-center>
-            
-        </ion-col>
-    </ion-row>
-  </ion-toolbar>
+  <ion-row justify-content-center>
+    <ion-col text-center>
+        <p id="forgot">¿Registrase? ¿Problemas para ingresar?</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row responsive-sm>
+      <ion-col align-self-center>
+
+      </ion-col>
+  </ion-row>
+</ion-toolbar>
 

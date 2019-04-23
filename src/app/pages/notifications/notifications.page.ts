@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { ModalController, MenuController } from '@ionic/angular';
 
 import { NotificationDialogPage } from '../notification-dialog/notification-dialog.page';
 
@@ -13,7 +13,12 @@ export class NotificationsPage {
 
   notifications: Array<Object> = [{type: String, amount: String, description: String}];
 
-  constructor(private router: Router, public modalCtrl: ModalController) {
+  constructor(
+    private router: Router,
+    public modalCtrl: ModalController,
+    private menu: MenuController
+  ) {
+    this.menu.enable(false);
     this.notifications = [
       {
         type: 'Cash In',
@@ -42,12 +47,12 @@ export class NotificationsPage {
     const modal = await this.modalCtrl.create({
       component: NotificationDialogPage,
       cssClass: 'my-modal-class',
-      // componentProps: { excludedTracks: this.excludeTracks }
     });
     modal.present();
     }
 
   onBack(){
-    this.router.navigateByUrl('/account')
+    this.menu.enable(true);
+    this.router.navigateByUrl('/account');
   }
 }

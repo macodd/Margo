@@ -1,45 +1,30 @@
-<ion-header>
+<ion-header xmlns="http://www.w3.org/1999/html">
   <ion-toolbar color="tertiary">
-      <ion-buttons slot="start">
-        <ion-back-button color="light" text="" (click)="onBack()"></ion-back-button>
-      </ion-buttons>
-    </ion-toolbar>
-    <ion-toolbar color="tertiary">
-      <ion-row class="row-padding">
-        <ion-col>
-            <h2 class="title">Notificaciones</h2>
-        </ion-col>
-      </ion-row>
-    </ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light" text="" (click)="onBack()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="tertiary">
+    <ion-row class="row-padding">
+      <ion-col>
+          <h2 class="title">Notificaciones</h2>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-<ion-list lines="none" style="margin-bottom: 0px;" *ngFor="let notification of notifications">
-  <ion-item>
-    <ion-card style="width: 100%">
-      <ion-card-content style="padding: 0;" appCardColor (click)="openNotification()">
-        <ion-grid>
-          <ion-row >
-            <ion-col size-xs="6">
-              <img src="/assets/img/circle.png" class="avatar" alt="avatar">
-              <p class="card-title">{{ notification.type }}</p>
-            </ion-col>
-
-            <ion-col size-xs="6">
-              <p class="card-subtitle">{{ notification.amount }}</p>
-            </ion-col>
-          </ion-row>
-
-          <ion-row>
-            <ion-col>
-              <p class="description">You have received money from <strong>{{ notification.description }}</strong>  successful.</p>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card-content>
-    </ion-card>
-  </ion-item>
-</ion-list>
+<ion-content color="light">
+  <ion-list class="description">
+    <ion-item *ngFor="let notification of notifications" (click)="openNotification()">
+      <ion-avatar slot="start">
+        <img src="../../../assets/img/icons/mark.png" alt="">
+      </ion-avatar>
+      <ion-label>
+        <h2><strong>{{notification.type}} </strong></h2>
+        <h3> {{notification.amount}}</h3>
+        <p>Recibido de: <strong> {{notification.description}} </strong></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
