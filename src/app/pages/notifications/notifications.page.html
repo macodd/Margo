@@ -1,4 +1,4 @@
-<ion-header xmlns="http://www.w3.org/1999/html">
+<ion-header>
   <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-back-button color="light" text="" (click)="onBack()"></ion-back-button>
@@ -13,16 +13,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light">
+<ion-content>
+
   <ion-list class="description">
-    <ion-item *ngFor="let notification of notifications" (click)="openNotification()">
+    <ion-item *ngFor="let notification of notifications" (click)="onClick(notification)" [ngStyle]="{'color': notification.isClicked ? '#a9a9a9': '#000' }">
       <ion-avatar slot="start">
         <img src="../../../assets/img/icons/mark.png" alt="">
       </ion-avatar>
-      <ion-label>
-        <h2><strong>{{notification.type}} </strong></h2>
-        <h3> {{notification.amount}}</h3>
-        <p>Recibido de: <strong> {{notification.description}} </strong></p>
+      <ion-label (click)="openNotification()">
+        <h2><strong>{{ notification.type }} </strong></h2>
+        <h3> {{ notification.amount }}</h3>
+        <span>Recibido de: <strong> {{ notification.description }} </strong></span>
       </ion-label>
     </ion-item>
   </ion-list>

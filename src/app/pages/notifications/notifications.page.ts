@@ -11,7 +11,8 @@ import { NotificationDialogPage } from '../notification-dialog/notification-dial
 })
 export class NotificationsPage {
 
-  notifications: Array<Object> = [{type: String, amount: String, description: String}];
+  notifications: Array<Object> = [{type: String, amount: String, description: String, isClicked: Boolean}];
+  itemColor: String = '#000';
 
   constructor(
     private router: Router,
@@ -23,24 +24,34 @@ export class NotificationsPage {
       {
         type: 'Cash In',
         amount: '+$50.00 USD',
-        description: 'Jacob E. Miller'
+        description: 'Jacob E. Miller',
+        isClicked: false
       },
       {
         type: 'Send Money',
         amount: '+$1200.00 USD',
-        description: 'Jacob E. Miller'
+        description: 'Jacob E. Miller',
+        isClicked: false
       },
       {
         type: 'Payment',
         amount: '+$1200.00 USD',
-        description: 'Jacob E. Miller'
+        description: 'Jacob E. Miller',
+        isClicked: false
       },
       {
         type: 'Cash Out',
         amount: '+$750.00 USD',
-        description: 'Jacob E. Miller'
+        description: 'Jacob E. Miller',
+        isClicked: false
       },
     ];
+  }
+
+  onClick(notification) {
+    if (notification.isClicked == false) {
+      notification.isClicked = true;
+    }
   }
 
   async openNotification() {
