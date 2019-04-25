@@ -12,7 +12,6 @@ import { NotificationDialogPage } from '../notification-dialog/notification-dial
 export class NotificationsPage {
 
   notifications: Array<Object> = [{type: String, amount: String, description: String, isClicked: Boolean}];
-  itemColor: String = '#000';
 
   constructor(
     private router: Router,

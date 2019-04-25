@@ -16,10 +16,10 @@ import { SendMoneyDialogPage } from '../send-money-dialog/send-money-dialog.page
   animations: [
     trigger('headerState', [
       state('initial', style({
-        height: '270px'
+        height: '90%'
       })),
       state('compressed', style({
-        height: '130px'
+        height: '90%'
       })),
       transition('initial <=> compressed', animate('400ms ease-in')),
       // transition('transparent => opaque', animate('4000ms ease-out'))

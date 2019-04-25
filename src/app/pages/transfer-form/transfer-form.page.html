@@ -3,16 +3,10 @@
     <ion-buttons slot="start">
       <ion-back-button color="light" text="" (click)="onBack()"></ion-back-button>
     </ion-buttons>
-
     <ion-title >
         <p style="color: white; font-size: 13px; text-align: center;">TRANSFERIR</p>
     </ion-title>
-<!--      <ion-title [@subtitleState]="subtitleState">-->
-<!--        <p style="color: white; font-size: 13px; padding-right: 65px;" >DISPONIBLE <strong>$17,000 USD</strong></p>-->
-<!--      </ion-title>-->
-
   </ion-toolbar>
-
   <ion-toolbar color="secondary" [@headerState]="state">
     <p style="color: white; font-size: 13px; text-align: center" >DISPONIBLE <strong>$17,000 USD</strong></p>
     <ion-grid>
@@ -24,7 +18,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <form>
     <ion-list>
       <ion-item lines="full">
@@ -58,3 +52,8 @@
       <ion-button style="text-transform: none;" fill="clear" type="submit" expand="full" size="large" (click)="toTransfer()">Transferir a "Mark"</ion-button>
   </ion-toolbar>
 </ion-footer>
+
+
+<!--      <ion-title [@subtitleState]="subtitleState">-->
+<!--        <p style="color: white; font-size: 13px; padding-right: 65px;" >DISPONIBLE <strong>$17,000 USD</strong></p>-->
+<!--      </ion-title>-->

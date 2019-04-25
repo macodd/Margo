@@ -52,10 +52,13 @@ export class SignupPage {
   }
 
   onBack(){
-    if(this.origin === "account")
+    if(this.origin === "account") {
+      this.menu.enable(true);
       this.router.navigateByUrl('/account');
-    else 
+    }
+    else {
       this.router.navigateByUrl('/tutorial')
+    }
   }
 
   async presentLoading() {
@@ -66,15 +69,4 @@ export class SignupPage {
     loading.present();
     return await loading.onWillDismiss();
   }
-
-  // segmentButtonClicked(type: String) {
-  //   if (type === 'personal') {
-  //     this.isViewPersonal = true;
-  //     // this.isViewBusiness = false;
-  //   }
-  //   if (type === 'business') {
-  //     // this.isViewBusiness = true;
-  //     this.isViewPersonal = false;
-  //   }
-  // }
 }
