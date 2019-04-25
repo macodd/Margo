@@ -17,14 +17,18 @@ export class SendMoneyDialogPage implements AfterViewInit {
   ngAfterViewInit(): void {
   }
 
-  dismiss(data?: any) {
+  dismiss() {
     // using the injected ModalController this page
     // can "dismiss" itself and pass back data
-    this.modalCtrl.dismiss(data);
+    this.modalCtrl.dismiss();
   }
 
   goSuccessful() {
     this.dismiss();
     this.router.navigateByUrl('payment-successful');
+  }
+
+  goCancel() {
+    this.dismiss();
   }
 }

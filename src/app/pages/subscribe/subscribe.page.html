@@ -1,0 +1,67 @@
+<ion-header no-border>
+  <ion-toolbar class="light-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" text="" (click)="onBack()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar class="activity-toolbar">
+    <ion-title>
+      <h2 class="activity-title">margo</h2><h2 class="pro-title">pro</h2>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row class="first-grid-padding" justify-content-center>
+      <ion-col text-center size="6">
+        <ion-card>
+          <ion-card-content>
+            <ion-icon name="refresh-circle" size="large" class="img-custom"></ion-icon>
+            <p>1era. opción</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col text-center size="6">
+        <ion-card>
+          <ion-card-content>
+            <ion-icon name="refresh-circle" size="large" class="img-custom"></ion-icon>
+            <p>2da. opción</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="second-grid-padding" justify-content-center>
+      <ion-col size="6">
+        <ion-card>
+          <ion-item lines="none" style="text-align: center;">
+            <ion-label style="display: inline;"><strong class="price-field">$49.99 </strong><p class="price-field">USD</p></ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card >
+          <ion-item lines="none" style="text-align: center;">
+            <ion-label style="display: inline;"><strong class="price-field">$99.99 </strong><p class="price-field">USD</p></ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-row>
+    <ion-col text-center>
+      <h4 text-left>TÉRMINOS</h4>
+      <p text-justify class="activity-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col text-center>
+      <p style="display: inline;">¡Ya tengo una compra! </p> <p class="restaurar-button">Restaurar</p>
+    </ion-col>
+  </ion-row>
+</ion-content>

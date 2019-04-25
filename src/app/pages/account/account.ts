@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, OnInit, Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ToastController , MenuController} from '@ionic/angular';
@@ -21,10 +21,15 @@ export class AccountPage implements AfterViewInit {
     public userData: UserData,
     public toastController: ToastController,
     private menu: MenuController
-  ) { }
+  ) {
+
+  }
+
+  ngOnInit() {
+    this.menu.enable(true );
+  }
 
   ngAfterViewInit() {
-    this.menu.enable(true );
     // this.getUsername();
     this.presentToastWithOptions();
   }
@@ -57,7 +62,7 @@ export class AccountPage implements AfterViewInit {
   }
 
   clickUnlock() {
-    this.router.navigateByUrl('/activity');
+    this.router.navigateByUrl('/subscribe');
   }
 
   clickNotifications() {

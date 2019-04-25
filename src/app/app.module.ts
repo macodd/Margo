@@ -16,7 +16,6 @@ import { environment } from '../environments/environment';
 import { SendMoneyDialogPage } from './pages/send-money-dialog/send-money-dialog.page';
 import { NotificationDialogPage } from './pages/notification-dialog/notification-dialog.page';
 import { AddUserService } from './pages/add-user/add-user.service';
-import { FormAutohideDirective } from './directives/form-autohide.directive';
 
 // Biometrics
 // import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
@@ -38,7 +37,6 @@ import { FormAutohideDirective } from './directives/form-autohide.directive';
     AppComponent,
     SendMoneyDialogPage,
     NotificationDialogPage,
-    FormAutohideDirective
   ],
   providers: [
     InAppBrowser,

@@ -92,7 +92,5 @@ export class TutorialPage {
   hideButtonSkipe(position: number){
     if(position === 4)
       this.showSkip = false;
-    else
-      this.showSkip = true;
   }
 }

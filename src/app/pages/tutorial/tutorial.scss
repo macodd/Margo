@@ -10,7 +10,7 @@ page-tutorial {
   }
 
   .slide-title {
-    margin-top: 49,33px;
+    margin-top: 49px;
   }
 
   .last-slide {
@@ -28,9 +28,9 @@ page-tutorial {
     margin: 36px 0;
   }
 
-  b {
-    font-weight: 500;
-  }
+  //b {
+  //  font-weight: 500;
+  //}
 
   p {
     padding: 0 40px;
@@ -38,18 +38,13 @@ page-tutorial {
     line-height: 1.5;
     color: #000000;
 
-    b {
-      color: #000000;
-    }
+    //b {
+    //  color: #000000;
+    //}
     
-  }
-
-  slide-1{
-    position: relative;
-    margin-top: 2px;
   }
 
   ion-slides {
     height: 100%;
- }
+  }
 }

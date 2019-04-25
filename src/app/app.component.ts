@@ -111,9 +111,9 @@ export class AppComponent implements OnInit {
     this.menu.enable(false);
     this.router.navigateByUrl('/editProfile');
   }
-  goSuscrible() {
+  goSubscribe() {
     this.menu.enable(false);
-    this.router.navigateByUrl('/activity');
+    this.router.navigateByUrl('/subscribe');
   }
   goBankAccount(){
     this.menu.enable(false);

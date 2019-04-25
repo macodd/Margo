@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
-import { ModalController, IonContent, IonFabButton } from '@ionic/angular';
+import { ModalController, IonContent, IonFabButton, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,10 +15,12 @@ export class TermsPage {
 
   constructor(
     private modalCtrl: ModalController,
-    private router: Router
+    private router: Router,
+    private menu: MenuController
   ) {}
 
   toAccept(){
+    this.menu.enable(true);
     this.router.navigateByUrl('/account');
   }
 
