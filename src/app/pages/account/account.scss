@@ -5,15 +5,6 @@ page-account {
     border-radius: 50%;
   }
 
-  .background-header-customer {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0da7ff+1,1ef1f9+100 */
-    background: #0da7ff; /* Old browsers */
-    background: -moz-linear-gradient(top, #0da7ff 1%, #1ef1f9 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #0da7ff 1%,#1ef1f9 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #0da7ff 1%,#1ef1f9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0da7ff', endColorstr='#1ef1f9',GradientType=0 ); /* IE6-9 */
-  }
-
   .white-icon {
     color: white;
   }
@@ -37,24 +28,6 @@ page-account {
     position: relative;
   }
 
-  .first-grid-padding {
-    padding-top: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .second-grid-padding {
-    padding-top: -15px;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-
-  .third-grid-padding {
-    padding-top: 10px;
-    padding-right: 30px;
-    padding-left: 30px;
-  }
-  
   .item-border {
     border-bottom: 1px solid grey !important;
   }
@@ -68,14 +41,6 @@ page-account {
   .outline-button {
     --color: #7f7f7f;
     --border-color: #7f7f7f;
-  }
-
-  .second-avatar {
-    position: relative;
-    right: 25px;
-    bottom: 45px;
-    width: 20%;
-    //z-index: -1;
   }
 
   .center-icon {
@@ -104,9 +69,6 @@ page-account {
   }
 
   .bar-style {
-    // --bar-background: linear-gradient(270deg, rgba(13, 167, 255, 1) 0%, rgba(30, 241, 249, 1) 90%);
-    // --bar-background-active: white;
-    // --bar-height: 7px;
     --background: linear-gradient(270deg, rgba(13, 167, 255, 1) 0%, rgba(30, 241, 249, 1) 90%);
     --progress-background: grey;
   }

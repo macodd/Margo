@@ -30,76 +30,60 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-grid>
-    <ion-row justify-content-center>
-      <ion-col text-center size-md="12">
-        <ion-card class="card-color" (click)="goSendMoney()">
-          <ion-item lines="none">
-            <!-- <ion-icon name="refresh-circle" slot="start" size="large"></ion-icon> -->
-            <img src="../../../assets/img/icons/transfer.png" alt="" class="center-icon">
-              <ion-label><p>Enviar</p></ion-label>
-          </ion-item>
-          <ion-item lines="none" float-end>
-            <ion-label><p>Transferir o pagar</p></ion-label>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
 
-    <ion-row justify-content-center>
-      <ion-col text-center size-md="12">
-        <ion-card class="card-color" (click)="goBalance()">
-          <ion-item lines="none">
-            <!-- <ion-icon name="refresh-circle" slot="start" size="large"></ion-icon> -->
-            <img src="../../../assets/img/icons/payments.png" alt="" class="center-icon">
-            <ion-label><p>Balance Margo</p></ion-label>
-          </ion-item >
-          <ion-item lines="none" float-end>
-            <h1>$ 500.00</h1>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
+  <ion-card class="card-color" (click)="goSendMoney()">
+    <ion-item lines="none">
+      <img src="../../../assets/img/icons/transfer.png" alt="" class="center-icon">
+        <ion-label><p>Enviar</p></ion-label>
+    </ion-item>
+    <ion-item lines="none" float-end>
+      <ion-label><p>Transferir o pagar</p></ion-label>
+    </ion-item>
+  </ion-card>
 
-    <ion-row justify-content-center>
-      <ion-col size-md="12">
-        <ion-card class="card-color">
-          <ion-item lines="none">
-            <!-- <ion-icon name="refresh-circle" slot="start" size="large"></ion-icon> -->
-            <img src="../../../assets/img/icons/activity.png" alt="" class="activity-icon">
-            <ion-label><p>Ver Actividad</p></ion-label>
-          </ion-item>
-          <ion-item float-end lines="none">
-            <ion-label><p>ultima transaccion: 2 feb 19</p></ion-label>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
+  <ion-card class="card-color" (click)="goBalance()">
+    <ion-item lines="none">
+      <img src="../../../assets/img/icons/payments.png" alt="" class="center-icon">
+      <ion-label><p>Balance Margo</p></ion-label>
+    </ion-item >
+    <ion-item lines="none" float-end>
+      <h3>$ 500.00</h3>
+    </ion-item>
+  </ion-card>
 
-    <ion-row>
-      <ion-col class="item-border">
-        <p class="bold-text">MÁS TRANSACCIONES</p>
-      </ion-col>
-    </ion-row>
+  <ion-card class="card-color">
+    <ion-item lines="none">
+      <img src="../../../assets/img/icons/activity.png" alt="" class="activity-icon">
+      <ion-label><p>Ver Actividad</p></ion-label>
+    </ion-item>
+    <ion-item float-end lines="none">
+      <ion-label><p>ultima transaccion: 2 feb 19</p></ion-label>
+    </ion-item>
+  </ion-card>
 
-    <ion-row>
-      <ion-col text-center>
-        <br>
-        <img src="../../../assets/img/icons/locked_icon.png" width=12% alt="lock" >
-      </ion-col>
-    </ion-row>
+  <ion-row>
+    <ion-col class="item-border">
+      <p class="bold-text">MÁS TRANSACCIONES</p>
+    </ion-col>
+  </ion-row>
 
-    <ion-row padding>
-      <ion-col text-center>
-          <ion-progress-bar class="bar-style" value="0.5"></ion-progress-bar>
-          <p><strong>$88,76 USD</strong> hasta la versión GRATIS</p>
+  <ion-row>
+    <ion-col text-center>
+      <br>
+      <img src="../../../assets/img/icons/locked_icon.png" width=12% alt="lock" >
+    </ion-col>
+  </ion-row>
 
-          <p class="dark-text">Actualiza a PRO para desbloquear funciones avanzadas de Margo</p>
-          <ion-button style="text-transform: none;" class="outline-button" shape="round" fill="solid" color="dark" expand="full" (click)="clickUnlock()" >
-              Desbloquear
-          </ion-button>
-      </ion-col>
-    </ion-row>
+  <ion-row padding>
+    <ion-col text-center>
+        <ion-progress-bar class="bar-style" value="0.5"></ion-progress-bar>
+        <p><strong>$88,76 USD</strong> hasta la versión GRATIS</p>
 
-  </ion-grid>
+        <p class="dark-text">Actualiza a PRO para desbloquear funciones avanzadas de Margo</p>
+        <ion-button style="text-transform: none;" class="outline-button" shape="round" fill="solid" color="dark" expand="full" (click)="clickUnlock()" >
+            Desbloquear
+        </ion-button>
+    </ion-col>
+  </ion-row>
+
 </ion-content>

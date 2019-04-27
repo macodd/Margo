@@ -13,12 +13,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding-top>
 
   <ion-list class="description">
     <ion-item *ngFor="let notification of notifications" (click)="onClick(notification)" [ngStyle]="{'color': notification.isClicked ? '#a9a9a9': '#000' }">
       <ion-avatar slot="start">
-        <img src="../../../assets/img/icons/mark.png" alt="">
+        <img src="../../../assets/img/mark-2.jpg" alt="">
       </ion-avatar>
       <ion-label (click)="openNotification()">
         <h2><strong>{{ notification.type }} </strong></h2>
