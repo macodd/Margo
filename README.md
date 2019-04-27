@@ -12,4 +12,4 @@
 
 ## create page ionic
 
-ionic generate page pages/{name-page}
+ionic g
