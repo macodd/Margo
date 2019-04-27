@@ -22,7 +22,6 @@ import { SendMoneyDialogPage } from '../send-money-dialog/send-money-dialog.page
         height: '90%'
       })),
       transition('initial <=> compressed', animate('400ms ease-in')),
-      // transition('transparent => opaque', animate('4000ms ease-out'))
     ]),
 
     trigger('detailState', [
@@ -135,21 +134,11 @@ export class TransferFormPage implements OnInit {
       this.detailState = 'large';
     }
 
-    // if (this.count === 3) {
-    //   this.renderer.setStyle(this.fabToHide, 'opacity', '0');
-    //   this.titleState = 'center';
-    //   this.subtitleState = 'center';
-    //
-    //   this.showToTransfer = true;
-    //   this.state = 'initial';
-    //   this.detailState = 'large';
-    // }
   }
 
   async toTransfer() {
     const modal = await this.modalCtrl.create({
       component: SendMoneyDialogPage
-      // componentProps: { excludedTracks: this.excludeTracks }
     });
     await modal.present();
   }

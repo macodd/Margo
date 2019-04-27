@@ -6,23 +6,23 @@
     margin-bottom: 0;
 }
 
-.user-avatar {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-    padding: 20px 0px 0px 0px;
-}
-
 .description {
     opacity: 0.5;
     font-size: 14px;
 }
 
 .margo-title {
-    font-family: All Round Gothic;
-    font-size: 24px;
-    color: black;
-    text-align: center;
-    display:inline
-  }
+  font-family: All Round Gothic;
+  font-size: 150%;
+  color: black;
+  text-align: center;
+  display:inline
+}
+
+.imgSize {
+  width: 150px;
+  height : 150px;
+  max-width: 150px;
+  max-height: 150px;
+  margin: auto;
+}

@@ -13,26 +13,21 @@
 
 <ion-content>
 
-    <ion-row>
-      <ion-col padding>
-        <p style="opacity: 0.5;">Usuarios Margo</p>
-      </ion-col>
-    </ion-row>
+  <ion-row>
+    <ion-col padding>
+      <p style="opacity: 0.5;">Usuarios Margo</p>
+    </ion-col>
+  </ion-row>
 
-  <ion-grid>
-    <ion-item (click)=addUser()>
-      <ion-row>
-        <ion-col size="2">
-            <img src="assets/img/icons/mark.png" alt="" style="width: 100%;">
-        </ion-col>
+  <ion-item (click)=addUser()>
+    <ion-avatar slot="start">
+      <img src="../../../assets/img/mark-2.jpg" alt="">
+    </ion-avatar>
+    <ion-label>
+      <h3 style="margin: 0;">Mark Codd Christopherson</h3>
+      <p style="font-size: 14px; margin: 0; vertical-align: middle;"><ion-icon name="radio-button-on" size="default"></ion-icon>marky2186</p>
+      <p style="font-size: 14px; margin: 0; vertical-align: middle;"><ion-icon name="pin"></ion-icon>United States</p>
+    </ion-label>
+  </ion-item>
 
-        <ion-col size="8">
-            <p style="margin: 0;">Mark Codd Christopherson</p>
-            <p style="opacity: 0.5; font-size: 14px; margin: 0; vertical-align: middle;"><ion-icon name="radio-button-on" size="default"></ion-icon>marky2186</p>
-            <p style="opacity: 0.5; font-size: 14px; margin: 0; vertical-align: middle;"><ion-icon name="pin"></ion-icon>United States</p>
-        </ion-col>
-      </ion-row>
-
-    </ion-item>
-  </ion-grid>
 </ion-content>
