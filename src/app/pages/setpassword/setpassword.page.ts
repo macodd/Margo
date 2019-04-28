@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SetPasswordOptions } from '../../interfaces/set-password-options';
-import { Platform } from '@ionic/angular';
+import { LoadingController, MenuController, Platform} from '@ionic/angular';
 import { Router } from '@angular/router';
-import { FingerprintAIO, FingerprintOptions } from '@ionic-native/fingerprint-aio/ngx';
 import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
 
 @Component({
@@ -21,11 +20,13 @@ export class SetpasswordPage implements OnInit {
   submitted = false;
 
   constructor(
-    private fingerprint: FingerprintAIO,
     private router: Router,
     private platform: Platform,
-    private screenOrientation: ScreenOrientation
+    private menu: MenuController,
+    private screenOrientation: ScreenOrientation,
+    private loadingController: LoadingController
   ) {
+    this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
@@ -37,7 +38,9 @@ export class SetpasswordPage implements OnInit {
   ngOnInit() {}
 
   onSetPassword(data) {
-    this.router.navigateByUrl('/terms');
+    this.presentLoading().then(()=>{
+      this.router.navigateByUrl('/setpin-app');
+    });
   }
 
   hideShowPassword() {
@@ -52,5 +55,15 @@ export class SetpasswordPage implements OnInit {
 
   onBack() {
     this.router.navigateByUrl('/signup')
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      duration: 2000,
+      spinner: "crescent",
+      cssClass: 'my-loading-class'
+    });
+    loading.present();
+    return await loading.onWillDismiss();
   }
 }

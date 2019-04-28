@@ -7,6 +7,61 @@
 </ion-header>
 
 <ion-content padding color="primary">
-  <pin *ngIf="ShowPin" pagetitle="Crear PIN" pageSubtitle="Crea tu PIN de Inicio de Sesión" (change)="eventCapture($event)"></pin>
-  <pin *ngIf="ShowPinRepeat" pagetitle="Ingresa nuevamente" pageSubtitle="Re-ingresa tu PIN de Inicio de Sesión" (change)="eventCaptureRepeat($event)"></pin>
+  <h2 text-center margin-vertical class="slide-title light-logo" style="color:black;opacity: 0.4;">margo</h2>
+  <h6 text-center margin-vertical class="slide-title">Ingresa tu PIN</h6>
+
+  <div text-center large margin-vertical>
+    <ion-icon style="padding: 4px" [name]="pin.length>0 ? 'radio-button-on' : 'radio-button-off'"></ion-icon>
+    <ion-icon style="padding: 4px" [name]="pin.length>1 ? 'radio-button-on' : 'radio-button-off'"></ion-icon>
+    <ion-icon style="padding: 4px" [name]="pin.length>2 ? 'radio-button-on' : 'radio-button-off'"></ion-icon>
+    <ion-icon style="padding: 4px" [name]="pin.length>3 ? 'radio-button-on' : 'radio-button-off'"></ion-icon>
+  </div>
+  <div>
+    <ion-grid text-center>
+      <ion-row >
+        <ion-col>
+          <ion-label (click)="handleInput('1')"><h1 style="color: white; font-size: 300%">1</h1></ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label (click)="handleInput('2')"><h1 style="color: white; font-size: 300%">2</h1></ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label (click)="handleInput('3')"><h1 style="color: white; font-size: 300%">3</h1></ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label (click)="handleInput('4')"><h1 style="color: white; font-size: 300%">4</h1></ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label (click)="handleInput('5')"><h1 style="color: white; font-size: 300%">5</h1></ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label (click)="handleInput('6')"><h1 style="color: white; font-size: 300%">6</h1></ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label (click)="handleInput('7')"><h1 style="color: white; font-size: 300%">7</h1></ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label (click)="handleInput('8')"><h1 style="color: white; font-size: 300%">8</h1></ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label (click)="handleInput('9')"><h1 style="color: white; font-size: 300%">9</h1></ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+
+        </ion-col>
+        <ion-col>
+          <ion-label (click)="handleInput('0')"><h1 style="color: white; font-size: 300%">0</h1></ion-label>
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

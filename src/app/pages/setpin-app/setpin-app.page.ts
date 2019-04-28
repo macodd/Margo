@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SetPinNumberOptions } from '../../interfaces/set-pin-number-options';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
+import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
 @Component({
   selector: 'setpin-app',
@@ -15,18 +15,20 @@ export class SetpinAppPage implements OnInit {
     digit2: '',
     digit3: '',
     digit4: '',
-    digit5: '',
-    digit6: ''
   };
-  submitted = false;
 
   constructor(
     public router: Router,
-    public loadingController: LoadingController
-  ) { }
-
-  ngOnInit() {
+    public loadingController: LoadingController,
+    private menu: MenuController,
+    private screenOrientation: ScreenOrientation
+  ) {
+    this.menu.enable(false);
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
+
+  ngOnInit() {}
+
   jumpInput(d: any) {
     d.setFocus();
     if (d.name === 'd4' && this.setpinnumber.digit4 !== '') {
@@ -39,14 +41,20 @@ export class SetpinAppPage implements OnInit {
   onPinComplete() {
     // This the pin number
     const pin = this.setpinnumber.digit1 + this.setpinnumber.digit2 + this.setpinnumber.digit3 +
-    this.setpinnumber.digit4 + this.setpinnumber.digit5 + this.setpinnumber.digit6;
+    this.setpinnumber.digit4;
   }
+
   async presentLoading() {
     const loading = await this.loadingController.create({
-      message: 'Please wait...',
-      duration: 2000
+      spinner: "crescent",
+      duration: 2000,
+      cssClass: 'my-loading-class'
     });
     loading.present();
     return await loading.onWillDismiss();
+  }
+
+  onBack() {
+    this.router.navigateByUrl('/setpassword')
   }
 }

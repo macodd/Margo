@@ -2,100 +2,100 @@
     <ion-toolbar class="light-toolbar">
       <ion-buttons slot="start">
         <!-- <ion-menu-button></ion-menu-button> -->
-        <ion-back-button color="dark" text="" defaultHref="setpassword"></ion-back-button>
+        <ion-back-button color="dark" text="" (click)="onBack()"></ion-back-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
 <ion-content padding>
-    <ion-row padding>
-        <h1 class="set-pin-title">Configura tu PIN transaccional</h1>
-        <p class="description">Este número de 6 dígitos lo necesitarás al momento de realizar una transacción (pago o transferencia).</p>
-    </ion-row>
+  <ion-row padding>
+      <h1 class="set-pin-title">Configura tu PIN</h1>
+      <p class="description">Crea tu PIN de inicio de sesion.</p>
+  </ion-row>
 
-    <ion-row>
-      <ion-col text-center padding>
-        <img src="assets/img/shield.svg" width=15%>
-      </ion-col>
-    </ion-row>
+  <ion-row>
+    <ion-col text-center padding>
+      <img src="../../../assets/img/shield.svg" alt="" width="15%">
+    </ion-col>
+  </ion-row>
 
-    <form #setPinNumberForm="ngForm" novalidate>
+  <form #setPinNumberForm="ngForm" novalidate>
     <ion-grid>
-    <ion-row  justify-content-center padding>
-      <ion-col size="3">
-        <ion-item>
+      <ion-row  justify-content-center padding>
+        <ion-col size="3">
+          <ion-item>
             <ion-input
             #d1
             name="d1"
             [(ngModel)]="setpinnumber.digit1"
-            class="digit-input" 
+            class="digit-input"
             type="number"
-            inputmode="numeric" 
+            inputmode="numeric"
             maxlength=1
             pattern="[0-9]*"
             required=true
             autofocus=true
             text-center
             (ionChange)="jumpInput(d2)">
-          </ion-input>
-        </ion-item>
-      </ion-col>
+            </ion-input>
+          </ion-item>
+        </ion-col>
 
-      <ion-col size="3">
+        <ion-col size="3">
           <ion-item>
-            <ion-input 
+            <ion-input
             #d2
             name="d2"
             [(ngModel)]="setpinnumber.digit2"
-            class="digit-input" 
+            class="digit-input"
             type="number"
-            inputmode="numeric" 
-            maxlength=1 
+            inputmode="numeric"
+            maxlength=1
             pattern="[0-9]*"
             required=true
             text-center
             (ionChange)="jumpInput(d3)">
-          </ion-input>
+            </ion-input>
           </ion-item>
-      </ion-col>
+        </ion-col>
 
-      <ion-col size="3">
+        <ion-col size="3">
           <ion-item>
-              <ion-input 
-              #d3
-              name="d3"
-              [(ngModel)]="setpinnumber.digit3"
-              class="digit-input" 
-              type="number"
-              inputmode="numeric" 
-              maxlength=1
-              pattern="[0-9]*"
-              required=true
-              text-center
-              (ionChange)="jumpInput(d4)">
+            <ion-input
+            #d3
+            name="d3"
+            [(ngModel)]="setpinnumber.digit3"
+            class="digit-input"
+            type="number"
+            inputmode="numeric"
+            maxlength=1
+            pattern="[0-9]*"
+            required=true
+            text-center
+            (ionChange)="jumpInput(d4)">
             </ion-input>
-            </ion-item>
-      </ion-col>
+          </ion-item>
+        </ion-col>
 
-      <ion-col size="3">
+        <ion-col size="3">
           <ion-item>
-              <ion-input
-              #d4
-              name="d4"
-              [(ngModel)]="setpinnumber.digit4"
-              class="digit-input" 
-              type="number"
-              inputmode="numeric" 
-              maxlength=1
-              pattern="[0-9]*"
-              required=true
-              text-center
-              (ionChange)="jumpInput(d4)">
+            <ion-input
+            #d4
+            name="d4"
+            [(ngModel)]="setpinnumber.digit4"
+            class="digit-input"
+            type="number"
+            inputmode="numeric"
+            maxlength=1
+            pattern="[0-9]*"
+            required=true
+            text-center
+            (ionChange)="jumpInput(d4)">
             </ion-input>
-            </ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 
 </ion-content>

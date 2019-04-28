@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { MenuController, IonSlides } from '@ionic/angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
-import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -26,7 +25,6 @@ export class TutorialPage {
   constructor(
     private menu: MenuController,
     private router: Router,
-    private storage: Storage,
     private screenOrientation: ScreenOrientation
   ) {}
 
@@ -50,13 +48,6 @@ export class TutorialPage {
     });
   }
 
-  ionViewWillEnter() {
-    this.storage.get('tutorial_position').then(position => {
-      this.slides.slideTo(position, 500);
-    });
-    this.menu.enable(false);
-  }
-
   slideDidChange() {
     this.slides.isBeginning().then(beginning => {
       this.isBeginning = beginning;
@@ -72,7 +63,6 @@ export class TutorialPage {
    */
   slideChanged() {
     this.slides.getActiveIndex().then((position: number) => {
-      this.storage.set('tutorial_position', position);
       this.slides.isBeginning().then(beginning => {
         this.isBeginning = beginning;
 

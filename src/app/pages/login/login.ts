@@ -41,13 +41,13 @@ export class LoginPage {
 
     if (form.valid) {
       this.presentLoading().then(() => {
-        this.router.navigateByUrl('/account');
+        this.router.navigateByUrl('/auth-pin');
       });
     }
   }
 
   goTutorial(){
-    this.router.navigateByUrl('/tutorial')
+    this.router.navigateByUrl('/tutorial');
   }
 
   async presentLoading() {

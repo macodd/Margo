@@ -3,6 +3,4 @@ export interface SetPinNumberOptions {
     digit2: string;
     digit3: string;
     digit4: string;
-    digit5: string;
-    digit6: string;
   }

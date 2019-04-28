@@ -46,7 +46,7 @@ export class SignupPage {
   onSignup(form: NgForm) {
     this.submitted = true;
     this.presentLoading().then(()=>{
-      this.router.navigateByUrl('/auth-pin');
+      this.router.navigateByUrl('/setpassword');
     });
   }
 

@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
-import { ModalController, IonContent, IonFabButton, MenuController } from '@ionic/angular';
+import { ModalController, IonContent, IonFabButton, MenuController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
 
@@ -18,14 +18,17 @@ export class TermsPage {
     private modalCtrl: ModalController,
     private router: Router,
     private menu: MenuController,
-    private screenOrientation: ScreenOrientation
+    private screenOrientation: ScreenOrientation,
+    private loadingController: LoadingController
   ) {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
   toAccept(){
-    this.menu.enable(true);
-    this.router.navigateByUrl('/account');
+    this.presentLoading().then(()=>{
+      this.menu.enable(true);
+      this.router.navigateByUrl('/account');
+    });
   }
 
   toCancel(){
@@ -34,5 +37,15 @@ export class TermsPage {
 
   onBack() {
     this.router.navigateByUrl('/signup')
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      duration: 2000,
+      spinner: "crescent",
+      cssClass: 'my-loading-class'
+    });
+    loading.present();
+    return await loading.onWillDismiss();
   }
 }

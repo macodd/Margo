@@ -11,6 +11,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 })
 export class AuthPinPage implements OnInit {
 
+  pin: string = '';
+
   constructor(
     private router: Router,
     private loadingController: LoadingController,
@@ -21,33 +23,19 @@ export class AuthPinPage implements OnInit {
   }
 
   ngOnInit() {
-    this.menu.enable(false)
-  }
-  
-  Pin: String ="";
-  ShowPin: Boolean = true;
-  ShowPinRepeat: Boolean = false;
-  
-  eventCapture(event) {
-    this.presentLoading().then(()=>{
-      this.togglePinRepeat();
-    });
+    this.menu.enable(false);
   }
 
-  eventCaptureRepeat(event) {
-    this.presentLoading().then(()=>{
-        this.router.navigateByUrl('/setpassword');
-    });
+  handleInput(digit: string){
+    this.pin += digit;
+    console.log(this.pin);
+    if(this.pin.length == 4){
+      this.presentLoading().then(()=>{
+        this.router.navigateByUrl('/account')
+      });
+    }
   }
 
-  togglePin() {
-    this.ShowPin = !this.ShowPin;
-  }
-
-  togglePinRepeat() {
-    this.ShowPin = !this.ShowPin;
-    this.ShowPinRepeat = !this.ShowPinRepeat;
-  }
 
   async presentLoading() {
     const loading = await this.loadingController.create({
@@ -60,6 +48,6 @@ export class AuthPinPage implements OnInit {
   }
 
   onBack() {
-    this.router.navigateByUrl('/signup')
+    this.router.navigateByUrl('/signup');
   }
 }
