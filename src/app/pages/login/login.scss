@@ -12,6 +12,7 @@ page-login {
   .list {
     margin-bottom: 0;
   }
+
   .ion-color-lightCustom {
     --ion-color-base: #fff;
     --ion-color-base-rgb: 255,255,0;
@@ -47,4 +48,21 @@ page-login {
     font-size: 16pt;
     color: black;
   }
+
+  .activity-title {
+    font-family: All Round Gothic;
+    font-size: 300%;
+    text-align: center;
+    display:inline
+  }
+
+  .ion-color-loginTitle{
+    --ion-color-base: #1da1f4;
+    --ion-color-base-rgb: 29, 161, 244;
+    --ion-color-contrast: #ffffff;
+    --ion-color-contrast-rgb: 255, 255, 255;
+    --ion-color-shade: #1a8ed7;
+    --ion-color-tint: #34aaf5;
+  }
+
 }

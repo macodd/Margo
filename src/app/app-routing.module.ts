@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/tutorial', pathMatch: 'full'},
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'account', loadChildren: './pages/account/account.module#AccountModule'},
   { path: 'activity', loadChildren: './pages/activity/activity.module#ActivityPageModule' },
   { path: 'add-balance', loadChildren: './pages/add-balance/add-balance.module#AddBalancePageModule' },

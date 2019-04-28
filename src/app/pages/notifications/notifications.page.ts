@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ModalController, MenuController } from '@ionic/angular';
 
 import { NotificationDialogPage } from '../notification-dialog/notification-dialog.page';
+import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
 
 @Component({
   selector: 'app-notifications',
@@ -16,9 +17,11 @@ export class NotificationsPage {
   constructor(
     private router: Router,
     public modalCtrl: ModalController,
-    private menu: MenuController
+    private menu: MenuController,
+    private screenOrientation: ScreenOrientation
   ) {
     this.menu.enable(false);
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.notifications = [
       {
         type: 'Cash In',

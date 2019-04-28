@@ -4,6 +4,7 @@ import { SetPasswordOptions } from '../../interfaces/set-password-options';
 import { Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { FingerprintAIO, FingerprintOptions } from '@ionic-native/fingerprint-aio/ngx';
+import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
 
 @Component({
   selector: 'setpassword',
@@ -11,6 +12,7 @@ import { FingerprintAIO, FingerprintOptions } from '@ionic-native/fingerprint-ai
   styleUrls: ['./setpassword.page.scss'],
 })
 export class SetpasswordPage implements OnInit {
+
   setpassword: SetPasswordOptions = {
     username: '',
     password: '',
@@ -18,15 +20,21 @@ export class SetpasswordPage implements OnInit {
   };
   submitted = false;
 
-  constructor(private fingerprint: FingerprintAIO, private router: Router, private platform: Platform) { }
+  constructor(
+    private fingerprint: FingerprintAIO,
+    private router: Router,
+    private platform: Platform,
+    private screenOrientation: ScreenOrientation
+  ) {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  }
 
   passwordType = 'password';
   password2Type = 'password';
   passwordIcon = 'eye-off';
   password2Icon = 'eye-off';
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSetPassword(data) {
     this.router.navigateByUrl('/terms');

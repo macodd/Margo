@@ -1,9 +1,26 @@
 <ion-header no-border>
   <ion-toolbar class="light-toolbar">
+    <ion-button slot="end" color="white" style="--box-shadow: none">
+      <ion-icon color="medium" name="help-circle"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+  <ion-toolbar class="light-toolbar">
+
+  </ion-toolbar>
+  <ion-row text-center>
+    <ion-col>
+      <ion-label text-center color="loginTitle">
+        <h2 class="activity-title">margo</h2>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-toolbar class="light-toolbar">
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
   <ion-row padding>
     <ion-col>
       <h1 class="sign-in-title">¡Bienvenido!</h1>
@@ -52,7 +69,7 @@
 
   <ion-row justify-content-center>
     <ion-col text-center>
-        <p id="forgot">¿Registrase? ¿Problemas para ingresar?</p>
+        <p (click)="goTutorial()"  id="forgot">Registrase</p>
     </ion-col>
   </ion-row>
 

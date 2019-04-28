@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router , ActivatedRoute} from '@angular/router';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 import { UserData } from '../../services/user-data';
 
@@ -17,7 +18,6 @@ import { LoadingController, Platform, MenuController } from '@ionic/angular';
 export class LoginPage {
   login: LoginOptions = { email: '', password: '' };
   origin: String = '';
-  some: string;
   submitted = false;
 
   constructor(
@@ -26,12 +26,14 @@ export class LoginPage {
     private loadingController: LoadingController,
     private platform: Platform,
     private route: ActivatedRoute,
-    private menu: MenuController
+    private menu: MenuController,
+    private screenOrientation: ScreenOrientation
     ) {
     this.route.queryParams.subscribe(params => {
         this.origin = params['origin'];
     });
-    this.menu.enable(false)
+    this.menu.enable(false);
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
   onLogin(form: NgForm) {
@@ -44,24 +46,18 @@ export class LoginPage {
     }
   }
 
-  onSignup() {
-   this.router.navigateByUrl('/signup');
+  goTutorial(){
+    this.router.navigateByUrl('/tutorial')
   }
 
   async presentLoading() {
     const loading = await this.loadingController.create({
       duration: 2000,
+      spinner: "crescent",
       cssClass: 'my-loading-class'
     });
     loading.present();
     return await loading.onWillDismiss();
-  }
-
-  onBack(){
-    if(this.origin === "account")
-      this.router.navigateByUrl('/account');
-    else 
-      this.router.navigateByUrl('/tutorial')
   }
 
 }

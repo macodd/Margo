@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import { SendMoneyDialogPage } from './pages/send-money-dialog/send-money-dialog.page';
 import { NotificationDialogPage } from './pages/notification-dialog/notification-dialog.page';
 import { AddUserService } from './pages/add-user/add-user.service';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 // Biometrics
 // import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
@@ -37,12 +38,14 @@ import { AddUserService } from './pages/add-user/add-user.service';
     AppComponent,
     SendMoneyDialogPage,
     NotificationDialogPage,
+
   ],
   providers: [
     InAppBrowser,
     SplashScreen,
     StatusBar,
     AddUserService,
+    ScreenOrientation
     // FingerprintAIO,
     ],
   bootstrap: [AppComponent],

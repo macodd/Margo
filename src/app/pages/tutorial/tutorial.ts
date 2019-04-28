@@ -1,6 +1,7 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController, IonSlides } from '@ionic/angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 import { Storage } from '@ionic/storage';
 
@@ -25,11 +26,13 @@ export class TutorialPage {
   constructor(
     private menu: MenuController,
     private router: Router,
-    private storage: Storage
+    private storage: Storage,
+    private screenOrientation: ScreenOrientation
   ) {}
 
   startApp() {
     this.slides.slideTo(4, 500);
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
   goLogin() {
@@ -53,11 +56,6 @@ export class TutorialPage {
     });
     this.menu.enable(false);
   }
-
-  // ionViewDidLeave() {
-  //   // enable the root left menu when leaving the tutorial page
-  //   this.menu.enable(true);
-  // }
 
   slideDidChange() {
     this.slides.isBeginning().then(beginning => {

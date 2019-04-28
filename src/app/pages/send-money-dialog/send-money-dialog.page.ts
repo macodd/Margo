@@ -1,5 +1,5 @@
 import { Component, AfterViewInit} from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { LoadingController, ModalController} from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,8 @@ export class SendMoneyDialogPage implements AfterViewInit {
 
   constructor(
     public modalCtrl: ModalController,
-    private router: Router
+    private router: Router,
+    private loadingController: LoadingController
   ) {}
 
   ngAfterViewInit(): void {
@@ -25,10 +26,22 @@ export class SendMoneyDialogPage implements AfterViewInit {
 
   goSuccessful() {
     this.dismiss();
-    this.router.navigateByUrl('payment-successful');
+    this.presentLoading().then(()=>{
+      this.router.navigateByUrl('payment-successful');
+    });
   }
 
   goCancel() {
     this.dismiss();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      duration: 2000,
+      spinner: "crescent",
+      cssClass: 'my-loading-class'
+    });
+    loading.present();
+    return await loading.onWillDismiss();
   }
 }

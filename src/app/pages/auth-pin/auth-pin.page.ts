@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController, MenuController } from '@ionic/angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+
 
 @Component({
   selector: 'auth-pin',
@@ -12,8 +14,11 @@ export class AuthPinPage implements OnInit {
   constructor(
     private router: Router,
     private loadingController: LoadingController,
-    private menu: MenuController
-  ){}
+    private menu: MenuController,
+    private screenOrientation: ScreenOrientation
+  ){
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  }
 
   ngOnInit() {
     this.menu.enable(false)
@@ -47,6 +52,7 @@ export class AuthPinPage implements OnInit {
   async presentLoading() {
     const loading = await this.loadingController.create({
       duration: 1000,
+      spinner: "crescent",
       cssClass: 'my-loading-class'
     });
     loading.present();

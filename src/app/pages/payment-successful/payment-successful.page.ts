@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
 
 @Component({
   selector: 'payment-successful',
@@ -8,7 +9,12 @@ import { Router } from '@angular/router';
 })
 export class PaymentSuccessfulPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private screenOrientation: ScreenOrientation
+  ) {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  }
 
   ngOnInit() {
   }

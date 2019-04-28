@@ -7,6 +7,7 @@ import { LoadingController, MenuController } from '@ionic/angular';
 
 // Interface
 import { UserOptions } from '../../interfaces/user-options';
+import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
 
 @Component({
   selector: 'page-signup',
@@ -32,12 +33,14 @@ export class SignupPage {
     // public userData: UserData,
     private route: ActivatedRoute,
     private loadingController: LoadingController,
-    private menu: MenuController
+    private menu: MenuController,
+    private screenOrientation: ScreenOrientation
   ) {
     this.route.queryParams.subscribe(params => {
         this.origin = params['origin'];
     });
-    this.menu.enable(false)
+    this.menu.enable(false);
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
   onSignup(form: NgForm) {
@@ -64,6 +67,7 @@ export class SignupPage {
   async presentLoading() {
     const loading = await this.loadingController.create({
       duration: 2000,
+      spinner: "crescent",
       cssClass: 'my-loading-class'
     });
     loading.present();

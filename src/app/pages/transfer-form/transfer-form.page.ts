@@ -8,6 +8,7 @@ import {
 import { IonInput, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { SendMoneyDialogPage } from '../send-money-dialog/send-money-dialog.page';
+import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
 @Component({
   selector: 'app-transfer-form',
@@ -80,8 +81,11 @@ export class TransferFormPage implements OnInit {
     private renderer: Renderer2,
     private element: ElementRef,
     private router: Router,
-    private modalCtrl: ModalController
-    ) { }
+    private modalCtrl: ModalController,
+    private screenOrientation: ScreenOrientation
+    ){
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  }
 
   ngOnInit() {
     this.fabToHide = this.element.nativeElement.getElementsByClassName('form-fab')[0];
@@ -114,7 +118,7 @@ export class TransferFormPage implements OnInit {
       this.titleState = 'left';
       this.subtitleState = 'left';
 
-      this.enabled = false;
+      // this.enabled = false;
 
       setTimeout(() => {
         this.reference.setFocus();
@@ -144,6 +148,6 @@ export class TransferFormPage implements OnInit {
   }
 
   onBack() {
-    this.router.navigateByUrl('/account')
+    this.router.navigateByUrl('/transfer')
   }
 }

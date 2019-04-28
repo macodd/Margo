@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserData } from '../../services/user-data';
 import { MenuController } from '@ionic/angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 // Interface
 import { UserOptions } from '../../interfaces/user-options';
@@ -18,14 +19,17 @@ export class EditProfilePage implements OnInit {
     id: '',
     };
   submitted = false;
-  typeAccount = 'personal';
+  // typeAccount = 'personal';
   isViewPersonal = true;
-  isViewBussines = false;
+  // isViewBussines = false;
   constructor(
     public router: Router,
     public userData: UserData,
-    private menu: MenuController
-  ) { }
+    private menu: MenuController,
+    private screenOrientation: ScreenOrientation
+  ) {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  }
 
   ngOnInit() {
   }
