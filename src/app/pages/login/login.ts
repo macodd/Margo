@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router , ActivatedRoute} from '@angular/router';
+import { Router , ActivatedRoute } from '@angular/router';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 import { UserData } from '../../services/user-data';
@@ -48,6 +48,10 @@ export class LoginPage {
 
   goTutorial(){
     this.router.navigateByUrl('/tutorial');
+  }
+
+  onHelp(){
+    this.router.navigateByUrl('/help');
   }
 
   async presentLoading() {

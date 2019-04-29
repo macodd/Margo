@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'balance', loadChildren: './pages/balance/balance.module#BalancePageModule' },
   { path: 'bank-account', loadChildren: './pages/bank-account/bank-account.module#BankAccountPageModule' },
   { path: 'editProfile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfilePageModule' },
+  { path: 'help', loadChildren: './pages/help/help.module#HelpPageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginModule'},
   { path: 'login/:origin', loadChildren: './pages/login/login.module#LoginModule'},
   { path: 'notifications', loadChildren: './pages/notifications/notifications.module#NotificationsPageModule' },
