@@ -10,6 +10,9 @@ import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
 })
 export class BankAccountPage implements OnInit {
 
+  banks: Array<any> = [{img: String, bankName: String, accountType: String, accountNumber: String}];
+
+
   constructor(
     private router: Router,
     private menu: MenuController,
@@ -19,6 +22,31 @@ export class BankAccountPage implements OnInit {
   }
 
   ngOnInit() {
+    this.banks = [
+      {
+        img: 'bank_Boliv',
+        bankName: 'Bolivariano',
+        accountType: 'Corriente',
+        accountNumber: '123456',
+      },
+      {
+        img: 'bank_Pacifico',
+        bankName: 'Pacifico',
+        accountType: 'Ahorro',
+        accountNumber: '123456',
+      },
+      {
+        img: 'bank_Gquil',
+        bankName: 'Guayaquil',
+        accountType: 'Corriente',
+        accountNumber: '123456',
+      },
+    ];
+  }
+
+  getAccountNumber(bankAccountNumber){
+    var num = bankAccountNumber.substr(bankAccountNumber.length - 4 );
+    return  '***' + num.toString();
   }
 
   onBack(){

@@ -12,7 +12,7 @@ import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
 })
 export class NotificationsPage {
 
-  notifications: Array<Object> = [{type: String, amount: String, description: String, isClicked: Boolean}];
+  notifications: Array<any> = [{type: String, amount: String, description: String, isClicked: Boolean}];
 
   constructor(
     private router: Router,
