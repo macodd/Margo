@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'transfer', loadChildren: './pages/transfer/transfer.module#TransferPageModule' },
   { path: 'transfer-form', loadChildren: './pages/transfer-form/transfer-form.module#TransferFormPageModule' },
   { path: 'tutorial', loadChildren: './pages/tutorial/tutorial.module#TutorialModule'},
+  { path: 'add-bank', loadChildren: './pages/add-bank/add-bank.module#AddBankPageModule' },
 
 ];
 

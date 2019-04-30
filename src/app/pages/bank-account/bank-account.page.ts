@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { MenuController } from '@ionic/angular';
-import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
+import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
 @Component({
   selector: 'app-bank-account',
@@ -18,6 +18,7 @@ export class BankAccountPage implements OnInit {
     private menu: MenuController,
     private screenOrientation: ScreenOrientation
   ) {
+    this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
@@ -42,6 +43,10 @@ export class BankAccountPage implements OnInit {
         accountNumber: '123456',
       },
     ];
+  }
+
+  addBank(){
+    this.router.navigateByUrl('/add-bank')
   }
 
   getAccountNumber(bankAccountNumber){

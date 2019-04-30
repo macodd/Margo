@@ -4,11 +4,11 @@ import { MenuController } from '@ionic/angular';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
 @Component({
-  selector: 'app-add-balance',
-  templateUrl: './add-balance.page.html',
-  styleUrls: ['./add-balance.page.scss'],
+  selector: 'app-add-bank',
+  templateUrl: './add-bank.page.html',
+  styleUrls: ['./add-bank.page.scss'],
 })
-export class AddBalancePage implements OnInit {
+export class AddBankPage implements OnInit {
 
   constructor(
     private router: Router,
@@ -22,8 +22,19 @@ export class AddBalancePage implements OnInit {
   ngOnInit() {
   }
 
+  customBankOptions: any = {
+    header: 'Banco',
+    translucent: true
+  };
+
+  customTypeOptions: any = {
+    header: 'Tipo de Cuenta',
+    translucent: true
+  };
+
+
   onBack(){
     this.menu.enable(true);
-    this.router.navigateByUrl('/account');
+    this.router.navigateByUrl('/bank-account');
   }
 }

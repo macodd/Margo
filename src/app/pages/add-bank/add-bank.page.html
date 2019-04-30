@@ -1,0 +1,67 @@
+<ion-header no-border>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" text="" (click)="onBack()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="tertiary" text-center>
+    <ion-title>
+      <h2>
+        Añadir Cuenta
+      </h2>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: lightgray">
+
+  <ion-card style="background-color: white">
+    <ion-card-title padding-horizontal>
+      <h3>Banco</h3>
+    </ion-card-title>
+    <ion-card-content>
+
+      <ion-item float-end lines="none">
+        <ion-select style="max-width: 100%" [interfaceOptions]="customBankOptions" placeholder="Selecciona tu banco">
+          <ion-select-option value="Bolivariano">Bolivariano</ion-select-option>
+          <ion-select-option value="Pacifico">Pacifico</ion-select-option>
+          <ion-select-option value="Guayaquil">Guayaquil</ion-select-option>
+          <ion-select-option value="Produbanco">Produbanco</ion-select-option>
+          <ion-select-option value="Pichincha">Pichincha</ion-select-option>
+          <ion-select-option value="Internacional">Internacional</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card style="background-color: white">
+    <ion-card-title padding-horizontal>
+      <h3>Tipo de Cuenta</h3>
+    </ion-card-title>
+    <ion-card-content>
+
+      <ion-item float-end lines="none">
+        <ion-select style="max-width: 100%" [interfaceOptions]="customTypeOptions" placeholder="Tipo de cuenta">
+          <ion-select-option value="Corriente">Corriente</ion-select-option>
+          <ion-select-option value="Ahorros">Ahorros</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card style="background-color: white">
+    <ion-card-title padding-horizontal>
+      <h3>Numero de Cuenta</h3>
+    </ion-card-title>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-input></ion-input>
+        </ion-item>
+      </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
