@@ -13,55 +13,28 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content style="--background: lightgray">
-
-  <ion-card style="background-color: white">
-    <ion-card-title padding-horizontal>
-      <h3>Banco</h3>
-    </ion-card-title>
-    <ion-card-content>
-
-      <ion-item float-end lines="none">
-        <ion-select style="max-width: 100%" [interfaceOptions]="customBankOptions" placeholder="Selecciona tu banco">
-          <ion-select-option value="Bolivariano">Bolivariano</ion-select-option>
-          <ion-select-option value="Pacifico">Pacifico</ion-select-option>
-          <ion-select-option value="Guayaquil">Guayaquil</ion-select-option>
-          <ion-select-option value="Produbanco">Produbanco</ion-select-option>
-          <ion-select-option value="Pichincha">Pichincha</ion-select-option>
-          <ion-select-option value="Internacional">Internacional</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-card-content>
-
-  </ion-card>
-
-  <ion-card style="background-color: white">
-    <ion-card-title padding-horizontal>
-      <h3>Tipo de Cuenta</h3>
-    </ion-card-title>
-    <ion-card-content>
-
-      <ion-item float-end lines="none">
-        <ion-select style="max-width: 100%" [interfaceOptions]="customTypeOptions" placeholder="Tipo de cuenta">
-          <ion-select-option value="Corriente">Corriente</ion-select-option>
-          <ion-select-option value="Ahorros">Ahorros</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-    </ion-card-content>
-
-  </ion-card>
-
-  <ion-card style="background-color: white">
-    <ion-card-title padding-horizontal>
-      <h3>Numero de Cuenta</h3>
-    </ion-card-title>
-      <ion-card-content>
-        <ion-item lines="none">
-          <ion-input></ion-input>
-        </ion-item>
-      </ion-card-content>
-  </ion-card>
-
+<ion-content>
+  <ion-grid padding>
+    <ion-row text-center padding>
+      <ion-col>
+        <img src="../../../assets/img/icons/institution.png" alt="">
+      </ion-col>
+    </ion-row>
+    <ion-row text-center>
+      <ion-col>
+        <ion-label (click)="openBankPicker()">{{ bankValue }}<ion-icon name="arrow-dropdown"></ion-icon></ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row text-center padding>
+      <ion-col>
+        <img src="../../../assets/img/icons/savings.png" alt="">
+      </ion-col>
+    </ion-row>
+    <ion-row text-center>
+      <ion-col>
+        <ion-label (click)="openAccountTypePicker()">{{ accountTypeValue }}<ion-icon style="height: 12px" name="arrow-dropdown"></ion-icon></ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

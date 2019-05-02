@@ -45,7 +45,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     SplashScreen,
     StatusBar,
     AddUserService,
-    ScreenOrientation
+    ScreenOrientation,
     // FingerprintAIO,
     ],
   bootstrap: [AppComponent],
