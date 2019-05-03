@@ -1,9 +1,10 @@
 .avatar {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-  }
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  max-width: 30%;
+}
 
 .transfer-content {
     --background: linear-gradient(270deg, rgba(3, 139, 104, 1) 0%, rgba(9, 39, 43, 1) 90%) !important;
@@ -23,7 +24,6 @@
 
 .icon {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   width: 90%;
 }

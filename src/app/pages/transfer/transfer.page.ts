@@ -26,7 +26,6 @@ export class TransferPage implements OnInit {
     this.addUserService.userActivated.subscribe(
       (user: boolean) => {
         this.currentUser = user;
-        console.log(this.currentUser);
       }
     );
   }

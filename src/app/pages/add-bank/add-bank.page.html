@@ -22,19 +22,54 @@
     </ion-row>
     <ion-row text-center>
       <ion-col>
-        <ion-label (click)="openBankPicker()">{{ bankValue }}<ion-icon name="arrow-dropdown"></ion-icon></ion-label>
+        <ion-label (click)="openBankPicker()">{{ bankValue }} <ion-icon name="arrow-dropdown"></ion-icon></ion-label>
       </ion-col>
     </ion-row>
-    <ion-row text-center padding>
-      <ion-col>
-        <img src="../../../assets/img/icons/savings.png" alt="">
-      </ion-col>
-    </ion-row>
-    <ion-row text-center>
-      <ion-col>
-        <ion-label (click)="openAccountTypePicker()">{{ accountTypeValue }}<ion-icon style="height: 12px" name="arrow-dropdown"></ion-icon></ion-label>
-      </ion-col>
-    </ion-row>
+
+    <div [ngStyle]="{'display': showType }">
+      <ion-row text-center padding>
+        <ion-col>
+          <img src="../../../assets/img/icons/savings.png" alt="">
+        </ion-col>
+      </ion-row>
+      <ion-row text-center>
+        <ion-col>
+          <ion-label (click)="openAccountTypePicker()">{{ accountTypeValue }} <ion-icon name="arrow-dropdown"></ion-icon></ion-label>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div [ngStyle]="{'display': showNumber }">
+      <ion-row text-center padding-top>
+        <ion-col>
+          <img src="../../../assets/img/icons/bank_number.png" alt="">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item text-center>
+            <ion-label position="stacked">Numero de Cuenta</ion-label>
+            <ion-input [(ngModel)]="accountNumber" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
   </ion-grid>
 
 </ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar class="toolbar" color="lightCustom">
+    <ion-row>
+      <ion-col>
+        <ion-button [disabled]="accountNumber == ''" expand="full" shape="round" fill="outline" color="tertiary" (click)="goAddAccount()">Añadir Cuenta</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <p></p>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

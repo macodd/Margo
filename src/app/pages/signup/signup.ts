@@ -25,7 +25,7 @@ export class SignupPage {
 
   submitted = false;
   origin = '';
-  // isViewPersonal = true;
+  isViewPersonal = true;
   // isViewBusiness = false;
 
   constructor(

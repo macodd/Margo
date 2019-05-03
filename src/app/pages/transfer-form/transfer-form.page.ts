@@ -60,7 +60,7 @@ import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
 export class TransferFormPage implements OnInit {
   @ViewChild('reference') reference: IonInput;
-  @ViewChild('pin') pin: IonInput;
+  // @ViewChild('pin') pin: IonInput;
 
   fabToHide;
   // userDetail;
@@ -129,9 +129,9 @@ export class TransferFormPage implements OnInit {
       this.input3 = true;
       this.enabled = false;
 
-      setTimeout(() => {
-        this.pin.setFocus();
-      }, 300);
+      // setTimeout(() => {
+      //   this.pin.setFocus();
+      // }, 300);
 
       this.showToTransfer = true;
       this.state = 'initial';

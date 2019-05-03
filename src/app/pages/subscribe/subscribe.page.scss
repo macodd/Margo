@@ -1,6 +1,5 @@
 img {
-  max-width: 140px;
-  border-radius: 50%;
+  max-width: 30%;
 }
 
 .white-icon {
@@ -25,8 +24,11 @@ img {
 }
 
 .avatar {
-  width: 30%;
-  position: relative;
+  width: 40%;
+  margin: auto;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  border-radius: 0;
 }
 
 .first-grid-padding {
@@ -39,33 +41,6 @@ img {
   padding-top: -15px;
   padding-right: 5px;
   padding-left: 5px;
-}
-
-.third-grid-padding {
-  padding-top: 10px;
-  padding-right: 30px;
-  padding-left: 30px;
-}
-
-.item-border {
-  border-bottom: 1px solid grey !important;
-}
-
-.dark-text {
-  color: #7f7f7f;
-}
-
-.outline-button {
-  --color: #7f7f7f;
-  --border-color: #7f7f7f;
-}
-
-.second-avatar {
-  position: relative;
-  right: 25px;
-  bottom: 45px;
-  width: 20%;
-  z-index: -1;
 }
 
 .activity-title {
@@ -97,10 +72,6 @@ img {
 .restaurar-button {
   color: #04A4F9;
   display: inline;
-}
-
-.img-custom {
-  margin-bottom: 80px
 }
 
 .price-field {

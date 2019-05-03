@@ -28,7 +28,6 @@ export class AuthPinPage implements OnInit {
 
   handleInput(digit: string){
     this.pin += digit;
-    console.log(this.pin);
     if(this.pin.length == 4){
       this.presentLoading().then(()=>{
         this.router.navigateByUrl('/account')

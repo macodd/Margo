@@ -13,7 +13,7 @@ export class BalancePage implements OnInit {
   constructor(
     private router: Router,
     private menu: MenuController,
-    private screenOrientation: ScreenOrientation
+    private screenOrientation: ScreenOrientation,
   ) {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
@@ -23,11 +23,11 @@ export class BalancePage implements OnInit {
   }
 
   goAddBalance() {
-    this.router.navigateByUrl('/add-balance')
+    this.router.navigate(['/add-balance', { action: 'add' }])
   }
 
   goDeposit() {
-    this.router.navigateByUrl('/deposit')
+    this.router.navigate(['/add-balance', { action: 'dep' }])
   }
 
   onBack() {
