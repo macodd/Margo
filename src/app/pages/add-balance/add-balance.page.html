@@ -7,7 +7,7 @@
   <ion-toolbar color="tertiary" text-center>
     <ion-title>
       <h2>
-        Añadir
+        Balance
       </h2>
     </ion-title>
   </ion-toolbar>
@@ -18,7 +18,31 @@
   <ion-grid padding>
     <ion-row>
       <ion-col>
-        <img src="../../../assets/img/icons/request.png" alt="">
+        <ion-card padding>
+          <ion-label class="balance-title">Balance Actual:</ion-label><ion-label class="balance-amount">500.00</ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <img src="../../../assets/img/icons/{{ actionImage }}.png" alt="" class="card-img" padding>
+          <ion-card-header>
+            <ion-card-title text-center>
+              {{ actionTitle }} Balance a <span class="activity-title">margo</span>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="stacked">Cantidad:</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label (click)="openMyBankPicker()">{{ mybankValue }} <ion-icon name="arrow-dropdown"></ion-icon></ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
 
