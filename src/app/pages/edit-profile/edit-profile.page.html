@@ -3,8 +3,10 @@
     <ion-buttons slot="start">
       <ion-back-button color="dark" text="" (click)="onBack()"></ion-back-button>
     </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar class="light-toolbar">
     <ion-title text-center color="dark" >
-        Edit Profile
+      Editar Perfil
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,10 +14,16 @@
 <ion-content class="fullcontent">
   <div [hidden]="isViewPersonal == false">
     <ion-list>
+      <ion-row padding>
+        <ion-col text-center>
+          <!-- You might also use <ion-avatar> -->
+          <img src='../../../assets/img/icons/mark.png' class="avatar" alt="avatar">
+        </ion-col>
+      </ion-row>
       <ion-row>
         <ion-col no-padding >
           <ion-item class="input-border">
-              <ion-label position="stacked" color="primary">Fullname</ion-label>
+              <ion-label position="stacked" color="primary">Nombre</ion-label>
               <ion-input [(ngModel)]="signup.fullname" name="fullname" type="text" #firstname="ngModel" required></ion-input>
             </ion-item>
             <ion-text color="danger">
@@ -29,7 +37,7 @@
       <ion-row>
         <ion-col no-padding>
           <ion-item>
-            <ion-label position="stacked" color="primary">Email address</ion-label>
+            <ion-label position="stacked" color="primary">Correo Electronico</ion-label>
             <ion-input [(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
             </ion-input>
           </ion-item>
@@ -44,7 +52,7 @@
       <ion-row margin-top>
         <ion-col no-padding size="12">
           <ion-item class="input-border">
-              <ion-label position="stacked" color="primary">Phone Number</ion-label>
+              <ion-label position="stacked" color="primary">Telefono</ion-label>
               <ion-input [(ngModel)]="signup.phone" name="phone" type="Number" #id="ngModel" required></ion-input>
             </ion-item>
             <ion-text color="danger">
@@ -55,25 +63,13 @@
         </ion-col>
       </ion-row>
 
-      <ion-row margin-top>
-        <ion-col no-padding size="12">
-          <ion-item class="input-border">
-              <ion-label position="stacked" color="primary">ID</ion-label>
-              <ion-input [(ngModel)]="signup.id" name="id" type="Number" #id="ngModel" required></ion-input>
-            </ion-item>
-            <ion-text color="danger">
-              <small padding [hidden]="id.valid || submitted == false" padding-left>
-                ID is required
-              </small>
-            </ion-text>
-        </ion-col>
-      </ion-row>
+
     </ion-list>
   </div>
 </ion-content>
 
   <ion-footer>
-    <ion-toolbar color="primary">
-      <ion-button (click)="onEdit(signupForm)" type="submit" expand="full" fill="clear">Edit Account</ion-button>
+    <ion-toolbar color="tertiary">
+      <ion-button (click)="onEdit(signupForm)" type="submit" expand="full" fill="clear">Aceptar Cambios</ion-button>
     </ion-toolbar>
   </ion-footer>

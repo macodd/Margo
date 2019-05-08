@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { MenuController } from '@ionic/angular';
+import { MenuController, AlertController } from '@ionic/angular';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
 @Component({
@@ -16,6 +16,7 @@ export class BankAccountPage implements OnInit {
   constructor(
     private router: Router,
     private menu: MenuController,
+    private alertCtrl: AlertController,
     private screenOrientation: ScreenOrientation
   ) {
     this.menu.enable(false);
@@ -44,6 +45,9 @@ export class BankAccountPage implements OnInit {
       },
     ];
   }
+  onTrash() {
+    this.presentAlert();
+  }
 
   addBank(){
     this.router.navigateByUrl('/add-bank')
@@ -57,5 +61,15 @@ export class BankAccountPage implements OnInit {
   onBack(){
     this.menu.enable(true);
     this.router.navigateByUrl('/account');
+  }
+
+  async presentAlert() {
+    const alert = await this.alertCtrl.create({
+      header: 'Eliminar',
+      message: 'Deseas Eliminar esta cuenta?',
+      buttons: ['Borrar', 'Cancelar']
+    });
+
+    await alert.present();
   }
 }

@@ -6,6 +6,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 // Interface
 import { UserOptions } from '../../interfaces/user-options';
+
 @Component({
   selector: 'edit-profile',
   templateUrl: './edit-profile.page.html',
@@ -34,7 +35,7 @@ export class EditProfilePage implements OnInit {
   ngOnInit() {
   }
 
-  onEdit(){
+  onEdit(form: any){
     console.log("still working")
   }
 
