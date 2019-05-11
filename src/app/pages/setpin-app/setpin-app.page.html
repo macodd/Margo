@@ -24,13 +24,13 @@
       <ion-row  justify-content-center padding>
         <ion-col size="3">
           <ion-item>
+<!--            <ion-input #amount class="large-placeholder" type="number" pattern="[0-9]*" placeholder="$" required (ionInput)="onInput()" (ionFocus)="onFocus()">-->
             <ion-input
             #d1
             name="d1"
             [(ngModel)]="setpinnumber.digit1"
             class="digit-input"
             type="number"
-            inputmode="numeric"
             maxlength=1
             pattern="[0-9]*"
             required=true
@@ -49,7 +49,6 @@
             [(ngModel)]="setpinnumber.digit2"
             class="digit-input"
             type="number"
-            inputmode="numeric"
             maxlength=1
             pattern="[0-9]*"
             required=true
@@ -67,7 +66,6 @@
             [(ngModel)]="setpinnumber.digit3"
             class="digit-input"
             type="number"
-            inputmode="numeric"
             maxlength=1
             pattern="[0-9]*"
             required=true
@@ -85,7 +83,6 @@
             [(ngModel)]="setpinnumber.digit4"
             class="digit-input"
             type="number"
-            inputmode="numeric"
             maxlength=1
             pattern="[0-9]*"
             required=true

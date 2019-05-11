@@ -12,7 +12,6 @@ export class BankAccountPage implements OnInit {
 
   banks: Array<any> = [{img: String, bankName: String, accountType: String, accountNumber: String}];
 
-
   constructor(
     private router: Router,
     private menu: MenuController,

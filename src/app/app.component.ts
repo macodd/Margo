@@ -14,18 +14,7 @@ import { UserData } from './services/user-data';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
-  appPages = [
-    {
-      title: 'Map',
-      url: '/app/tabs/(map:map)',
-      icon: 'map'
-    },
-    {
-      title: 'About',
-      url: '/app/tabs/(about:about)',
-      icon: 'information-circle'
-    }
-  ];
+
   loggedIn = false;
 
   constructor(
@@ -83,6 +72,7 @@ export class AppComponent implements OnInit {
   navigate(url: string) {
     return this.router.navigateByUrl(url);
   }
+
   logout() {
     this.userData.logout().then(() => {
       return this.navigate('/login');

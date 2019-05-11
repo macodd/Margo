@@ -44,7 +44,7 @@
         <ion-col no-padding size="12">
             <ion-item class="input-border" lines="full">
                 <ion-label position="stacked" color="medium"><strong>Celular</strong></ion-label>
-                <ion-input class="signup-input" [(ngModel)]="signup.phone" name="phone" type="Number" #id="ngModel" required></ion-input>
+                <ion-input class="signup-input" [(ngModel)]="signup.phone" name="phone" type="tel" #id="ngModel" required></ion-input>
               </ion-item>
               <ion-text color="danger">
                 <small padding [hidden]="id.valid || submitted == false" padding-left>
@@ -58,7 +58,7 @@
         <ion-col no-padding size="12">
           <ion-item class="input-border" lines="full">
               <ion-label position="stacked" color="medium"><strong>Cédula de identidad/RUC</strong></ion-label>
-              <ion-input class="signup-input" [(ngModel)]="signup.id" name="id" type="Number" #id="ngModel" required></ion-input>
+              <ion-input class="signup-input" [(ngModel)]="signup.id" name="id" type="tel" #id="ngModel" required></ion-input>
             </ion-item>
             <ion-text color="danger">
               <small padding [hidden]="id.valid || submitted == false" padding-left>

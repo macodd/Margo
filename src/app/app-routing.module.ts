@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'account', loadChildren: './pages/account/account.module#AccountModule'},
   { path: 'activity', loadChildren: './pages/activity/activity.module#ActivityPageModule' },
   { path: 'add-balance', loadChildren: './pages/add-balance/add-balance.module#AddBalancePageModule' },
+  { path: 'add-bank', loadChildren: './pages/add-bank/add-bank.module#AddBankPageModule' },
   { path: 'add-user', loadChildren: './pages/add-user/add-user.module#AddUserPageModule' },
   { path: 'auth-pin', loadChildren: './pages/auth-pin/auth-pin.module#AuthPinPageModule' },
   { path: 'balance', loadChildren: './pages/balance/balance.module#BalancePageModule' },
@@ -28,7 +29,6 @@ const routes: Routes = [
   { path: 'transfer', loadChildren: './pages/transfer/transfer.module#TransferPageModule' },
   { path: 'transfer-form', loadChildren: './pages/transfer-form/transfer-form.module#TransferFormPageModule' },
   { path: 'tutorial', loadChildren: './pages/tutorial/tutorial.module#TutorialModule'},
-  { path: 'add-bank', loadChildren: './pages/add-bank/add-bank.module#AddBankPageModule' },
 
 ];
 

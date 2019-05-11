@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
-import { MenuController, PickerController} from '@ionic/angular';
+import {AlertController, LoadingController, MenuController, PickerController} from '@ionic/angular';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
 @Component({
@@ -13,9 +13,9 @@ export class AddBalancePage implements OnInit {
   actionType: any;
   sub: any;
   mybankValue: any = 'Selecciona una cuenta';
-  myBankoptions: any = [];
-
-  myBanks: any = [{bank: String, accountNumber: String}];
+  bankData: any = [];
+  amount: string;
+  btnDisabled: boolean = true;
 
   actionTitle: any;
   actionImage: any;
@@ -26,30 +26,12 @@ export class AddBalancePage implements OnInit {
     private menu: MenuController,
     private screenOrientation: ScreenOrientation,
     private selector: PickerController,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertController: AlertController,
+    private loadingController: LoadingController
   ) {
     this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-
-
-
-    // this.myBanks = [
-    //   {
-    //     bank: 'Produbanco',
-    //     accountNumber: '123456'
-    //   },
-    //   {
-    //     bank: 'Guayaquil',
-    //     accountNumber: '12345'
-    //   },
-    //   {
-    //     bank: 'Pacifico',
-    //     accountNumber: '12345678'
-    //   }
-    // ];
-    // for (let i of this.myBanks){
-    //   console.log(i.bank)
-    // }
   }
 
   ngOnInit() {
@@ -76,15 +58,86 @@ export class AddBalancePage implements OnInit {
         {
           text: 'Listo',
           handler: (data: any) => {
-            console.log(data)
+            this.bankData[0] = data.Bancos.value;
+            this.bankData[1] = this.actionType;
+            this.bankData[2] = this.amount;
+            this.checkButton();
+            this.mybankValue = data.Bancos.text;
           }
         }],
       columns:[
-        { name: 'Bancos', options:[]}]
+        { name: 'Bancos', options: [
+            {
+              text: 'Produbanco **2345',
+              value: 'produbanco'
+            },
+            {
+              text: 'Guayaquil **2345',
+              value: 'guayaquil'
+            },
+            {
+              text: 'Pacifico **2345',
+              value: 'pacifico'
+            }
+          ]}]
     });
     await myPicker.present();
   }
 
+  goAddedBalance(){
+    this.presentAlert();
+  }
+
+  checkButton() {
+    if (this.bankData.length === 3 && this.amount !== ''){
+      this.btnDisabled = false;
+    }
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Confirmar',
+      message: 'Deseas '+ this.actionTitle + ' ' + this.amount + '?',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () =>{
+            this.presentLoading().then(()=>{
+              this.router.navigateByUrl('/balance');
+              this.presentConfirm();
+            })
+
+          }
+        },{
+          text: 'Cancelar',
+          handler:() =>{
+            console.log('Cancel')
+          }
+      }]
+    });
+
+    await alert.present();
+  }
+
+  async presentConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Listo',
+      message: 'Su balance a sido actualizado.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      duration: 3000,
+      spinner: "crescent",
+      cssClass: 'my-loading-class'
+    });
+    loading.present();
+    return await loading.onWillDismiss();
+  }
 
   onBack(){
     this.menu.enable(true);
