@@ -60,7 +60,7 @@ import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
 export class TransferFormPage implements OnInit {
   @ViewChild('reference') reference: IonInput;
-  // @ViewChild('pin') pin: IonInput;
+  @ViewChild('amount') amount: IonInput;
 
   fabToHide;
   // userDetail;
@@ -71,8 +71,6 @@ export class TransferFormPage implements OnInit {
   detailState = 'large';
   input2 = false;
   input3 = false;
-
-  hideFab: boolean = false;
 
   titleState = 'center';
   subtitleState = 'center';
@@ -144,7 +142,7 @@ export class TransferFormPage implements OnInit {
       cssClass: 'second-modal-class',
       componentProps: {
         'name': 'Mark',
-        'amount': '500'
+        'amount': this.amount
       }
     });
     await modal.present();
