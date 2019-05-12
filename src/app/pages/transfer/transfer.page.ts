@@ -43,6 +43,7 @@ export class TransferPage implements OnInit {
   }
 
   onBack() {
+    this.menu.enable(true);
     this.router.navigateByUrl('/account')
   }
 

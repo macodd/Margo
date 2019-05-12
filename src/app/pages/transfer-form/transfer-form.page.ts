@@ -63,14 +63,14 @@ export class TransferFormPage implements OnInit {
   @ViewChild('amount') amount: IonInput;
 
   fabToHide;
-  // userDetail;
   textColor = 'white';
-  enabled = false;  // fab button enabled
+  enabled = true;  // fab button enabled
   count = 0; // count fab taps
   state = 'initial';  // header state
   detailState = 'large';
   input2 = false;
   input3 = false;
+  fabDisplay = 'initial';
 
   titleState = 'center';
   subtitleState = 'center';
@@ -96,7 +96,7 @@ export class TransferFormPage implements OnInit {
   }
 
   onInput() {
-    this.enabled = true;
+    this.enabled = false;
   }
 
   onFocus() {
@@ -127,11 +127,22 @@ export class TransferFormPage implements OnInit {
 
     if (this.count === 2) {
       this.input3 = true;
-      this.enabled = false;
+      this.enabled = true;
 
       this.showToTransfer = true;
+      this.fabDisplay = 'none';
       this.state = 'initial';
       this.detailState = 'large';
+    }
+
+  }
+
+  goTransfer(){
+    var num = Number(this.amount);
+    if (num <= 0){
+      console.log('notification of invalid input')
+    } else {
+      this.toTransfer();
     }
 
   }

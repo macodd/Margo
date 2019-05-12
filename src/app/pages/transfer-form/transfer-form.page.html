@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header style="height: 60%">
   <ion-toolbar color="secondary" text-center>
     <ion-buttons slot="start">
       <ion-back-button color="light" text="" (click)="onBack()"></ion-back-button>
@@ -10,10 +10,10 @@
   <ion-toolbar color="secondary" [@headerState]="state">
     <p style="color: white; font-size: 13px; text-align: center" >DISPONIBLE <strong>$17,000 USD</strong></p>
     <ion-grid>
-          <app-user-detail [textColor]="textColor" *ngIf="detailState === 'large'; else miniDetail" [@detailState]="detailState"></app-user-detail>
-          <ng-template #miniDetail>
-            <app-mini-user-detail [@detailState]="detailState"></app-mini-user-detail>
-          </ng-template>
+      <app-user-detail [textColor]="textColor" *ngIf="detailState === 'large'; else miniDetail" [@detailState]="detailState"></app-user-detail>
+      <ng-template #miniDetail>
+        <app-mini-user-detail [@detailState]="detailState"></app-mini-user-detail>
+      </ng-template>
     </ion-grid>
   </ion-toolbar>
 </ion-header>
@@ -28,22 +28,30 @@
     
       <ion-item lines="full" *ngIf="input2">
           <ion-label position="stacked" color="medium"><strong>Referencia (opcional)</strong></ion-label>
-          <ion-input #reference class="medium-placeholder" type="text" (ionInput)="onInput()" (ionFocus)="onFocus()"></ion-input>
+          <ion-input
+            #reference
+            class="medium-placeholder"
+            placeholder="ej. Comida, Ropa"
+            type="text"
+            (ionInput)="onInput()"
+            (ionFocus)="onFocus()">
+          </ion-input>
       </ion-item>
 
     </ion-list>
   </form>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="form-fab">
-    <ion-fab-button class="disabled" [ngClass]="{'enabled': enabled}" [disabled]="!enabled" (click)="nextItem();">
-        <ion-icon name="arrow-round-forward" size="large"></ion-icon>    
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="form-fab" [ngStyle]="{'display': fabDisplay}">
+    <ion-fab-button class="enabled" disabled="{{ enabled }}" (click)="nextItem()">
+      <ion-icon name="arrow-round-forward" size="large"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
 
 </ion-content>
 
 <ion-footer *ngIf="showToTransfer">
   <ion-toolbar color="secondary" style="--pading-bottom: 0px;">
-      <ion-button style="text-transform: none;" fill="clear" type="submit" expand="full" size="large" (click)="toTransfer()">Transferir a "Mark"</ion-button>
+      <ion-button style="text-transform: none;" fill="clear" type="submit" expand="full" size="large" (click)="goTransfer()">Transferir a "Mark"</ion-button>
   </ion-toolbar>
 </ion-footer>
