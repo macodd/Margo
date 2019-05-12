@@ -23,7 +23,7 @@
     <ion-list>
       <ion-item lines="full">
         <ion-label position="stacked" color="medium"><strong>Monto a Transferir</strong></ion-label>
-        <ion-input #amount class="large-placeholder" type="number" step="0.1" pattern="[0-9]*" placeholder="$" required (ionInput)="onInput()" (ionFocus)="onFocus()"></ion-input>
+        <ion-input #amount class="large-placeholder" type="number" pattern="[0-9]*" placeholder="$" required (ionInput)="onInput()" (ionFocus)="onFocus()"></ion-input>
       </ion-item>
     
       <ion-item lines="full" *ngIf="input2">

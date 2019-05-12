@@ -5,7 +5,7 @@ import {
   style,
   animate,
   transition } from '@angular/animations';
-import { IonInput, ModalController } from '@ionic/angular';
+import { IonInput, MenuController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { SendMoneyDialogPage } from '../send-money-dialog/send-money-dialog.page';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
@@ -72,6 +72,8 @@ export class TransferFormPage implements OnInit {
   input2 = false;
   input3 = false;
 
+  hideFab: boolean = false;
+
   titleState = 'center';
   subtitleState = 'center';
 
@@ -81,9 +83,11 @@ export class TransferFormPage implements OnInit {
     private renderer: Renderer2,
     private element: ElementRef,
     private router: Router,
+    private menu: MenuController,
     private modalCtrl: ModalController,
     private screenOrientation: ScreenOrientation
     ){
+    this.menu.enable(false );
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
@@ -118,8 +122,6 @@ export class TransferFormPage implements OnInit {
       this.titleState = 'left';
       this.subtitleState = 'left';
 
-      // this.enabled = false;
-
       setTimeout(() => {
         this.reference.setFocus();
       }, 300);
@@ -128,10 +130,6 @@ export class TransferFormPage implements OnInit {
     if (this.count === 2) {
       this.input3 = true;
       this.enabled = false;
-
-      // setTimeout(() => {
-      //   this.pin.setFocus();
-      // }, 300);
 
       this.showToTransfer = true;
       this.state = 'initial';
@@ -142,12 +140,18 @@ export class TransferFormPage implements OnInit {
 
   async toTransfer() {
     const modal = await this.modalCtrl.create({
-      component: SendMoneyDialogPage
+      component: SendMoneyDialogPage,
+      cssClass: 'second-modal-class',
+      componentProps: {
+        'name': 'Mark',
+        'amount': '500'
+      }
     });
     await modal.present();
   }
 
   onBack() {
+    this.menu.enable(true);
     this.router.navigateByUrl('/transfer')
   }
 }

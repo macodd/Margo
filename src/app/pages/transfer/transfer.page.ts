@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddUserService } from '../add-user/add-user.service';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
-import { LoadingController } from "@ionic/angular";
+import { LoadingController, MenuController } from "@ionic/angular";
 
 @Component({
   selector: 'app-transfer',
@@ -16,9 +16,11 @@ export class TransferPage implements OnInit {
   constructor(
     private router: Router,
     private addUserService: AddUserService,
+    private menu: MenuController,
     private screenOrientation: ScreenOrientation,
     private loadingController: LoadingController
   ) {
+    this.menu.enable(false );
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 

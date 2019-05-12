@@ -28,14 +28,13 @@ export class AccountPage implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // this.getUsername();
     this.presentToastWithOptions();
   }
 
   async presentToastWithOptions() {
     const toast = await this.toastController.create({
       duration: 2000,
-      message: 'You have $88,76 left this month',
+      message: 'Te quedan $88,76 este mes',
       position: 'top',
       cssClass: 'toastStyle'
     });

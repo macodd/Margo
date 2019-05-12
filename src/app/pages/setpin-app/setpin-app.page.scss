@@ -1,19 +1,21 @@
 .digit-input {
-    font-size: 30px;
-    --background: transparent;
-    --padding-start: 0px;
-    --padding-end: 0px;
-    opacity: 0%;
+  font-size: 30px;
+  --background: transparent;
+  --padding-start: 0px;
+  --padding-end: 0px;
+  opacity: 0%;
 }
 
 .set-pin-title {
-    font-family: DIN Next LT Pro Medium;
-    font-size: 24pt;
-    color: black;
+  font-family: DIN Next LT Pro Medium;
+  font-size: 24pt;
+  color: black;
+  text-align: center;
   }
 
 
   .description {
     color: rgba(0, 0, 0, 0.5);
     font-size: 14px;
+    text-align: center;
   }

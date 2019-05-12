@@ -1,5 +1,5 @@
-import { Component, AfterViewInit} from '@angular/core';
-import { LoadingController, ModalController} from '@ionic/angular';
+import { Component, AfterViewInit, Input} from '@angular/core';
+import { LoadingController, MenuController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,11 +9,17 @@ import { Router } from '@angular/router';
 })
 export class SendMoneyDialogPage implements AfterViewInit {
 
+  @Input() name: string;
+  @Input() amount: string;
+
   constructor(
     public modalCtrl: ModalController,
     private router: Router,
+    private menu: MenuController,
     private loadingController: LoadingController
-  ) {}
+  ) {
+    this.menu.enable(false);
+  }
 
   ngAfterViewInit(): void {
   }
@@ -27,6 +33,7 @@ export class SendMoneyDialogPage implements AfterViewInit {
   goSuccessful() {
     this.dismiss();
     this.presentLoading().then(()=>{
+      this.menu.enable(true);
       this.router.navigateByUrl('payment-successful');
     });
   }
