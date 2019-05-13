@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserData } from '../../services/user-data';
-import { MenuController } from '@ionic/angular';
+import { AlertController, LoadingController, MenuController } from '@ionic/angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 // Interface
@@ -20,13 +19,13 @@ export class EditProfilePage implements OnInit {
     id: '',
     };
   submitted = false;
-  // typeAccount = 'personal';
   isViewPersonal = true;
-  // isViewBussines = false;
+
   constructor(
     public router: Router,
-    public userData: UserData,
+    private alertController: AlertController,
     private menu: MenuController,
+    private loadingController: LoadingController,
     private screenOrientation: ScreenOrientation
   ) {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
@@ -35,8 +34,44 @@ export class EditProfilePage implements OnInit {
   ngOnInit() {
   }
 
-  onEdit(form: any){
-    console.log("still working")
+  onEdit(){
+    this.presentAlert();
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Confirmar',
+      message: 'Deseas realizar los cambios?',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () =>{
+            this.presentLoading().then(()=>{
+              this.router.navigateByUrl('/account').then(()=>{
+                this.menu.enable(true);
+              })
+            })
+
+          }
+        },{
+          text: 'Cancelar',
+          handler:() =>{
+            console.log('Cancel')
+          }
+        }]
+    });
+
+    await alert.present();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      duration: 2000,
+      spinner: "crescent",
+      cssClass: 'my-loading-class'
+    });
+    loading.present();
+    return await loading.onWillDismiss();
   }
 
   onBack(){
