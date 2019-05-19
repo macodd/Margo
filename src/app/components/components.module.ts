@@ -6,6 +6,7 @@ import { ActivityDialogComponent } from './activity-dialog/activity-dialog.compo
 import { NotificationDialogComponent} from './notification-dialog/notification-dialog.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MiniUserDetailComponent } from './mini-user-detail/mini-user-detail.component';
+import { SendMoneyDialogComponent } from'./send-money-dialog/send-money-dialog.component';
 
 @NgModule({
     imports: [
@@ -17,14 +18,16 @@ import { MiniUserDetailComponent } from './mini-user-detail/mini-user-detail.com
       MiniUserDetailComponent,
       ActivityDialogComponent,
       NotificationDialogComponent,
+      SendMoneyDialogComponent
     ],
     exports: [
       UserDetailComponent,
       MiniUserDetailComponent,
       ActivityDialogComponent,
       NotificationDialogComponent,
+      SendMoneyDialogComponent
     ],
-    entryComponents: [ActivityDialogComponent, NotificationDialogComponent],
+    entryComponents: [ActivityDialogComponent, NotificationDialogComponent, SendMoneyDialogComponent],
   })
 
   export class ComponentsModule {}

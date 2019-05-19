@@ -1,14 +1,13 @@
-import { Component, AfterViewInit, Input} from '@angular/core';
-import { LoadingController, MenuController, ModalController } from '@ionic/angular';
-import { Router } from '@angular/router';
-import { SendingScreenPage } from '../sending-screen/sending-screen.page'
+import {Component, Input, AfterViewInit} from '@angular/core';
+import {LoadingController, MenuController, ModalController} from "@ionic/angular";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'send-money-dialog',
-  templateUrl: './send-money-dialog.page.html',
-  styleUrls: ['./send-money-dialog.page.scss'],
+  selector: 'app-send-money-dialog',
+  templateUrl: './send-money-dialog.component.html',
+  styleUrls: ['./send-money-dialog.component.scss'],
 })
-export class SendMoneyDialogPage implements AfterViewInit {
+export class SendMoneyDialogComponent implements AfterViewInit {
 
   @Input() name: string;
   @Input() amount: string;
@@ -50,4 +49,5 @@ export class SendMoneyDialogPage implements AfterViewInit {
     loading.present();
     return await loading.onWillDismiss();
   }
+
 }

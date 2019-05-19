@@ -25,4 +25,5 @@ const routes: Routes = [
   ],
   declarations: [NotificationsPage]
 })
+
 export class NotificationsPageModule {}

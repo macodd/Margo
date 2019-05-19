@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SendMoneyDialogPage } from './send-money-dialog.page';
+import { SendMoneyDialogComponent } from './send-money-dialog.component';
 
-describe('SendMoneyDialogPage', () => {
-  let component: SendMoneyDialogPage;
-  let fixture: ComponentFixture<SendMoneyDialogPage>;
+describe('SendMoneyDialogComponent', () => {
+  let component: SendMoneyDialogComponent;
+  let fixture: ComponentFixture<SendMoneyDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SendMoneyDialogPage ],
+      declarations: [ SendMoneyDialogComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SendMoneyDialogPage);
+    fixture = TestBed.createComponent(SendMoneyDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

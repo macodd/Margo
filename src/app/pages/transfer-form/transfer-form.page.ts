@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { SendMoneyDialogPage } from '../send-money-dialog/send-money-dialog.page';
+
+import { SendMoneyDialogComponent } from "../../components/send-money-dialog/send-money-dialog.component";
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
 import { myEnterAnimation } from '../../animations/enter';
@@ -58,7 +59,7 @@ export class TransferFormPage implements OnInit {
 
   async toTransfer() {
     const modal = await this.modalCtrl.create({
-      component: SendMoneyDialogPage,
+      component: SendMoneyDialogComponent,
       enterAnimation: myEnterAnimation,
       leaveAnimation: myLeaveAnimation,
       cssClass: 'second-modal-class',
