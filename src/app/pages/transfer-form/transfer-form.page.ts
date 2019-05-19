@@ -1,85 +1,24 @@
-import { Component, OnInit, ElementRef, Renderer2, ViewChild } from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition } from '@angular/animations';
-import { IonInput, MenuController, ModalController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import {  MenuController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { SendMoneyDialogPage } from '../send-money-dialog/send-money-dialog.page';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
+
+import { myEnterAnimation } from '../../animations/enter';
+import { myLeaveAnimation } from '../../animations/leave';
 
 @Component({
   selector: 'app-transfer-form',
   templateUrl: './transfer-form.page.html',
   styleUrls: ['./transfer-form.page.scss'],
-  animations: [
-    trigger('headerState', [
-      state('initial', style({
-        height: '90%'
-      })),
-      state('compressed', style({
-        height: '90%'
-      })),
-      transition('initial <=> compressed', animate('400ms ease-in')),
-    ]),
-
-    trigger('detailState', [
-      state('large', style({
-        opacity: 1,
-      })),
-      state('small', style({
-        opacity: 0,
-      })),
-      transition('large <=> small', animate('400ms ease-out'))
-    ]),
-
-    trigger('titleState', [
-      state('center', style({
-        transform: 'translate(0px,15px)'
-      })),
-      state('left', style({
-        transform: 'translate(-80px,15px)'
-      })),
-      transition('center <=> left', animate('0.5s ease-in'))
-    ]),
-
-    trigger('subtitleState', [
-      state('center', style({
-        transform: 'translateX(0px)'
-      })),
-      state('left', style({
-        transform: 'translateX(-44px)'
-      })),
-      transition('center <=> left', animate('0.5s ease-in'))
-    ])
-
-  ]
 })
 
 export class TransferFormPage implements OnInit {
-  @ViewChild('reference') reference: IonInput;
-  @ViewChild('amount') amount: IonInput;
 
-  fabToHide;
-  textColor = 'white';
-  enabled = true;  // fab button enabled
-  count = 0; // count fab taps
-  state = 'initial';  // header state
-  detailState = 'large';
-  input2 = false;
-  input3 = false;
-  fabDisplay = 'initial';
-
-  titleState = 'center';
-  subtitleState = 'center';
-
-  showToTransfer = false; // show last button in form
+  amountToTransfer: any = '';
+  amountShown: any = '0.00';
 
   constructor(
-    private renderer: Renderer2,
-    private element: ElementRef,
     private router: Router,
     private menu: MenuController,
     private modalCtrl: ModalController,
@@ -90,55 +29,25 @@ export class TransferFormPage implements OnInit {
   }
 
   ngOnInit() {
-    this.fabToHide = this.element.nativeElement.getElementsByClassName('form-fab')[0];
-    this.renderer.setStyle(this.fabToHide, 'webkitTransition', 'opacity 500ms');
-
   }
 
-  onInput() {
-    this.enabled = false;
-  }
+  handleInput(num: any) {
 
-  onFocus() {
-    if (this.count === 2) {
-      this.state = 'compressed';
-      this.detailState = 'small';
-
-      this.titleState = 'left';
-      this.subtitleState = 'left';
+    if (num === 'd'){
+      var str = this.amountToTransfer;
+      this.amountToTransfer = str.slice(0, -1);
     }
+    else {
+      this.amountToTransfer += num;
+    }
+    const amount = this.amountToTransfer;
+    const show = Number(amount)/100;
+    this.amountShown = String(show.toFixed(2));
   }
 
-  nextItem() {
-    this.count += 1;
-
-    if (this.count === 1) {
-      this.input2 = true;
-      this.state = 'compressed';
-      this.detailState = 'small';
-
-      this.titleState = 'left';
-      this.subtitleState = 'left';
-
-      setTimeout(() => {
-        this.reference.setFocus();
-      }, 300);
-    }
-
-    if (this.count === 2) {
-      this.input3 = true;
-      this.enabled = true;
-
-      this.showToTransfer = true;
-      this.fabDisplay = 'none';
-      this.state = 'initial';
-      this.detailState = 'large';
-    }
-
-  }
 
   goTransfer(){
-    var num = Number(this.amount);
+    var num = Number(this.amountToTransfer);
     if (num <= 0){
       console.log('notification of invalid input')
     } else {
@@ -150,14 +59,17 @@ export class TransferFormPage implements OnInit {
   async toTransfer() {
     const modal = await this.modalCtrl.create({
       component: SendMoneyDialogPage,
+      enterAnimation: myEnterAnimation,
+      leaveAnimation: myLeaveAnimation,
       cssClass: 'second-modal-class',
       componentProps: {
         'name': 'Mark',
-        'amount': this.amount
+        'amount': this.amountShown
       }
     });
     await modal.present();
   }
+
 
   onBack() {
     this.menu.enable(true);

@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'payment-successful', loadChildren: './pages/payment-successful/payment-successful.module#PaymentSuccessfulPageModule' },
   { path: 'search', loadChildren: './pages/search/search.module#SearchPageModule' },
   { path: 'send-money-dialog', loadChildren: './pages/send-money-dialog/send-money-dialog.module#SendMoneyDialogPageModule' },
+  { path: 'sending-screen', loadChildren: './pages/sending-screen/sending-screen.module#SendingScreenPageModule' },
   { path: 'setpassword', loadChildren: './pages/setpassword/setpassword.module#SetpasswordPageModule' },
   { path: 'setpin-app', loadChildren: './pages/setpin-app/setpin-app.module#SetpinAppPageModule' },
   { path: 'signup', loadChildren: './pages/signup/signup.module#SignUpModule'},

@@ -1,57 +1,89 @@
 <ion-header>
-  <ion-toolbar color="secondary" text-center>
+  <ion-toolbar text-center>
     <ion-buttons slot="start">
-      <ion-back-button color="light" text="" (click)="onBack()"></ion-back-button>
+      <ion-back-button color="dark" text="" (click)="onBack()"></ion-back-button>
     </ion-buttons>
-    <ion-title >
-        <p style="color: white; font-size: 13px; text-align: center;">TRANSFERIR</p>
+    <ion-title no-padding>
+      <p style="color: black; font-size: 13px; text-align: center;">TRANSFERIR</p>
     </ion-title>
   </ion-toolbar>
-  <ion-toolbar color="secondary" [@headerState]="state">
-    <p style="color: white; font-size: 13px; text-align: center" >DISPONIBLE <strong>$17,000 USD</strong></p>
-    <ion-grid>
-      <app-user-detail [textColor]="textColor" *ngIf="detailState === 'large'; else miniDetail" [@detailState]="detailState"></app-user-detail>
-      <ng-template #miniDetail>
-        <app-mini-user-detail [@detailState]="detailState"></app-mini-user-detail>
-      </ng-template>
-    </ion-grid>
+  <ion-toolbar>
+    <p style="color: black; font-size: 13px; text-align: center" >DISPONIBLE <strong>$17,000 USD</strong></p>
+  </ion-toolbar>
+  <ion-toolbar text-center>
+    <img src="../../../assets/img/mark-2.jpg" alt="" class="avatar">
+    <p style="color: black">Mark Codd</p>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <form>
-    <ion-list>
-      <ion-item lines="full">
-        <ion-label position="stacked" color="medium"><strong>Monto a Transferir</strong></ion-label>
-        <ion-input #amount class="large-placeholder" type="number" pattern="[0-9]*" placeholder="$" required (ionInput)="onInput()" (ionFocus)="onFocus()"></ion-input>
-      </ion-item>
-    
-      <ion-item lines="full" *ngIf="input2">
-          <ion-label position="stacked" color="medium"><strong>Referencia (opcional)</strong></ion-label>
-          <ion-input
-            #reference
-            class="medium-placeholder"
-            placeholder="ej. Comida, Ropa"
-            type="text"
-            (ionInput)="onInput()"
-            (ionFocus)="onFocus()">
-          </ion-input>
-      </ion-item>
+<ion-content color="secondary">
+  <ion-row padding>
+    <ion-col></ion-col>
+  </ion-row>
+  <ion-row text-center>
+    <ion-col>
+      <ion-label>
+        <p style="color: white; font-size: 300%">$ {{ amountShown }}</p>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row padding text-center>
+    <ion-col>
+      ________________________________
+    </ion-col>
+  </ion-row>
 
-    </ion-list>
-  </form>
+  <ion-grid text-center padding>
+    <ion-row>
+      <ion-col>
+        <ion-label (click)="handleInput('1')"><h1 class="keyboard-style">1</h1></ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label (click)="handleInput('2')"><h1 class="keyboard-style">2</h1></ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label (click)="handleInput('3')"><h1 class="keyboard-style">3</h1></ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row padding-top="5%">
+      <ion-col>
+        <ion-label (click)="handleInput('4')"><h1 class="keyboard-style">4</h1></ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label (click)="handleInput('5')"><h1 class="keyboard-style">5</h1></ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label (click)="handleInput('6')"><h1 class="keyboard-style">6</h1></ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row padding-top="5%">
+      <ion-col>
+        <ion-label (click)="handleInput('7')"><h1 class="keyboard-style">7</h1></ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label (click)="handleInput('8')"><h1 class="keyboard-style">8</h1></ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label (click)="handleInput('9')"><h1 class="keyboard-style">9</h1></ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row padding-top="5%">
+      <ion-col>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="form-fab" [ngStyle]="{'display': fabDisplay}">
-    <ion-fab-button class="enabled" disabled="{{ enabled }}" (click)="nextItem()">
-      <ion-icon name="arrow-round-forward" size="large"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
+      </ion-col>
+      <ion-col>
+        <ion-label (click)="handleInput('0')"><h1 class="keyboard-style">0</h1></ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-icon (click)="handleInput('d')" name="backspace" class="keyboard-style"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
 
-<ion-footer *ngIf="showToTransfer">
-  <ion-toolbar color="secondary" style="--pading-bottom: 0px;">
-      <ion-button style="text-transform: none;" fill="clear" type="submit" expand="full" size="large" (click)="goTransfer()">Transferir a "Mark"</ion-button>
+<ion-footer no-border>
+  <ion-toolbar color="secondary">
+    <ion-button style="color: white" fill="clear" type="submit" expand="full" size="large" (click)="goTransfer()">Transferir/Pagar</ion-button>
   </ion-toolbar>
 </ion-footer>

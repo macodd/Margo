@@ -4,7 +4,6 @@ import { MenuController, IonSlides } from '@ionic/angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 
-
 @Component({
   selector: 'page-tutorial',
   templateUrl: 'tutorial.html',
@@ -61,6 +60,7 @@ export class TutorialPage {
   /**
    * managment position tutorial
    */
+
   slideChanged() {
     this.slides.getActiveIndex().then((position: number) => {
       this.slides.isBeginning().then(beginning => {

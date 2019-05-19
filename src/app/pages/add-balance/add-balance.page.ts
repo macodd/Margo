@@ -97,22 +97,22 @@ export class AddBalancePage implements OnInit {
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Confirmar',
+      cssClass: 'alertConfirm',
       message: 'Deseas '+ this.actionTitle + ' ' + this.amount + '?',
       buttons: [
         {
-          text: 'OK',
-          handler: () =>{
-            this.presentLoading().then(()=>{
-              this.router.navigateByUrl('/balance');
-              this.presentConfirm();
-            })
-
-          }
-        },{
           text: 'Cancelar',
           handler:() =>{
             console.log('Cancel')
           }
+        },{
+        text: 'OK',
+        handler: () => {
+          this.presentLoading().then(() => {
+            this.router.navigateByUrl('/balance');
+            this.presentConfirm();
+          })
+        }
       }]
     });
 
@@ -122,6 +122,7 @@ export class AddBalancePage implements OnInit {
   async presentConfirm() {
     const alert = await this.alertController.create({
       header: 'Listo',
+      cssClass: 'alertConfirm',
       message: 'Su balance a sido actualizado.',
       buttons: ['OK']
     });

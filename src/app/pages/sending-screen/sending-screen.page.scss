@@ -1,0 +1,45 @@
+.avatar {
+  padding-top: 20%;
+  padding-bottom: 20%;
+  position: relative;
+  display: inline-block;
+}
+
+.activity-title {
+  font-family: All Round Gothic;
+  font-size: 24px;
+  color: dodgerblue;
+  text-align: center;
+  display:inline
+}
+
+.activity-title-two {
+  font-family: All Round Gothic;
+  font-size: 24px;
+  color: forestgreen;
+  text-align: center;
+  display:inline
+}
+
+.image-one {
+  border-radius: 50%;
+  width: 30%;
+  max-width: 30%;
+  position: absolute;
+  top: calc(60%);
+  left: calc(65%);
+  bottom: calc(10%);
+  right: calc(10%);
+}
+
+.image-two {
+  border-radius: 50%;
+  width: 30%;
+  max-width: 30%;
+  position: absolute;
+  top: calc(20%);
+  left: calc(5%);
+  bottom: calc(10%);
+  right: calc(10%);
+
+}

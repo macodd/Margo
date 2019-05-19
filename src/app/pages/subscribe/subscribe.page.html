@@ -1,12 +1,12 @@
 <ion-header no-border>
-  <ion-toolbar class="light-toolbar">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button color="dark" text="" (click)="onBack()"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
-  <ion-toolbar class="activity-toolbar">
+  <ion-toolbar text-center>
     <ion-title>
-      <h2 class="activity-title">margo</h2><h2 class="pro-title">pro</h2>
+      <h2 class="activity-title">margo</h2>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,7 +16,11 @@
   <ion-grid>
     <ion-row class="first-grid-padding" justify-content-center>
       <ion-col text-center size="6">
-        <ion-card>
+        <ion-card (click)="purchaseOne()">
+          <ion-card-header>
+            <p><h2 class="activity-title">margo</h2>
+            <p><h2 class="pro-title">one</h2>
+          </ion-card-header>
           <ion-card-content>
             <img src="../../../assets/img/upgrade.png" alt="" class="avatar">
             <p>1era. opción</p>
@@ -25,7 +29,11 @@
       </ion-col>
 
       <ion-col text-center size="6">
-        <ion-card>
+        <ion-card (click)="purchasePlus()">
+          <ion-card-header>
+            <p><h2 class="activity-title">margo</h2>
+            <p><h2 class="pro-title">plus</h2>
+          </ion-card-header>
           <ion-card-content>
             <img src="../../../assets/img/upgrade-plus.png" alt="" class="avatar">
             <p>2da. opción</p>
@@ -59,9 +67,5 @@
       </p>
     </ion-col>
   </ion-row>
-  <ion-row>
-    <ion-col text-center>
-      <p style="display: inline;">¡Ya tengo una compra! </p> <p class="restaurar-button">Restaurar</p>
-    </ion-col>
-  </ion-row>
+
 </ion-content>

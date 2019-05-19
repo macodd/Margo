@@ -38,7 +38,6 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     AppComponent,
     SendMoneyDialogPage,
     NotificationDialogPage,
-
   ],
   providers: [
     InAppBrowser,

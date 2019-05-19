@@ -103,7 +103,10 @@ export class AppComponent implements OnInit {
   }
   goSubscribe() {
     this.menu.enable(false);
-    this.router.navigateByUrl('/subscribe');
+    const navigationExtras: NavigationExtras = {
+      queryParams: {'origin': 'account'}
+    };
+    this.router.navigate(['subscribe'], navigationExtras);
   }
   goBankAccount(){
     this.menu.enable(false);

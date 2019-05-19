@@ -12,12 +12,13 @@
   text-align: left;
 }
 
-.disabled {
-  --background: black;
-  opacity: 0.15;
+
+.avatar {
+  border-radius: 50%;
+  width: 15%;
 }
 
-.enabled {
-  --background: #038B68;
-  opacity: 1;
+.keyboard-style {
+  color: white;
+  font-size: 200%;
 }

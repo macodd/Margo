@@ -176,43 +176,12 @@
 // --------------------------------------------------
 // iOS only CSS variables can go here
 
-.ios {
-    // Use the primary color as the background for the toolbar
-    --ion-toolbar-background: var(--ion-color-primary);
-    
-    // Change the color of the toolbar components
-    --ion-toolbar-color: #fff;
-  
-    // Change the color of the activated toolbar components
-    --ion-toolbar-color-activated: #fff;
-  
-    // Change the color of the unchecked segment buttons
-    --ion-toolbar-color-unchecked: rgba(255, 255, 255, .6);
-  
-    // Change the color of the checked segment button
-    --ion-toolbar-color-checked: #fff;
-}
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only CSS variables can go here
 
-.md {
-  // Use the primary color as the background for the toolbar
-  --ion-toolbar-background: var(--ion-color-primary);
 
-  // Change the color of the toolbar components
-  --ion-toolbar-color: #fff;
-
-  // Change the color of the activated toolbar components
-  --ion-toolbar-color-activated: #fff;
-
-  // Change the color of the unchecked segment buttons
-  --ion-toolbar-color-unchecked: rgba(255, 255, 255, .6);
-
-  // Change the color of the checked segment button
-  --ion-toolbar-color-checked: #fff;
-}
 
 // App Theme
 // --------------------------------------------------
@@ -319,10 +288,6 @@
   padding: 0 20px 0 20px;
 }
 
-.light-toolbar {
-  --background: white;
-}
-
 .avatar {
   margin: 5px;
 }
@@ -367,6 +332,23 @@
 
   }
 }
+
+.alertConfirm {
+  .alert-wrapper {
+    text-align: center;
+
+    .alert-head {
+      .alert-title {
+        text-align: center;
+      }
+    }
+    .alert-button-group{
+      justify-content: center;
+      color: dodgerblue;
+    }
+  }
+}
+
 
 .second-modal-class{
   .modal-wrapper {

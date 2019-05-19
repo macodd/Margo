@@ -122,9 +122,10 @@ export class AddBankPage implements OnInit {
 
   async presentAlert() {
     const alert = await this.alertController.create({
+      cssClass: 'alertConfirm',
       header: 'Listo',
       subHeader: 'Cuenta Agregada',
-      message: 'Su cuenta a sido agregada. Podra hacer uso de su cuenta en 1 dia',
+      message: 'Su cuenta a sido agregada. Puede hacer uso de su cuenta en 1 dia',
       buttons: ['OK']
     });
 

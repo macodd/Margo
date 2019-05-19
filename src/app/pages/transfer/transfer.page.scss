@@ -6,20 +6,18 @@
   padding-bottom: 20px;
 }
 
-.transfer-content {
-    --background: linear-gradient(270deg, rgba(3, 139, 104, 1) 0%, rgba(9, 39, 43, 1) 90%) !important;
-}
-
 .continue {
   font-family: DIN Next LT Pro Medium;
   font-size: 16px;
   color: white;
   white-space: nowrap;
-  display: inline-block;
 }
 
-.continue-row {
-  padding: 100px;
+.absolute-center {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .icon {

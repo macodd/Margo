@@ -7,7 +7,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { AppComponent } from './app.component';
-import { UserData } from './providers/user-data';
 
 describe('AppComponent', () => {
   let eventsSpy,
@@ -39,7 +38,6 @@ describe('AppComponent', () => {
         { provide: Events, useValue: eventsSpy },
         { provide: MenuController, useValue: menuSpy },
         { provide: Router, useValue: routerSpy },
-        { provide: UserData, useValue: userDataSpy },
         { provide: StatusBar, useValue: statusBarSpy },
         { provide: SplashScreen, useValue: splashScreenSpy },
         { provide: Platform, useValue: platformSpy }

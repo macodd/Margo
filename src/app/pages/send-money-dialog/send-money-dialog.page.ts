@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, Input} from '@angular/core';
 import { LoadingController, MenuController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { SendingScreenPage } from '../sending-screen/sending-screen.page'
 
 @Component({
   selector: 'send-money-dialog',
@@ -32,15 +33,13 @@ export class SendMoneyDialogPage implements AfterViewInit {
 
   goSuccessful() {
     this.dismiss();
-    this.presentLoading().then(()=>{
-      this.menu.enable(true);
-      this.router.navigateByUrl('payment-successful');
-    });
+    this.router.navigateByUrl('/sending-screen');
   }
 
   goCancel() {
     this.dismiss();
   }
+
 
   async presentLoading() {
     const loading = await this.loadingController.create({
