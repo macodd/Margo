@@ -1,20 +1,20 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from "@ionic/angular";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-notification-dialog',
-  templateUrl: './notification-dialog.page.html',
-  styleUrls: ['./notification-dialog.page.scss']
+  templateUrl: './notification-dialog.component.html',
+  styleUrls: ['./notification-dialog.component.scss'],
 })
-export class NotificationDialogPage implements AfterViewInit {
+export class NotificationDialogComponent implements OnInit {
 
   constructor(
     public modalCtrl: ModalController,
     private router: Router
   ) { }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
   }
 
   dismiss(data?: any) {
@@ -27,4 +27,5 @@ export class NotificationDialogPage implements AfterViewInit {
     this.dismiss();
     this.router.navigateByUrl('/notifications');
   }
+
 }

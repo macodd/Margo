@@ -27,11 +27,20 @@
         <p class="activity-title">margo</p>
       </ion-card-title>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content padding>
       <ion-item>
         <ion-label position="stacked">Cantidad:</ion-label>
-        <ion-input type="number" pattern="[0-9]*" [(ngModel)]="amount" required></ion-input>
+        <ion-input
+          placeholder="$0.00"
+          type="number"
+          pattern="[0-9]*"
+          [(ngModel)]="amount"
+          (ionInput)="convert($event)"
+          float-end
+          required>
+        </ion-input>
       </ion-item>
+      <ion-label class="amount-shown">{{ amountShown }}</ion-label>
       <ion-item lines="none" class="select-account">
         <ion-label (click)="openMyBankPicker()">{{ mybankValue }} <ion-icon name="arrow-dropdown"></ion-icon></ion-label>
       </ion-item>
@@ -44,7 +53,7 @@
   <ion-toolbar>
     <ion-row>
       <ion-col>
-        <ion-button [disabled]="btnDisabled == true || amount == ''" expand="full" shape="round" fill="outline" color="tertiary" (click)="goAddedBalance()">{{ actionTitle }}</ion-button>
+        <ion-button [disabled]="btnDisabled" expand="full" shape="round" fill="outline" color="tertiary" (click)="goAddedBalance()">{{ actionTitle }}</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>

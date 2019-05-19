@@ -11,10 +11,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
   <ion-grid>
-    <ion-row class="first-grid-padding" justify-content-center>
+    <ion-row>
       <ion-col text-center size="6">
         <ion-card (click)="purchaseOne()">
           <ion-card-header>
@@ -23,11 +23,22 @@
           </ion-card-header>
           <ion-card-content>
             <img src="../../../assets/img/upgrade.png" alt="" class="avatar">
-            <p>1era. opción</p>
+            <p>9.99</p>
           </ion-card-content>
         </ion-card>
       </ion-col>
 
+      <ion-col>
+        <h4 padding-top="10%">Ofrece:</h4>
+        <p>
+          -algo <br>
+          -otro <br>
+          -ultimno <br>
+        </p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
       <ion-col text-center size="6">
         <ion-card (click)="purchasePlus()">
           <ion-card-header>
@@ -36,30 +47,23 @@
           </ion-card-header>
           <ion-card-content>
             <img src="../../../assets/img/upgrade-plus.png" alt="" class="avatar">
-            <p>2da. opción</p>
+            <p>19.99</p>
           </ion-card-content>
         </ion-card>
       </ion-col>
+
+      <ion-col>
+        <h4 padding-top="10%">Ofrece:</h4>
+        <p>
+          -algo <br>
+          -otro <br>
+          -ultimno <br>
+        </p>
+      </ion-col>
     </ion-row>
 
-    <ion-row class="second-grid-padding" justify-content-center>
-      <ion-col size="6">
-        <ion-card>
-          <ion-item lines="none" style="text-align: center;">
-            <ion-label style="display: inline;"><strong class="price-field">$49.99 </strong><p class="price-field">USD</p></ion-label>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-      <ion-col size="6">
-        <ion-card >
-          <ion-item lines="none" style="text-align: center;">
-            <ion-label style="display: inline;"><strong class="price-field">$99.99 </strong><p class="price-field">USD</p></ion-label>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
   </ion-grid>
-  <ion-row>
+  <ion-row padding>
     <ion-col text-center>
       <h4 text-left>TÉRMINOS</h4>
       <p text-justify class="activity-description">

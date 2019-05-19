@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 import { ToastController , MenuController} from '@ionic/angular';
@@ -60,7 +60,10 @@ export class AccountPage implements AfterViewInit {
   }
 
   clickUnlock() {
-    this.router.navigateByUrl('/subscribe');
+    const navigationExtras: NavigationExtras = {
+      queryParams: {'origin': 'account'}
+    };
+    this.router.navigate(['subscribe'], navigationExtras);
   }
 
   clickNotifications() {

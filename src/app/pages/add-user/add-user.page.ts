@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddUserService } from './add-user.service';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
-import {MenuController} from "@ionic/angular";
+import { MenuController } from "@ionic/angular";
 
 @Component({
   selector: 'app-add-user',

@@ -16,7 +16,6 @@ const routes: Routes = [
   { path: 'login', loadChildren: './pages/login/login.module#LoginModule'},
   { path: 'login/:origin', loadChildren: './pages/login/login.module#LoginModule'},
   { path: 'notifications', loadChildren: './pages/notifications/notifications.module#NotificationsPageModule' },
-  { path: 'notification-dialog', loadChildren: './pages/notification-dialog/notification-dialog.module#NotificationDialogPageModule' },
   { path: 'payment-successful', loadChildren: './pages/payment-successful/payment-successful.module#PaymentSuccessfulPageModule' },
   { path: 'search', loadChildren: './pages/search/search.module#SearchPageModule' },
   { path: 'send-money-dialog', loadChildren: './pages/send-money-dialog/send-money-dialog.module#SendMoneyDialogPageModule' },

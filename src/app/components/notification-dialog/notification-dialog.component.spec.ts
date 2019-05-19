@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotificationDialogPage } from './notification-dialog.page';
+import { NotificationDialogComponent } from './notification-dialog.component';
 
-describe('NotificationDialogPage', () => {
-  let component: NotificationDialogPage;
-  let fixture: ComponentFixture<NotificationDialogPage>;
+describe('NotificationDialogComponent', () => {
+  let component: NotificationDialogComponent;
+  let fixture: ComponentFixture<NotificationDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NotificationDialogPage ],
+      declarations: [ NotificationDialogComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NotificationDialogPage);
+    fixture = TestBed.createComponent(NotificationDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

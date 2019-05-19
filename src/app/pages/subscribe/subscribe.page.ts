@@ -47,7 +47,7 @@ export class SubscribePage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Confirmar',
       cssClass: "alertConfirm",
-      message: 'Deseas adquirir margo ' + this.puchaseType + 'por ' + this.purchasePrice + "?",
+      message: 'Deseas adquirir margo ' + this.puchaseType + ' por ' + this.purchasePrice + "?",
       buttons: [
         {
           text: 'Cancelar',
@@ -59,6 +59,7 @@ export class SubscribePage implements OnInit {
           text: 'OK',
             handler: () =>{
             this.presentLoading().then(()=>{
+              this.menu.enable(true);
               this.router.navigateByUrl(this.originPage);
               this.presentConfirm();
             })
@@ -82,7 +83,8 @@ export class SubscribePage implements OnInit {
   async presentConfirm() {
     const alert = await this.alertController.create({
       header: 'Listo',
-      message: 'Gracias por subscribirte a \nmargo' + this.puchaseType,
+      cssClass: 'alertConfirm',
+      message: 'Gracias por subscribirte a \nmargo ' + this.puchaseType,
       buttons: ['OK']
     });
 

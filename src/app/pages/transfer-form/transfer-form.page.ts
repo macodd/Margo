@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  MenuController, ModalController } from '@ionic/angular';
+import { MenuController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { SendMoneyDialogPage } from '../send-money-dialog/send-money-dialog.page';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";

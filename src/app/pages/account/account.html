@@ -51,7 +51,7 @@
     </ion-item>
   </ion-card>
 
-  <ion-card class="card-color">
+  <ion-card class="card-color" (click)="goActivity()">
     <ion-item lines="none">
       <img src="../../../assets/img/icons/activity.png" alt="" class="center-icon">
       <ion-label><p>Ver Actividad</p></ion-label>
@@ -79,7 +79,7 @@
         <ion-progress-bar class="bar-style" value="0.5"></ion-progress-bar>
         <p><strong>$88,76 USD</strong> hasta la versión GRATIS</p>
 
-        <p class="dark-text">Actualiza a PRO para desbloquear funciones avanzadas de Margo</p>
+        <p class="dark-text">Actualiza a PLUS para desbloquear funciones avanzadas de Margo</p>
         <ion-button style="text-transform: none;" class="outline-button" shape="round" fill="solid" color="dark" expand="full" (click)="clickUnlock()" >
             Desbloquear
         </ion-button>

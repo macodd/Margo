@@ -14,7 +14,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 import { SendMoneyDialogPage } from './pages/send-money-dialog/send-money-dialog.page';
-import { NotificationDialogPage } from './pages/notification-dialog/notification-dialog.page';
 import { AddUserService } from './pages/add-user/add-user.service';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
@@ -37,7 +36,6 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
   declarations: [
     AppComponent,
     SendMoneyDialogPage,
-    NotificationDialogPage,
   ],
   providers: [
     InAppBrowser,
@@ -48,6 +46,6 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     // FingerprintAIO,
     ],
   bootstrap: [AppComponent],
-  entryComponents: [SendMoneyDialogPage, NotificationDialogPage]
+  entryComponents: [SendMoneyDialogPage]
 })
 export class AppModule {}

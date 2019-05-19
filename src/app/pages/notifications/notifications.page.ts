@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController, MenuController } from '@ionic/angular';
 
-import { NotificationDialogPage } from '../notification-dialog/notification-dialog.page';
-import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
+import { NotificationDialogComponent } from "../../components/notification-dialog/notification-dialog.component";
+import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
 @Component({
   selector: 'app-notifications',
@@ -58,11 +58,11 @@ export class NotificationsPage {
 
   async openNotification() {
     const modal = await this.modalCtrl.create({
-      component: NotificationDialogPage,
+      component: NotificationDialogComponent,
       cssClass: 'my-modal-class',
     });
     modal.present();
-    }
+  }
 
   onBack(){
     this.menu.enable(true);

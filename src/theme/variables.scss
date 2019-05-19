@@ -333,6 +333,7 @@
   }
 }
 
+
 .alertConfirm {
   .alert-wrapper {
     text-align: center;
@@ -341,7 +342,11 @@
       .alert-title {
         text-align: center;
       }
+      .alert-sub-title {
+        text-align: center;
+      }
     }
+
     .alert-button-group{
       justify-content: center;
       color: dodgerblue;

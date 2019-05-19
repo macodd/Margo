@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
-import {AlertController, LoadingController, MenuController, PickerController} from '@ionic/angular';
+import { AlertController, LoadingController, MenuController, PickerController } from '@ionic/angular';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
 @Component({
@@ -14,11 +14,14 @@ export class AddBalancePage implements OnInit {
   sub: any;
   mybankValue: any = 'Selecciona una cuenta';
   bankData: any = [];
-  amount: string;
+
   btnDisabled: boolean = true;
 
   actionTitle: any;
   actionImage: any;
+
+  amount: string = "";
+  amountShown: any;
 
 
   constructor(
@@ -47,6 +50,13 @@ export class AddBalancePage implements OnInit {
         this.actionImage = 'request';
       }
     })
+  }
+
+  convert(ev: any){
+
+    let val = ev.target.value;
+    const num = Number(val)/100;
+    this.amountShown = String(num.toFixed(2));
   }
 
   async openMyBankPicker() {
@@ -89,7 +99,7 @@ export class AddBalancePage implements OnInit {
   }
 
   checkButton() {
-    if (this.bankData.length === 3 && this.amount !== ''){
+    if (this.bankData.length === 3 && this.amount != null){
       this.btnDisabled = false;
     }
   }
@@ -98,7 +108,7 @@ export class AddBalancePage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Confirmar',
       cssClass: 'alertConfirm',
-      message: 'Deseas '+ this.actionTitle + ' ' + this.amount + '?',
+      message: 'Deseas '+ this.actionTitle + ' ' + this.amountShown + '?',
       buttons: [
         {
           text: 'Cancelar',
