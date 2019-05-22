@@ -1,20 +1,24 @@
 
 .title {
-    font-family: DIN Next LT Pro Medium;
-    font-size: 28pt;
-    color: white;
-    margin: 0px;
+  font-family: DIN Next LT Pro Medium;
+  font-size: 28pt;
+  color: white;
+  margin: 0;
 }
 
 .row-padding {
-    padding: 0px 16px 0px 16px;
+    padding: 0 16px 0 16px;
 }
 
 
 .avatar {
-    width: 25%;
-    float: left;
-  }
+  border-radius: 50%;
+  width: 64px;
+  max-width: 64px;
+  height: 64px;
+  max-height: 64px;
+  float: left;
+}
 
 .description {
   padding-top: 0;

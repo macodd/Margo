@@ -1,4 +1,4 @@
-.avatar {
+.adjustment {
   padding-top: 20%;
   padding-bottom: 20%;
   position: relative;
@@ -23,8 +23,10 @@
 
 .image-one {
   border-radius: 50%;
-  width: 30%;
-  max-width: 30%;
+  width: 128px;
+  max-width: 128px;
+  height: 128px;
+  max-height: 128px;
   position: absolute;
   top: calc(60%);
   left: calc(65%);
@@ -34,8 +36,10 @@
 
 .image-two {
   border-radius: 50%;
-  width: 30%;
-  max-width: 30%;
+  width: 128px;
+  max-width: 128px;
+  height: 128px;
+  max-height: 128px;
   position: absolute;
   top: calc(20%);
   left: calc(5%);

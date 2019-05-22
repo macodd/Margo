@@ -22,7 +22,7 @@
   <ion-list no-padding>
     <ion-item (click)=addUser(user) *ngFor="let user of users">
       <ion-avatar slot="start">
-        <img src="../../../assets/img/{{ user.image }}" alt="">
+        <img src="../../../assets/img/{{ user.image }}" alt="" class="avatar">
       </ion-avatar>
       <ion-label>
         <h3 style="margin: 0;">{{ user.name }}</h3>

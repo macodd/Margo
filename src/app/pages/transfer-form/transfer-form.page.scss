@@ -15,7 +15,10 @@
 
 .avatar {
   border-radius: 50%;
-  width: 15%;
+  width: 64px;
+  max-width: 64px;
+  height: 64px;
+  max-height: 64px;
 }
 
 .keyboard-style {

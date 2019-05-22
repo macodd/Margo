@@ -1,7 +1,10 @@
 .avatar {
-  width: 25%;
-  float: left;
   border-radius: 50%;
+  width: 32px;
+  max-width: 32px;
+  height: 32px;
+  max-height: 32px;
+  float: left;
 }
 
 .card-title {

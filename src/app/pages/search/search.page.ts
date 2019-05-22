@@ -30,7 +30,7 @@ export class SearchPage implements OnInit {
         location: 'United States',
       },
       {
-        image: 'semri.png',
+        image: 'semri.jpg',
         name: 'Semra Aydemir',
         username: 'semri2019',
         location: 'United States',
