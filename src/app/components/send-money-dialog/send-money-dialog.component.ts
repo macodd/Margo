@@ -1,6 +1,10 @@
-import {Component, Input, AfterViewInit} from '@angular/core';
-import {LoadingController, MenuController, ModalController} from "@ionic/angular";
-import {Router} from "@angular/router";
+import { Component, Input, AfterViewInit } from '@angular/core';
+import { LoadingController, MenuController, ModalController } from "@ionic/angular";
+import { Router } from "@angular/router";
+import { myEnterAnimation } from "../../animations/enter";
+import { myLeaveAnimation } from "../../animations/leave";
+
+import { SendingScreenComponent } from "../sending-screen/sending-screen.component";
 
 @Component({
   selector: 'app-send-money-dialog',
@@ -32,7 +36,12 @@ export class SendMoneyDialogComponent implements AfterViewInit {
 
   goSuccessful() {
     this.dismiss();
-    this.router.navigateByUrl('/sending-screen');
+    this.toTransfer().then(() =>{
+      let dismissPage = setTimeout(()=>{
+        this.dismiss();
+      }, 7000);
+      this.router.navigateByUrl('/payment-successful')
+    })
   }
 
   goCancel() {
@@ -48,6 +57,16 @@ export class SendMoneyDialogComponent implements AfterViewInit {
     });
     loading.present();
     return await loading.onWillDismiss();
+  }
+
+  async toTransfer() {
+    const modal = await this.modalCtrl.create({
+      component: SendingScreenComponent,
+      enterAnimation: myEnterAnimation,
+      leaveAnimation: myLeaveAnimation,
+      cssClass: 'second-modal-class',
+    });
+    await modal.present();
   }
 
 }

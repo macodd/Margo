@@ -11,7 +11,7 @@ import { LoadingController, MenuController } from "@ionic/angular";
 })
 export class TransferPage implements OnInit {
 
-  currentUser: boolean;
+  currentUser: boolean = false;
 
   constructor(
     private router: Router,
@@ -26,8 +26,8 @@ export class TransferPage implements OnInit {
 
   ngOnInit() {
     this.addUserService.userActivated.subscribe(
-      (user: boolean) => {
-        this.currentUser = user;
+      (bool: boolean) => {
+        this.currentUser = bool;
       }
     );
   }

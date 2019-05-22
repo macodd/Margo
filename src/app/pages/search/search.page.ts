@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router} from '@angular/router';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 import { MenuController } from "@ionic/angular";
+import { AddUserService } from "../add-user/add-user.service";
 
 @Component({
   selector: 'app-search',
@@ -10,20 +11,29 @@ import { MenuController } from "@ionic/angular";
 })
 export class SearchPage implements OnInit {
 
-  users: Array<Object> = [{name: String, username: String, location: String}];
+  users: Array<any> = [{image: String, name: String, username: String, location: String}];
 
   constructor(
     private router: Router,
     private menu: MenuController,
+    private addUserService: AddUserService,
     private screenOrientation: ScreenOrientation
   ) {
     this.menu.enable(false);
+    this.addUserService.transferToUser(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.users = [
       {
-        name: 'Mark Codd Christopherson',
+        image: 'mark-2.jpg',
+        name: 'Mark Codd',
         username: 'marky2186',
-        location: 'United States'
+        location: 'United States',
+      },
+      {
+        image: 'semri.png',
+        name: 'Semra Aydemir',
+        username: 'semri2019',
+        location: 'United States',
       }
     ];
   }
@@ -36,8 +46,10 @@ export class SearchPage implements OnInit {
     this.router.navigateByUrl('/transfer')
   }
 
-  addUser() {
-    this.router.navigateByUrl('add-user');
+  addUser(user: any) {
+    const navigationExtras: NavigationExtras  = {
+      queryParams: user};
+    this.router.navigate(['add-user'], navigationExtras);
   }
 
 }

@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SendingScreenPage } from './sending-screen.page';
+import { SendingScreenComponent } from './sending-screen.component';
 
-describe('SendingScreenPage', () => {
-  let component: SendingScreenPage;
-  let fixture: ComponentFixture<SendingScreenPage>;
+describe('SendingScreenComponent', () => {
+  let component: SendingScreenComponent;
+  let fixture: ComponentFixture<SendingScreenComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SendingScreenPage ],
+      declarations: [ SendingScreenComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SendingScreenPage);
+    fixture = TestBed.createComponent(SendingScreenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

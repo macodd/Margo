@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AddUserService } from './add-user.service';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { MenuController } from "@ionic/angular";
+
+import { Storage} from "@ionic/storage";
 
 @Component({
   selector: 'app-add-user',
@@ -11,24 +13,41 @@ import { MenuController } from "@ionic/angular";
 })
 export class AddUserPage implements OnInit {
 
-  user = false;
+  user: any = {image: String, name: String, username: String, location: String};
+
+  titlePage: string;
 
   constructor(
+    private storage: Storage,
     private router: Router,
+    private route: ActivatedRoute,
     private addUserService: AddUserService,
     private menu: MenuController,
     private screenOrientation: ScreenOrientation
   ) {
     this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    this.route.queryParams.subscribe(params => {
+      this.user = {
+        image: params['image'],
+        name: params['name'],
+        username: params['username'],
+        location: params['location']
+      };
+    });
   }
 
   ngOnInit() {
-    this.user = true;
-    this.addUserService.transferToUser(this.user);
+    this.titlePage = this.user.name.split(' ')[0];
+
   }
 
   setToTransfer() {
+    this.storage.set('image', this.user.image);
+    this.storage.set('name', this.user.name);
+    this.storage.set('username', this.user.username);
+    this.storage.set('location', this.user.location);
+    this.addUserService.transferToUser(true);
     this.router.navigateByUrl('transfer');
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-
+import { Storage } from "@ionic/storage";
 import { SendMoneyDialogComponent } from "../../components/send-money-dialog/send-money-dialog.component";
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
@@ -16,11 +16,14 @@ import { myLeaveAnimation } from '../../animations/leave';
 
 export class TransferFormPage implements OnInit {
 
+  user: any = { image: String, name: String };
+
   amountToTransfer: any = '';
   amountShown: any = '0.00';
 
   constructor(
     private router: Router,
+    private storage: Storage,
     private menu: MenuController,
     private modalCtrl: ModalController,
     private screenOrientation: ScreenOrientation
@@ -30,6 +33,12 @@ export class TransferFormPage implements OnInit {
   }
 
   ngOnInit() {
+    this.storage.get('image').then((val) => {
+      this.user.image = val;
+    });
+    this.storage.get('name').then((val) => {
+      this.user.name = val;
+    });
   }
 
   handleInput(num: any) {
@@ -64,7 +73,7 @@ export class TransferFormPage implements OnInit {
       leaveAnimation: myLeaveAnimation,
       cssClass: 'second-modal-class',
       componentProps: {
-        'name': 'Mark',
+        'name': this.user.name,
         'amount': this.amountShown
       }
     });
