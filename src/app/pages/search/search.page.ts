@@ -11,7 +11,7 @@ import { AddUserService } from "../add-user/add-user.service";
 })
 export class SearchPage implements OnInit {
 
-  users: Array<any> = [{image: String, name: String, username: String, location: String}];
+  users: Array<any> = [{image: String, name: String, username: String, type: String}];
 
   constructor(
     private router: Router,
@@ -24,16 +24,16 @@ export class SearchPage implements OnInit {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.users = [
       {
-        image: 'mark-2.jpg',
-        name: 'Mark Codd',
-        username: 'marky2186',
-        location: 'United States',
+        image: 'pepin.png',
+        name: 'Pepin Quez',
+        username: 'pquez',
+        type: 'Personal',
       },
       {
         image: 'semri.jpg',
         name: 'Semra Aydemir',
         username: 'semri2019',
-        location: 'United States',
+        type: 'Personal',
       }
     ];
   }

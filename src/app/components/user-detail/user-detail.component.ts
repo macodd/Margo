@@ -10,7 +10,7 @@ import { Storage } from "@ionic/storage";
 export class UserDetailComponent implements OnInit {
   @Input() textColor: String;
 
-  user: any = { image: String, name: String, username: String, location: String };
+  user: any = { image: String, name: String, username: String, type: String };
 
   constructor(
     private storage: Storage,
@@ -26,8 +26,8 @@ export class UserDetailComponent implements OnInit {
     this.storage.get('username').then((val) => {
       this.user.username = val;
     });
-    this.storage.get('location').then((val) => {
-      this.user.location = val;
+    this.storage.get('type').then((val) => {
+      this.user.type = val;
     });
   }
 

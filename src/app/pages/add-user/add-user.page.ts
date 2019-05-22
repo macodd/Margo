@@ -13,7 +13,7 @@ import { Storage} from "@ionic/storage";
 })
 export class AddUserPage implements OnInit {
 
-  user: any = {image: String, name: String, username: String, location: String};
+  user: any = {image: String, name: String, username: String, type: String};
 
   titlePage: string;
 
@@ -32,7 +32,7 @@ export class AddUserPage implements OnInit {
         image: params['image'],
         name: params['name'],
         username: params['username'],
-        location: params['location']
+        type: params['type']
       };
     });
   }
@@ -46,7 +46,7 @@ export class AddUserPage implements OnInit {
     this.storage.set('image', this.user.image);
     this.storage.set('name', this.user.name);
     this.storage.set('username', this.user.username);
-    this.storage.set('location', this.user.location);
+    this.storage.set('type', this.user.type);
     this.addUserService.transferToUser(true);
     this.router.navigateByUrl('transfer');
   }
