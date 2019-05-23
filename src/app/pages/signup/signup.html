@@ -9,19 +9,19 @@
 <ion-content>
   <h1 class="sign-up-title" padding no-margin>Crear Cuenta</h1>
 
-  <div [hidden]="isViewPersonal == false">
+  <form [formGroup]="userFormGroup">
     <ion-list>
       <ion-row>
         <ion-col no-padding>
           <ion-item class="input-border" lines="full">
               <ion-label position="stacked" color="medium"><strong>Nombre Completo</strong></ion-label>
-              <ion-input class="signup-input" [(ngModel)]="signup.fullname" name="firstname" type="text" #firstname="ngModel" required></ion-input>
+              <ion-input class="signup-input"  name="fullname" type="text" formControlName='fullname' required></ion-input>
             </ion-item>
-            <ion-text color="danger">
-              <small padding [hidden]="firstname.valid || submitted == false" padding-left>
-                Escribe tu nombre
-              </small>
-            </ion-text>
+<!--            <ion-text color="danger">-->
+<!--              <small padding [hidden]="firstname.valid || submitted == false" padding-left>-->
+<!--                Escribe tu nombre-->
+<!--              </small>-->
+<!--            </ion-text>-->
         </ion-col>
       </ion-row>
 
@@ -29,14 +29,14 @@
         <ion-col no-padding>
           <ion-item lines="full">
             <ion-label position="stacked" color="medium"><strong>Correo electrónico</strong></ion-label>
-            <ion-input class="signup-input" [(ngModel)]="signup.email" name="email" type="email" #email="ngModel" required>
+            <ion-input class="signup-input" name="email" type="email" formControlName='email' required>
             </ion-input>
           </ion-item>
-          <ion-text color="danger">
-            <small padding [hidden]="email.valid || submitted == false" padding-left>
-              Escribe tu correo electrónico
-            </small>
-          </ion-text>
+<!--          <ion-text color="danger">-->
+<!--            <small padding [hidden]="email.valid || submitted == false" padding-left>-->
+<!--              Escribe tu correo electrónico-->
+<!--            </small>-->
+<!--          </ion-text>-->
         </ion-col>
       </ion-row>
 
@@ -44,13 +44,13 @@
         <ion-col no-padding size="12">
             <ion-item class="input-border" lines="full">
                 <ion-label position="stacked" color="medium"><strong>Celular</strong></ion-label>
-                <ion-input class="signup-input" [(ngModel)]="signup.phone" name="phone" type="number" pattern="[0-9]*" #id="ngModel" required></ion-input>
+                <ion-input class="signup-input" name="phone" type="number" formControlName='phone' pattern="[0-9]*" required></ion-input>
               </ion-item>
-              <ion-text color="danger">
-                <small padding [hidden]="id.valid || submitted == false" padding-left>
-                  Escribe tu número de celular
-                </small>
-              </ion-text>
+<!--              <ion-text color="danger">-->
+<!--                <small padding [hidden]="id.valid || submitted == false" padding-left>-->
+<!--                  Escribe tu número de celular-->
+<!--                </small>-->
+<!--              </ion-text>-->
         </ion-col>
       </ion-row>
 
@@ -58,13 +58,13 @@
         <ion-col no-padding size="12">
           <ion-item class="input-border" lines="full">
               <ion-label position="stacked" color="medium"><strong>Cédula de identidad/RUC</strong></ion-label>
-              <ion-input class="signup-input" [(ngModel)]="signup.id" name="id" type="number" pattern="[0-9]*" #id="ngModel" required></ion-input>
+              <ion-input class="signup-input" name="userID" type="number" pattern="[0-9]*" formControlName='userID' required></ion-input>
             </ion-item>
-            <ion-text color="danger">
-              <small padding [hidden]="id.valid || submitted == false" padding-left>
-                Escribe tu cédula de identidad
-              </small>
-            </ion-text>
+<!--            <ion-text color="danger">-->
+<!--              <small padding [hidden]="id.valid || submitted == false" padding-left>-->
+<!--                Escribe tu cédula de identidad-->
+<!--              </small>-->
+<!--            </ion-text>-->
         </ion-col>
       </ion-row>
     </ion-list>
@@ -74,14 +74,14 @@
           <p style="color: rgba(119, 119, 119, 1);" id="terms-description">Al <b style="color: black;">"Crear Cuenta"</b> estás de acuerdo con los <b style="color: black;"><a [routerLink]="['/terms']" style="text-decoration: none !important">Términos de uso, Políticas de Privacidad,</a></b> y accedes a recibir contenido y comunicación promocional de Margo </p>
       </ion-col>
     </ion-row>
-  </div>
+  </form>
 
 </ion-content>
 
 <ion-toolbar class="toolbar" color="lightCustom">
   <ion-row justify-content-center responsive-sm>
     <ion-col no-padding ion-fixed>
-        <ion-button style="margin: 0" type="submit" size="large" expand="full" color="tertiary" (click)="onSignup(signupForm)">Continuar</ion-button>
+        <ion-button style="margin: 0" type="submit" size="large" expand="full" color="tertiary" (click)="onSignup($event)">Continuar</ion-button>
     </ion-col>
   </ion-row>
 

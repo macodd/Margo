@@ -26,32 +26,29 @@
   </ion-row>
 
   <!--  TODO: Fix UserOptions -->
-  <form #loginForm="ngForm" novalidate>
+  <form [formGroup]="userFormGroup">
     <ion-list>
       <ion-item lines="full">
         <ion-label position="stacked" color="medium"><strong>Usuario/Correo</strong></ion-label>
-        <ion-input class="login-input" [(ngModel)]="login.email" name="email" type="text" #email="ngModel" spellcheck="false" autocapitalize="off"
-          required>
-        </ion-input>
+        <ion-input class="login-input" name="email" type="text" formControlName='username' required></ion-input>
       </ion-item>
 
-      <ion-text color="danger">
-        <small [hidden]="email.valid || submitted == false" padding>
-          Ingresa tu usuario
-        </small>
-      </ion-text>
+<!--      <ion-text color="danger">-->
+<!--        <small [hidden]="email.valid || submitted == false" padding>-->
+<!--          Ingresa tu usuario-->
+<!--        </small>-->
+<!--      </ion-text>-->
 
       <ion-item lines="full">
         <ion-label position="stacked" color="medium"><strong>Contraseña</strong></ion-label>
-        <ion-input class="login-input" [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
-        </ion-input>
+        <ion-input class="login-input" name="password" type="password" formControlName='password' required></ion-input>
       </ion-item>
 
-      <ion-text color="danger">
-        <small [hidden]="password.valid || submitted == false" padding>
-          Ingresa tu contraseña
-        </small>
-      </ion-text>
+<!--      <ion-text color="danger">-->
+<!--        <small [hidden]="password.valid || submitted == false" padding>-->
+<!--          Ingresa tu contraseña-->
+<!--        </small>-->
+<!--      </ion-text>-->
     </ion-list>
   </form>
 </ion-content>
@@ -60,7 +57,14 @@
   <ion-row justify-content-center responsive-sm>
     <!-- TODO: Delete onSignup() method? -->
     <ion-col no-padding ion-fixed>
-      <ion-button color="tertiary" style="text-transform: none; margin: 0" size="large" type="submit" expand="full" (click)="onLogin(loginForm)">Iniciar Sesión</ion-button>
+      <ion-button
+        color="tertiary"
+        style="text-transform: none; margin: 0"
+        size="large"
+        type="submit"
+        expand="full"
+        [disabled]='!userFormGroup.valid'
+        (click)="onLogin($event)">Iniciar Sesión</ion-button>
     </ion-col>
   </ion-row>
 

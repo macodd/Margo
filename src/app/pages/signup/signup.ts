@@ -1,12 +1,9 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingController, MenuController } from '@ionic/angular';
 
-// import { UserData } from '../../services/user-data';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
-// Interface
-import { UserOptions } from '../../interfaces/user-options';
 import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
 
 @Component({
@@ -16,35 +13,38 @@ import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
   encapsulation: ViewEncapsulation.None
 })
 export class SignupPage {
-  signup: UserOptions = {
-    fullname: '',
-    phone: '',
-    email: '',
-    id: ''
-  };
+
+  private userFormGroup: FormGroup;
 
   submitted = false;
   origin = '';
-  isViewPersonal = true;
-  // isViewBusiness = false;
 
   constructor(
     private router: Router,
-    // public userData: UserData,
-    private route: ActivatedRoute,
-    private loadingController: LoadingController,
     private menu: MenuController,
+    private fBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private loading: LoadingController,
     private screenOrientation: ScreenOrientation
   ) {
     this.route.queryParams.subscribe(params => {
         this.origin = params['origin'];
     });
+
+    this.userFormGroup = fBuilder.group({
+      fullname: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      userID: ['', Validators.required],
+    });
+
     this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
-  onSignup(form: NgForm) {
+  onSignup(event) {
     this.submitted = true;
+    console.log(this.userFormGroup.value);
     this.presentLoading().then(()=>{
       this.router.navigateByUrl('/setpassword');
     });
@@ -65,12 +65,12 @@ export class SignupPage {
   }
 
   async presentLoading() {
-    const loading = await this.loadingController.create({
+    const load = await this.loading.create({
       duration: 2000,
       spinner: "crescent",
       cssClass: 'my-loading-class'
     });
-    loading.present();
-    return await loading.onWillDismiss();
+    load.present();
+    return await load.onWillDismiss();
   }
 }

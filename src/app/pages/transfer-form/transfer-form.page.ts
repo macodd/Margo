@@ -5,6 +5,7 @@ import { Storage } from "@ionic/storage";
 import { SendMoneyDialogComponent } from "../../components/send-money-dialog/send-money-dialog.component";
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { myEnterAnimation } from '../../animations/enter';
 import { myLeaveAnimation } from '../../animations/leave';
 
@@ -20,11 +21,13 @@ export class TransferFormPage implements OnInit {
 
   amountToTransfer: any = '';
   amountShown: any = '0.00';
+  private userFormGroup: FormGroup;
 
   constructor(
     private router: Router,
     private storage: Storage,
     private menu: MenuController,
+    private fBuilder: FormBuilder,
     private modalCtrl: ModalController,
     private screenOrientation: ScreenOrientation
     ){
@@ -55,8 +58,16 @@ export class TransferFormPage implements OnInit {
     this.amountShown = String(show.toFixed(2));
   }
 
+  goTransfer(event){
+    this.userFormGroup = this.fBuilder.group({
+      from: ['', Validators.required],
+      to: [this.user.name, Validators.required],
+      amount: [this.amountToTransfer, Validators.required],
+    });
 
-  goTransfer(){
+    console.log(this.userFormGroup.value);
+    this.userFormGroup.reset();
+
     var num = Number(this.amountToTransfer);
     if (num <= 0){
       console.log('notification of invalid input')

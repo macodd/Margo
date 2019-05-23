@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import {AlertController, LoadingController, MenuController, PickerController} from '@ionic/angular';
+import { AlertController, LoadingController, MenuController, PickerController } from '@ionic/angular';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
+import { Validators, FormBuilder, FormGroup, FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-add-bank',
@@ -12,23 +13,28 @@ export class AddBankPage implements OnInit {
 
   bankValue: any = 'Selecciona tu Banco';
   accountTypeValue: any = 'Tipo de Cuenta';
-  accountNumber: any = '';
-  bankData: any = [];
 
-  btnDisabled: boolean = true;
   showType: string = 'none';
   showNumber: string = 'none';
+
+  private bankFormGroup: FormGroup;
 
   constructor(
     private router: Router,
     private menu: MenuController,
-    private screenOrientation: ScreenOrientation,
+    private fBuilder: FormBuilder,
     private selector: PickerController,
     public alertController: AlertController,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private screenOrientation: ScreenOrientation,
   ) {
     this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
+    this.bankFormGroup = fBuilder.group({
+      accountNumber: ['', Validators.required],
+    });
+
   }
 
   ngOnInit() {
@@ -43,11 +49,9 @@ export class AddBankPage implements OnInit {
         {
           text: 'Listo',
           handler: (data: any) => {
-            this.bankData[0] = data.Bancos.value;
             this.bankValue = data.Bancos.text;
-            this.checkButton();
+            this.bankFormGroup.addControl('bankName', new FormControl(this.bankValue, Validators.required));
             this.showType = 'initial';
-            console.log(this.bankData)
           }
         }],
       columns: [
@@ -78,11 +82,9 @@ export class AddBankPage implements OnInit {
         {
           text: 'Listo',
           handler: (data: any) => {
-            this.bankData[1] = data.Tipo.value;
             this.accountTypeValue = data.Tipo.text;
-            this.checkButton();
+            this.bankFormGroup.addControl('accountType', new FormControl(this.accountTypeValue, Validators.required));
             this.showNumber = 'initial';
-            console.log(this.bankData)
           }
         }],
       columns: [
@@ -100,15 +102,8 @@ export class AddBankPage implements OnInit {
     await picker.present();
   }
 
-  checkButton(){
-    if(this.bankData.length === 3){
-      this.btnDisabled = false;
-    }
-  }
-
-  goAddAccount(){
-    this.bankData[2] = this.accountNumber;
-    console.log(this.bankData);
+  goAddAccount(event: any){
+    console.log(this.bankFormGroup.value);
     this.presentLoading().then(()=>{
       this.router.navigateByUrl('/bank-account');
       this.presentAlert();

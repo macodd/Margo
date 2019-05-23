@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { AlertController, LoadingController, MenuController, PickerController } from '@ionic/angular';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
+import {Validators, FormBuilder, FormGroup, FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-add-balance',
@@ -12,7 +13,7 @@ export class AddBalancePage implements OnInit {
 
   actionType: any;
   sub: any;
-  mybankValue: any = 'Selecciona una cuenta';
+  myBankValue: any = 'Selecciona una cuenta';
   bankData: any = [];
 
   btnDisabled: boolean = true;
@@ -23,18 +24,25 @@ export class AddBalancePage implements OnInit {
   amount: string = "";
   amountShown: any;
 
+  private balanceFormGroup: FormGroup;
+
 
   constructor(
     private router: Router,
     private menu: MenuController,
-    private screenOrientation: ScreenOrientation,
+    private fBuilder: FormBuilder,
     private selector: PickerController,
     private route: ActivatedRoute,
     private alertController: AlertController,
+    private screenOrientation: ScreenOrientation,
     private loadingController: LoadingController
   ) {
     this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
+    this.balanceFormGroup = fBuilder.group({
+      amount: ['', Validators.required]
+    })
   }
 
   ngOnInit() {
@@ -53,7 +61,6 @@ export class AddBalancePage implements OnInit {
   }
 
   convert(ev: any){
-
     let val = ev.target.value;
     const num = Number(val)/100;
     this.amountShown = String(num.toFixed(2));
@@ -68,11 +75,9 @@ export class AddBalancePage implements OnInit {
         {
           text: 'Listo',
           handler: (data: any) => {
-            this.bankData[0] = data.Bancos.value;
-            this.bankData[1] = this.actionType;
-            this.bankData[2] = this.amount;
-            this.checkButton();
-            this.mybankValue = data.Bancos.text;
+            this.myBankValue = data.Bancos.text;
+            this.balanceFormGroup.addControl('bankName', new FormControl(this.myBankValue, Validators.required));
+            this.balanceFormGroup.addControl('actionType', new FormControl(this.actionType, Validators.required));
           }
         }],
       columns:[
@@ -95,14 +100,10 @@ export class AddBalancePage implements OnInit {
   }
 
   goAddedBalance(){
+    console.log(this.balanceFormGroup.value);
     this.presentAlert();
   }
 
-  checkButton() {
-    if (this.bankData.length === 3 && this.amount != null){
-      this.btnDisabled = false;
-    }
-  }
 
   async presentAlert() {
     const alert = await this.alertController.create({

@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { SetPasswordOptions } from '../../interfaces/set-password-options';
 import { LoadingController, MenuController, Platform} from '@ionic/angular';
 import { Router } from '@angular/router';
-import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
+import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
+import { Validators, FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'setpassword',
@@ -19,15 +20,24 @@ export class SetpasswordPage implements OnInit {
   };
   submitted = false;
 
+  private userFormGroup: FormGroup;
+
   constructor(
     private router: Router,
     private platform: Platform,
     private menu: MenuController,
+    private fBuilder: FormBuilder,
     private screenOrientation: ScreenOrientation,
     private loadingController: LoadingController
   ) {
     this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
+    this.userFormGroup = fBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      password2: ['', Validators.required],
+    });
   }
 
   passwordType = 'password';

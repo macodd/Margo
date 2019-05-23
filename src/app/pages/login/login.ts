@@ -1,11 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router , ActivatedRoute } from '@angular/router';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+// import { Storage } from '@ionic/storage';
+
 import { UserData } from '../../services/user-data';
 
-import { LoginOptions } from '../../interfaces/login-options';
 import { LoadingController, Platform, MenuController } from '@ionic/angular';
 
 
@@ -16,13 +17,16 @@ import { LoadingController, Platform, MenuController } from '@ionic/angular';
   encapsulation: ViewEncapsulation.None
 })
 export class LoginPage {
-  login: LoginOptions = { email: '', password: '' };
+
   origin: String = '';
   submitted = false;
+  private userFormGroup: FormGroup;
 
   constructor(
     private userData: UserData,
     private router: Router,
+    // private storage: Storage,
+    private fBuilder: FormBuilder,
     private loadingController: LoadingController,
     private platform: Platform,
     private route: ActivatedRoute,
@@ -34,16 +38,21 @@ export class LoginPage {
     });
     this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
+    this.userFormGroup = fBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
-  onLogin(form: NgForm) {
+  onLogin(event) {
     this.submitted = true;
 
-    if (form.valid) {
-      this.presentLoading().then(() => {
-        this.router.navigateByUrl('/auth-pin');
-      });
-    }
+    this.userFormGroup.reset();
+    this.presentLoading().then(() => {
+      this.router.navigateByUrl('/auth-pin');
+    });
+
   }
 
   goTutorial(){

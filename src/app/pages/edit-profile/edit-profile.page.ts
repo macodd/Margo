@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { AlertController, LoadingController, MenuController } from '@ionic/angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
-// Interface
-import { UserOptions } from '../../interfaces/user-options';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'edit-profile',
@@ -12,29 +11,56 @@ import { UserOptions } from '../../interfaces/user-options';
   styleUrls: ['./edit-profile.page.scss'],
 })
 export class EditProfilePage implements OnInit {
-  signup: UserOptions = {
-    fullname: '',
-    phone: '',
-    email: '',
-    id: '',
-    };
+
   submitted = false;
-  isViewPersonal = true;
+  myFullname: string = 'Mark Codd';
+  myEmail: string = 'mcodd@aol.com';
+  myPhone: string = '123456789';
+
+  private editFormGroup: FormGroup;
+
+  iconName: string = 'create';
+  iconEmail: string = 'create';
+  iconPhone: string = 'create';
+
+  disabledName = 'true';
+  disabledEmail = 'true';
+  disabledPhone = 'true';
 
   constructor(
     public router: Router,
-    private alertController: AlertController,
+    private fBuilder: FormBuilder,
     private menu: MenuController,
+    private alertController: AlertController,
     private loadingController: LoadingController,
     private screenOrientation: ScreenOrientation
   ) {
+    this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onNameEdit(){
+    this.iconName = 'checkmark';
+    this.disabledName = 'false';
+
   }
 
-  onEdit(){
+  onEmailEdit(){
+    this.iconEmail = 'checkmark';
+    this.disabledEmail = 'false';
+
+  }
+
+  onPhoneEdit(){
+    this.iconPhone = 'checkmark';
+    this.disabledPhone = 'false';
+
+  }
+
+  onComplete() {
     this.presentAlert();
   }
 

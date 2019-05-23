@@ -19,33 +19,35 @@
     <ion-label class="balance-title">Balance Actual:</ion-label><ion-label class="balance-amount">500.00</ion-label>
   </ion-card>
 
-  <ion-card>
-    <img src="../../../assets/img/icons/{{ actionImage }}.png" alt="" class="card-img" padding>
-    <ion-card-header>
-      <ion-card-title text-center>
-        <p no-margin>{{ actionTitle }} Balance a</p>
-        <p class="activity-title">margo</p>
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content padding>
-      <ion-item>
-        <ion-label position="stacked">Cantidad:</ion-label>
-        <ion-input
-          placeholder="$0.00"
-          type="number"
-          pattern="[0-9]*"
-          [(ngModel)]="amount"
-          (ionInput)="convert($event)"
-          float-end
-          required>
-        </ion-input>
-      </ion-item>
-      <ion-label class="amount-shown">{{ amountShown }}</ion-label>
-      <ion-item lines="none" class="select-account">
-        <ion-label (click)="openMyBankPicker()">{{ mybankValue }} <ion-icon name="arrow-dropdown"></ion-icon></ion-label>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+  <form [formGroup]="balanceFormGroup">
+    <ion-card>
+      <img src="../../../assets/img/icons/{{ actionImage }}.png" alt="" class="card-img" padding>
+      <ion-card-header>
+        <ion-card-title text-center>
+          <p no-margin>{{ actionTitle }} Balance a</p>
+          <p class="activity-title">margo</p>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content padding>
+        <ion-item>
+          <ion-label position="stacked">Cantidad:</ion-label>
+          <ion-input
+            placeholder="$0.00"
+            type="number"
+            pattern="[0-9]*"
+            formControlName="amount"
+            (ionInput)="convert($event)"
+            float-end
+            required>
+          </ion-input>
+        </ion-item>
+        <ion-label class="amount-shown">{{ amountShown }}</ion-label>
+        <ion-item lines="none" class="select-account">
+          <ion-label (click)="openMyBankPicker()">{{ myBankValue }} <ion-icon name="arrow-dropdown"></ion-icon></ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </form>
 
 </ion-content>
 
@@ -53,7 +55,7 @@
   <ion-toolbar>
     <ion-row>
       <ion-col>
-        <ion-button [disabled]="btnDisabled" expand="full" shape="round" fill="outline" color="tertiary" (click)="goAddedBalance()">{{ actionTitle }}</ion-button>
+        <ion-button [disabled]="!balanceFormGroup.valid" expand="full" shape="round" fill="outline" color="tertiary" (click)="goAddedBalance()">{{ actionTitle }}</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>

@@ -12,63 +12,90 @@
 </ion-header>
 
 <ion-content>
-  <div [hidden]="isViewPersonal == false">
+  <form>
     <ion-list>
       <ion-row padding>
         <ion-col text-center>
           <!-- You might also use <ion-avatar> -->
-          <img src='../../../assets/img/icons/mark.png' class="avatar" alt="avatar">
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col no-padding >
-          <ion-item class="input-border">
-              <ion-label position="stacked" color="primary">Nombre</ion-label>
-              <ion-input [(ngModel)]="signup.fullname" name="fullname" type="text" #firstname="ngModel" required></ion-input>
-            </ion-item>
-            <ion-text color="danger">
-              <small padding [hidden]="firstname.valid || submitted == false" padding-left>
-                First name is required
-              </small>
-            </ion-text>
+          <img src='../../../assets/img/mark-2.jpg' class="avatar" alt="avatar">
+          <a href="#"><p>Cambiar imagen</p></a>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col no-padding>
-          <ion-item>
-            <ion-label position="stacked" color="primary">Correo Electronico</ion-label>
-            <ion-input [(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
+          <ion-item lines="none">
+            <ion-label position="stacked" style="opacity: 1">Nombre</ion-label>
+            <ion-input
+              disabled="{{ disabledName }}"
+              placeholder="{{ myFullname }}"
+              type="text"
+              required>
             </ion-input>
           </ion-item>
-          <ion-text color="danger">
-            <small padding [hidden]="email.valid || submitted == false" padding-left>
-              Email address is required
-            </small>
-          </ion-text>
+<!--            <ion-text color="danger">-->
+<!--              <small padding [hidden]="firstname.valid || submitted == false" padding-left>-->
+<!--                First name is required-->
+<!--              </small>-->
+<!--            </ion-text>-->
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon name="{{ iconName }}" (click)="onNameEdit()" style="font-size: 22px" float-end></ion-icon>
         </ion-col>
       </ion-row>
 
-      <ion-row margin-top>
-        <ion-col no-padding size="12">
-          <ion-item class="input-border">
-              <ion-label position="stacked" color="primary">Telefono</ion-label>
-              <ion-input [(ngModel)]="signup.phone" name="phone" type="tel" #id="ngModel" required></ion-input>
+      <ion-row>
+        <ion-col no-padding>
+          <ion-item lines="none">
+            <ion-label position="stacked" style="opacity: 1">Correo Electronico</ion-label>
+            <ion-input
+              type="email"
+              disabled="{{ disabledEmail }}"
+              placeholder="{{ myEmail }}"
+              required>
+            </ion-input>
+
+          </ion-item>
+<!--          <ion-text color="danger">-->
+<!--            <small padding [hidden]="email.valid || submitted == false" padding-left>-->
+<!--              Email address is required-->
+<!--            </small>-->
+<!--          </ion-text>-->
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon name="{{ iconEmail }}" (click)="onEmailEdit()" style="font-size: 22px" float-end></ion-icon>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col no-padding>
+          <ion-item lines="none">
+              <ion-label position="stacked" style="opacity: 1">Telefono</ion-label>
+              <ion-input
+                type="tel"
+                disabled="{{ disabledPhone }}"
+                placeholder="{{ myPhone }}"
+                required>
+              </ion-input>
             </ion-item>
-            <ion-text color="danger">
-              <small padding [hidden]="id.valid || submitted == false" padding-left>
-                Phone Number
-              </small>
-            </ion-text>
+<!--            <ion-text color="danger">-->
+<!--              <small padding [hidden]="id.valid || submitted == false" padding-left>-->
+<!--                Phone Number-->
+<!--              </small>-->
+<!--            </ion-text>-->
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon name="{{ iconPhone }}" (click)="onPhoneEdit()" style="font-size: 22px" float-end></ion-icon>
         </ion-col>
       </ion-row>
 
     </ion-list>
-  </div>
+  </form>
+
 </ion-content>
 
   <ion-footer>
     <ion-toolbar color="tertiary">
-      <ion-button (click)="onEdit()" type="submit" expand="full" fill="clear">Aceptar Cambios</ion-button>
+      <ion-button (click)="onComplete()" type="submit" expand="full" fill="clear">Aceptar Cambios</ion-button>
     </ion-toolbar>
   </ion-footer>

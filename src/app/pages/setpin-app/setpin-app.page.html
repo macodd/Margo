@@ -25,7 +25,7 @@
     </ion-col>
   </ion-row>
 
-  <form #setPinNumberForm="ngForm" novalidate>
+  <form [formGroup]="pinFormGroup" novalidate>
     <ion-grid>
       <ion-row  justify-content-center padding>
         <ion-col size="3">
@@ -33,7 +33,7 @@
             <ion-input
             #d1
             name="d1"
-            [(ngModel)]="setpinnumber.digit1"
+            [(ngModel)]="setpin.digit1"
             class="digit-input"
             type="number"
             maxlength=1
@@ -51,7 +51,7 @@
             <ion-input
             #d2
             name="d2"
-            [(ngModel)]="setpinnumber.digit2"
+            [(ngModel)]="setpin.digit2"
             class="digit-input"
             type="number"
             maxlength=1
@@ -68,7 +68,7 @@
             <ion-input
             #d3
             name="d3"
-            [(ngModel)]="setpinnumber.digit3"
+            [(ngModel)]="setpin.digit3"
             class="digit-input"
             type="number"
             maxlength=1
@@ -85,7 +85,7 @@
             <ion-input
             #d4
             name="d4"
-            [(ngModel)]="setpinnumber.digit4"
+            [(ngModel)]="setpin.digit4"
             class="digit-input"
             type="number"
             maxlength=1
