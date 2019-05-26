@@ -12,7 +12,7 @@ import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 })
 export class NotificationsPage {
 
-  notifications: Array<any> = [{type: String, amount: String, description: String, isClicked: Boolean}];
+  notifications: Array<any> = [{type: String, amount: String, name: String, isClicked: Boolean}];
 
   constructor(
     private router: Router,
@@ -24,27 +24,35 @@ export class NotificationsPage {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.notifications = [
       {
-        type: 'Cash In',
+        type: 'Enviado',
         amount: '+$50.00 USD',
-        description: 'Jacob E. Miller',
+        name: 'Jacob E. Miller',
+        date: '6:18 AM, 15-DEC-2018',
+        orderNo: '5E37DETHR8',
         isClicked: false
       },
       {
-        type: 'Send Money',
+        type: 'Deposito',
         amount: '+$1200.00 USD',
-        description: 'Jacob E. Miller',
+        name: 'Ronald',
+        date: '6:18 AM, 15-DEC-2018',
+        orderNo: '5E37DETHR8',
         isClicked: false
       },
       {
-        type: 'Payment',
+        type: 'Pago',
         amount: '+$1200.00 USD',
-        description: 'Jacob E. Miller',
+        name: 'Gabriel',
+        date: '6:18 AM, 15-DEC-2018',
+        orderNo: '5E37DETHR8',
         isClicked: false
       },
       {
-        type: 'Cash Out',
+        type: 'Transferencia',
         amount: '+$750.00 USD',
-        description: 'Jacob E. Miller',
+        name: 'Mark',
+        date: '6:18 AM, 15-DEC-2018',
+        orderNo: '5E37DETHR8',
         isClicked: false
       },
     ];
@@ -56,10 +64,17 @@ export class NotificationsPage {
     }
   }
 
-  async openNotification() {
+  async openNotification(notification: any) {
     const modal = await this.modalCtrl.create({
       component: NotificationDialogComponent,
       cssClass: 'my-modal-class',
+      componentProps: {
+        'type': notification.type,
+        'amount': notification.amount,
+        'name': notification.name,
+        'date': notification.date,
+        'orderNo': notification.orderNo,
+      }
     });
     modal.present();
   }

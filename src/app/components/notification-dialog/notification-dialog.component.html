@@ -7,7 +7,7 @@
           <ion-row>
             <ion-col>
               <img src="../../../assets/img/mark-2.jpg" class="avatar" alt="avatar">
-              <p class="card-title">Transferencia</p>
+              <p class="card-title">{{ type }}</p>
             </ion-col>
           </ion-row>
         </ion-item>
@@ -15,24 +15,24 @@
         <ion-item lines="none">
           <ion-col style="position: absolute;">
             <strong style="font-size: 14px;">Recibido de</strong>
-            <p style="font-size: 12px; opacity: 0.5;">Jacob E. Miller</p>
+            <p style="font-size: 12px; opacity: 0.5;">{{ name }}</p>
           </ion-col>
 
           <ion-col style="position: relative; left: 170px;">
             <strong style="font-size: 14px;">Monto Total</strong>
-            <p style="font-size: 12px; opacity: 0.5;">$500 USD</p>
+            <p style="font-size: 12px; opacity: 0.5;">${{ amount }} USD</p>
           </ion-col>
         </ion-item>
 
         <ion-item>
           <ion-col style="position: absolute;">
             <strong style="font-size: 14px;">Fecha & Hora</strong>
-            <p style="font-size: 12px; opacity: 0.5;">6:18 AM, 15-DEC-2018</p>
+            <p style="font-size: 12px; opacity: 0.5;">{{ date }}</p>
           </ion-col>
 
           <ion-col style="position: relative; left: 170px;">
             <strong style="font-size: 14px;">Transacción ID</strong>
-            <p style="font-size: 12px; opacity: 0.5;">5E37DETHR8</p>
+            <p style="font-size: 12px; opacity: 0.5;">{{ orderNo }}</p>
           </ion-col>
         </ion-item>
 

@@ -6,6 +6,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 // import { Storage } from '@ionic/storage';
 
 import { UserData } from '../../services/user-data';
+import { BackendAPIService } from '../../services/backend-api.service';
 
 import { LoadingController, Platform, MenuController } from '@ionic/angular';
 
@@ -26,6 +27,7 @@ export class LoginPage {
     private userData: UserData,
     private router: Router,
     // private storage: Storage,
+    private backend: BackendAPIService,
     private fBuilder: FormBuilder,
     private loadingController: LoadingController,
     private platform: Platform,
@@ -47,12 +49,14 @@ export class LoginPage {
 
   onLogin(event) {
     this.submitted = true;
+    this.backend.login();
 
-    this.userFormGroup.reset();
     this.presentLoading().then(() => {
       this.router.navigateByUrl('/auth-pin');
     });
-
+    setTimeout(()=>{
+      this.userFormGroup.reset();
+    }, 2000)
   }
 
   goTutorial(){

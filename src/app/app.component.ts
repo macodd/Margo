@@ -37,6 +37,11 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      // this.storage.get('authToken').then((val)=>{
+      //   if (!val) {
+      //     this.router.navigateByUrl('/login');
+      //   }
+      // });
       // this.statusBar.styleDefault();
       this.statusBar.styleBlackOpaque();
       this.splashScreen.hide();
@@ -74,15 +79,18 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
+    // this.storage.remove('authToken');
     this.userData.logout().then(() => {
       return this.navigate('/login');
     });
   }
+
   openTutorial() {
     this.menu.enable(false);
     this.storage.set('ion_did_tutorial', 'false');
     this.router.navigateByUrl('/tutorial');
   }
+
   goLogin() {
     this.menu.enable(false);
     const navigationExtras: NavigationExtras = {
@@ -90,6 +98,7 @@ export class AppComponent implements OnInit {
     };
     this.router.navigate(['login'] , navigationExtras);
   }
+
   goCreateAccount() {
     this.menu.enable(false);
     const navigationExtras: NavigationExtras = {
@@ -97,10 +106,12 @@ export class AppComponent implements OnInit {
     };
     this.router.navigate(['signup'] , navigationExtras);
   }
+
   goEditProfile() {
     this.menu.enable(false);
     this.router.navigateByUrl('/editProfile');
   }
+
   goSubscribe() {
     this.menu.enable(false);
     const navigationExtras: NavigationExtras = {
@@ -108,6 +119,7 @@ export class AppComponent implements OnInit {
     };
     this.router.navigate(['subscribe'], navigationExtras);
   }
+
   goBankAccount(){
     this.menu.enable(false);
     this.router.navigateByUrl('/bank-account');

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ModalController } from "@ionic/angular";
 import { Router } from "@angular/router";
 
@@ -8,6 +8,12 @@ import { Router } from "@angular/router";
   styleUrls: ['./activity-dialog.component.scss'],
 })
 export class ActivityDialogComponent implements OnInit {
+
+  @Input() type: string;
+  @Input() name: string;
+  @Input() amount: string;
+  @Input() date: string;
+  @Input() orderNo: string;
 
   constructor(
     public modalCtrl: ModalController,

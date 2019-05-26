@@ -5,10 +5,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicModule } from '@ionic/angular';
+import { HttpClientModule } from "@angular/common/http";
 
 import { IonicStorageModule } from '@ionic/storage';
-import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -16,9 +15,8 @@ import { environment } from '../environments/environment';
 
 import { AddUserService } from './pages/add-user/add-user.service';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { BackendAPIService } from './services/backend-api.service';
 
-// Biometrics
-// import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 @NgModule({
   imports: [
@@ -42,7 +40,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     StatusBar,
     AddUserService,
     ScreenOrientation,
-    // FingerprintAIO,
+    HttpClientModule,
+    BackendAPIService,
     ],
   bootstrap: [AppComponent],
   entryComponents: []

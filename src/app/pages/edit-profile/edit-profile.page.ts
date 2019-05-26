@@ -27,6 +27,10 @@ export class EditProfilePage implements OnInit {
   disabledEmail = 'true';
   disabledPhone = 'true';
 
+  numName: number = 1;
+  numEmail: number = 1;
+  numPhone: number = 1;
+
   constructor(
     public router: Router,
     private fBuilder: FormBuilder,
@@ -38,38 +42,68 @@ export class EditProfilePage implements OnInit {
     this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
 
+    this.editFormGroup = fBuilder.group({
+      name:  ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['',Validators.required]
+    })
+
   }
 
   ngOnInit() {}
 
   onNameEdit(){
-    this.iconName = 'checkmark';
-    this.disabledName = 'false';
-
+    let check  = Math.abs(this.numName - 1);
+    this.numName = check;
+    if (check == 0) {
+      this.iconName = 'checkmark';
+      this.disabledName = 'false';
+    } else {
+      this.iconName = 'create';
+      this.disabledName = 'true';
+    }
   }
 
   onEmailEdit(){
-    this.iconEmail = 'checkmark';
-    this.disabledEmail = 'false';
-
+    let check  = Math.abs(this.numEmail - 1);
+    this.numEmail = check;
+    if (check == 0) {
+      this.iconEmail = 'checkmark';
+      this.disabledEmail = 'false';
+    } else {
+      this.iconEmail = 'create';
+      this.disabledEmail = 'true';
+    }
   }
 
   onPhoneEdit(){
-    this.iconPhone = 'checkmark';
-    this.disabledPhone = 'false';
-
+    let check  = Math.abs(this.numPhone - 1);
+    this.numPhone = check;
+    if (check == 0) {
+      this.iconPhone = 'checkmark';
+      this.disabledPhone = 'false';
+    } else {
+      this.iconPhone = 'create';
+      this.disabledPhone = 'true';
+    }
   }
 
-  onComplete() {
+  onComplete(event) {
     this.presentAlert();
   }
 
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Confirmar',
+      cssClass: 'alertConfirm',
       message: 'Deseas realizar los cambios?',
       buttons: [
         {
+          text: 'Cancelar',
+          handler:() =>{
+            console.log('Cancel')
+          }
+        }, {
           text: 'OK',
           handler: () =>{
             this.presentLoading().then(()=>{
@@ -79,12 +113,7 @@ export class EditProfilePage implements OnInit {
             })
 
           }
-        },{
-          text: 'Cancelar',
-          handler:() =>{
-            console.log('Cancel')
-          }
-        }]
+        },]
     });
 
     await alert.present();

@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content>
-  <form>
+  <form [formGroup]="editFormGroup">
     <ion-list>
       <ion-row padding>
         <ion-col text-center>
@@ -27,9 +27,10 @@
           <ion-item lines="none">
             <ion-label position="stacked" style="opacity: 1">Nombre</ion-label>
             <ion-input
+              type="text"
+              formControlName="name"
               disabled="{{ disabledName }}"
               placeholder="{{ myFullname }}"
-              type="text"
               required>
             </ion-input>
           </ion-item>
@@ -50,6 +51,7 @@
             <ion-label position="stacked" style="opacity: 1">Correo Electronico</ion-label>
             <ion-input
               type="email"
+              formControlName="email"
               disabled="{{ disabledEmail }}"
               placeholder="{{ myEmail }}"
               required>
@@ -73,6 +75,7 @@
               <ion-label position="stacked" style="opacity: 1">Telefono</ion-label>
               <ion-input
                 type="tel"
+                formControlName="phone"
                 disabled="{{ disabledPhone }}"
                 placeholder="{{ myPhone }}"
                 required>
@@ -96,6 +99,6 @@
 
   <ion-footer>
     <ion-toolbar color="tertiary">
-      <ion-button (click)="onComplete()" type="submit" expand="full" fill="clear">Aceptar Cambios</ion-button>
+      <ion-button (click)="onComplete($event)" type="submit" expand="full" fill="clear">Aceptar Cambios</ion-button>
     </ion-toolbar>
   </ion-footer>

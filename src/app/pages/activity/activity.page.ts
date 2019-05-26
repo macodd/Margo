@@ -11,7 +11,7 @@ import { ActivityDialogComponent } from '../../components/activity-dialog/activi
 })
 export class ActivityPage implements OnInit {
 
-  activities: Array<any> = [{type: String, amount: String, description: String, isClicked: Boolean}];
+  activities: Array<any> = [{type: String, amount: String, name: String, isClicked: Boolean}];
 
   constructor(
     private router: Router,
@@ -24,22 +24,30 @@ export class ActivityPage implements OnInit {
       {
         type: 'Retiro',
         amount: '+$50.00 USD',
-        description: 'Jacob E. Miller',
+        name: 'Jacob E. Miller',
+        date: '6:18 AM, 15-DEC-2018',
+        orderNo: '5E37DETHR8',
       },
       {
         type: 'Transferencia',
         amount: '+$1200.00 USD',
-        description: 'Jacob E. Miller',
+        name: 'Ronald',
+        date: '6:18 AM, 15-DEC-2018',
+        orderNo: '5E37DETHR8',
       },
       {
         type: 'Pago',
         amount: '+$1200.00 USD',
-        description: 'Jacob E. Miller',
+        name: 'Gabriel',
+        date: '6:18 AM, 15-DEC-2018',
+        orderNo: '5E37DETHR8',
       },
       {
         type: 'Deposito',
         amount: '+$750.00 USD',
-        description: 'Jacob E. Miller',
+        name: 'Mark',
+        date: '6:18 AM, 15-DEC-2018',
+        orderNo: '5E37DETHR8',
       },
     ];
   }
@@ -47,10 +55,17 @@ export class ActivityPage implements OnInit {
   ngOnInit() {
   }
 
-  async openActivity() {
+  async openActivity(activity) {
     const modal = await this.modalCtrl.create({
       component: ActivityDialogComponent,
       cssClass: 'my-modal-class',
+      componentProps: {
+        'type': activity.type,
+        'amount': activity.amount,
+        'name': activity.name,
+        'date': activity.date,
+        'orderNo': activity.orderNo,
+      }
     });
     modal.present();
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from "@ionic/angular";
 import { Router } from "@angular/router";
 
@@ -9,6 +9,12 @@ import { Router } from "@angular/router";
 })
 export class NotificationDialogComponent implements OnInit {
 
+  @Input() type: string;
+  @Input() name: string;
+  @Input() amount: string;
+  @Input() date: string;
+  @Input() orderNo: string;
+
   constructor(
     public modalCtrl: ModalController,
     private router: Router
@@ -17,10 +23,8 @@ export class NotificationDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  dismiss(data?: any) {
-    // using the injected ModalController this page
-    // can "dismiss" itself and pass back data
-    this.modalCtrl.dismiss(data);
+  dismiss() {
+    this.modalCtrl.dismiss();
   }
 
   onMouseUp() {
