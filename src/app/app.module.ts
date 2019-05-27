@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import { AddUserService } from './pages/add-user/add-user.service';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { BackendAPIService } from './services/backend-api.service';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { BackendAPIService } from './services/backend-api.service';
     ScreenOrientation,
     HttpClientModule,
     BackendAPIService,
+    FingerprintAIO
     ],
   bootstrap: [AppComponent],
   entryComponents: []
