@@ -1,4 +1,3 @@
-
 export interface UserOptions {
   fullname: string;
   email: string;

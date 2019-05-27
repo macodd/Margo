@@ -3,13 +3,20 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 import { AccountPage } from './account';
-import { AccountPageRoutingModule } from './account-routing.module';
+import { RouterModule, Routes } from "@angular/router";
+
+const routes: Routes = [
+  {
+    path: '',
+    component: AccountPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
-    AccountPageRoutingModule
+    RouterModule.forChild(routes)
   ],
   declarations: [
     AccountPage,

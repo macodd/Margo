@@ -3,13 +3,20 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 import { TutorialPage } from './tutorial';
-import { TutorialPageRoutingModule } from './tutorial-routing.module';
+import { Routes, RouterModule } from "@angular/router";
+
+const routes: Routes = [
+  {
+    path: '',
+    component: TutorialPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
-    TutorialPageRoutingModule
+    RouterModule.forChild(routes)
   ],
   declarations: [TutorialPage],
   entryComponents: [TutorialPage],

@@ -21,6 +21,7 @@ export class LoginPage {
 
   origin: String = '';
   submitted = false;
+  icon: string;
   private userFormGroup: FormGroup;
 
   constructor(
@@ -51,6 +52,7 @@ export class LoginPage {
   ionViewDidEnter() {
     this.showFingerprintAuthDlg();
   }
+
   onLogin(event) {
     this.submitted = true;
     this.backend.login();
@@ -80,25 +82,28 @@ export class LoginPage {
     loading.present();
     return await loading.onWillDismiss();
   }
+
   public async showFingerprintAuthDlg(){
-    //Check if Fingerprint or Face  is available
-    const available = await this.fingerprint.isAvailable();
-    if (available === 'finger' || available === 'face') {
-       await this.fingerprint.show({
-         clientId: 'rekognitionElisa',
-         clientSecret: 'nihinBioAuthElisa', //Only necessary for Android
-         disableBackup: true, //Only for Android(optional)
-         localizedFallbackTitle: 'Use Pin', //Only for iOS
-         localizedReason: 'Please Authenticate' //Only for iOS
-       })
-       .then((result: any) => {
-        if(this.platform.is('android')){}
-         if(result == "Success"){}
-       })
-       .catch((error: any) => {
-         console.log(error);
-       });
-     }
+  //Check if Fingerprint or Face  is available
+  const available = await this.fingerprint.isAvailable();
+  if (available === 'finger' || available === 'face') {
+    await this.fingerprint.show({
+      clientId: 'rekognitionElisa',
+      clientSecret: 'nihinBioAuthElisa', //Only necessary for Android
+      disableBackup: true, //Only for Android(optional)
+      localizedFallbackTitle: 'Use Pin', //Only for iOS
+      localizedReason: 'Please Authenticate' //Only for iOS
+    }).then((result: any) => {
+      if(this.platform.is('android')){
+        this.router.navigateByUrl('/account')
+      }
+      if(result == "Success"){
+        this.router.navigateByUrl('/account')
+      }
+    }).catch((error: any) => {
+      console.log(error);
+    });
+  }
  }
 
 }
