@@ -47,6 +47,6 @@ export class AuthPinPage implements OnInit {
   }
 
   onBack() {
-    this.router.navigateByUrl('/signup');
+    this.router.navigateByUrl('/login');
   }
 }

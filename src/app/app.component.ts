@@ -37,12 +37,13 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // this.storage.get('authToken').then((val)=>{
-      //   if (!val) {
-      //     this.router.navigateByUrl('/login');
-      //   }
-      // });
-      // this.statusBar.styleDefault();
+      this.storage.get('authToken').then((val)=>{
+          console.log("Your token is: ", val);
+          if (!val){
+            this.router.navigateByUrl('/login');
+          }
+        });
+      this.statusBar.styleDefault();
       this.statusBar.styleBlackOpaque();
       this.splashScreen.hide();
     });
@@ -81,6 +82,11 @@ export class AppComponent implements OnInit {
   logout() {
     // this.storage.remove('authToken');
     this.userData.logout().then(() => {
+      this.storage.get('authToken').then((val)=>{
+        if (val){
+          this.storage.remove('authToken')
+        }
+      });
       return this.navigate('/login');
     });
   }

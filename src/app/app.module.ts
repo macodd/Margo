@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule,  } from '@ionic/angular';
 import { HttpClientModule } from "@angular/common/http";
 
 import { IonicStorageModule } from '@ionic/storage';

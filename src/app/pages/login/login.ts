@@ -1,14 +1,12 @@
+import { LoadingController, Platform, MenuController, AlertController } from '@ionic/angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+// import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router , ActivatedRoute } from '@angular/router';
-import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
-import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-// import { Storage } from '@ionic/storage';
+import { Storage } from '@ionic/storage';
 
-import { UserData } from '../../services/user-data';
 import { BackendAPIService } from '../../services/backend-api.service';
-
-import { LoadingController, Platform, MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -20,22 +18,23 @@ import { LoadingController, Platform, MenuController } from '@ionic/angular';
 export class LoginPage {
 
   origin: String = '';
-  submitted = false;
-  icon: string;
   private userFormGroup: FormGroup;
 
   constructor(
-    private userData: UserData,
+
     private router: Router,
-    // private storage: Storage,
-    private backend: BackendAPIService,
-    private fBuilder: FormBuilder,
-    private loadingController: LoadingController,
+    private storage: Storage,
     private platform: Platform,
-    private route: ActivatedRoute,
     private menu: MenuController,
+    private route: ActivatedRoute,
+    private fBuilder: FormBuilder,
+    private backend: BackendAPIService,
+    private alertCtrl: AlertController,
+    private loadingController: LoadingController,
     private screenOrientation: ScreenOrientation,
-    public fingerprint: FingerprintAIO
+
+    // public fingerprint: FingerprintAIO
+
     ) {
     this.route.queryParams.subscribe(params => {
         this.origin = params['origin'];
@@ -49,20 +48,22 @@ export class LoginPage {
     });
   }
 
-  ionViewDidEnter() {
-    this.showFingerprintAuthDlg();
-  }
 
   onLogin(event) {
-    this.submitted = true;
-    this.backend.login();
-
-    this.presentLoading().then(() => {
-      this.router.navigateByUrl('/auth-pin');
-    });
-    setTimeout(()=>{
-      this.userFormGroup.reset();
-    }, 2000)
+    event.preventDefault();
+    this.presentLoading().then(()=>{
+      this.backend.login(this.userFormGroup.value).subscribe((data)=>{
+        console.log("success");
+        this.storage.set('authToken', data['token']);
+        this.storage.set('user', data['user']);
+        this.storage.set('expires', data['expires']);
+        this.router.navigateByUrl('/auth-pin');
+      }, (error)=>{
+        console.log("error", error);
+        // alert(error['error']['detail'])
+        this.InvalidUser();
+      });
+    })
   }
 
   goTutorial(){
@@ -83,27 +84,38 @@ export class LoginPage {
     return await loading.onWillDismiss();
   }
 
-  public async showFingerprintAuthDlg(){
-  //Check if Fingerprint or Face  is available
-  const available = await this.fingerprint.isAvailable();
-  if (available === 'finger' || available === 'face') {
-    await this.fingerprint.show({
-      clientId: 'rekognitionElisa',
-      clientSecret: 'nihinBioAuthElisa', //Only necessary for Android
-      disableBackup: true, //Only for Android(optional)
-      localizedFallbackTitle: 'Use Pin', //Only for iOS
-      localizedReason: 'Please Authenticate' //Only for iOS
-    }).then((result: any) => {
-      if(this.platform.is('android')){
-        this.router.navigateByUrl('/account')
-      }
-      if(result == "Success"){
-        this.router.navigateByUrl('/account')
-      }
-    }).catch((error: any) => {
-      console.log(error);
+  async InvalidUser(){
+    const alert = await this.alertCtrl.create({
+      header: 'Alert',
+      cssClass: 'alertConfirm',
+      message: 'Usuario/contraseña invalido.',
+      buttons: ['OK']
     });
+    return await alert.present();
   }
- }
+
+
+ //  public async showFingerprintAuthDlg(){
+ //  //Check if Fingerprint or Face  is available
+ //  const available = await this.fingerprint.isAvailable();
+ //  if (available === 'finger' || available === 'face') {
+ //    await this.fingerprint.show({
+ //      clientId: 'rekognitionElisa',
+ //      clientSecret: 'nihinBioAuthElisa', //Only necessary for Android
+ //      disableBackup: true, //Only for Android(optional)
+ //      localizedFallbackTitle: 'Use Pin', //Only for iOS
+ //      localizedReason: 'Please Authenticate' //Only for iOS
+ //    }).then((result: any) => {
+ //      if(this.platform.is('android')){
+ //        this.router.navigateByUrl('/account')
+ //      }
+ //      if(result == "Success"){
+ //        this.router.navigateByUrl('/account')
+ //      }
+ //    }).catch((error: any) => {
+ //      console.log(error);
+ //    });
+ //  }
+ // }
 
 }
