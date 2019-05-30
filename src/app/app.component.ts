@@ -37,12 +37,6 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.storage.get('authToken').then((val)=>{
-          console.log("Your token is: ", val);
-          if (!val){
-            this.router.navigateByUrl('/login');
-          }
-        });
       this.statusBar.styleDefault();
       this.statusBar.styleBlackOpaque();
       this.splashScreen.hide();

@@ -14,14 +14,28 @@
       <ion-row>
         <ion-col no-padding>
           <ion-item class="input-border" lines="full">
-              <ion-label position="stacked" color="medium"><strong>Nombre Completo</strong></ion-label>
-              <ion-input class="signup-input"  name="fullname" type="text" formControlName='fullname' required></ion-input>
+              <ion-label position="stacked" color="medium"><strong>Nombres</strong></ion-label>
+              <ion-input class="signup-input"  name="first_name" type="text" formControlName='first_name' required></ion-input>
             </ion-item>
 <!--            <ion-text color="danger">-->
 <!--              <small padding [hidden]="firstname.valid || submitted == false" padding-left>-->
 <!--                Escribe tu nombre-->
 <!--              </small>-->
 <!--            </ion-text>-->
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col no-padding>
+          <ion-item class="input-border" lines="full">
+            <ion-label position="stacked" color="medium"><strong>Apellidos</strong></ion-label>
+            <ion-input class="signup-input"  name="last_name" type="text" formControlName='last_name' required></ion-input>
+          </ion-item>
+          <!--            <ion-text color="danger">-->
+          <!--              <small padding [hidden]="firstname.valid || submitted == false" padding-left>-->
+          <!--                Escribe tu nombre-->
+          <!--              </small>-->
+          <!--            </ion-text>-->
         </ion-col>
       </ion-row>
 
@@ -58,7 +72,7 @@
         <ion-col no-padding size="12">
           <ion-item class="input-border" lines="full">
               <ion-label position="stacked" color="medium"><strong>Cédula de identidad/RUC</strong></ion-label>
-              <ion-input class="signup-input" name="userID" type="number" pattern="[0-9]*" formControlName='userID' required></ion-input>
+              <ion-input class="signup-input" name="identity" type="number" pattern="[0-9]*" formControlName='identity' required></ion-input>
             </ion-item>
 <!--            <ion-text color="danger">-->
 <!--              <small padding [hidden]="id.valid || submitted == false" padding-left>-->

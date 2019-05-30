@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-
-import { SetPasswordOptions } from '../../interfaces/set-password-options';
 import { LoadingController, MenuController, Platform} from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, NavigationExtras} from '@angular/router';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
-import { Validators, FormBuilder, FormGroup} from "@angular/forms";
+import { Validators, FormBuilder, FormGroup, FormControl } from "@angular/forms";
+import { BackendAPIService } from "../../services/backend-api.service";
 
 @Component({
   selector: 'setpassword',
@@ -13,23 +12,23 @@ import { Validators, FormBuilder, FormGroup} from "@angular/forms";
 })
 export class SetpasswordPage implements OnInit {
 
-  setpassword: SetPasswordOptions = {
-    username: '',
-    password: '',
-    password2: ''
-  };
-  submitted = false;
-
   private userFormGroup: FormGroup;
+  group: any;
 
   constructor(
     private router: Router,
     private platform: Platform,
     private menu: MenuController,
     private fBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private backend: BackendAPIService,
     private screenOrientation: ScreenOrientation,
     private loadingController: LoadingController
   ) {
+    this.route.queryParams.subscribe(params => {
+      this.group = params;
+    });
+
     this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
 
@@ -38,6 +37,12 @@ export class SetpasswordPage implements OnInit {
       password: ['', Validators.required],
       password2: ['', Validators.required],
     });
+
+    this.userFormGroup.addControl('first_name', new FormControl(this.group['first_name']));
+    this.userFormGroup.addControl('last_name', new FormControl(this.group['last_name']));
+    this.userFormGroup.addControl('email', new FormControl(this.group['email']));
+    this.userFormGroup.addControl('phone', new FormControl(this.group['phone']));
+    this.userFormGroup.addControl('identity', new FormControl(this.group['identity']));
   }
 
   passwordType = 'password';
@@ -47,9 +52,19 @@ export class SetpasswordPage implements OnInit {
 
   ngOnInit() {}
 
-  onSetPassword(data) {
+  onSetPassword(event) {
+    event.preventDefault();
     this.presentLoading().then(()=>{
-      this.router.navigateByUrl('/setpin-app');
+      this.backend.setpassword(this.userFormGroup.value).subscribe(data=>{
+        console.log('success');
+        const navigationExtras: NavigationExtras = {
+          queryParams: this.userFormGroup.value
+        };
+        this.router.navigate(['setpin-app'], navigationExtras);
+      }, err => {
+        console.log(err);
+        alert(err['error']['detail']);
+      })
     });
   }
 

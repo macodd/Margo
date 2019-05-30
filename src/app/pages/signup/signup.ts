@@ -1,10 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import {Router, ActivatedRoute, NavigationExtras} from '@angular/router';
 import { LoadingController, MenuController } from '@ionic/angular';
 
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
-import {ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
+import { ScreenOrientation} from "@ionic-native/screen-orientation/ngx";
+import { BackendAPIService } from "../../services/backend-api.service";
+
 
 @Component({
   selector: 'page-signup',
@@ -16,11 +18,11 @@ export class SignupPage {
 
   private userFormGroup: FormGroup;
 
-  submitted = false;
   origin = '';
 
   constructor(
     private router: Router,
+    private backend: BackendAPIService,
     private menu: MenuController,
     private fBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -32,10 +34,11 @@ export class SignupPage {
     });
 
     this.userFormGroup = fBuilder.group({
-      fullname: ['', Validators.required],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
       email: ['', Validators.required],
       phone: ['', Validators.required],
-      userID: ['', Validators.required],
+      identity: ['', Validators.required],
     });
 
     this.menu.enable(false);
@@ -43,11 +46,19 @@ export class SignupPage {
   }
 
   onSignup(event) {
-    this.submitted = true;
-    console.log(this.userFormGroup.value);
-    this.presentLoading().then(()=>{
-      this.router.navigateByUrl('/setpassword');
-    });
+    event.preventDefault();
+    this.presentLoading().then(()=> {
+      this.backend.signup(this.userFormGroup.value).subscribe((data) => {
+        console.log("success");
+        const navigationExtras: NavigationExtras = {
+          queryParams: this.userFormGroup.value
+        };
+        this.router.navigate(['setpassword'], navigationExtras);
+      }, error =>{
+        console.log(error);
+        alert(error['error']['detail']);
+      } );
+    })
   }
 
   onLogin(){

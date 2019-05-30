@@ -51,19 +51,21 @@ export class LoginPage {
 
   onLogin(event) {
     event.preventDefault();
-    this.presentLoading().then(()=>{
-      this.backend.login(this.userFormGroup.value).subscribe((data)=>{
+    this.presentLoading().then(()=> {
+      this.backend.login(this.userFormGroup.value).subscribe((data) => {
         console.log("success");
         this.storage.set('authToken', data['token']);
         this.storage.set('user', data['user']);
         this.storage.set('expires', data['expires']);
+
+        this.userFormGroup.reset();
         this.router.navigateByUrl('/auth-pin');
-      }, (error)=>{
+      }, (error) => {
         console.log("error", error);
-        // alert(error['error']['detail'])
+        alert(error['error']['detail']);
         this.InvalidUser();
-      });
-    })
+      })
+    });
   }
 
   goTutorial(){

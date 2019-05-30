@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SetPinNumberOptions } from '../../interfaces/set-pin-number-options';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingController, MenuController } from '@ionic/angular';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { BackendAPIService } from "../../services/backend-api.service";
 
 @Component({
   selector: 'setpin-app',
@@ -18,18 +19,35 @@ export class SetpinAppPage implements OnInit {
     digit4: '',
   };
 
+  group: any;
+
   private pinFormGroup: FormGroup;
 
   constructor(
-    public router: Router,
-    private fBuilder: FormBuilder,
+    private router: Router,
     private menu: MenuController,
-    public loadingController: LoadingController,
+    private fBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private backend: BackendAPIService,
+    private loadingController: LoadingController,
     private screenOrientation: ScreenOrientation
   ) {
     this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
 
+    this.route.queryParams.subscribe(params => {
+      this.group = params;
+    });
+
+    this.pinFormGroup = this.fBuilder.group({});
+
+    this.pinFormGroup.addControl('first_name', new FormControl(this.group['first_name']));
+    this.pinFormGroup.addControl('last_name', new FormControl(this.group['last_name']));
+    this.pinFormGroup.addControl('email', new FormControl(this.group['email']));
+    this.pinFormGroup.addControl('phone', new FormControl(this.group['phone']));
+    this.pinFormGroup.addControl('identity', new FormControl(this.group['identity']));
+    this.pinFormGroup.addControl('username', new FormControl(this.group['username']));
+    this.pinFormGroup.addControl('password', new FormControl(this.group['password']));
   }
 
   ngOnInit() {}
@@ -37,18 +55,31 @@ export class SetpinAppPage implements OnInit {
   jumpInput(d: any) {
     d.setFocus();
     if (d.name === 'd4' && this.setpin.digit4 !== '') {
-      this.presentLoading().then(() => {
-        this.router.navigateByUrl('/terms');
-      });
+      this.onPinComplete();
     }
   }
 
   onPinComplete() {
-    const pin = this.setpin.digit1 + this.setpin.digit2 + this.setpin.digit3 +
-    this.setpin.digit4;
+    const pin = String(this.setpin.digit1) + String(this.setpin.digit2) + String(this.setpin.digit3) +
+    String(this.setpin.digit4);
 
-    this.pinFormGroup = this.fBuilder.group({
-      pin: [pin],
+    this.backend.setpin({'auth_pin': pin }).subscribe(data =>{
+      console.log('success pin');
+      this.pinFormGroup.addControl('auth_pin', new FormControl(pin, Validators.required));
+      console.log(this.pinFormGroup.value);
+      this.backend.register(this.pinFormGroup.value).subscribe(data=>{
+        console.log('success register');
+        this.presentLoading().then(() => {
+          console.log(this.pinFormGroup.value);
+          this.router.navigateByUrl('/terms');
+        });
+      }, err =>{
+        console.log(err);
+        alert(err['error']['detail'])
+      })
+    }, err =>{
+      console.log(err);
+      alert(err['error']['detail'])
     });
   }
 

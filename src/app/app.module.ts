@@ -18,6 +18,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { BackendAPIService } from './services/backend-api.service';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
+import { HTTP } from "@ionic-native/http/ngx";
 
 @NgModule({
   imports: [
@@ -43,6 +44,7 @@ import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
     ScreenOrientation,
     HttpClientModule,
     BackendAPIService,
+    HTTP,
     FingerprintAIO
     ],
   bootstrap: [AppComponent],
