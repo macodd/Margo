@@ -3,6 +3,7 @@ import { NavigationExtras, Router} from '@angular/router';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 import { MenuController } from "@ionic/angular";
 import { AddUserService } from "../add-user/add-user.service";
+import { BackendAPIService } from "../../services/backend-api.service";
 
 @Component({
   selector: 'app-search',
@@ -16,6 +17,7 @@ export class SearchPage implements OnInit {
   constructor(
     private router: Router,
     private menu: MenuController,
+    private backend: BackendAPIService,
     private addUserService: AddUserService,
     private screenOrientation: ScreenOrientation
   ) {
@@ -39,6 +41,15 @@ export class SearchPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  grabMembers() {
+    const path = 'members/';
+    this.backend.get(path, true).subscribe(data=>{
+      console.log(data)
+    }, err=>{
+      console.log(err)
+    })
   }
 
   onBack(){

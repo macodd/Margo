@@ -63,9 +63,9 @@ export class SetpinAppPage implements OnInit {
     const pin = String(this.setpin.digit1) + String(this.setpin.digit2) + String(this.setpin.digit3) +
     String(this.setpin.digit4);
 
+    this.pinFormGroup.addControl('auth_pin', new FormControl(pin, Validators.required));
     this.backend.setpin({'auth_pin': pin }).subscribe(data =>{
       console.log('success pin');
-      this.pinFormGroup.addControl('auth_pin', new FormControl(pin, Validators.required));
       console.log(this.pinFormGroup.value);
       this.backend.register(this.pinFormGroup.value).subscribe(data=>{
         console.log('success register');

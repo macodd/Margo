@@ -5,7 +5,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { ToastController , MenuController} from '@ionic/angular';
 
 import { UserData } from '../../services/user-data';
-
+import { Storage } from "@ionic/storage";
 
 @Component({
   selector: 'page-account',
@@ -14,17 +14,32 @@ import { UserData } from '../../services/user-data';
   encapsulation: ViewEncapsulation.None
 })
 export class AccountPage implements AfterViewInit {
-  username: string;
+
+  first_name;
+  last_name;
+  username;
+  account_type;
+  balance;
+  image;
 
   constructor(
     public router: Router,
     public userData: UserData,
+    private storage: Storage,
     public toastController: ToastController,
     private menu: MenuController,
     private screenOrientation: ScreenOrientation
   ) {
     this.menu.enable(true );
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
+    this.storage.get('first_name').then(val=>{this.first_name = val});
+    this.storage.get('last_name').then(val=>{this.last_name = val});
+    this.storage.get('username').then(val=>{this.username = val});
+    this.storage.get('account_type').then(val=>{this.account_type = val});
+    this.storage.get('balance').then(val=>{this.balance = val});
+    this.storage.get('image').then(val=>{this.image = val});
+
   }
 
   ngAfterViewInit() {

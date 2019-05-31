@@ -9,50 +9,66 @@ const ROOT_ENDPOINT = 'http://127.0.0.1:8000/api/';
 })
 export class BackendAPIService {
 
+  myToken: string = '';
+
   constructor(
     private http: HttpClient,
     private storage: Storage
-  ) { }
+  ) {
+    this.storage.get('authToken').then((val)=>{
+      this.myToken = val
+    })
+  }
 
   getHttpOptions(includeAuth: boolean = true){
     let myDefaultHeaders = {
       'Content-Type': 'application/json',
     };
-    this.storage.get('authToken').then((val)=>{
-      if (val && includeAuth){
-        myDefaultHeaders['Authorization'] = 'JWT ' + String(val)
-      }
-    });
+    if (this.myToken && includeAuth){
+        myDefaultHeaders['Authorization'] = 'JWT ' + String(this.myToken)
+    }
     return { headers: new HttpHeaders(myDefaultHeaders) }
   }
 
   login(userData) {
-    const endpoint = String(ROOT_ENDPOINT) + 'auth/';
-    const options = this.getHttpOptions(false);
-    return this.http.post(endpoint, userData, options)
+    return this.post('auth/', userData, false)
+  }
+
+  pincheck(pinData){
+    return this.post('auth/pincheck/', pinData, true)
   }
 
   signup(formData){
-    const endpoint = String(ROOT_ENDPOINT) + 'profiles/signup/';
-    const options = this.getHttpOptions(false);
-    return this.http.post(endpoint, formData, options)
+    return this.post('auth/signup/', formData, false)
   }
 
   setpassword(formData){
-    const endpoint = String(ROOT_ENDPOINT) + 'profiles/setpass/';
-    const options = this.getHttpOptions(false);
-    return this.http.post(endpoint, formData, options)
+    return this.post('auth/setpass/', formData, false)
   }
 
   setpin(formData){
-    const endpoint = String(ROOT_ENDPOINT) + 'profiles/setpin/';
-    const options = this.getHttpOptions(false);
-    return this.http.post(endpoint, formData, options)
+    return this.post('auth/setpin/', formData, false)
   }
 
   register(formData){
-    const endpoint = String(ROOT_ENDPOINT) + 'profiles/register/';
-    const options = this.getHttpOptions(false);
-    return this.http.post(endpoint, formData, options)
+    return this.post('auth/register/', formData, false)
+  }
+
+  get(path, includeAuth:boolean=false){
+    const endpoint = String(ROOT_ENDPOINT) + String(path);
+    const options = this.getHttpOptions(includeAuth);
+    return this.http.get(endpoint, options)
+  }
+
+  post(path, data:{}, includeAuth:boolean=true){
+    const endpoint = String(ROOT_ENDPOINT) + String(path);
+    const options = this.getHttpOptions(includeAuth);
+    return this.http.post(endpoint, data, options)
+  }
+
+  put(path, data:{}, includeAuth:boolean=true){
+    const endpoint = String(ROOT_ENDPOINT) + String(path);
+    const options = this.getHttpOptions(includeAuth);
+    return this.http.put(endpoint, data, options)
   }
 }
