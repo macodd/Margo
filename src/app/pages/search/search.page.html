@@ -20,14 +20,14 @@
   </ion-row>
 
   <ion-list no-padding>
-    <ion-item (click)=addUser(user) *ngFor="let user of users">
+    <ion-item (click)=addUser(member.username) *ngFor="let member of results">
       <ion-avatar slot="start">
-        <img src="../../../assets/img/{{ user.image }}" alt="" class="avatar">
+        <img src="{{ member.image }}" alt="" class="avatar">
       </ion-avatar>
       <ion-label>
-        <h3 style="margin: 0;">{{ user.name }}</h3>
-        <p style="font-size: 14px; margin: 0; vertical-align: middle;"><ion-icon style="font-size: 12px" name="contact"></ion-icon> {{ user.username }}</p>
-        <p style="font-size: 14px; margin: 0; vertical-align: middle;"><ion-icon style="font-size: 12px" name="keypad"></ion-icon>{{ user.type}}</p>
+        <h3 style="margin: 0;">{{ member.firstname }} {{member.lastname}}</h3>
+        <p style="font-size: 14px; margin: 0; vertical-align: middle;"><ion-icon style="font-size: 12px" name="contact"></ion-icon> {{ member.username }}</p>
+        <p style="font-size: 14px; margin: 0; vertical-align: middle;"><ion-icon style="font-size: 12px" name="keypad"></ion-icon>{{ member.account_type}}</p>
       </ion-label>
     </ion-item>
   </ion-list>

@@ -5,9 +5,9 @@ import { Storage } from "@ionic/storage";
 import { SendMoneyDialogComponent } from "../../components/send-money-dialog/send-money-dialog.component";
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { myEnterAnimation } from '../../animations/enter';
 import { myLeaveAnimation } from '../../animations/leave';
+import { BackendAPIService } from "../../services/backend-api.service";
 
 @Component({
   selector: 'app-transfer-form',
@@ -17,32 +17,60 @@ import { myLeaveAnimation } from '../../animations/leave';
 
 export class TransferFormPage implements OnInit {
 
-  user: any = { image: String, name: String };
+  image_member: any;
+  firstname_member: string;
+  lastname_member: string;
+  username_member: string;
 
+  user: string;
+  balance: string;
+  authToken: string;
+
+  transferAction: string = 'transferir';
   amountToTransfer: any = '';
   amountShown: any = '0.00';
-  private userFormGroup: FormGroup;
+
 
   constructor(
     private router: Router,
     private storage: Storage,
     private menu: MenuController,
-    private fBuilder: FormBuilder,
     private modalCtrl: ModalController,
+    private backend: BackendAPIService,
     private screenOrientation: ScreenOrientation
     ){
     this.menu.enable(false );
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
+    this.storage.get('image_member').then((val) => {
+      this.image_member = val;
+    });
+    this.storage.get('firstname_member').then((val) => {
+      this.firstname_member = val;
+    });
+    this.storage.get('lastname_member').then((val) => {
+      this.lastname_member = val;
+    });
+    this.storage.get('username_member').then((val)=>{
+      this.username_member = val;
+    });
+    this.storage.get('account_type_member').then((val)=>{
+      if (String(val) == 'Business') {
+        this.transferAction = 'Pagar'
+      }
+    });
+    this.storage.get('user').then((val)=>{
+      this.user = val;
+    });
+    this.storage.get('authToken').then((val)=>{
+      this.authToken = val;
+    });
+    this.storage.get('balance').then((val)=>{
+      this.balance = val;
+    });
   }
 
-  ngOnInit() {
-    this.storage.get('image').then((val) => {
-      this.user.image = val;
-    });
-    this.storage.get('name').then((val) => {
-      this.user.name = val;
-    });
-  }
+  ngOnInit() {}
 
   handleInput(num: any) {
 
@@ -58,24 +86,11 @@ export class TransferFormPage implements OnInit {
     this.amountShown = String(show.toFixed(2));
   }
 
-  goTransfer(event){
-    this.userFormGroup = this.fBuilder.group({
-      from: ['', Validators.required],
-      to: [this.user.name, Validators.required],
-      amount: [this.amountToTransfer, Validators.required],
-    });
-
-    console.log(this.userFormGroup.value);
-    this.userFormGroup.reset();
-
-    var num = Number(this.amountToTransfer);
-    if (num <= 0){
-      console.log('notification of invalid input')
-    } else {
-      this.toTransfer();
-    }
-
+  goTransfer(event) {
+    event.preventDefault();
+    this.toTransfer();
   }
+
 
   async toTransfer() {
     const modal = await this.modalCtrl.create({
@@ -84,7 +99,9 @@ export class TransferFormPage implements OnInit {
       leaveAnimation: myLeaveAnimation,
       cssClass: 'second-modal-class',
       componentProps: {
-        'name': this.user.name,
+        'name': this.firstname_member + ' ' + this.lastname_member,
+        'transferAction': this.transferAction,
+        'username': this.username_member,
         'amount': this.amountShown
       }
     });

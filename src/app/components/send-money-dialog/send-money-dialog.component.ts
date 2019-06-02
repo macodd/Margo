@@ -1,10 +1,12 @@
 import { Component, Input, AfterViewInit } from '@angular/core';
 import { LoadingController, MenuController, ModalController } from "@ionic/angular";
-import { Router } from "@angular/router";
+import { Router} from "@angular/router";
+import { Storage } from "@ionic/storage";
 import { myEnterAnimation } from "../../animations/enter";
 import { myLeaveAnimation } from "../../animations/leave";
 
 import { SendingScreenComponent } from "../sending-screen/sending-screen.component";
+import { BackendAPIService } from "../../services/backend-api.service";
 
 @Component({
   selector: 'app-send-money-dialog',
@@ -14,34 +16,52 @@ import { SendingScreenComponent } from "../sending-screen/sending-screen.compone
 export class SendMoneyDialogComponent implements AfterViewInit {
 
   @Input() name: string;
+  @Input() username: string;
   @Input() amount: string;
+  @Input() transferAction: string;
+
+  user: any;
+  balance: any;
 
   constructor(
-    public modalCtrl: ModalController,
     private router: Router,
+    private storage: Storage,
     private menu: MenuController,
+    private backend: BackendAPIService,
+    private modalCtrl: ModalController,
     private loadingController: LoadingController
   ) {
     this.menu.enable(false);
+
+    this.storage.get('user').then(val =>{
+      this.user = val
+    });
   }
 
   ngAfterViewInit(): void {
   }
 
   dismiss() {
-    // using the injected ModalController this page
-    // can "dismiss" itself and pass back data
     this.modalCtrl.dismiss();
   }
 
   goSuccessful() {
     this.dismiss();
     this.toTransfer().then(() =>{
-      let dismissPage = setTimeout(()=>{
-        this.dismiss();
-      }, 7000);
-      this.router.navigateByUrl('/payment-successful')
-    })
+      this.backend.transfer({'to_user': this.username, 'amount': Number(this.amount)}).subscribe(()=>{
+        console.log('success');
+        this.backend.get('profiles/' + String(this.user), true).subscribe(data => {
+          console.log(data['profile']['balance']);
+          this.storage.set('balance', data['profile']['balance']);
+          this.dismiss();
+          this.router.navigateByUrl('/payment-successful')
+          })
+        })
+      }, err=>{
+        console.log(err);
+        alert(err['error']['detail']);
+        this.router.navigateByUrl('/transfer-form')
+      });
   }
 
   goCancel() {

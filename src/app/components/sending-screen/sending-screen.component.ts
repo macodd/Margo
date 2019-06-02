@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from "@angular/router";
 import { Storage } from "@ionic/storage";
 
 @Component({
@@ -9,13 +8,17 @@ import { Storage } from "@ionic/storage";
 })
 export class SendingScreenComponent implements OnInit {
 
-  sendImg: string;
+  image_user: any;
+  image_member: any;
 
   constructor(
     private storage: Storage
   ) {
-    storage.get('image').then((val) =>{
-      this.sendImg = val;
+    storage.get('image_user').then((val) =>{
+      this.image_user = val;
+    });
+    storage.get('image_member').then((val) =>{
+      this.image_member = val;
     })
   }
 

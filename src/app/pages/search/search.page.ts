@@ -12,7 +12,8 @@ import { BackendAPIService } from "../../services/backend-api.service";
 })
 export class SearchPage implements OnInit {
 
-  users: Array<any> = [{image: String, name: String, username: String, type: String}];
+  count: number;
+  results: any[];
 
   constructor(
     private router: Router,
@@ -24,20 +25,9 @@ export class SearchPage implements OnInit {
     this.menu.enable(false);
     this.addUserService.transferToUser(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    this.users = [
-      {
-        image: 'pepin.png',
-        name: 'Pepin Quez',
-        username: 'pquez',
-        type: 'Personal',
-      },
-      {
-        image: 'semri.jpg',
-        name: 'Semra Aydemir',
-        username: 'semri2019',
-        type: 'Personal',
-      }
-    ];
+
+    this.grabMembers();
+
   }
 
   ngOnInit() {
@@ -46,7 +36,8 @@ export class SearchPage implements OnInit {
   grabMembers() {
     const path = 'members/';
     this.backend.get(path, true).subscribe(data=>{
-      console.log(data)
+      this.count = data['count'] as number;
+      this.results = data['results'] as any;
     }, err=>{
       console.log(err)
     })
@@ -57,9 +48,10 @@ export class SearchPage implements OnInit {
     this.router.navigateByUrl('/transfer')
   }
 
-  addUser(user: any) {
+  addUser(member: any) {
     const navigationExtras: NavigationExtras  = {
-      queryParams: user};
+      queryParams: {'username_member': member}
+    };
     this.router.navigate(['add-user'], navigationExtras);
   }
 

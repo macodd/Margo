@@ -10,25 +10,41 @@ import { Storage } from "@ionic/storage";
 export class UserDetailComponent implements OnInit {
   @Input() textColor: String;
 
-  user: any = { image: String, name: String, username: String, type: String };
+  image_member: any;
+  firstname_member: String;
+  lastname_member: String;
+  username_member: String;
+  account_type_member: String;
 
   constructor(
     private storage: Storage,
   ) { }
 
   ngOnInit() {
-    this.storage.get('image').then((val) => {
-      this.user.image = val;
+    this.storage.get('image_member').then((val) => {
+      this.image_member = val;
+    }, err=>{
+      console.log(err)
     });
-    this.storage.get('name').then((val) => {
-      this.user.name = val;
+    this.storage.get('firstname_member').then((val) => {
+      this.firstname_member = val;
+    }, err=>{
+      console.log(err)
     });
-    this.storage.get('username').then((val) => {
-      this.user.username = val;
+    this.storage.get('lastname_member').then((val) => {
+      this.lastname_member = val;
+    }, err=>{
+      console.log(err)
     });
-    this.storage.get('type').then((val) => {
-      this.user.type = val;
+    this.storage.get('username_member').then((val) => {
+      this.username_member = val;
+    }, err=>{
+      console.log(err)
+    });
+    this.storage.get('account_type_member').then((val) => {
+      this.account_type_member = val;
+    }, err=>{
+      console.log(err)
     });
   }
-
 }

@@ -23,23 +23,26 @@ export class AccountPage implements AfterViewInit {
   image;
 
   constructor(
-    public router: Router,
-    public userData: UserData,
+    private router: Router,
+    private userData: UserData,
     private storage: Storage,
-    public toastController: ToastController,
+    private toastController: ToastController,
     private menu: MenuController,
     private screenOrientation: ScreenOrientation
   ) {
     this.menu.enable(true );
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
 
-    this.storage.get('first_name').then(val=>{this.first_name = val});
-    this.storage.get('last_name').then(val=>{this.last_name = val});
-    this.storage.get('username').then(val=>{this.username = val});
-    this.storage.get('account_type').then(val=>{this.account_type = val});
-    this.storage.get('balance').then(val=>{this.balance = val});
-    this.storage.get('image').then(val=>{this.image = val});
+    this.storage.get('first_name_user').then(val=>{this.first_name = val});
+    this.storage.get('last_name_user').then(val=>{this.last_name = val});
+    this.storage.get('username_user').then(val=>{this.username = val});
+    this.storage.get('account_type_user').then(val=>{this.account_type = val});
+    this.storage.get('image_user').then(val=>{this.image = val});
+  }
 
+  ionViewWillEnter(){
+    console.log('entered');
+    this.storage.get('balance').then(val=>{ this.balance = val });
   }
 
   ngAfterViewInit() {

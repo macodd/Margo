@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Storage } from "@ionic/storage";
 import { AddUserService } from '../add-user/add-user.service';
 import { ScreenOrientation } from "@ionic-native/screen-orientation/ngx";
 import { LoadingController, MenuController } from "@ionic/angular";
@@ -12,16 +13,20 @@ import { LoadingController, MenuController } from "@ionic/angular";
 export class TransferPage implements OnInit {
 
   currentUser: boolean = false;
+  balance: any;
 
   constructor(
     private router: Router,
-    private addUserService: AddUserService,
+    private storage: Storage,
     private menu: MenuController,
+    private addUserService: AddUserService,
     private screenOrientation: ScreenOrientation,
     private loadingController: LoadingController
   ) {
     this.menu.enable(false );
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
+    this.storage.get('balance').then(val=>{this.balance = val},err=>{ console.log(err)})
   }
 
   ngOnInit() {

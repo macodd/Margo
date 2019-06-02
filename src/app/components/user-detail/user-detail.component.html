@@ -1,7 +1,7 @@
 <ion-row [ngStyle]="{'color': textColor == 'white' ? 'white' : 'black'}">
   <ion-col text-center>
-    <img src="../../../assets/img/{{ user.image }}" class="avatar" alt="avatar">
-    <p><strong style="font-size: 22px; margin: 0;">{{ user.name }}</strong></p>
-    <p class="description"><ion-icon style="font-size: 12px" name="contact"></ion-icon>  {{ user.username }} | <ion-icon style="font-size: 12px" name="keypad"></ion-icon>  {{ user.type }}</p>
+    <img src="{{ image_member }}" class="avatar" alt="avatar">
+    <p><strong style="font-size: 22px; margin: 0;">{{ firstname_member }} {{ lastname_member }}</strong></p>
+    <p class="description"><ion-icon style="font-size: 12px" name="contact"></ion-icon>  {{ username_member }} | <ion-icon style="font-size: 12px" name="keypad"></ion-icon>  {{ account_type_member }}</p>
   </ion-col>
 </ion-row>

@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 import { LoadingController, MenuController } from '@ionic/angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { BackendAPIService } from "../../services/backend-api.service";
@@ -14,7 +14,9 @@ import { Storage } from "@ionic/storage";
 export class AuthPinPage implements OnInit {
 
   private pin: string = '';
+  private balance: any;
   user: any;
+
 
   constructor(
     private router: Router,
@@ -34,27 +36,34 @@ export class AuthPinPage implements OnInit {
     this.menu.enable(false);
   }
 
-  handleInput(digit: string){
-    this.pin += digit;
-    if(this.pin.length == 4){
-      this.backend.pincheck({'auth_pin': this.pin}).subscribe(data =>{
-        this.presentLoading().then(()=>{
-          this.backend.get('profiles/' + String(this.user), true).subscribe(data =>{
-            this.storage.set('first_name', data['first_name']);
-            this.storage.set('last_name', data['last_name']);
-            this.storage.set('username', data['username']);
-            this.storage.set('account_type', data['profile']['account_type']);
-            this.storage.set('balance', data['profile']['balance']);
-            this.storage.set('image', data['profile']['image']);
-            this.router.navigateByUrl('/account')
-          }, err=>{
+  handleInput(digit: any){
+    if (digit === 'd'){
+      var str = this.pin;
+      this.pin = str.slice(0, -1);
+    } else {
+      this.pin += digit;
+    }
+    if(this.pin.length == 4) {
+      this.backend.pincheck({'auth_pin': this.pin}).subscribe(data => {
+        this.presentLoading().then(() => {
+          this.backend.get('profiles/' + String(this.user), true).subscribe(data => {
+            this.storage.set('first_name_user', data['first_name']);
+            this.storage.set('last_name_user', data['last_name']);
+            this.storage.set('username_user', data['username']);
+            this.storage.set('account_type_user', data['profile']['account_type']);
+            this.balance = data['profile']['balance'];
+            this.storage.set('image_user', data['profile']['image']);
+
+            this.router.navigateByUrl('/account');
+
+          }, err => {
             console.log(err)
           });
         });
-      }, err =>{
+      }, err => {
         this.pin = '';
         console.log(err)
-        });
+      });
     }
   }
 

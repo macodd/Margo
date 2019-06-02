@@ -34,6 +34,10 @@ export class BackendAPIService {
     return this.post('auth/', userData, false)
   }
 
+  transfer(transferData){
+    return this.post('transfers/', transferData, true)
+  }
+
   pincheck(pinData){
     return this.post('auth/pincheck/', pinData, true)
   }

@@ -8,11 +8,11 @@
     </ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <p style="color: black; font-size: 13px; text-align: center" >DISPONIBLE <strong>$17,000 USD</strong></p>
+    <p style="color: black; font-size: 13px; text-align: center" >DISPONIBLE <strong>${{ balance}} USD</strong></p>
   </ion-toolbar>
   <ion-toolbar text-center>
-    <img src="../../../assets/img/{{ user.image }}" alt="" class="avatar">
-    <p style="color: black">{{ user.name }}</p>
+    <img src="{{ image_member }}" alt="" class="avatar">
+    <p style="color: black">{{ firstname_member }} {{ lastname_member }}</p>
   </ion-toolbar>
 </ion-header>
 
@@ -85,6 +85,6 @@
 
 <ion-footer no-border>
   <ion-toolbar color="secondary">
-    <ion-button style="color: white" fill="clear" type="submit" expand="full" size="large" (click)="goTransfer($event)">Transferir/Pagar</ion-button>
+    <ion-button style="color: white" fill="clear" type="submit" expand="full" size="large" (click)="goTransfer($event)">{{ transferAction }}</ion-button>
   </ion-toolbar>
 </ion-footer>
