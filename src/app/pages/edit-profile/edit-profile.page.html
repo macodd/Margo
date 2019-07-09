@@ -29,8 +29,8 @@
             <ion-input
               type="text"
               formControlName="name"
-              disabled="{{ disabledName }}"
-              placeholder="{{ myFullname }}"
+              disabled="{{ disabledFirstName }}"
+              placeholder="{{ first_name }}"
               required>
             </ion-input>
           </ion-item>
@@ -41,7 +41,30 @@
 <!--            </ion-text>-->
         </ion-col>
         <ion-col size="1">
-          <ion-icon name="{{ iconName }}" (click)="onNameEdit()" style="font-size: 22px" float-end></ion-icon>
+          <ion-icon name="{{ iconName }}" (click)="onFirstNameEdit()" style="font-size: 22px" float-end></ion-icon>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col no-padding>
+          <ion-item lines="none">
+            <ion-label position="stacked" style="opacity: 1">Nombre</ion-label>
+            <ion-input
+              type="text"
+              formControlName="name"
+              disabled="{{ disabledLastName }}"
+              placeholder="{{ last_name }}"
+              required>
+            </ion-input>
+          </ion-item>
+          <!--            <ion-text color="danger">-->
+          <!--              <small padding [hidden]="firstname.valid || submitted == false" padding-left>-->
+          <!--                First name is required-->
+          <!--              </small>-->
+          <!--            </ion-text>-->
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon name="{{ iconName }}" (click)="onLastNameEdit()" style="font-size: 22px" float-end></ion-icon>
         </ion-col>
       </ion-row>
 
@@ -53,7 +76,7 @@
               type="email"
               formControlName="email"
               disabled="{{ disabledEmail }}"
-              placeholder="{{ myEmail }}"
+              placeholder="{{ user_email }}"
               required>
             </ion-input>
 
@@ -77,7 +100,7 @@
                 type="tel"
                 formControlName="phone"
                 disabled="{{ disabledPhone }}"
-                placeholder="{{ myPhone }}"
+                placeholder="{{ user_phone }}"
                 required>
               </ion-input>
             </ion-item>

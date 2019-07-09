@@ -38,8 +38,7 @@ export class SendMoneyDialogComponent implements AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): void {
-  }
+  ngAfterViewInit(): void {}
 
   dismiss() {
     this.modalCtrl.dismiss();

@@ -41,8 +41,7 @@ export class AccountPage implements AfterViewInit {
   }
 
   ionViewWillEnter(){
-    console.log('entered');
-    this.storage.get('balance').then(val=>{ this.balance = val });
+    this.storage.get('balance_user').then(val=>{ this.balance = val });
   }
 
   ngAfterViewInit() {

@@ -14,9 +14,7 @@ import { Storage } from "@ionic/storage";
 export class AuthPinPage implements OnInit {
 
   private pin: string = '';
-  private balance: any;
   user: any;
-
 
   constructor(
     private router: Router,
@@ -43,6 +41,7 @@ export class AuthPinPage implements OnInit {
     } else {
       this.pin += digit;
     }
+
     if(this.pin.length == 4) {
       this.backend.pincheck({'auth_pin': this.pin}).subscribe(data => {
         this.presentLoading().then(() => {
@@ -50,8 +49,10 @@ export class AuthPinPage implements OnInit {
             this.storage.set('first_name_user', data['first_name']);
             this.storage.set('last_name_user', data['last_name']);
             this.storage.set('username_user', data['username']);
+            this.storage.set('email_user', data['email']);
+            this.storage.set('phone_user', data['profile']['phone']);
             this.storage.set('account_type_user', data['profile']['account_type']);
-            this.balance = data['profile']['balance'];
+            this.storage.set('balance_user', data['profile']['balance']);
             this.storage.set('image_user', data['profile']['image']);
 
             this.router.navigateByUrl('/account');

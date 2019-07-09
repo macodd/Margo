@@ -15,6 +15,8 @@ export class SetpasswordPage implements OnInit {
   private userFormGroup: FormGroup;
   group: any;
 
+  first_n: string;
+
   constructor(
     private router: Router,
     private platform: Platform,
@@ -37,6 +39,8 @@ export class SetpasswordPage implements OnInit {
       password: ['', Validators.required],
       password2: ['', Validators.required],
     });
+
+    this.first_n = this.group['first_name'];
 
     this.userFormGroup.addControl('first_name', new FormControl(this.group['first_name']));
     this.userFormGroup.addControl('last_name', new FormControl(this.group['last_name']));

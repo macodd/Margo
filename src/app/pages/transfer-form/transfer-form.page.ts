@@ -88,7 +88,11 @@ export class TransferFormPage implements OnInit {
 
   goTransfer(event) {
     event.preventDefault();
-    this.toTransfer();
+    if (this.balance < this.amountShown){
+      console.log('error')
+    } else {
+      this.toTransfer();
+    }
   }
 
 

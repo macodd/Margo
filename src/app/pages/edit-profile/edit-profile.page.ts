@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { AlertController, LoadingController, MenuController } from '@ionic/angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Storage } from "@ionic/storage";
 
 @Component({
   selector: 'edit-profile',
@@ -13,9 +14,11 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class EditProfilePage implements OnInit {
 
   submitted = false;
-  myFullname: string = 'Mark Codd';
-  myEmail: string = 'mcodd@aol.com';
-  myPhone: string = '123456789';
+  first_name: string;
+  last_name: string;
+  user_email: string;
+  user_phone: string;
+  user_image: any;
 
   private editFormGroup: FormGroup;
 
@@ -23,7 +26,8 @@ export class EditProfilePage implements OnInit {
   iconEmail: string = 'create';
   iconPhone: string = 'create';
 
-  disabledName = 'true';
+  disabledFirstName = 'true';
+  disabledLastName = 'true';
   disabledEmail = 'true';
   disabledPhone = 'true';
 
@@ -35,12 +39,19 @@ export class EditProfilePage implements OnInit {
     public router: Router,
     private fBuilder: FormBuilder,
     private menu: MenuController,
+    private storage: Storage,
     private alertController: AlertController,
     private loadingController: LoadingController,
     private screenOrientation: ScreenOrientation
   ) {
     this.menu.enable(false);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
+    this.storage.get('first_name_user').then(val=>{this.first_name = val});
+    this.storage.get('last_name_user').then(val=>{this.last_name = val});
+    this.storage.get('phone_user').then(val=>{this.user_phone = val});
+    this.storage.get('email_user').then(val=>{this.user_email = val});
+    this.storage.get('image_user').then(val=>{this.user_image = val});
 
     this.editFormGroup = fBuilder.group({
       name:  ['', Validators.required],
@@ -52,15 +63,34 @@ export class EditProfilePage implements OnInit {
 
   ngOnInit() {}
 
-  onNameEdit(){
+  onImageEdit(files:FileList){
+    let imageItem = files.item(0);
+    if (imageItem){
+      this.user_image = imageItem
+    }
+  }
+
+  onFirstNameEdit(){
     let check  = Math.abs(this.numName - 1);
     this.numName = check;
     if (check == 0) {
       this.iconName = 'checkmark';
-      this.disabledName = 'false';
+      this.disabledFirstName = 'false';
     } else {
       this.iconName = 'create';
-      this.disabledName = 'true';
+      this.disabledFirstName = 'true';
+    }
+  }
+
+  onLastNameEdit(){
+    let check  = Math.abs(this.numName - 1);
+    this.numName = check;
+    if (check == 0) {
+      this.iconName = 'checkmark';
+      this.disabledLastName = 'false';
+    } else {
+      this.iconName = 'create';
+      this.disabledLastName = 'true';
     }
   }
 
