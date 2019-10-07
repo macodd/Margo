@@ -1,5 +1,10 @@
 # Ionic Angular
 
+## Description
+
+Mobile hybrid Smart Wallet app. 
+Front end development using Ionic Framework.
+
 ## Deploying
 
 ### Android
